@@ -24,7 +24,7 @@ interface HomePageDocumentData {
  * Slice for *Home Page → Slice Zone*
  *
  */
-type HomePageDocumentDataSlicesSlice = FinalSliceSlice;
+type HomePageDocumentDataSlicesSlice = never;
 /**
  * Home Page document from Prismic
  *
@@ -36,45 +36,6 @@ type HomePageDocumentDataSlicesSlice = FinalSliceSlice;
  */
 export type HomePageDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<HomePageDocumentData>, "home_page", Lang>;
 export type AllDocumentTypes = HomePageDocument;
-/**
- * Primary content in FinalSlice → Primary
- *
- */
-interface FinalSliceSliceDefaultPrimary {
-    /**
-     * Title field in *FinalSlice → Primary*
-     *
-     * - **Field Type**: Title
-     * - **Placeholder**: This is where it all begins...
-     * - **API ID Path**: final_slice.primary.title
-     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-     *
-     */
-    title: prismicT.TitleField;
-}
-/**
- * Default variation for FinalSlice Slice
- *
- * - **API ID**: `default`
- * - **Description**: `FinalSlice`
- * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
- *
- */
-export type FinalSliceSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<FinalSliceSliceDefaultPrimary>, never>;
-/**
- * Slice variation for *FinalSlice*
- *
- */
-type FinalSliceSliceVariation = FinalSliceSliceDefault;
-/**
- * FinalSlice Shared Slice
- *
- * - **API ID**: `final_slice`
- * - **Description**: `FinalSlice`
- * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
- *
- */
-export type FinalSliceSlice = prismicT.SharedSlice<"final_slice", FinalSliceSliceVariation>;
 /**
  * Primary content in Hero → Primary
  *
@@ -502,50 +463,11 @@ type LogoCloudSliceVariation = LogoCloudSliceDefault | LogoCloudSliceThreeColumn
  *
  */
 export type LogoCloudSlice = prismicT.SharedSlice<"logo_cloud", LogoCloudSliceVariation>;
-/**
- * Primary content in NewFinalSlice → Primary
- *
- */
-interface NewFinalSliceSliceDefaultPrimary {
-    /**
-     * Title field in *NewFinalSlice → Primary*
-     *
-     * - **Field Type**: Title
-     * - **Placeholder**: This is where it all begins...
-     * - **API ID Path**: new_final_slice.primary.title
-     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-     *
-     */
-    title: prismicT.TitleField;
-}
-/**
- * Default variation for NewFinalSlice Slice
- *
- * - **API ID**: `default`
- * - **Description**: `NewFinalSlice`
- * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
- *
- */
-export type NewFinalSliceSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<NewFinalSliceSliceDefaultPrimary>, never>;
-/**
- * Slice variation for *NewFinalSlice*
- *
- */
-type NewFinalSliceSliceVariation = NewFinalSliceSliceDefault;
-/**
- * NewFinalSlice Shared Slice
- *
- * - **API ID**: `new_final_slice`
- * - **Description**: `NewFinalSlice`
- * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
- *
- */
-export type NewFinalSliceSlice = prismicT.SharedSlice<"new_final_slice", NewFinalSliceSliceVariation>;
 declare module "@prismicio/client" {
     interface CreateClient {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { HomePageDocumentData, HomePageDocumentDataSlicesSlice, HomePageDocument, AllDocumentTypes, FinalSliceSliceDefaultPrimary, FinalSliceSliceDefault, FinalSliceSliceVariation, FinalSliceSlice, HeroSliceDefaultPrimary, HeroSliceDefault, HeroSliceTitleOnlyPrimary, HeroSliceTitleOnly, HeroSliceWithBackgroundPrimary, HeroSliceWithBackground, HeroSliceVariation, HeroSlice, LogoCloudSliceDefaultPrimary, LogoCloudSliceDefaultItem, LogoCloudSliceDefault, LogoCloudSliceThreeColumnsPrimary, LogoCloudSliceThreeColumns, LogoCloudSliceSinglePrimary, LogoCloudSliceSingle, LogoCloudSliceVariation, LogoCloudSlice, NewFinalSliceSliceDefaultPrimary, NewFinalSliceSliceDefault, NewFinalSliceSliceVariation, NewFinalSliceSlice };
+        export type { HomePageDocumentData, HomePageDocumentDataSlicesSlice, HomePageDocument, AllDocumentTypes, HeroSliceDefaultPrimary, HeroSliceDefault, HeroSliceTitleOnlyPrimary, HeroSliceTitleOnly, HeroSliceWithBackgroundPrimary, HeroSliceWithBackground, HeroSliceVariation, HeroSlice, LogoCloudSliceDefaultPrimary, LogoCloudSliceDefaultItem, LogoCloudSliceDefault, LogoCloudSliceThreeColumnsPrimary, LogoCloudSliceThreeColumns, LogoCloudSliceSinglePrimary, LogoCloudSliceSingle, LogoCloudSliceVariation, LogoCloudSlice };
     }
 }

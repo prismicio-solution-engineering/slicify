@@ -1,7 +1,5 @@
 {
   "slices": {
-    "FinalSlice": {},
-    "NewFinalSlice": {},
     "Hero": {
       "default": {
         "primary": {}
