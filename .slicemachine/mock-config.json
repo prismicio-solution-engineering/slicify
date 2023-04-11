@@ -1,7 +1,31 @@
 {
   "slices": {
     "FinalSlice": {},
-    "NewFinalSlice": {}
+    "NewFinalSlice": {},
+    "Hero": {
+      "default": {
+        "primary": {}
+      },
+      "titleOnly": {
+        "primary": {}
+      },
+      "withBackground": {
+        "primary": {}
+      }
+    },
+    "LogoCloud": {
+      "default": {
+        "primary": {},
+        "items": {}
+      },
+      "threeColumns": {
+        "items": {},
+        "primary": {}
+      },
+      "single": {
+        "primary": {}
+      }
+    }
   },
   "_cts": {
     "home_page": {}

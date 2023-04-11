@@ -1,0 +1,183 @@
+{
+  "id": "hero",
+  "type": "SharedSlice",
+  "name": "Hero",
+  "description": "Hero",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "Hero",
+      "primary": {
+        "title_top_line": {
+          "type": "Text",
+          "config": {
+            "label": "Title Top line",
+            "placeholder": ""
+          }
+        },
+        "title_highlighted_key_words": {
+          "type": "Text",
+          "config": {
+            "label": "Title highlighted key words",
+            "placeholder": ""
+          }
+        },
+        "title_bottom_line": {
+          "type": "Text",
+          "config": {
+            "label": "Title Bottom Line",
+            "placeholder": ""
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph,strong,hyperlink"
+          }
+        },
+        "primary_cta_label": {
+          "type": "Text",
+          "config": {
+            "label": "Primary Cta Label",
+            "placeholder": ""
+          }
+        },
+        "primary_cta_link": {
+          "type": "Link",
+          "config": {
+            "label": "Primary Cta Link",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "secondary_cta_label": {
+          "type": "Text",
+          "config": {
+            "label": "Secondary Cta Label",
+            "placeholder": ""
+          }
+        },
+        "secondary_cta_link": {
+          "type": "Link",
+          "config": {
+            "label": "Secondary Cta Link",
+            "placeholder": "",
+            "select": null
+          }
+        }
+      },
+      "items": {},
+      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+    },
+    {
+      "id": "titleOnly",
+      "name": "Title Only",
+      "docURL": "...",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "Hero",
+      "primary": {
+        "title_top_line": {
+          "type": "Text",
+          "config": {
+            "label": "Title Top line",
+            "placeholder": ""
+          }
+        },
+        "title_highlighted_key_words": {
+          "type": "Text",
+          "config": {
+            "label": "Title highlighted key words",
+            "placeholder": ""
+          }
+        },
+        "title_bottom_line": {
+          "type": "Text",
+          "config": {
+            "label": "Title Bottom Line",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {},
+      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+    },
+    {
+      "id": "withBackground",
+      "name": "With Background",
+      "docURL": "...",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "Hero",
+      "primary": {
+        "title_top_line": {
+          "type": "Text",
+          "config": {
+            "label": "Title Top line",
+            "placeholder": ""
+          }
+        },
+        "title_bottom_line": {
+          "type": "Text",
+          "config": {
+            "label": "Title Bottom Line",
+            "placeholder": ""
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph,strong,hyperlink"
+          }
+        },
+        "primary_cta_label": {
+          "type": "Text",
+          "config": {
+            "label": "Primary Cta Label",
+            "placeholder": ""
+          }
+        },
+        "primary_cta_link": {
+          "type": "Link",
+          "config": {
+            "label": "Primary Cta Link",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "secondary_cta_label": {
+          "type": "Text",
+          "config": {
+            "label": "Secondary Cta Label",
+            "placeholder": ""
+          }
+        },
+        "secondary_cta_link": {
+          "type": "Link",
+          "config": {
+            "label": "Secondary Cta Link",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "background_image": {
+          "type": "Image",
+          "config": {
+            "label": "Background Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {},
+      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+    }
+  ]
+}
