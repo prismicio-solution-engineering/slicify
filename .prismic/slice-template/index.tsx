@@ -7,7 +7,7 @@ export default function {{componentName}}({ slice }: {{componentName}}Props) {
   return (
     <section>
       <PrismicRichText
-        field={slice.primary.title?}
+        field={slice.primary.title}
         fallback={`Placeholder component for "${slice.slice_type}" Slices (variation: "${slice.variation}")`}
       />
     </section>
