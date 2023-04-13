@@ -23,6 +23,19 @@
       "single": {
         "primary": {}
       }
+    },
+    "Features": {
+      "default": {
+        "primary": {},
+        "items": {}
+      },
+      "leftSide": {
+        "primary": {},
+        "items": {}
+      },
+      "rightSide": {
+        "primary": {}
+      }
     }
   },
   "_cts": {

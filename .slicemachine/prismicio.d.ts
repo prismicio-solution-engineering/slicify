@@ -24,7 +24,7 @@ interface HomePageDocumentData {
  * Slice for *Home Page → Slice Zone*
  *
  */
-type HomePageDocumentDataSlicesSlice = never;
+type HomePageDocumentDataSlicesSlice = FeaturesSlice;
 /**
  * Home Page document from Prismic
  *
@@ -36,6 +36,162 @@ type HomePageDocumentDataSlicesSlice = never;
  */
 export type HomePageDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<HomePageDocumentData>, "home_page", Lang>;
 export type AllDocumentTypes = HomePageDocument;
+/**
+ * Primary content in Features → Primary
+ *
+ */
+interface FeaturesSliceRightSidePrimary {
+    /**
+     * Title field in *Features → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: This is where it all begins...
+     * - **API ID Path**: features.primary.title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    title: prismicT.RichTextField;
+    /**
+     * Subtitle field in *Features → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: features.primary.subtitle
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    subtitle: prismicT.RichTextField;
+}
+/**
+ * Item in Features → Items
+ *
+ */
+export interface FeaturesSliceRightSideItem {
+    /**
+     * Feature Title field in *Features → Items*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: features.items[].feature_title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    feature_title: prismicT.RichTextField;
+    /**
+     * Feature Description field in *Features → Items*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: features.items[].feature_description
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    feature_description: prismicT.RichTextField;
+    /**
+     * Feature Screenshot field in *Features → Items*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: features.items[].feature_screenshot
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    feature_screenshot: prismicT.ImageField<never>;
+}
+/**
+ * Right Side variation for Features Slice
+ *
+ * - **API ID**: `rightSide`
+ * - **Description**: `Features`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type FeaturesSliceRightSide = prismicT.SharedSliceVariation<"rightSide", Simplify<FeaturesSliceRightSidePrimary>, Simplify<FeaturesSliceRightSideItem>>;
+/**
+ * Primary content in Features → Primary
+ *
+ */
+interface FeaturesSliceLeftSidePrimary {
+    /**
+     * Title field in *Features → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: This is where it all begins...
+     * - **API ID Path**: features.primary.title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    title: prismicT.RichTextField;
+    /**
+     * Subtitle field in *Features → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: features.primary.subtitle
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    subtitle: prismicT.RichTextField;
+}
+/**
+ * Item in Features → Items
+ *
+ */
+export interface FeaturesSliceLeftSideItem {
+    /**
+     * Feature Title field in *Features → Items*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: features.items[].feature_title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    feature_title: prismicT.RichTextField;
+    /**
+     * Feature Description field in *Features → Items*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: features.items[].feature_description
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    feature_description: prismicT.RichTextField;
+    /**
+     * Feature Screenshot field in *Features → Items*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: features.items[].feature_screenshot
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    feature_screenshot: prismicT.ImageField<never>;
+}
+/**
+ * Left Side variation for Features Slice
+ *
+ * - **API ID**: `leftSide`
+ * - **Description**: `Features`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type FeaturesSliceLeftSide = prismicT.SharedSliceVariation<"leftSide", Simplify<FeaturesSliceLeftSidePrimary>, Simplify<FeaturesSliceLeftSideItem>>;
+/**
+ * Slice variation for *Features*
+ *
+ */
+type FeaturesSliceVariation = FeaturesSliceRightSide | FeaturesSliceLeftSide;
+/**
+ * Features Shared Slice
+ *
+ * - **API ID**: `features`
+ * - **Description**: `Features`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type FeaturesSlice = prismicT.SharedSlice<"features", FeaturesSliceVariation>;
 /**
  * Primary content in Hero → Primary
  *
@@ -468,6 +624,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { HomePageDocumentData, HomePageDocumentDataSlicesSlice, HomePageDocument, AllDocumentTypes, HeroSliceDefaultPrimary, HeroSliceDefault, HeroSliceTitleOnlyPrimary, HeroSliceTitleOnly, HeroSliceWithBackgroundPrimary, HeroSliceWithBackground, HeroSliceVariation, HeroSlice, LogoCloudSliceDefaultPrimary, LogoCloudSliceDefaultItem, LogoCloudSliceDefault, LogoCloudSliceThreeColumnsPrimary, LogoCloudSliceThreeColumns, LogoCloudSliceSinglePrimary, LogoCloudSliceSingle, LogoCloudSliceVariation, LogoCloudSlice };
+        export type { HomePageDocumentData, HomePageDocumentDataSlicesSlice, HomePageDocument, AllDocumentTypes, FeaturesSliceRightSidePrimary, FeaturesSliceRightSideItem, FeaturesSliceRightSide, FeaturesSliceLeftSidePrimary, FeaturesSliceLeftSideItem, FeaturesSliceLeftSide, FeaturesSliceVariation, FeaturesSlice, HeroSliceDefaultPrimary, HeroSliceDefault, HeroSliceTitleOnlyPrimary, HeroSliceTitleOnly, HeroSliceWithBackgroundPrimary, HeroSliceWithBackground, HeroSliceVariation, HeroSlice, LogoCloudSliceDefaultPrimary, LogoCloudSliceDefaultItem, LogoCloudSliceDefault, LogoCloudSliceThreeColumnsPrimary, LogoCloudSliceThreeColumns, LogoCloudSliceSinglePrimary, LogoCloudSliceSingle, LogoCloudSliceVariation, LogoCloudSlice };
     }
 }
