@@ -24,7 +24,7 @@ interface HomePageDocumentData {
  * Slice for *Home Page → Slice Zone*
  *
  */
-type HomePageDocumentDataSlicesSlice = FinalSliceSlice;
+type HomePageDocumentDataSlicesSlice = FeaturesSlice;
 /**
  * Home Page document from Prismic
  *
@@ -37,88 +37,775 @@ type HomePageDocumentDataSlicesSlice = FinalSliceSlice;
 export type HomePageDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<HomePageDocumentData>, "home_page", Lang>;
 export type AllDocumentTypes = HomePageDocument;
 /**
- * Primary content in FinalSlice → Primary
+ * Primary content in Features → Primary
  *
  */
-interface FinalSliceSliceDefaultPrimary {
+interface FeaturesSliceRightSidePrimary {
     /**
-     * Title field in *FinalSlice → Primary*
+     * Title field in *Features → Primary*
      *
-     * - **Field Type**: Title
+     * - **Field Type**: Rich Text
      * - **Placeholder**: This is where it all begins...
-     * - **API ID Path**: final_slice.primary.title
+     * - **API ID Path**: features.primary.title
      * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
      *
      */
-    title: prismicT.TitleField;
-}
-/**
- * Default variation for FinalSlice Slice
- *
- * - **API ID**: `default`
- * - **Description**: `FinalSlice`
- * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
- *
- */
-export type FinalSliceSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<FinalSliceSliceDefaultPrimary>, never>;
-/**
- * Slice variation for *FinalSlice*
- *
- */
-type FinalSliceSliceVariation = FinalSliceSliceDefault;
-/**
- * FinalSlice Shared Slice
- *
- * - **API ID**: `final_slice`
- * - **Description**: `FinalSlice`
- * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
- *
- */
-export type FinalSliceSlice = prismicT.SharedSlice<"final_slice", FinalSliceSliceVariation>;
-/**
- * Primary content in NewFinalSlice → Primary
- *
- */
-interface NewFinalSliceSliceDefaultPrimary {
+    title: prismicT.RichTextField;
     /**
-     * Title field in *NewFinalSlice → Primary*
+     * Subtitle field in *Features → Primary*
      *
-     * - **Field Type**: Title
-     * - **Placeholder**: This is where it all begins...
-     * - **API ID Path**: new_final_slice.primary.title
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: features.primary.subtitle
      * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
      *
      */
-    title: prismicT.TitleField;
+    subtitle: prismicT.RichTextField;
 }
 /**
- * Default variation for NewFinalSlice Slice
+ * Item in Features → Items
+ *
+ */
+export interface FeaturesSliceRightSideItem {
+    /**
+     * Feature Title field in *Features → Items*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: features.items[].feature_title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    feature_title: prismicT.RichTextField;
+    /**
+     * Feature Description field in *Features → Items*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: features.items[].feature_description
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    feature_description: prismicT.RichTextField;
+    /**
+     * Feature Screenshot field in *Features → Items*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: features.items[].feature_screenshot
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    feature_screenshot: prismicT.ImageField<never>;
+}
+/**
+ * Right Side variation for Features Slice
+ *
+ * - **API ID**: `rightSide`
+ * - **Description**: `Features`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type FeaturesSliceRightSide = prismicT.SharedSliceVariation<"rightSide", Simplify<FeaturesSliceRightSidePrimary>, Simplify<FeaturesSliceRightSideItem>>;
+/**
+ * Primary content in Features → Primary
+ *
+ */
+interface FeaturesSliceLeftSidePrimary {
+    /**
+     * Title field in *Features → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: This is where it all begins...
+     * - **API ID Path**: features.primary.title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    title: prismicT.RichTextField;
+    /**
+     * Subtitle field in *Features → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: features.primary.subtitle
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    subtitle: prismicT.RichTextField;
+}
+/**
+ * Item in Features → Items
+ *
+ */
+export interface FeaturesSliceLeftSideItem {
+    /**
+     * Feature Title field in *Features → Items*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: features.items[].feature_title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    feature_title: prismicT.RichTextField;
+    /**
+     * Feature Description field in *Features → Items*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: features.items[].feature_description
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    feature_description: prismicT.RichTextField;
+    /**
+     * Feature Screenshot field in *Features → Items*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: features.items[].feature_screenshot
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    feature_screenshot: prismicT.ImageField<never>;
+}
+/**
+ * Left Side variation for Features Slice
+ *
+ * - **API ID**: `leftSide`
+ * - **Description**: `Features`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type FeaturesSliceLeftSide = prismicT.SharedSliceVariation<"leftSide", Simplify<FeaturesSliceLeftSidePrimary>, Simplify<FeaturesSliceLeftSideItem>>;
+/**
+ * Primary content in Features → Primary
+ *
+ */
+interface FeaturesSliceAbovePrimary {
+    /**
+     * Title field in *Features → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: This is where it all begins...
+     * - **API ID Path**: features.primary.title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    title: prismicT.RichTextField;
+    /**
+     * Subtitle field in *Features → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: features.primary.subtitle
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    subtitle: prismicT.RichTextField;
+}
+/**
+ * Item in Features → Items
+ *
+ */
+export interface FeaturesSliceAboveItem {
+    /**
+     * Eyebrow field in *Features → Items*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: features.items[].eyebrow
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    eyebrow: prismicT.RichTextField;
+    /**
+     * Feature Title field in *Features → Items*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: features.items[].feature_title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    feature_title: prismicT.RichTextField;
+    /**
+     * Feature Description field in *Features → Items*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: features.items[].feature_description
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    feature_description: prismicT.RichTextField;
+    /**
+     * Feature Screenshot field in *Features → Items*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: features.items[].feature_screenshot
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    feature_screenshot: prismicT.ImageField<never>;
+    /**
+     * icon field in *Features → Items*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: features.items[].icon
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    icon: prismicT.ImageField<never>;
+}
+/**
+ * Above variation for Features Slice
+ *
+ * - **API ID**: `above`
+ * - **Description**: `Features`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type FeaturesSliceAbove = prismicT.SharedSliceVariation<"above", Simplify<FeaturesSliceAbovePrimary>, Simplify<FeaturesSliceAboveItem>>;
+/**
+ * Primary content in Features → Primary
+ *
+ */
+interface FeaturesSliceBelowPrimary {
+    /**
+     * Title field in *Features → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: This is where it all begins...
+     * - **API ID Path**: features.primary.title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    title: prismicT.RichTextField;
+    /**
+     * Subtitle field in *Features → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: features.primary.subtitle
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    subtitle: prismicT.RichTextField;
+}
+/**
+ * Item in Features → Items
+ *
+ */
+export interface FeaturesSliceBelowItem {
+    /**
+     * Eyebrow field in *Features → Items*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: features.items[].eyebrow
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    eyebrow: prismicT.RichTextField;
+    /**
+     * Feature Title field in *Features → Items*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: features.items[].feature_title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    feature_title: prismicT.RichTextField;
+    /**
+     * Feature Description field in *Features → Items*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: features.items[].feature_description
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    feature_description: prismicT.RichTextField;
+    /**
+     * Feature Screenshot field in *Features → Items*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: features.items[].feature_screenshot
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    feature_screenshot: prismicT.ImageField<never>;
+    /**
+     * Icon field in *Features → Items*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: features.items[].icon
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    icon: prismicT.ImageField<never>;
+}
+/**
+ * Below variation for Features Slice
+ *
+ * - **API ID**: `below`
+ * - **Description**: `Features`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type FeaturesSliceBelow = prismicT.SharedSliceVariation<"below", Simplify<FeaturesSliceBelowPrimary>, Simplify<FeaturesSliceBelowItem>>;
+/**
+ * Slice variation for *Features*
+ *
+ */
+type FeaturesSliceVariation = FeaturesSliceRightSide | FeaturesSliceLeftSide | FeaturesSliceAbove | FeaturesSliceBelow;
+/**
+ * Features Shared Slice
+ *
+ * - **API ID**: `features`
+ * - **Description**: `Features`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type FeaturesSlice = prismicT.SharedSlice<"features", FeaturesSliceVariation>;
+/**
+ * Primary content in Hero → Primary
+ *
+ */
+interface HeroSliceDefaultPrimary {
+    /**
+     * Title Top line field in *Hero → Primary*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: hero.primary.title_top_line
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    title_top_line: prismicT.KeyTextField;
+    /**
+     * Title highlighted key words field in *Hero → Primary*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: hero.primary.title_highlighted_key_words
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    title_highlighted_key_words: prismicT.KeyTextField;
+    /**
+     * Title Bottom Line field in *Hero → Primary*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: hero.primary.title_bottom_line
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    title_bottom_line: prismicT.KeyTextField;
+    /**
+     * Description field in *Hero → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: hero.primary.description
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    description: prismicT.RichTextField;
+    /**
+     * Primary Cta Label field in *Hero → Primary*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: hero.primary.primary_cta_label
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    primary_cta_label: prismicT.KeyTextField;
+    /**
+     * Primary Cta Link field in *Hero → Primary*
+     *
+     * - **Field Type**: Link
+     * - **Placeholder**: *None*
+     * - **API ID Path**: hero.primary.primary_cta_link
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    primary_cta_link: prismicT.LinkField;
+    /**
+     * Secondary Cta Label field in *Hero → Primary*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: hero.primary.secondary_cta_label
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    secondary_cta_label: prismicT.KeyTextField;
+    /**
+     * Secondary Cta Link field in *Hero → Primary*
+     *
+     * - **Field Type**: Link
+     * - **Placeholder**: *None*
+     * - **API ID Path**: hero.primary.secondary_cta_link
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    secondary_cta_link: prismicT.LinkField;
+}
+/**
+ * Default variation for Hero Slice
  *
  * - **API ID**: `default`
- * - **Description**: `NewFinalSlice`
+ * - **Description**: `Hero`
  * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
  *
  */
-export type NewFinalSliceSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<NewFinalSliceSliceDefaultPrimary>, never>;
+export type HeroSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<HeroSliceDefaultPrimary>, never>;
 /**
- * Slice variation for *NewFinalSlice*
+ * Primary content in Hero → Primary
  *
  */
-type NewFinalSliceSliceVariation = NewFinalSliceSliceDefault;
+interface HeroSliceTitleOnlyPrimary {
+    /**
+     * Title Top line field in *Hero → Primary*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: hero.primary.title_top_line
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    title_top_line: prismicT.KeyTextField;
+    /**
+     * Title highlighted key words field in *Hero → Primary*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: hero.primary.title_highlighted_key_words
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    title_highlighted_key_words: prismicT.KeyTextField;
+    /**
+     * Title Bottom Line field in *Hero → Primary*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: hero.primary.title_bottom_line
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    title_bottom_line: prismicT.KeyTextField;
+}
 /**
- * NewFinalSlice Shared Slice
+ * Title Only variation for Hero Slice
  *
- * - **API ID**: `new_final_slice`
- * - **Description**: `NewFinalSlice`
+ * - **API ID**: `titleOnly`
+ * - **Description**: `Hero`
  * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
  *
  */
-export type NewFinalSliceSlice = prismicT.SharedSlice<"new_final_slice", NewFinalSliceSliceVariation>;
+export type HeroSliceTitleOnly = prismicT.SharedSliceVariation<"titleOnly", Simplify<HeroSliceTitleOnlyPrimary>, never>;
+/**
+ * Primary content in Hero → Primary
+ *
+ */
+interface HeroSliceWithBackgroundPrimary {
+    /**
+     * Title Top line field in *Hero → Primary*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: hero.primary.title_top_line
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    title_top_line: prismicT.KeyTextField;
+    /**
+     * Title Bottom Line field in *Hero → Primary*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: hero.primary.title_bottom_line
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    title_bottom_line: prismicT.KeyTextField;
+    /**
+     * Description field in *Hero → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: hero.primary.description
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    description: prismicT.RichTextField;
+    /**
+     * Primary Cta Label field in *Hero → Primary*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: hero.primary.primary_cta_label
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    primary_cta_label: prismicT.KeyTextField;
+    /**
+     * Primary Cta Link field in *Hero → Primary*
+     *
+     * - **Field Type**: Link
+     * - **Placeholder**: *None*
+     * - **API ID Path**: hero.primary.primary_cta_link
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    primary_cta_link: prismicT.LinkField;
+    /**
+     * Secondary Cta Label field in *Hero → Primary*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: hero.primary.secondary_cta_label
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    secondary_cta_label: prismicT.KeyTextField;
+    /**
+     * Secondary Cta Link field in *Hero → Primary*
+     *
+     * - **Field Type**: Link
+     * - **Placeholder**: *None*
+     * - **API ID Path**: hero.primary.secondary_cta_link
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    secondary_cta_link: prismicT.LinkField;
+    /**
+     * Background Image field in *Hero → Primary*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: hero.primary.background_image
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    background_image: prismicT.ImageField<never>;
+}
+/**
+ * With Background variation for Hero Slice
+ *
+ * - **API ID**: `withBackground`
+ * - **Description**: `Hero`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type HeroSliceWithBackground = prismicT.SharedSliceVariation<"withBackground", Simplify<HeroSliceWithBackgroundPrimary>, never>;
+/**
+ * Slice variation for *Hero*
+ *
+ */
+type HeroSliceVariation = HeroSliceDefault | HeroSliceTitleOnly | HeroSliceWithBackground;
+/**
+ * Hero Shared Slice
+ *
+ * - **API ID**: `hero`
+ * - **Description**: `Hero`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type HeroSlice = prismicT.SharedSlice<"hero", HeroSliceVariation>;
+/**
+ * Primary content in LogoCloud → Primary
+ *
+ */
+interface LogoCloudSliceDefaultPrimary {
+    /**
+     * Title field in *LogoCloud → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: This is where it all begins...
+     * - **API ID Path**: logo_cloud.primary.title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    title: prismicT.RichTextField;
+    /**
+     * Dark mode field in *LogoCloud → Primary*
+     *
+     * - **Field Type**: Boolean
+     * - **Placeholder**: *None*
+     * - **Default Value**: false
+     * - **API ID Path**: logo_cloud.primary.dark_mode
+     * - **Documentation**: https://prismic.io/docs/core-concepts/boolean
+     *
+     */
+    dark_mode: prismicT.BooleanField;
+}
+/**
+ * Item in LogoCloud → Items
+ *
+ */
+export interface LogoCloudSliceDefaultItem {
+    /**
+     * Logo field in *LogoCloud → Items*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: logo_cloud.items[].logo
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    logo: prismicT.ImageField<never>;
+}
+/**
+ * Default variation for LogoCloud Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `LogoCloud`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type LogoCloudSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<LogoCloudSliceDefaultPrimary>, Simplify<LogoCloudSliceDefaultItem>>;
+/**
+ * Primary content in LogoCloud → Primary
+ *
+ */
+interface LogoCloudSliceThreeColumnsPrimary {
+    /**
+     * Title field in *LogoCloud → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: This is where it all begins...
+     * - **API ID Path**: logo_cloud.primary.title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    title: prismicT.RichTextField;
+    /**
+     * Dark mode field in *LogoCloud → Primary*
+     *
+     * - **Field Type**: Boolean
+     * - **Placeholder**: *None*
+     * - **Default Value**: false
+     * - **API ID Path**: logo_cloud.primary.dark_mode
+     * - **Documentation**: https://prismic.io/docs/core-concepts/boolean
+     *
+     */
+    dark_mode: prismicT.BooleanField;
+    /**
+     * Logo First Column field in *LogoCloud → Primary*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: logo_cloud.primary.logo_first_column
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    logo_first_column: prismicT.ImageField<never>;
+    /**
+     * Logo Second Column field in *LogoCloud → Primary*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: logo_cloud.primary.logo_second_column
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    logo_second_column: prismicT.ImageField<never>;
+    /**
+     * Logo Third Column field in *LogoCloud → Primary*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: logo_cloud.primary.logo_third_column
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    logo_third_column: prismicT.ImageField<never>;
+}
+/**
+ * Three Columns variation for LogoCloud Slice
+ *
+ * - **API ID**: `threeColumns`
+ * - **Description**: `LogoCloud`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type LogoCloudSliceThreeColumns = prismicT.SharedSliceVariation<"threeColumns", Simplify<LogoCloudSliceThreeColumnsPrimary>, never>;
+/**
+ * Primary content in LogoCloud → Primary
+ *
+ */
+interface LogoCloudSliceSinglePrimary {
+    /**
+     * Title field in *LogoCloud → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: This is where it all begins...
+     * - **API ID Path**: logo_cloud.primary.title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    title: prismicT.RichTextField;
+    /**
+     * Dark mode field in *LogoCloud → Primary*
+     *
+     * - **Field Type**: Boolean
+     * - **Placeholder**: *None*
+     * - **Default Value**: false
+     * - **API ID Path**: logo_cloud.primary.dark_mode
+     * - **Documentation**: https://prismic.io/docs/core-concepts/boolean
+     *
+     */
+    dark_mode: prismicT.BooleanField;
+    /**
+     * Logo field in *LogoCloud → Primary*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: logo_cloud.primary.logo
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    logo: prismicT.ImageField<never>;
+}
+/**
+ * Single variation for LogoCloud Slice
+ *
+ * - **API ID**: `single`
+ * - **Description**: `LogoCloud`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type LogoCloudSliceSingle = prismicT.SharedSliceVariation<"single", Simplify<LogoCloudSliceSinglePrimary>, never>;
+/**
+ * Slice variation for *LogoCloud*
+ *
+ */
+type LogoCloudSliceVariation = LogoCloudSliceDefault | LogoCloudSliceThreeColumns | LogoCloudSliceSingle;
+/**
+ * LogoCloud Shared Slice
+ *
+ * - **API ID**: `logo_cloud`
+ * - **Description**: `LogoCloud`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type LogoCloudSlice = prismicT.SharedSlice<"logo_cloud", LogoCloudSliceVariation>;
 declare module "@prismicio/client" {
     interface CreateClient {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { HomePageDocumentData, HomePageDocumentDataSlicesSlice, HomePageDocument, AllDocumentTypes, FinalSliceSliceDefaultPrimary, FinalSliceSliceDefault, FinalSliceSliceVariation, FinalSliceSlice, NewFinalSliceSliceDefaultPrimary, NewFinalSliceSliceDefault, NewFinalSliceSliceVariation, NewFinalSliceSlice };
+        export type { HomePageDocumentData, HomePageDocumentDataSlicesSlice, HomePageDocument, AllDocumentTypes, FeaturesSliceRightSidePrimary, FeaturesSliceRightSideItem, FeaturesSliceRightSide, FeaturesSliceLeftSidePrimary, FeaturesSliceLeftSideItem, FeaturesSliceLeftSide, FeaturesSliceAbovePrimary, FeaturesSliceAboveItem, FeaturesSliceAbove, FeaturesSliceBelowPrimary, FeaturesSliceBelowItem, FeaturesSliceBelow, FeaturesSliceVariation, FeaturesSlice, HeroSliceDefaultPrimary, HeroSliceDefault, HeroSliceTitleOnlyPrimary, HeroSliceTitleOnly, HeroSliceWithBackgroundPrimary, HeroSliceWithBackground, HeroSliceVariation, HeroSlice, LogoCloudSliceDefaultPrimary, LogoCloudSliceDefaultItem, LogoCloudSliceDefault, LogoCloudSliceThreeColumnsPrimary, LogoCloudSliceThreeColumns, LogoCloudSliceSinglePrimary, LogoCloudSliceSingle, LogoCloudSliceVariation, LogoCloudSlice };
     }
 }

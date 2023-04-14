@@ -1,0 +1,169 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "title_top_line": {
+        "__TYPE__": "FieldContent",
+        "value": "south",
+        "type": "Text"
+      },
+      "title_highlighted_key_words": {
+        "__TYPE__": "FieldContent",
+        "value": "left",
+        "type": "Text"
+      },
+      "title_bottom_line": {
+        "__TYPE__": "FieldContent",
+        "value": "with",
+        "type": "Text"
+      },
+      "primary_cta_label": {
+        "__TYPE__": "FieldContent",
+        "value": "rock",
+        "type": "Text"
+      },
+      "primary_cta_link": {
+        "__TYPE__": "LinkContent",
+        "value": {
+          "__TYPE__": "ExternalLink",
+          "url": "http://google.com"
+        }
+      },
+      "secondary_cta_label": {
+        "__TYPE__": "FieldContent",
+        "value": "wire",
+        "type": "Text"
+      },
+      "secondary_cta_link": {
+        "__TYPE__": "LinkContent",
+        "value": {
+          "__TYPE__": "ExternalLink",
+          "url": "https://slicemachine.dev"
+        }
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Velit aliquip ullamco incididunt duis mollit laboris anim occaecat est quis duis dolore minim. Nostrud quis do elit ad ipsum minim minim ullamco veniam esse ad. Deserunt reprehenderit laborum tempor cillum."
+            }
+          }
+        ]
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": []
+      }
+    ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "titleOnly",
+    "primary": {
+      "title_top_line": {
+        "__TYPE__": "FieldContent",
+        "value": "won",
+        "type": "Text"
+      },
+      "title_highlighted_key_words": {
+        "__TYPE__": "FieldContent",
+        "value": "specific",
+        "type": "Text"
+      },
+      "title_bottom_line": {
+        "__TYPE__": "FieldContent",
+        "value": "mathematics",
+        "type": "Text"
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": []
+      }
+    ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "withBackground",
+    "primary": {
+      "title_top_line": {
+        "__TYPE__": "FieldContent",
+        "value": "plane",
+        "type": "Text"
+      },
+      "title_bottom_line": {
+        "__TYPE__": "FieldContent",
+        "value": "tobacco",
+        "type": "Text"
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Dolor qui est deserunt excepteur dolor mollit deserunt proident magna excepteur. Exercitation eiusmod minim nostrud mollit do Lorem dolore cupidatat."
+            }
+          }
+        ]
+      },
+      "primary_cta_label": {
+        "__TYPE__": "FieldContent",
+        "value": "among",
+        "type": "Text"
+      },
+      "primary_cta_link": {
+        "__TYPE__": "LinkContent",
+        "value": {
+          "__TYPE__": "ExternalLink",
+          "url": "http://google.com"
+        }
+      },
+      "secondary_cta_label": {
+        "__TYPE__": "FieldContent",
+        "value": "disease",
+        "type": "Text"
+      },
+      "secondary_cta_link": {
+        "__TYPE__": "LinkContent",
+        "value": {
+          "__TYPE__": "ExternalLink",
+          "url": "http://google.com"
+        }
+      },
+      "background_image": {
+        "__TYPE__": "ImageContent",
+        "origin": {
+          "id": "main",
+          "url": "https://images.unsplash.com/photo-1589652717521-10c0d092dea9",
+          "width": 4752,
+          "height": 3168
+        },
+        "url": "https://images.unsplash.com/photo-1589652717521-10c0d092dea9",
+        "width": 4752,
+        "height": 3168,
+        "edit": {
+          "zoom": 1,
+          "crop": {
+            "x": 0,
+            "y": 0
+          },
+          "background": "transparent"
+        },
+        "thumbnails": {}
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": []
+      }
+    ]
+  }
+]

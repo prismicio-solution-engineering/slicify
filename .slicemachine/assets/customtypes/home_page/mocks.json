@@ -3,19 +3,30 @@
     "__TYPE__": "SliceContentType",
     "value": [
       {
-        "key": "final_slice$b92988cd-019b-4534-a45d-339ec8e57bbd",
-        "name": "final_slice",
+        "key": "features$3b8200b1-8018-4b90-ad4b-b735860edc17",
+        "name": "features",
         "widget": {
           "__TYPE__": "SharedSliceContent",
-          "variation": "default",
+          "variation": "rightSide",
           "primary": {
             "title": {
               "__TYPE__": "StructuredTextContent",
               "value": [
                 {
-                  "type": "heading1",
+                  "type": "heading2",
                   "content": {
-                    "text": "Escape"
+                    "text": "Shine"
+                  }
+                }
+              ]
+            },
+            "subtitle": {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Do nisi anim ad tempor ut laboris amet pariatur quis ex. Consectetur fugiat tempor elit laborum fugiat occaecat adipisicing est aliquip aliquip ex est."
                   }
                 }
               ]
@@ -24,7 +35,60 @@
           "items": [
             {
               "__TYPE__": "GroupItemContent",
-              "value": []
+              "value": [
+                [
+                  "feature_title",
+                  {
+                    "__TYPE__": "StructuredTextContent",
+                    "value": [
+                      {
+                        "type": "paragraph",
+                        "content": {
+                          "text": "Fugiat ea deserunt duis duis ullamco tempor duis mollit laboris pariatur et nostrud. Amet cupidatat exercitation proident irure et elit excepteur reprehenderit aute eiusmod irure aliqua qui duis ullamco. Ex aliquip ad quis anim id enim officia aliqua."
+                        }
+                      }
+                    ]
+                  }
+                ],
+                [
+                  "feature_description",
+                  {
+                    "__TYPE__": "StructuredTextContent",
+                    "value": [
+                      {
+                        "type": "paragraph",
+                        "content": {
+                          "text": "Laborum cupidatat occaecat sunt sint quis. Duis nulla nisi quis ea excepteur eu do duis ea non deserunt non. Ullamco fugiat veniam ipsum laborum excepteur nulla anim in minim."
+                        }
+                      }
+                    ]
+                  }
+                ],
+                [
+                  "feature_screenshot",
+                  {
+                    "__TYPE__": "ImageContent",
+                    "origin": {
+                      "id": "main",
+                      "url": "https://images.unsplash.com/photo-1493119508027-2b584f234d6c",
+                      "width": 3424,
+                      "height": 3424
+                    },
+                    "url": "https://images.unsplash.com/photo-1493119508027-2b584f234d6c?rect=0%2C559%2C3424%2C2306&w=2174&h=1464",
+                    "width": 2174,
+                    "height": 1464,
+                    "edit": {
+                      "zoom": 1,
+                      "crop": {
+                        "x": 0,
+                        "y": 559
+                      },
+                      "background": "transparent"
+                    },
+                    "thumbnails": {}
+                  }
+                ]
+              ]
             }
           ]
         }

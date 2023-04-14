@@ -1,0 +1,830 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "rightSide",
+    "primary": {
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Everything you need to run your books.",
+              "spans": []
+            },
+            "direction": "ltr"
+          }
+        ]
+      },
+      "subtitle": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Well everything you need if you aren’t that picky about minor details like tax compliance.",
+              "spans": []
+            },
+            "direction": "ltr"
+          }
+        ]
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "feature_title",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Payroll",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ],
+          [
+            "feature_description",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Keep track of everyone's salaries and whether or not they've been paid. Direct deposit not supported.",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ],
+          [
+            "feature_screenshot",
+            {
+              "origin": {
+                "id": "2Bdyxgz3OM0",
+                "url": "https://images.unsplash.com/photo-1566241477600-ac026ad43874?crop=entropy&cs=srgb&fm=jpg&ixid=MnwzMzc0NjN8MHwxfHNlYXJjaHwyfHxzY3JlZW5zaG90fGVufDB8fHx8MTY4MTMxMjY1OA&ixlib=rb-4.0.3&q=85",
+                "width": 3654,
+                "height": 2506
+              },
+              "url": "https://images.unsplash.com/photo-1566241477600-ac026ad43874?crop=entropy&cs=srgb&fm=jpg&ixid=MnwzMzc0NjN8MHwxfHNlYXJjaHwyfHxzY3JlZW5zaG90fGVufDB8fHx8MTY4MTMxMjY1OA&ixlib=rb-4.0.3&q=85&rect=340%2C300%2C2357%2C1587&w=2174&h=1464",
+              "width": 2174,
+              "height": 1464,
+              "edit": {
+                "background": "transparent",
+                "zoom": 1.5500000000000005,
+                "crop": {
+                  "x": 340,
+                  "y": 300
+                }
+              },
+              "credits": null,
+              "alt": null,
+              "__TYPE__": "ImageContent",
+              "thumbnails": {}
+            }
+          ]
+        ]
+      },
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "feature_title",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Claim expenses",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ],
+          [
+            "feature_description",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "All of your receipts organized into one place, as long as you don't mind typing in the data by hand.",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ],
+          [
+            "feature_screenshot",
+            {
+              "url": "https://images.unsplash.com/photo-1574856344991-aaa31b6f4ce3?crop=entropy&cs=srgb&fm=jpg&ixid=MnwzMzc0NjN8MHwxfHNlYXJjaHwzfHxmcnVpdHxlbnwwfHx8fDE2ODEyODc1Mzk&ixlib=rb-4.0.3&q=85&rect=0%2C998%2C3024%2C2036&w=2174&h=1464",
+              "origin": {
+                "id": "KVv5lFOMY1E",
+                "url": "https://images.unsplash.com/photo-1574856344991-aaa31b6f4ce3?crop=entropy&cs=srgb&fm=jpg&ixid=MnwzMzc0NjN8MHwxfHNlYXJjaHwzfHxmcnVpdHxlbnwwfHx8fDE2ODEyODc1Mzk&ixlib=rb-4.0.3&q=85",
+                "width": 3024,
+                "height": 4032
+              },
+              "width": 2174,
+              "height": 1464,
+              "edit": {
+                "background": "transparent",
+                "zoom": 1,
+                "crop": {
+                  "x": 0,
+                  "y": 998
+                }
+              },
+              "credits": null,
+              "alt": null,
+              "__TYPE__": "ImageContent",
+              "thumbnails": {}
+            }
+          ]
+        ]
+      },
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "feature_title",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "VAT handling",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ],
+          [
+            "feature_description",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "We only sell our software to companies who don't deal with VAT at all, so technically we do all the VAT stuff they need.",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ],
+          [
+            "feature_screenshot",
+            {
+              "url": "https://images.unsplash.com/photo-1582979512210-99b6a53386f9?crop=entropy&cs=srgb&fm=jpg&ixid=MnwzMzc0NjN8MHwxfHNlYXJjaHw4fHxmcnVpdHxlbnwwfHx8fDE2ODEyODc1Mzk&ixlib=rb-4.0.3&q=85&rect=0%2C1508%2C3648%2C2457&w=2174&h=1464",
+              "origin": {
+                "id": "pCjw_ygKCv0",
+                "url": "https://images.unsplash.com/photo-1582979512210-99b6a53386f9?crop=entropy&cs=srgb&fm=jpg&ixid=MnwzMzc0NjN8MHwxfHNlYXJjaHw4fHxmcnVpdHxlbnwwfHx8fDE2ODEyODc1Mzk&ixlib=rb-4.0.3&q=85",
+                "width": 3648,
+                "height": 5472
+              },
+              "width": 2174,
+              "height": 1464,
+              "edit": {
+                "background": "transparent",
+                "zoom": 1,
+                "crop": {
+                  "x": 0,
+                  "y": 1508
+                }
+              },
+              "credits": null,
+              "alt": null,
+              "__TYPE__": "ImageContent",
+              "thumbnails": {}
+            }
+          ]
+        ]
+      },
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "feature_title",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Reporting",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ],
+          [
+            "feature_description",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Easily export your data into an Excel spreadsheet where you can do whatever the hell you want with it.",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ],
+          [
+            "feature_screenshot",
+            {
+              "url": "https://images.unsplash.com/photo-1550258987-190a2d41a8ba?crop=entropy&cs=srgb&fm=jpg&ixid=MnwzMzc0NjN8MHwxfHNlYXJjaHwxfHxmcnVpdHxlbnwwfHx8fDE2ODEyODc1Mzk&ixlib=rb-4.0.3&q=85&rect=0%2C1136%2C2749%2C1851&w=2174&h=1464",
+              "origin": {
+                "id": "nAOZCYcLND8",
+                "url": "https://images.unsplash.com/photo-1550258987-190a2d41a8ba?crop=entropy&cs=srgb&fm=jpg&ixid=MnwzMzc0NjN8MHwxfHNlYXJjaHwxfHxmcnVpdHxlbnwwfHx8fDE2ODEyODc1Mzk&ixlib=rb-4.0.3&q=85",
+                "width": 2749,
+                "height": 4124
+              },
+              "width": 2174,
+              "height": 1464,
+              "edit": {
+                "background": "transparent",
+                "zoom": 1,
+                "crop": {
+                  "x": 0,
+                  "y": 1136
+                }
+              },
+              "credits": null,
+              "alt": null,
+              "__TYPE__": "ImageContent",
+              "thumbnails": {}
+            }
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "leftSide",
+    "primary": {
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Everything you need to run your books.",
+              "spans": []
+            },
+            "direction": "ltr"
+          }
+        ]
+      },
+      "subtitle": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Well everything you need if you aren’t that picky about minor details like tax compliance.",
+              "spans": []
+            },
+            "direction": "ltr"
+          }
+        ]
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "feature_title",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Payroll",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ],
+          [
+            "feature_description",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Keep track of everyone's salaries and whether or not they've been paid. Direct deposit not supported.",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ],
+          [
+            "feature_screenshot",
+            {
+              "origin": {
+                "id": "2Bdyxgz3OM0",
+                "url": "https://images.unsplash.com/photo-1566241477600-ac026ad43874?crop=entropy&cs=srgb&fm=jpg&ixid=MnwzMzc0NjN8MHwxfHNlYXJjaHwyfHxzY3JlZW5zaG90fGVufDB8fHx8MTY4MTMxMjY1OA&ixlib=rb-4.0.3&q=85",
+                "width": 3654,
+                "height": 2506
+              },
+              "url": "https://images.unsplash.com/photo-1566241477600-ac026ad43874?crop=entropy&cs=srgb&fm=jpg&ixid=MnwzMzc0NjN8MHwxfHNlYXJjaHwyfHxzY3JlZW5zaG90fGVufDB8fHx8MTY4MTMxMjY1OA&ixlib=rb-4.0.3&q=85&rect=960%2C300%2C2357%2C1587&w=2174&h=1464",
+              "width": 2174,
+              "height": 1464,
+              "edit": {
+                "background": "transparent",
+                "zoom": 1.550275774289351,
+                "crop": {
+                  "x": 960,
+                  "y": 300
+                }
+              },
+              "credits": null,
+              "alt": null,
+              "__TYPE__": "ImageContent",
+              "thumbnails": {}
+            }
+          ]
+        ]
+      },
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "feature_title",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Claim expenses",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ],
+          [
+            "feature_description",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "All of your receipts organized into one place, as long as you don't mind typing in the data by hand.",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ],
+          [
+            "feature_screenshot",
+            {
+              "url": "https://images.unsplash.com/photo-1574856344991-aaa31b6f4ce3?crop=entropy&cs=srgb&fm=jpg&ixid=MnwzMzc0NjN8MHwxfHNlYXJjaHwzfHxmcnVpdHxlbnwwfHx8fDE2ODEyODc1Mzk&ixlib=rb-4.0.3&q=85&rect=0%2C998%2C3024%2C2036&w=2174&h=1464",
+              "origin": {
+                "id": "KVv5lFOMY1E",
+                "url": "https://images.unsplash.com/photo-1574856344991-aaa31b6f4ce3?crop=entropy&cs=srgb&fm=jpg&ixid=MnwzMzc0NjN8MHwxfHNlYXJjaHwzfHxmcnVpdHxlbnwwfHx8fDE2ODEyODc1Mzk&ixlib=rb-4.0.3&q=85",
+                "width": 3024,
+                "height": 4032
+              },
+              "width": 2174,
+              "height": 1464,
+              "edit": {
+                "background": "transparent",
+                "zoom": 1,
+                "crop": {
+                  "x": 0,
+                  "y": 998
+                }
+              },
+              "credits": null,
+              "alt": null,
+              "__TYPE__": "ImageContent",
+              "thumbnails": {}
+            }
+          ]
+        ]
+      },
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "feature_title",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "VAT handling",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ],
+          [
+            "feature_description",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "We only sell our software to companies who don't deal with VAT at all, so technically we do all the VAT stuff they need.",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ],
+          [
+            "feature_screenshot",
+            {
+              "url": "https://images.unsplash.com/photo-1582979512210-99b6a53386f9?crop=entropy&cs=srgb&fm=jpg&ixid=MnwzMzc0NjN8MHwxfHNlYXJjaHw4fHxmcnVpdHxlbnwwfHx8fDE2ODEyODc1Mzk&ixlib=rb-4.0.3&q=85&rect=0%2C1508%2C3648%2C2457&w=2174&h=1464",
+              "origin": {
+                "id": "pCjw_ygKCv0",
+                "url": "https://images.unsplash.com/photo-1582979512210-99b6a53386f9?crop=entropy&cs=srgb&fm=jpg&ixid=MnwzMzc0NjN8MHwxfHNlYXJjaHw4fHxmcnVpdHxlbnwwfHx8fDE2ODEyODc1Mzk&ixlib=rb-4.0.3&q=85",
+                "width": 3648,
+                "height": 5472
+              },
+              "width": 2174,
+              "height": 1464,
+              "edit": {
+                "background": "transparent",
+                "zoom": 1,
+                "crop": {
+                  "x": 0,
+                  "y": 1508
+                }
+              },
+              "credits": null,
+              "alt": null,
+              "__TYPE__": "ImageContent",
+              "thumbnails": {}
+            }
+          ]
+        ]
+      },
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "feature_title",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Reporting",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ],
+          [
+            "feature_description",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Easily export your data into an Excel spreadsheet where you can do whatever the hell you want with it.",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ],
+          [
+            "feature_screenshot",
+            {
+              "url": "https://images.unsplash.com/photo-1550258987-190a2d41a8ba?crop=entropy&cs=srgb&fm=jpg&ixid=MnwzMzc0NjN8MHwxfHNlYXJjaHwxfHxmcnVpdHxlbnwwfHx8fDE2ODEyODc1Mzk&ixlib=rb-4.0.3&q=85&rect=0%2C1136%2C2749%2C1851&w=2174&h=1464",
+              "origin": {
+                "id": "nAOZCYcLND8",
+                "url": "https://images.unsplash.com/photo-1550258987-190a2d41a8ba?crop=entropy&cs=srgb&fm=jpg&ixid=MnwzMzc0NjN8MHwxfHNlYXJjaHwxfHxmcnVpdHxlbnwwfHx8fDE2ODEyODc1Mzk&ixlib=rb-4.0.3&q=85",
+                "width": 2749,
+                "height": 4124
+              },
+              "width": 2174,
+              "height": 1464,
+              "edit": {
+                "background": "transparent",
+                "zoom": 1,
+                "crop": {
+                  "x": 0,
+                  "y": 1136
+                }
+              },
+              "credits": null,
+              "alt": null,
+              "__TYPE__": "ImageContent",
+              "thumbnails": {}
+            }
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "above",
+    "primary": {
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Within"
+            }
+          }
+        ]
+      },
+      "subtitle": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Dolore mollit consequat sint ullamco est irure deserunt laboris aute sunt."
+            }
+          }
+        ]
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "feature_title",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Ex tempor velit velit consequat. Quis sunt occaecat sint ad cupidatat in labore elit aliqua aute."
+                  }
+                }
+              ]
+            }
+          ],
+          [
+            "feature_description",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Quis sit in nisi consectetur commodo Lorem mollit voluptate occaecat ullamco labore incididunt occaecat. Exercitation nostrud adipisicing esse et esse consequat. Quis ex consectetur aute deserunt magna occaecat nisi quis laborum."
+                  }
+                }
+              ]
+            }
+          ],
+          [
+            "feature_screenshot",
+            {
+              "origin": {
+                "id": "main",
+                "url": "https://images.unsplash.com/photo-1593642532973-d31b6557fa68",
+                "width": 8640,
+                "height": 8640
+              },
+              "url": "https://images.unsplash.com/photo-1593642532973-d31b6557fa68?rect=0%2C1411%2C8640%2C5818&w=2174&h=1464",
+              "width": 2174,
+              "height": 1464,
+              "edit": {
+                "zoom": 1,
+                "crop": {
+                  "x": 0,
+                  "y": 1411
+                },
+                "background": "transparent"
+              },
+              "credits": null,
+              "alt": null,
+              "__TYPE__": "ImageContent",
+              "thumbnails": {}
+            }
+          ],
+          [
+            "eyebrow",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Laboris eiusmod magna quis consectetur dolore qui ipsum dolor magna id. Duis mollit eiusmod aute."
+                  }
+                }
+              ]
+            }
+          ],
+          [
+            "icon",
+            {
+              "origin": {
+                "id": "main",
+                "url": "https://images.unsplash.com/photo-1515378960530-7c0da6231fb1",
+                "width": 5616,
+                "height": 3744
+              },
+              "url": "https://images.unsplash.com/photo-1515378960530-7c0da6231fb1",
+              "width": 5616,
+              "height": 3744,
+              "edit": {
+                "zoom": 1,
+                "crop": {
+                  "x": 0,
+                  "y": 0
+                },
+                "background": "transparent"
+              },
+              "credits": null,
+              "alt": null,
+              "__TYPE__": "ImageContent",
+              "thumbnails": {}
+            }
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "below",
+    "primary": {
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Sudden"
+            }
+          }
+        ]
+      },
+      "subtitle": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Pariatur labore et qui laboris enim voluptate esse quis quis sunt ullamco deserunt. Incididunt nisi irure et quis Lorem. Ex duis amet culpa adipisicing qui."
+            }
+          }
+        ]
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "feature_title",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Sunt voluptate mollit ad officia ullamco aliquip. Proident magna consectetur ea incididunt sunt pariatur eu consectetur dolor Lorem consectetur nulla esse laboris occaecat."
+                  }
+                }
+              ]
+            }
+          ],
+          [
+            "feature_description",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Duis qui aliqua anim. Do voluptate incididunt aute est."
+                  }
+                }
+              ]
+            }
+          ],
+          [
+            "feature_screenshot",
+            {
+              "origin": {
+                "id": "main",
+                "url": "https://images.unsplash.com/photo-1589321599763-d66926c29613",
+                "width": 3168,
+                "height": 4752
+              },
+              "url": "https://images.unsplash.com/photo-1589321599763-d66926c29613?rect=0%2C1309%2C3168%2C2133&w=2174&h=1464",
+              "width": 2174,
+              "height": 1464,
+              "edit": {
+                "zoom": 1,
+                "crop": {
+                  "x": 0,
+                  "y": 1309
+                },
+                "background": "transparent"
+              },
+              "credits": null,
+              "alt": null,
+              "__TYPE__": "ImageContent",
+              "thumbnails": {}
+            }
+          ],
+          [
+            "eyebrow",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Enim ea sint qui dolor do enim exercitation nisi non ipsum laboris. Lorem laborum in exercitation ad aliquip in eiusmod tempor non Lorem nostrud commodo voluptate aliqua aliqua. Anim esse amet nisi magna eiusmod aute ad consectetur."
+                  }
+                }
+              ]
+            }
+          ],
+          [
+            "icon",
+            {
+              "__TYPE__": "ImageContent",
+              "origin": {
+                "id": "main",
+                "url": "https://images.unsplash.com/photo-1607582278043-57198ac8da43",
+                "width": 4024,
+                "height": 4024
+              },
+              "url": "https://images.unsplash.com/photo-1607582278043-57198ac8da43",
+              "width": 4024,
+              "height": 4024,
+              "edit": {
+                "zoom": 1,
+                "crop": {
+                  "x": 0,
+                  "y": 0
+                },
+                "background": "transparent"
+              },
+              "thumbnails": {}
+            }
+          ]
+        ]
+      }
+    ]
+  }
+]

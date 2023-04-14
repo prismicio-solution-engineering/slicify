@@ -10,7 +10,7 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "final_slice": {
+            "features": {
               "type": "SharedSlice"
             }
           }

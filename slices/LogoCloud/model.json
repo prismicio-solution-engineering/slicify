@@ -1,0 +1,136 @@
+{
+  "id": "logo_cloud",
+  "type": "SharedSlice",
+  "name": "LogoCloud",
+  "description": "LogoCloud",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "LogoCloud",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "This is where it all begins...",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        },
+        "dark_mode": {
+          "type": "Boolean",
+          "config": {
+            "label": "Dark mode",
+            "placeholder_false": "false",
+            "placeholder_true": "true",
+            "default_value": false
+          }
+        }
+      },
+      "items": {
+        "logo": {
+          "type": "Image",
+          "config": {
+            "label": "Logo",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+    },
+    {
+      "id": "threeColumns",
+      "name": "Three Columns",
+      "docURL": "...",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "LogoCloud",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "This is where it all begins...",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        },
+        "dark_mode": {
+          "type": "Boolean",
+          "config": {
+            "label": "Dark mode",
+            "placeholder_false": "false",
+            "placeholder_true": "true",
+            "default_value": false
+          }
+        },
+        "logo_first_column": {
+          "type": "Image",
+          "config": {
+            "label": "Logo First Column",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "logo_second_column": {
+          "type": "Image",
+          "config": {
+            "label": "Logo Second Column",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "logo_third_column": {
+          "type": "Image",
+          "config": {
+            "label": "Logo Third Column",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {},
+      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+    },
+    {
+      "id": "single",
+      "name": "Single",
+      "docURL": "...",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "LogoCloud",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "This is where it all begins...",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        },
+        "dark_mode": {
+          "type": "Boolean",
+          "config": {
+            "label": "Dark mode",
+            "placeholder_false": "false",
+            "placeholder_true": "true",
+            "default_value": false
+          }
+        },
+        "logo": {
+          "type": "Image",
+          "config": {
+            "label": "Logo",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {},
+      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+    }
+  ]
+}

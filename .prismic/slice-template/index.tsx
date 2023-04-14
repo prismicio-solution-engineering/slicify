@@ -1,16 +1,15 @@
-import React from 'react'
-import { PrismicRichText } from '@prismicio/react'
 import type { Content } from '@prismicio/client'
-import type { SliceComponentProps } from '@prismicio/react'
+import { PrismicRichText, SliceComponentProps } from '@prismicio/react'
 
-const {{componentName}} = ({ slice } : SliceComponentProps<Content.{{pascalId}}Slice>) => (
-  <section>
-      {
-        slice.primary.title ?
-        <PrismicRichText field={slice.primary.title}/>
-        : <h2>Template slice, update me!</h2>
-      }
-  </section>
-)
+export type {{componentName}}Props = SliceComponentProps<Content.{{pascalId}}Slice>
 
-export default {{componentName}}
+export default function {{componentName}}({ slice }: {{componentName}}Props) {
+  return (
+    <section>
+      <PrismicRichText
+        field={slice.primary.title}
+        fallback={`Placeholder component for "${slice.slice_type}" Slices (variation: "${slice.variation}")`}
+      />
+    </section>
+  )
+}
