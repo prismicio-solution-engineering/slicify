@@ -1,12 +1,12 @@
-import type { Content } from '@prismicio/client'
-import { PrismicRichText, SliceComponentProps } from '@prismicio/react'
+import type { Content } from "@prismicio/client";
+import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 
-export type LogoCloudProps = SliceComponentProps<Content.LogoCloudSlice>
+export type LogoCloudProps = SliceComponentProps<Content.LogoCloudSlice>;
 
 export default function LogoCloud({ slice }: LogoCloudProps) {
   return (
     <section>
-      {slice.variation == "default" &&
+      {slice.variation == "default" && (
         <div className="bg-white py-24 sm:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <h2 className="text-center text-lg font-semibold leading-8 text-gray-900">
@@ -51,9 +51,9 @@ export default function LogoCloud({ slice }: LogoCloudProps) {
             </div>
           </div>
         </div>
-      }
+      )}
       {slice.variation == "threeColumns"}
       {slice.variation == "single"}
     </section>
-  )
+  );
 }

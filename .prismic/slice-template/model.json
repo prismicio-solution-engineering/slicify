@@ -1,9 +1,10 @@
 {
-    "id": "{{componentId}}",
-    "type": "SharedSlice",
-    "name": "{{componentName}}",
-    "description": "{{componentName}}",
-    "variations": [{
+  "id": "{{componentId}}",
+  "type": "SharedSlice",
+  "name": "{{componentName}}",
+  "description": "{{componentName}}",
+  "variations": [
+    {
       "id": "{{variationId}}",
       "name": "Default",
       "docURL": "...",
@@ -19,5 +20,6 @@
           }
         }
       }
-    }]
-  }
+    }
+  ]
+}

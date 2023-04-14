@@ -10,14 +10,13 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "dark-blue" : "#0F172A",
-        "vibrant-blue" : "#2563EB",
-        "black" : "0F172A",
-        "light-black" : "#334155",
-        "light-blue" : "60A5FA",
-      }
+        "dark-blue": "#0F172A",
+        "vibrant-blue": "#2563EB",
+        black: "0F172A",
+        "light-black": "#334155",
+        "light-blue": "60A5FA",
+      },
     },
   },
   plugins: [],
-}
-
+};

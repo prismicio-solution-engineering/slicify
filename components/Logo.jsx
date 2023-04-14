@@ -28,5 +28,5 @@ export function Logo(props) {
         fill="#0F172A"
       />
     </svg>
-  )
+  );
 }
