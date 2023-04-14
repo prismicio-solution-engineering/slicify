@@ -1,59 +1,63 @@
-import type { Content } from '@prismicio/client'
-import { PrismicRichText, SliceComponentProps } from '@prismicio/react'
+import type { Content } from "@prismicio/client";
+import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 
-export type LogoCloudProps = SliceComponentProps<Content.LogoCloudSlice>
+// Tailwind imports
+import Image from "next/image";
+
+import { Container } from "@/components/Container";
+import logoLaravel from "@/images/logos/laravel.svg";
+import logoMirage from "@/images/logos/mirage.svg";
+import logoStatamic from "@/images/logos/statamic.svg";
+import logoStaticKit from "@/images/logos/statickit.svg";
+import logoTransistor from "@/images/logos/transistor.svg";
+import logoTuple from "@/images/logos/tuple.svg";
+
+export type LogoCloudProps = SliceComponentProps<Content.LogoCloudSlice>;
 
 export default function LogoCloud({ slice }: LogoCloudProps) {
   return (
     <section>
-      {slice.variation == "default" &&
-        <div className="bg-white py-24 sm:py-32">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <h2 className="text-center text-lg font-semibold leading-8 text-gray-900">
-              Trusted by the world’s most innovative teams
-            </h2>
-            <div className="mx-auto mt-10 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5">
-              <img
-                className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
-                src="https://tailwindui.com/img/logos/158x48/transistor-logo-gray-900.svg"
-                alt="Transistor"
-                width={158}
-                height={48}
-              />
-              <img
-                className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
-                src="https://tailwindui.com/img/logos/158x48/reform-logo-gray-900.svg"
-                alt="Reform"
-                width={158}
-                height={48}
-              />
-              <img
-                className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
-                src="https://tailwindui.com/img/logos/158x48/tuple-logo-gray-900.svg"
-                alt="Tuple"
-                width={158}
-                height={48}
-              />
-              <img
-                className="col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1"
-                src="https://tailwindui.com/img/logos/158x48/savvycal-logo-gray-900.svg"
-                alt="SavvyCal"
-                width={158}
-                height={48}
-              />
-              <img
-                className="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
-                src="https://tailwindui.com/img/logos/158x48/statamic-logo-gray-900.svg"
-                alt="Statamic"
-                width={158}
-                height={48}
-              />
-            </div>
-          </div>
+      <Container className="pb-16 pt-20 text-center lg:pt-32">
+        <div className="mt-36 lg:mt-44">
+          <p className="font-display text-base text-slate-900">
+            Trusted by these six companies so far
+          </p>
+          <ul
+            role="list"
+            className="mt-8 flex items-center justify-center gap-x-8 sm:flex-col sm:gap-x-0 sm:gap-y-10 xl:flex-row xl:gap-x-12 xl:gap-y-0"
+          >
+            {[
+              [
+                { name: "Transistor", logo: logoTransistor },
+                { name: "Tuple", logo: logoTuple },
+                { name: "StaticKit", logo: logoStaticKit },
+              ],
+              [
+                { name: "Mirage", logo: logoMirage },
+                { name: "Laravel", logo: logoLaravel },
+                { name: "Statamic", logo: logoStatamic },
+              ],
+            ].map((group, groupIndex) => (
+              <li key={groupIndex}>
+                <ul
+                  role="list"
+                  className="flex flex-col items-center gap-y-8 sm:flex-row sm:gap-x-12 sm:gap-y-0"
+                >
+                  {group.map((company) => (
+                    <li key={company.name} className="flex">
+                      <Image
+                        src={company.logo}
+                        alt={company.name}
+                        unoptimized
+                      />
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            ))}
+          </ul>
         </div>
-      }
-      {slice.variation == "threeColumns"}
-      {slice.variation == "single"}
+      </Container>
     </section>
-  )
+  );
 }
