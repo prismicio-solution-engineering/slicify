@@ -12,6 +12,7 @@ import { Button } from "@/components/Button";
 import { Container } from "@/components/Container";
 
 export type HeroProps = SliceComponentProps<Content.HeroSlice>;
+export type HeroProps = SliceComponentProps<Content.HeroSlice>;
 
 export default function Hero({ slice }: HeroProps) {
   return (
@@ -57,4 +58,6 @@ export default function Hero({ slice }: HeroProps) {
       </Container>
     </section>
   );
+  );
 }
+

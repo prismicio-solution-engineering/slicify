@@ -1,13 +1,13 @@
-import Head from 'next/head'
-import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
-import { createClient } from '../prismicio'
-import { Content } from '@prismicio/client'
-import { SliceZone } from '@prismicio/react'
-import { components } from '@/slices'
+import Head from "next/head";
+import type { GetStaticPropsContext, InferGetStaticPropsType } from "next";
+import { createClient } from "../prismicio";
+import { Content } from "@prismicio/client";
+import { SliceZone } from "@prismicio/react";
+import { components } from "@/slices";
 
-type HomePageProps = InferGetStaticPropsType<typeof getStaticProps>
+type HomePageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
-export default function Home({page}: HomePageProps) {
+export default function Home({ page }: HomePageProps) {
   return (
     <>
       <Head>
@@ -18,24 +18,22 @@ export default function Home({page}: HomePageProps) {
       </Head>
       <main>
         {page.id}
-        <SliceZone slices={page.data.slices} components={components}/>
+        <SliceZone slices={page.data.slices} components={components} />
       </main>
     </>
-  )
+  );
 }
 
-export async function getStaticProps({
-  previewData,
-}: GetStaticPropsContext) {
-  const client = createClient({ previewData })
+export async function getStaticProps({ previewData }: GetStaticPropsContext) {
+  const client = createClient({ previewData });
   //    ^ Automatically contains references to document types
 
-  const page = await client.getSingle<Content.HomePageDocument>('home_page')
+  const page = await client.getSingle<Content.HomePageDocument>("home_page");
   //    ^ Typed as HomePageDocument
 
   return {
     props: {
       page,
     },
-  }
+  };
 }

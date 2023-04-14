@@ -13,6 +13,7 @@ import logoTransistor from "@/images/logos/transistor.svg";
 import logoTuple from "@/images/logos/tuple.svg";
 
 export type LogoCloudProps = SliceComponentProps<Content.LogoCloudSlice>;
+export type LogoCloudProps = SliceComponentProps<Content.LogoCloudSlice>;
 
 export default function LogoCloud({ slice }: LogoCloudProps) {
   return (
@@ -59,5 +60,6 @@ export default function LogoCloud({ slice }: LogoCloudProps) {
         </div>
       </Container>
     </section>
+  );
   );
 }
