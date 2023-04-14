@@ -2,6 +2,7 @@ import type { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 
 import FeaturesHorizontal from "./FeaturesHorizontal";
+import FeaturesVertical from "./FeaturesVertical";
 
 export type FeaturesProps = SliceComponentProps<Content.FeaturesSlice>;
 

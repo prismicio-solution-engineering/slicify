@@ -12,7 +12,7 @@ import backgroundImage from "@/images/background-features.jpg";
 import { asText } from "@prismicio/helpers";
 import { PrismicNextImage } from "@prismicio/next";
 
-export default function FeaturesHorizontal({
+export default function FeaturesVertical({
   slice,
   rightSide = false,
 }: {
