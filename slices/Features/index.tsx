@@ -7,16 +7,14 @@ import FeaturesVertical from "./FeaturesVertical";
 export type FeaturesProps = SliceComponentProps<Content.FeaturesSlice>;
 
 export default function Features({ slice }: FeaturesProps) {
-  return (
-    <section>
-      {
-        {
-          leftSide: <FeaturesHorizontal slice={slice} rightSide={false} />,
-          rightSide: <FeaturesHorizontal slice={slice} rightSide={true} />,
-          above: <FeaturesHorizontal slice={slice} rightSide={true} />,
-          below: <FeaturesHorizontal slice={slice} rightSide={true} />,
-        }[slice.variation]
-      }
-    </section>
-  );
+  switch (slice.variation) {
+    case "leftSide":
+      return <FeaturesHorizontal slice={slice} rightSide={false} />
+    case "rightSide":
+      return <FeaturesHorizontal slice={slice} rightSide={true} />
+    case "above":
+      return <FeaturesVertical slice={slice} above={true} />
+    case "below":
+      return <FeaturesVertical slice={slice} above={false} />
+  }
 }

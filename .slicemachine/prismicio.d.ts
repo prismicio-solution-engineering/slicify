@@ -240,6 +240,16 @@ export interface FeaturesSliceAboveItem {
      */
     feature_description: prismicT.RichTextField;
     /**
+     * Icon field in *Features → Items*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: features.items[].icon
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    icon: prismicT.ImageField<never>;
+    /**
      * Feature Screenshot field in *Features → Items*
      *
      * - **Field Type**: Image
@@ -249,16 +259,6 @@ export interface FeaturesSliceAboveItem {
      *
      */
     feature_screenshot: prismicT.ImageField<never>;
-    /**
-     * icon field in *Features → Items*
-     *
-     * - **Field Type**: Image
-     * - **Placeholder**: *None*
-     * - **API ID Path**: features.items[].icon
-     * - **Documentation**: https://prismic.io/docs/core-concepts/image
-     *
-     */
-    icon: prismicT.ImageField<never>;
 }
 /**
  * Above variation for Features Slice
@@ -331,16 +331,6 @@ export interface FeaturesSliceBelowItem {
      */
     feature_description: prismicT.RichTextField;
     /**
-     * Feature Screenshot field in *Features → Items*
-     *
-     * - **Field Type**: Image
-     * - **Placeholder**: *None*
-     * - **API ID Path**: features.items[].feature_screenshot
-     * - **Documentation**: https://prismic.io/docs/core-concepts/image
-     *
-     */
-    feature_screenshot: prismicT.ImageField<never>;
-    /**
      * Icon field in *Features → Items*
      *
      * - **Field Type**: Image
@@ -350,6 +340,16 @@ export interface FeaturesSliceBelowItem {
      *
      */
     icon: prismicT.ImageField<never>;
+    /**
+     * Feature Screenshot field in *Features → Items*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: features.items[].feature_screenshot
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    feature_screenshot: prismicT.ImageField<never>;
 }
 /**
  * Below variation for Features Slice

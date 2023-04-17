@@ -176,22 +176,25 @@
             "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
           }
         },
+        "icon": {
+          "type": "Image",
+          "config": {
+            "label": "Icon",
+            "constraint": {
+              "width": 128,
+              "height": 128
+            },
+            "thumbnails": []
+          }
+        },
         "feature_screenshot": {
           "type": "Image",
           "config": {
             "label": "Feature Screenshot",
             "constraint": {
-              "width": 2174,
-              "height": 1464
+              "width": 1688,
+              "height": 856
             },
-            "thumbnails": []
-          }
-        },
-        "icon": {
-          "type": "Image",
-          "config": {
-            "label": "icon",
-            "constraint": {},
             "thumbnails": []
           }
         }
@@ -231,7 +234,7 @@
             "label": "Eyebrow",
             "placeholder": "",
             "allowTargetBlank": true,
-            "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+            "single": "heading3,strong,em"
           }
         },
         "feature_title": {
@@ -252,22 +255,25 @@
             "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
           }
         },
+        "icon": {
+          "type": "Image",
+          "config": {
+            "label": "Icon",
+            "constraint": {
+              "width": 128,
+              "height": 128
+            },
+            "thumbnails": []
+          }
+        },
         "feature_screenshot": {
           "type": "Image",
           "config": {
             "label": "Feature Screenshot",
             "constraint": {
-              "width": 2174,
-              "height": 1464
+              "width": 1688,
+              "height": 856
             },
-            "thumbnails": []
-          }
-        },
-        "icon": {
-          "type": "Image",
-          "config": {
-            "label": "Icon",
-            "constraint": {},
             "thumbnails": []
           }
         }
