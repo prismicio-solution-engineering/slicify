@@ -573,7 +573,7 @@
   },
   {
     "__TYPE__": "SharedSliceContent",
-    "variation": "above",
+    "variation": "below",
     "primary": {
       "title": {
         "__TYPE__": "StructuredTextContent",
@@ -581,8 +581,10 @@
           {
             "type": "heading2",
             "content": {
-              "text": "Within"
-            }
+              "text": "Simplify everyday business tasks.",
+              "spans": []
+            },
+            "direction": "ltr"
           }
         ]
       },
@@ -592,8 +594,10 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "Dolore mollit consequat sint ullamco est irure deserunt laboris aute sunt."
-            }
+              "text": "Because you’d probably be a little confused if we suggested you complicate your everyday business tasks instead.",
+              "spans": []
+            },
+            "direction": "ltr"
           }
         ]
       }
@@ -610,8 +614,10 @@
                 {
                   "type": "paragraph",
                   "content": {
-                    "text": "Ex tempor velit velit consequat. Quis sunt occaecat sint ad cupidatat in labore elit aliqua aute."
-                  }
+                    "text": "Stay on top of things with always up-to-date reporting features.",
+                    "spans": []
+                  },
+                  "direction": "ltr"
                 }
               ]
             }
@@ -624,8 +630,10 @@
                 {
                   "type": "paragraph",
                   "content": {
-                    "text": "Quis sit in nisi consectetur commodo Lorem mollit voluptate occaecat ullamco labore incididunt occaecat. Exercitation nostrud adipisicing esse et esse consequat. Quis ex consectetur aute deserunt magna occaecat nisi quis laborum."
-                  }
+                    "text": "We talked about reporting in the section above but we needed three items here, so mentioning it one more time for posterity.",
+                    "spans": []
+                  },
+                  "direction": "ltr"
                 }
               ]
             }
@@ -634,21 +642,21 @@
             "feature_screenshot",
             {
               "origin": {
-                "id": "main",
-                "url": "https://images.unsplash.com/photo-1593642532973-d31b6557fa68",
-                "width": 8640,
-                "height": 8640
+                "id": "2Bdyxgz3OM0",
+                "url": "https://images.unsplash.com/photo-1566241477600-ac026ad43874?crop=entropy&cs=srgb&fm=jpg&ixid=MnwzMzc0NjN8MHwxfHNlYXJjaHwyfHxzY3JlZW5zaG90fGVufDB8fHx8MTY4MTQ4NDM0Mg&ixlib=rb-4.0.3&q=85",
+                "width": 3654,
+                "height": 2506
               },
-              "url": "https://images.unsplash.com/photo-1593642532973-d31b6557fa68?rect=0%2C1411%2C8640%2C5818&w=2174&h=1464",
-              "width": 2174,
-              "height": 1464,
+              "url": "https://images.unsplash.com/photo-1566241477600-ac026ad43874?crop=entropy&cs=srgb&fm=jpg&ixid=MnwzMzc0NjN8MHwxfHNlYXJjaHwyfHxzY3JlZW5zaG90fGVufDB8fHx8MTY4MTQ4NDM0Mg&ixlib=rb-4.0.3&q=85&rect=332%2C304%2C2149%2C1090&w=1688&h=856",
+              "width": 1688,
+              "height": 856,
               "edit": {
-                "zoom": 1,
+                "background": "transparent",
+                "zoom": 1.6999999999999993,
                 "crop": {
-                  "x": 0,
-                  "y": 1411
-                },
-                "background": "transparent"
+                  "x": 332,
+                  "y": 304
+                }
               },
               "credits": null,
               "alt": null,
@@ -664,8 +672,10 @@
                 {
                   "type": "paragraph",
                   "content": {
-                    "text": "Laboris eiusmod magna quis consectetur dolore qui ipsum dolor magna id. Duis mollit eiusmod aute."
-                  }
+                    "text": "Reporting",
+                    "spans": []
+                  },
+                  "direction": "ltr"
                 }
               ]
             }
@@ -674,21 +684,231 @@
             "icon",
             {
               "origin": {
-                "id": "main",
-                "url": "https://images.unsplash.com/photo-1515378960530-7c0da6231fb1",
-                "width": 5616,
-                "height": 3744
+                "id": "lZ8onQ1wuY8",
+                "url": "https://images.unsplash.com/photo-1528821128474-27f963b062bf?crop=entropy&cs=srgb&fm=jpg&ixid=MnwzMzc0NjN8MHwxfHNlYXJjaHwxMXx8ZnJ1aXR8ZW58MHx8fHwxNjgxNDYxMzky&ixlib=rb-4.0.3&q=85",
+                "width": 5170,
+                "height": 3447
               },
-              "url": "https://images.unsplash.com/photo-1515378960530-7c0da6231fb1",
-              "width": 5616,
-              "height": 3744,
+              "url": "https://images.unsplash.com/photo-1528821128474-27f963b062bf?crop=entropy&cs=srgb&fm=jpg&ixid=MnwzMzc0NjN8MHwxfHNlYXJjaHwxMXx8ZnJ1aXR8ZW58MHx8fHwxNjgxNDYxMzky&ixlib=rb-4.0.3&q=85&rect=862%2C0%2C3447%2C3447&w=128&h=128",
+              "width": 128,
+              "height": 128,
               "edit": {
+                "background": "transparent",
+                "zoom": 1,
+                "crop": {
+                  "x": 862,
+                  "y": 0
+                }
+              },
+              "credits": null,
+              "alt": null,
+              "__TYPE__": "ImageContent",
+              "thumbnails": {}
+            }
+          ]
+        ]
+      },
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "eyebrow",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Inventory",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ],
+          [
+            "feature_title",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Never lose track of what’s in stock with accurate inventory tracking.",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ],
+          [
+            "feature_description",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "We don’t offer this as part of our software but that statement is inarguably true. Accurate inventory tracking would help you for sure.",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ],
+          [
+            "icon",
+            {
+              "url": "https://images.unsplash.com/photo-1528821128474-27f963b062bf?crop=entropy&cs=srgb&fm=jpg&ixid=MnwzMzc0NjN8MHwxfHNlYXJjaHwxMXx8ZnJ1aXR8ZW58MHx8fHwxNjgxNDYxMzky&ixlib=rb-4.0.3&q=85&rect=862%2C0%2C3447%2C3447&w=128&h=128",
+              "origin": {
+                "id": "lZ8onQ1wuY8",
+                "url": "https://images.unsplash.com/photo-1528821128474-27f963b062bf?crop=entropy&cs=srgb&fm=jpg&ixid=MnwzMzc0NjN8MHwxfHNlYXJjaHwxMXx8ZnJ1aXR8ZW58MHx8fHwxNjgxNDYxMzky&ixlib=rb-4.0.3&q=85",
+                "width": 5170,
+                "height": 3447
+              },
+              "width": 128,
+              "height": 128,
+              "edit": {
+                "background": "transparent",
+                "zoom": 1,
+                "crop": {
+                  "x": 862,
+                  "y": 0
+                }
+              },
+              "credits": null,
+              "alt": null,
+              "__TYPE__": "ImageContent",
+              "thumbnails": {}
+            }
+          ],
+          [
+            "feature_screenshot",
+            {
+              "url": "https://images.unsplash.com/photo-1566241440091-ec10de8db2e1?crop=entropy&cs=srgb&fm=jpg&ixid=MnwzMzc0NjN8MHwxfHNlYXJjaHwxfHxzY3JlZW5zaG90fGVufDB8fHx8MTY4MTQ4NDM0Mg&ixlib=rb-4.0.3&q=85&rect=277%2C228%2C1900%2C964&w=1688&h=856",
+              "origin": {
+                "id": "LG8ToawE8WQ",
+                "url": "https://images.unsplash.com/photo-1566241440091-ec10de8db2e1?crop=entropy&cs=srgb&fm=jpg&ixid=MnwzMzc0NjN8MHwxfHNlYXJjaHwxfHxzY3JlZW5zaG90fGVufDB8fHx8MTY4MTQ4NDM0Mg&ixlib=rb-4.0.3&q=85",
+                "width": 3316,
+                "height": 1894
+              },
+              "width": 1688,
+              "height": 856,
+              "edit": {
+                "background": "transparent",
+                "zoom": 1.7449999999999992,
+                "crop": {
+                  "x": 277,
+                  "y": 228
+                }
+              },
+              "credits": null,
+              "alt": null,
+              "__TYPE__": "ImageContent",
+              "thumbnails": {}
+            }
+          ]
+        ]
+      },
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "eyebrow",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Contacts",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ],
+          [
+            "feature_title",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Organize all of your contacts, service providers, and invoices in one place.",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ],
+          [
+            "feature_description",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "This also isn’t actually a feature, it’s just some friendly advice. We definitely recommend that you do this, you’ll feel really organized and professional.",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ],
+          [
+            "icon",
+            {
+              "url": "https://images.unsplash.com/photo-1528821128474-27f963b062bf?crop=entropy&cs=srgb&fm=jpg&ixid=MnwzMzc0NjN8MHwxfHNlYXJjaHwxMXx8ZnJ1aXR8ZW58MHx8fHwxNjgxNDYxMzky&ixlib=rb-4.0.3&q=85&rect=862%2C0%2C3447%2C3447&w=128&h=128",
+              "origin": {
+                "id": "lZ8onQ1wuY8",
+                "url": "https://images.unsplash.com/photo-1528821128474-27f963b062bf?crop=entropy&cs=srgb&fm=jpg&ixid=MnwzMzc0NjN8MHwxfHNlYXJjaHwxMXx8ZnJ1aXR8ZW58MHx8fHwxNjgxNDYxMzky&ixlib=rb-4.0.3&q=85",
+                "width": 5170,
+                "height": 3447
+              },
+              "width": 128,
+              "height": 128,
+              "edit": {
+                "background": "transparent",
+                "zoom": 1,
+                "crop": {
+                  "x": 862,
+                  "y": 0
+                }
+              },
+              "credits": null,
+              "alt": null,
+              "__TYPE__": "ImageContent",
+              "thumbnails": {}
+            }
+          ],
+          [
+            "feature_screenshot",
+            {
+              "url": "https://images.unsplash.com/photo-1555949963-aa79dcee981c?crop=entropy&cs=srgb&fm=jpg&ixid=MnwzMzc0NjN8MHwxfHNlYXJjaHwxNXx8c2NyZWVuc2hvdHxlbnwwfHx8fDE2ODE0ODQzNDI&ixlib=rb-4.0.3&q=85&rect=0%2C414%2C5184%2C2629&w=1688&h=856",
+              "origin": {
+                "id": "gnyA8vd3Otc",
+                "url": "https://images.unsplash.com/photo-1555949963-aa79dcee981c?crop=entropy&cs=srgb&fm=jpg&ixid=MnwzMzc0NjN8MHwxfHNlYXJjaHwxNXx8c2NyZWVuc2hvdHxlbnwwfHx8fDE2ODE0ODQzNDI&ixlib=rb-4.0.3&q=85",
+                "width": 5184,
+                "height": 3456
+              },
+              "width": 1688,
+              "height": 856,
+              "edit": {
+                "background": "transparent",
                 "zoom": 1,
                 "crop": {
                   "x": 0,
-                  "y": 0
-                },
-                "background": "transparent"
+                  "y": 414
+                }
               },
               "credits": null,
               "alt": null,
@@ -702,7 +922,7 @@
   },
   {
     "__TYPE__": "SharedSliceContent",
-    "variation": "below",
+    "variation": "above",
     "primary": {
       "title": {
         "__TYPE__": "StructuredTextContent",
@@ -710,8 +930,10 @@
           {
             "type": "heading2",
             "content": {
-              "text": "Sudden"
-            }
+              "text": "Simplify everyday business tasks.",
+              "spans": []
+            },
+            "direction": "ltr"
           }
         ]
       },
@@ -721,8 +943,10 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "Pariatur labore et qui laboris enim voluptate esse quis quis sunt ullamco deserunt. Incididunt nisi irure et quis Lorem. Ex duis amet culpa adipisicing qui."
-            }
+              "text": "Because you’d probably be a little confused if we suggested you complicate your everyday business tasks instead.",
+              "spans": []
+            },
+            "direction": "ltr"
           }
         ]
       }
@@ -739,8 +963,10 @@
                 {
                   "type": "paragraph",
                   "content": {
-                    "text": "Sunt voluptate mollit ad officia ullamco aliquip. Proident magna consectetur ea incididunt sunt pariatur eu consectetur dolor Lorem consectetur nulla esse laboris occaecat."
-                  }
+                    "text": "Stay on top of things with always up-to-date reporting features.",
+                    "spans": []
+                  },
+                  "direction": "ltr"
                 }
               ]
             }
@@ -753,8 +979,10 @@
                 {
                   "type": "paragraph",
                   "content": {
-                    "text": "Duis qui aliqua anim. Do voluptate incididunt aute est."
-                  }
+                    "text": "We talked about reporting in the section above but we needed three items here, so mentioning it one more time for posterity.",
+                    "spans": []
+                  },
+                  "direction": "ltr"
                 }
               ]
             }
@@ -763,21 +991,21 @@
             "feature_screenshot",
             {
               "origin": {
-                "id": "main",
-                "url": "https://images.unsplash.com/photo-1589321599763-d66926c29613",
-                "width": 3168,
-                "height": 4752
+                "id": "2Bdyxgz3OM0",
+                "url": "https://images.unsplash.com/photo-1566241477600-ac026ad43874?crop=entropy&cs=srgb&fm=jpg&ixid=MnwzMzc0NjN8MHwxfHNlYXJjaHwyfHxzY3JlZW5zaG90fGVufDB8fHx8MTY4MTQ4NDM0Mg&ixlib=rb-4.0.3&q=85",
+                "width": 3654,
+                "height": 2506
               },
-              "url": "https://images.unsplash.com/photo-1589321599763-d66926c29613?rect=0%2C1309%2C3168%2C2133&w=2174&h=1464",
-              "width": 2174,
-              "height": 1464,
+              "url": "https://images.unsplash.com/photo-1566241477600-ac026ad43874?crop=entropy&cs=srgb&fm=jpg&ixid=MnwzMzc0NjN8MHwxfHNlYXJjaHwyfHxzY3JlZW5zaG90fGVufDB8fHx8MTY4MTQ4NDM0Mg&ixlib=rb-4.0.3&q=85&rect=332%2C304%2C2149%2C1090&w=1688&h=856",
+              "width": 1688,
+              "height": 856,
               "edit": {
-                "zoom": 1,
+                "background": "transparent",
+                "zoom": 1.6999999999999993,
                 "crop": {
-                  "x": 0,
-                  "y": 1309
-                },
-                "background": "transparent"
+                  "x": 332,
+                  "y": 304
+                }
               },
               "credits": null,
               "alt": null,
@@ -793,8 +1021,10 @@
                 {
                   "type": "paragraph",
                   "content": {
-                    "text": "Enim ea sint qui dolor do enim exercitation nisi non ipsum laboris. Lorem laborum in exercitation ad aliquip in eiusmod tempor non Lorem nostrud commodo voluptate aliqua aliqua. Anim esse amet nisi magna eiusmod aute ad consectetur."
-                  }
+                    "text": "Reporting",
+                    "spans": []
+                  },
+                  "direction": "ltr"
                 }
               ]
             }
@@ -802,24 +1032,236 @@
           [
             "icon",
             {
-              "__TYPE__": "ImageContent",
               "origin": {
-                "id": "main",
-                "url": "https://images.unsplash.com/photo-1607582278043-57198ac8da43",
-                "width": 4024,
-                "height": 4024
+                "id": "lZ8onQ1wuY8",
+                "url": "https://images.unsplash.com/photo-1528821128474-27f963b062bf?crop=entropy&cs=srgb&fm=jpg&ixid=MnwzMzc0NjN8MHwxfHNlYXJjaHwxMXx8ZnJ1aXR8ZW58MHx8fHwxNjgxNDYxMzky&ixlib=rb-4.0.3&q=85",
+                "width": 5170,
+                "height": 3447
               },
-              "url": "https://images.unsplash.com/photo-1607582278043-57198ac8da43",
-              "width": 4024,
-              "height": 4024,
+              "url": "https://images.unsplash.com/photo-1528821128474-27f963b062bf?crop=entropy&cs=srgb&fm=jpg&ixid=MnwzMzc0NjN8MHwxfHNlYXJjaHwxMXx8ZnJ1aXR8ZW58MHx8fHwxNjgxNDYxMzky&ixlib=rb-4.0.3&q=85&rect=862%2C0%2C3447%2C3447&w=128&h=128",
+              "width": 128,
+              "height": 128,
               "edit": {
+                "background": "transparent",
+                "zoom": 1,
+                "crop": {
+                  "x": 862,
+                  "y": 0
+                }
+              },
+              "credits": null,
+              "alt": null,
+              "__TYPE__": "ImageContent",
+              "thumbnails": {}
+            }
+          ]
+        ]
+      },
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "eyebrow",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Inventory",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ],
+          [
+            "feature_title",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Never lose track of what’s in stock with accurate inventory tracking.",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ],
+          [
+            "feature_description",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "We don’t offer this as part of our software but that statement is inarguably true. Accurate inventory tracking would help you for sure.",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ],
+          [
+            "icon",
+            {
+              "url": "https://images.unsplash.com/photo-1528821128474-27f963b062bf?crop=entropy&cs=srgb&fm=jpg&ixid=MnwzMzc0NjN8MHwxfHNlYXJjaHwxMXx8ZnJ1aXR8ZW58MHx8fHwxNjgxNDYxMzky&ixlib=rb-4.0.3&q=85&rect=862%2C0%2C3447%2C3447&w=128&h=128",
+              "origin": {
+                "id": "lZ8onQ1wuY8",
+                "url": "https://images.unsplash.com/photo-1528821128474-27f963b062bf?crop=entropy&cs=srgb&fm=jpg&ixid=MnwzMzc0NjN8MHwxfHNlYXJjaHwxMXx8ZnJ1aXR8ZW58MHx8fHwxNjgxNDYxMzky&ixlib=rb-4.0.3&q=85",
+                "width": 5170,
+                "height": 3447
+              },
+              "width": 128,
+              "height": 128,
+              "edit": {
+                "background": "transparent",
+                "zoom": 1,
+                "crop": {
+                  "x": 862,
+                  "y": 0
+                }
+              },
+              "credits": null,
+              "alt": null,
+              "__TYPE__": "ImageContent",
+              "thumbnails": {}
+            }
+          ],
+          [
+            "feature_screenshot",
+            {
+              "url": "https://images.unsplash.com/photo-1566241440091-ec10de8db2e1?crop=entropy&cs=srgb&fm=jpg&ixid=MnwzMzc0NjN8MHwxfHNlYXJjaHwxfHxzY3JlZW5zaG90fGVufDB8fHx8MTY4MTQ4NDM0Mg&ixlib=rb-4.0.3&q=85&rect=277%2C228%2C1900%2C964&w=1688&h=856",
+              "origin": {
+                "id": "LG8ToawE8WQ",
+                "url": "https://images.unsplash.com/photo-1566241440091-ec10de8db2e1?crop=entropy&cs=srgb&fm=jpg&ixid=MnwzMzc0NjN8MHwxfHNlYXJjaHwxfHxzY3JlZW5zaG90fGVufDB8fHx8MTY4MTQ4NDM0Mg&ixlib=rb-4.0.3&q=85",
+                "width": 3316,
+                "height": 1894
+              },
+              "width": 1688,
+              "height": 856,
+              "edit": {
+                "background": "transparent",
+                "zoom": 1.7449999999999992,
+                "crop": {
+                  "x": 277,
+                  "y": 228
+                }
+              },
+              "credits": null,
+              "alt": null,
+              "__TYPE__": "ImageContent",
+              "thumbnails": {}
+            }
+          ]
+        ]
+      },
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "eyebrow",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Contacts",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ],
+          [
+            "feature_title",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Organize all of your contacts, service providers, and invoices in one place.",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ],
+          [
+            "feature_description",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "This also isn’t actually a feature, it’s just some friendly advice. We definitely recommend that you do this, you’ll feel really organized and professional.",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ],
+          [
+            "icon",
+            {
+              "url": "https://images.unsplash.com/photo-1528821128474-27f963b062bf?crop=entropy&cs=srgb&fm=jpg&ixid=MnwzMzc0NjN8MHwxfHNlYXJjaHwxMXx8ZnJ1aXR8ZW58MHx8fHwxNjgxNDYxMzky&ixlib=rb-4.0.3&q=85&rect=862%2C0%2C3447%2C3447&w=128&h=128",
+              "origin": {
+                "id": "lZ8onQ1wuY8",
+                "url": "https://images.unsplash.com/photo-1528821128474-27f963b062bf?crop=entropy&cs=srgb&fm=jpg&ixid=MnwzMzc0NjN8MHwxfHNlYXJjaHwxMXx8ZnJ1aXR8ZW58MHx8fHwxNjgxNDYxMzky&ixlib=rb-4.0.3&q=85",
+                "width": 5170,
+                "height": 3447
+              },
+              "width": 128,
+              "height": 128,
+              "edit": {
+                "background": "transparent",
+                "zoom": 1,
+                "crop": {
+                  "x": 862,
+                  "y": 0
+                }
+              },
+              "credits": null,
+              "alt": null,
+              "__TYPE__": "ImageContent",
+              "thumbnails": {}
+            }
+          ],
+          [
+            "feature_screenshot",
+            {
+              "url": "https://images.unsplash.com/photo-1555952494-efd681c7e3f9?crop=entropy&cs=srgb&fm=jpg&ixid=MnwzMzc0NjN8MHwxfHNlYXJjaHwxMXx8c2NyZWVuc2hvdHxlbnwwfHx8fDE2ODE0ODQzNDI&ixlib=rb-4.0.3&q=85&rect=0%2C414%2C5184%2C2629&w=1688&h=856",
+              "origin": {
+                "id": "O2MdroNurVw",
+                "url": "https://images.unsplash.com/photo-1555952494-efd681c7e3f9?crop=entropy&cs=srgb&fm=jpg&ixid=MnwzMzc0NjN8MHwxfHNlYXJjaHwxMXx8c2NyZWVuc2hvdHxlbnwwfHx8fDE2ODE0ODQzNDI&ixlib=rb-4.0.3&q=85",
+                "width": 5184,
+                "height": 3456
+              },
+              "width": 1688,
+              "height": 856,
+              "edit": {
+                "background": "transparent",
                 "zoom": 1,
                 "crop": {
                   "x": 0,
-                  "y": 0
-                },
-                "background": "transparent"
+                  "y": 414
+                }
               },
+              "credits": null,
+              "alt": null,
+              "__TYPE__": "ImageContent",
               "thumbnails": {}
             }
           ]

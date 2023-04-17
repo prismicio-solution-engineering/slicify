@@ -4,7 +4,7 @@ export function Container({
   className,
   ...props
 }: {
-  className: string;
+  className?: string;
   children: React.ReactNode;
 }) {
   return (

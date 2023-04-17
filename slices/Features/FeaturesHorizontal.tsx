@@ -16,7 +16,7 @@ export default function FeaturesHorizontal({
   slice,
   rightSide = false,
 }: {
-  slice: Content.FeaturesSlice;
+  slice: Content.FeaturesSliceLeftSide | Content.FeaturesSliceRightSide;
   rightSide: boolean;
 }) {
   let [tabOrientation, setTabOrientation] = useState("horizontal");

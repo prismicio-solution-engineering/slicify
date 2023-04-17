@@ -35,6 +35,12 @@
       },
       "rightSide": {
         "primary": {}
+      },
+      "below": {
+        "items": {}
+      },
+      "above": {
+        "items": {}
       }
     }
   },
