@@ -1,5 +1,5 @@
 {
-  "apiEndpoint": "https://slicify.prismic.io/api/v2",
+  "apiEndpoint": "https://slicify-dianka.cdn.prismic.io/api/v2",
   "localSliceSimulatorURL": "http://localhost:3000/slice-simulator",
   "libraries": ["@/slices"],
   "_latest": "0.7.1"
