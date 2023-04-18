@@ -1,3 +1,5 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -15,13 +17,14 @@ module.exports = {
         "black": "0F172A",
         "light-black": "#334155",
         "light-blue": "#60A5FA",
+        "light-blue-70": "rgba(147, 197, 253, 0.7)",
       },
       borderRadius: {
         '4xl': '2rem',
       },
       fontFamily: {
-        sans: ['Inter'],
-        display: ['Lexend'],
+        sans: ['Inter', ...defaultTheme.fontFamily.sans],
+        display: ['Lexend', ...defaultTheme.fontFamily.sans],
       },
       fontSize: {
         xs: ['0.75rem', { lineHeight: '1rem' }],
@@ -43,5 +46,7 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/aspect-ratio'),
+  ],
 };

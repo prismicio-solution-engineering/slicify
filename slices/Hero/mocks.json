@@ -138,7 +138,6 @@
         }
       },
       "background_image": {
-        "__TYPE__": "ImageContent",
         "origin": {
           "id": "main",
           "url": "https://images.unsplash.com/photo-1589652717521-10c0d092dea9",
@@ -148,6 +147,87 @@
         "url": "https://images.unsplash.com/photo-1589652717521-10c0d092dea9",
         "width": 4752,
         "height": 3168,
+        "edit": {
+          "zoom": 1,
+          "crop": {
+            "x": 0,
+            "y": 0
+          },
+          "background": "transparent"
+        },
+        "credits": null,
+        "alt": null,
+        "__TYPE__": "ImageContent",
+        "thumbnails": {}
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": []
+      }
+    ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "withVideoBackground",
+    "primary": {
+      "title_top_line": {
+        "__TYPE__": "FieldContent",
+        "value": "object",
+        "type": "Text"
+      },
+      "title_bottom_line": {
+        "__TYPE__": "FieldContent",
+        "value": "necessary",
+        "type": "Text"
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Cupidatat ullamco do laborum. Sunt veniam officia consequat."
+            }
+          }
+        ]
+      },
+      "primary_cta_label": {
+        "__TYPE__": "FieldContent",
+        "value": "importance",
+        "type": "Text"
+      },
+      "primary_cta_link": {
+        "__TYPE__": "LinkContent",
+        "value": {
+          "__TYPE__": "ExternalLink",
+          "url": "http://google.com"
+        }
+      },
+      "secondary_cta_label": {
+        "__TYPE__": "FieldContent",
+        "value": "price",
+        "type": "Text"
+      },
+      "secondary_cta_link": {
+        "__TYPE__": "LinkContent",
+        "value": {
+          "__TYPE__": "ExternalLink",
+          "url": "https://prismic.io"
+        }
+      },
+      "background_image": {
+        "__TYPE__": "ImageContent",
+        "origin": {
+          "id": "main",
+          "url": "https://images.unsplash.com/photo-1547082299-de196ea013d6",
+          "width": 4272,
+          "height": 2848
+        },
+        "url": "https://images.unsplash.com/photo-1547082299-de196ea013d6",
+        "width": 4272,
+        "height": 2848,
         "edit": {
           "zoom": 1,
           "crop": {

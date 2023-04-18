@@ -22,6 +22,9 @@
       },
       "single": {
         "primary": {}
+      },
+      "simpleDarkMode": {
+        "primary": {}
       }
     },
     "Features": {
@@ -42,7 +45,29 @@
       "above": {
         "items": {}
       }
-    }
+    },
+    "CallToAction": {
+      "default": {
+        "primary": {}
+      },
+      "withImageRight": {
+        "primary": {},
+        "items": {}
+      }
+    },
+    "Testimonials": {
+      "default": {
+        "primary": {},
+        "items": {}
+      },
+      "twoColumnsWithSeparator": {
+        "primary": {}
+      },
+      "singleCentered": {
+        "primary": {}
+      }
+    },
+    "Faq": {}
   },
   "_cts": {
     "home_page": {}

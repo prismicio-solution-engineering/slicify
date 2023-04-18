@@ -1,0 +1,258 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Standard"
+            }
+          }
+        ]
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Magna quis laboris proident. Esse eu dolore magna dolore cupidatat cillum mollit voluptate aute."
+            }
+          }
+        ]
+      },
+      "cta_label": {
+        "__TYPE__": "FieldContent",
+        "value": "struck",
+        "type": "Text"
+      },
+      "cta_link": {
+        "__TYPE__": "LinkContent",
+        "value": {
+          "__TYPE__": "ExternalLink",
+          "url": "http://google.com"
+        }
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": []
+      }
+    ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "whiteBackground",
+    "primary": {
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Musical"
+            }
+          }
+        ]
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Aute mollit aliqua id tempor laboris dolore et aute eiusmod amet irure aute eiusmod pariatur Lorem. Enim officia exercitation duis sint voluptate pariatur. Occaecat veniam irure sit mollit laboris Lorem aute excepteur commodo nulla."
+            }
+          }
+        ]
+      },
+      "cta_label": {
+        "__TYPE__": "FieldContent",
+        "value": "softly",
+        "type": "Text"
+      },
+      "cta_link": {
+        "__TYPE__": "LinkContent",
+        "value": {
+          "__TYPE__": "ExternalLink",
+          "url": "https://slicemachine.dev"
+        }
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": []
+      }
+    ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "withImageRight",
+    "primary": {
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Carbon"
+            }
+          }
+        ]
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Exercitation pariatur mollit est laborum ex id excepteur irure incididunt. Occaecat dolor voluptate incididunt."
+            }
+          }
+        ]
+      },
+      "featured_image": {
+        "__TYPE__": "ImageContent",
+        "origin": {
+          "id": "main",
+          "url": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2",
+          "width": 3648,
+          "height": 4560
+        },
+        "url": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2",
+        "width": 3648,
+        "height": 4560,
+        "edit": {
+          "zoom": 1,
+          "crop": {
+            "x": 0,
+            "y": 0
+          },
+          "background": "transparent"
+        },
+        "thumbnails": {}
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "cta_label",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "valley",
+              "type": "Text"
+            }
+          ],
+          [
+            "cta_link",
+            {
+              "__TYPE__": "LinkContent",
+              "value": {
+                "__TYPE__": "ExternalLink",
+                "url": "http://google.com"
+              }
+            }
+          ],
+          [
+            "cta_type",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "Primary",
+              "type": "Select"
+            }
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "withImageLeft",
+    "primary": {
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Instance"
+            }
+          }
+        ]
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Do exercitation deserunt sit officia do voluptate. Cillum dolor et cupidatat id cupidatat fugiat esse commodo aute tempor eiusmod commodo."
+            }
+          }
+        ]
+      },
+      "featured_image": {
+        "__TYPE__": "ImageContent",
+        "origin": {
+          "id": "main",
+          "url": "https://images.unsplash.com/photo-1591012911207-0dbac31f37da",
+          "width": 4000,
+          "height": 4000
+        },
+        "url": "https://images.unsplash.com/photo-1591012911207-0dbac31f37da",
+        "width": 4000,
+        "height": 4000,
+        "edit": {
+          "zoom": 1,
+          "crop": {
+            "x": 0,
+            "y": 0
+          },
+          "background": "transparent"
+        },
+        "thumbnails": {}
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "cta_label",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "though",
+              "type": "Text"
+            }
+          ],
+          [
+            "cta_link",
+            {
+              "__TYPE__": "LinkContent",
+              "value": {
+                "__TYPE__": "ExternalLink",
+                "url": "https://prismic.io"
+              }
+            }
+          ],
+          [
+            "cta_type",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "Text",
+              "type": "Select"
+            }
+          ]
+        ]
+      }
+    ]
+  }
+]
