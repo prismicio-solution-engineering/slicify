@@ -42,6 +42,16 @@
       "above": {
         "items": {}
       }
+    },
+    "Pricing": {
+      "default": {
+        "primary": {},
+        "items": {}
+      },
+      "withPromo": {
+        "primary": {},
+        "items": {}
+      }
     }
   },
   "_cts": {
