@@ -3,7 +3,7 @@
     "__TYPE__": "SliceContentType",
     "value": [
       {
-        "key": "features$3b8200b1-8018-4b90-ad4b-b735860edc17",
+        "key": "features$e0098c51-1b81-45c6-af55-2333926857cb",
         "name": "features",
         "widget": {
           "__TYPE__": "SharedSliceContent",
@@ -15,7 +15,7 @@
                 {
                   "type": "heading2",
                   "content": {
-                    "text": "Shine"
+                    "text": "Truth"
                   }
                 }
               ]
@@ -26,7 +26,7 @@
                 {
                   "type": "paragraph",
                   "content": {
-                    "text": "Do nisi anim ad tempor ut laboris amet pariatur quis ex. Consectetur fugiat tempor elit laborum fugiat occaecat adipisicing est aliquip aliquip ex est."
+                    "text": "Ipsum nisi esse ex consequat est magna laboris velit nostrud aute id reprehenderit incididunt excepteur incididunt."
                   }
                 }
               ]
@@ -44,7 +44,7 @@
                       {
                         "type": "paragraph",
                         "content": {
-                          "text": "Fugiat ea deserunt duis duis ullamco tempor duis mollit laboris pariatur et nostrud. Amet cupidatat exercitation proident irure et elit excepteur reprehenderit aute eiusmod irure aliqua qui duis ullamco. Ex aliquip ad quis anim id enim officia aliqua."
+                          "text": "Velit mollit labore officia ipsum laboris in dolor dolor do reprehenderit consectetur elit minim do. Laborum ex nisi deserunt sunt amet commodo nostrud Lorem fugiat sit nisi in."
                         }
                       }
                     ]
@@ -58,7 +58,7 @@
                       {
                         "type": "paragraph",
                         "content": {
-                          "text": "Laborum cupidatat occaecat sunt sint quis. Duis nulla nisi quis ea excepteur eu do duis ea non deserunt non. Ullamco fugiat veniam ipsum laborum excepteur nulla anim in minim."
+                          "text": "Aliquip aliquip cillum nisi culpa minim id."
                         }
                       }
                     ]
@@ -70,18 +70,18 @@
                     "__TYPE__": "ImageContent",
                     "origin": {
                       "id": "main",
-                      "url": "https://images.unsplash.com/photo-1493119508027-2b584f234d6c",
-                      "width": 3424,
-                      "height": 3424
+                      "url": "https://images.unsplash.com/photo-1551739440-5dd934d3a94a",
+                      "width": 3456,
+                      "height": 4320
                     },
-                    "url": "https://images.unsplash.com/photo-1493119508027-2b584f234d6c?rect=0%2C559%2C3424%2C2306&w=2174&h=1464",
+                    "url": "https://images.unsplash.com/photo-1551739440-5dd934d3a94a?rect=0%2C996%2C3456%2C2327&w=2174&h=1464",
                     "width": 2174,
                     "height": 1464,
                     "edit": {
                       "zoom": 1,
                       "crop": {
                         "x": 0,
-                        "y": 559
+                        "y": 996
                       },
                       "background": "transparent"
                     },
@@ -89,6 +89,33 @@
                   }
                 ]
               ]
+            }
+          ]
+        }
+      },
+      {
+        "key": "pricing$5e85a65d-7d42-4b19-98dc-091e4569e035",
+        "name": "pricing",
+        "widget": {
+          "__TYPE__": "SharedSliceContent",
+          "variation": "default",
+          "primary": {
+            "title": {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "heading1",
+                  "content": {
+                    "text": "Score"
+                  }
+                }
+              ]
+            }
+          },
+          "items": [
+            {
+              "__TYPE__": "GroupItemContent",
+              "value": []
             }
           ]
         }

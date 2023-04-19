@@ -3,15 +3,18 @@
 import Features from './Features';
 import Hero from './Hero';
 import LogoCloud from './LogoCloud';
+import Pricing from './Pricing';
 
 export {
 	Features,
 	Hero,
 	LogoCloud,
+	Pricing,
 };
 
 export const components = {
 	features: Features,
 	hero: Hero,
 	logo_cloud: LogoCloud,
+	pricing: Pricing,
 };
