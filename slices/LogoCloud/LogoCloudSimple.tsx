@@ -1,29 +1,10 @@
 import type { Content } from "@prismicio/client";
-import {
-  PrismicLink,
-  PrismicRichText,
-  SliceComponentProps,
-} from "@prismicio/react";
-import { asText } from "@prismicio/helpers";
-import Image from "next/image";
+import { PrismicRichText } from "@prismicio/react";
 
 // Tailwind imports
 import { Container } from "@/components/Container";
-import logoLaravel from "@/images/logos/laravel.svg";
-import logoMirage from "@/images/logos/mirage.svg";
-import logoStatamic from "@/images/logos/statamic.svg";
-import logoStaticKit from "@/images/logos/statickit.svg";
-import logoTransistor from "@/images/logos/transistor.svg";
-import logoTuple from "@/images/logos/tuple.svg";
+import { PrismicNextImage } from "@prismicio/next";
 
-const group = [
-  { name: "Transistor", logo: logoTransistor },
-  { name: "Tuple", logo: logoTuple },
-  { name: "StaticKit", logo: logoStaticKit },
-  { name: "Mirage", logo: logoMirage },
-  { name: "Laravel", logo: logoLaravel },
-  { name: "Statamic", logo: logoStatamic },
-];
 export default function LogoCloudSimple({
   slice,
   darkMode = false,
@@ -38,21 +19,32 @@ export default function LogoCloudSimple({
           darkMode && "bg-dark-blue"
         }`}
       >
-        <p
-          className={`font-display text-xl ${
-            darkMode ? "text-white" : "text-slate-900"
-          }`}
-        >
-          Trusted by these companies so far
-        </p>
+        <PrismicRichText
+          field={slice.primary.title}
+          components={{
+            paragraph: ({ children }) => (
+              <p
+                className={`font-display text-xl ${
+                  darkMode ? "text-white" : "text-slate-900"
+                }`}
+              >
+                {children}
+              </p>
+            ),
+          }}
+        />
         <div
           role="list"
           className="mt-8 flex items-center justify-center gap-x-8 sm:flex-col sm:gap-x-0 sm:gap-y-10 xl:flex-row xl:gap-x-12 xl:gap-y-0"
         >
           <ul className="flex flex-col items-center gap-y-8 sm:flex-row sm:gap-x-12 sm:gap-y-0">
-            {group.map((company) => (
-              <li key={company.name} className="flex">
-                <Image src={company.logo} alt={company.name} unoptimized />
+            {slice.items.map((company, idx) => (
+              <li key={idx} className="flex">
+                <PrismicNextImage
+                  className="h-14 w-14 object-cover"
+                  field={company.logo}
+                  unoptimized
+                />
               </li>
             ))}
           </ul>
