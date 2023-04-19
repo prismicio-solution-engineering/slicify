@@ -34,12 +34,12 @@ export function Button({
   field,
   ...props
 }: {
-  variant: string;
-  color: string;
-  className: string;
-  children: React.ReactNode;
-  href: string;
-  field: prismicT.LinkField;
+  variant?: string;
+  color?: string;
+  className?: string;
+  children?: React.ReactNode;
+  href?: string;
+  field?: prismicT.LinkField;
 }) {
   className = clsx(
     baseStyles[variant],
@@ -48,10 +48,8 @@ export function Button({
   );
 
   return href ? (
-    // <Link href={href} className={className} {...props} />
     <PrismicLink className={className} {...props} href={href} />
   ) : (
-    // <button className={className} {...props} />
     <PrismicLink className={className} {...props} field={field} />
   );
 }
