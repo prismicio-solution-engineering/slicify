@@ -55,7 +55,7 @@ export function TextField({
           {label}
         </Label>
       )}
-      <input id={id} type={type} {...props} className={formClasses} />
+      <input id={id} type={type} {...props} required className={formClasses} />
     </div>
   );
 }

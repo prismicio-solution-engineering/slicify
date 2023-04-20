@@ -17,7 +17,6 @@ export default function Home({ page }: HomePageProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        {page.id}
         <SliceZone slices={page.data.slices} components={components} />
       </main>
     </>
