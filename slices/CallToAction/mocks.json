@@ -1,0 +1,372 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "withImageLeft",
+    "primary": {
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Boost your productivity.",
+              "spans": []
+            },
+            "direction": "ltr"
+          },
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Start using our app today.",
+              "spans": []
+            },
+            "direction": "ltr"
+          }
+        ]
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "It’s time to take control of your books. Buy our software so you can feel like you’re doing something productive.",
+              "spans": []
+            },
+            "direction": "ltr"
+          },
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "It’s time to take control of your books. Buy our software so you can feel like you’re doing something productive.",
+              "spans": []
+            },
+            "direction": "ltr"
+          }
+        ]
+      },
+      "featured_image": {
+        "origin": {
+          "id": "RYyr-k3Ysqg",
+          "url": "https://images.unsplash.com/uploads/141103282695035fa1380/95cdfeef?crop=entropy&cs=srgb&fm=jpg&ixid=MnwzMzc0NjN8MHwxfHNlYXJjaHwyNXx8Y29tcHV0ZXJ8ZW58MHx8fHwxNjgxOTAyODI3&ixlib=rb-4.0.3&q=85",
+          "width": 3588,
+          "height": 1842
+        },
+        "url": "https://images.unsplash.com/uploads/141103282695035fa1380/95cdfeef?crop=entropy&cs=srgb&fm=jpg&ixid=MnwzMzc0NjN8MHwxfHNlYXJjaHwyNXx8Y29tcHV0ZXJ8ZW58MHx8fHwxNjgxOTAyODI3&ixlib=rb-4.0.3&q=85&rect=428%2C0%2C2732%2C1842&w=912&h=615",
+        "width": 912,
+        "height": 615,
+        "edit": {
+          "background": "transparent",
+          "zoom": 1,
+          "crop": {
+            "x": 428,
+            "y": 0
+          }
+        },
+        "credits": null,
+        "alt": null,
+        "__TYPE__": "ImageContent",
+        "thumbnails": {}
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "cta_label",
+            {
+              "__TYPE__": "FieldContent",
+              "type": "Text",
+              "value": "Get 6 months free"
+            }
+          ],
+          [
+            "cta_link",
+            {
+              "__TYPE__": "LinkContent",
+              "value": {
+                "__TYPE__": "ExternalLink",
+                "url": "https://prismic.io"
+              }
+            }
+          ],
+          [
+            "cta_type",
+            {
+              "__TYPE__": "FieldContent",
+              "type": "Select",
+              "value": "Primary"
+            }
+          ]
+        ]
+      },
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "cta_type",
+            {
+              "__TYPE__": "FieldContent",
+              "type": "Select",
+              "value": "Secondary"
+            }
+          ],
+          [
+            "cta_label",
+            {
+              "__TYPE__": "FieldContent",
+              "type": "Text",
+              "value": "Watch video"
+            }
+          ],
+          [
+            "cta_link",
+            {
+              "__TYPE__": "LinkContent",
+              "value": {
+                "__TYPE__": "ExternalLink",
+                "url": "https://prismic.io"
+              }
+            }
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "withImageRight",
+    "primary": {
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Boost your productivity.",
+              "spans": []
+            },
+            "direction": "ltr"
+          },
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Start using our app today.",
+              "spans": []
+            },
+            "direction": "ltr"
+          }
+        ]
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "It’s time to take control of your books. Buy our software so you can feel like you’re doing something productive.",
+              "spans": []
+            },
+            "direction": "ltr"
+          },
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "It’s time to take control of your books. Buy our software so you can feel like you’re doing something productive.",
+              "spans": []
+            },
+            "direction": "ltr"
+          }
+        ]
+      },
+      "featured_image": {
+        "origin": {
+          "id": "RYyr-k3Ysqg",
+          "url": "https://images.unsplash.com/uploads/141103282695035fa1380/95cdfeef?crop=entropy&cs=srgb&fm=jpg&ixid=MnwzMzc0NjN8MHwxfHNlYXJjaHwyNXx8Y29tcHV0ZXJ8ZW58MHx8fHwxNjgxOTAyODI3&ixlib=rb-4.0.3&q=85",
+          "width": 3588,
+          "height": 1842
+        },
+        "url": "https://images.unsplash.com/uploads/141103282695035fa1380/95cdfeef?crop=entropy&cs=srgb&fm=jpg&ixid=MnwzMzc0NjN8MHwxfHNlYXJjaHwyNXx8Y29tcHV0ZXJ8ZW58MHx8fHwxNjgxOTAyODI3&ixlib=rb-4.0.3&q=85&rect=428%2C0%2C2732%2C1842&w=912&h=615",
+        "width": 912,
+        "height": 615,
+        "edit": {
+          "background": "transparent",
+          "zoom": 1,
+          "crop": {
+            "x": 428,
+            "y": 0
+          }
+        },
+        "credits": null,
+        "alt": null,
+        "__TYPE__": "ImageContent",
+        "thumbnails": {}
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "cta_label",
+            {
+              "__TYPE__": "FieldContent",
+              "type": "Text",
+              "value": "Get 6 months free"
+            }
+          ],
+          [
+            "cta_link",
+            {
+              "__TYPE__": "LinkContent",
+              "value": {
+                "__TYPE__": "ExternalLink",
+                "url": "https://prismic.io"
+              }
+            }
+          ],
+          [
+            "cta_type",
+            {
+              "__TYPE__": "FieldContent",
+              "type": "Select",
+              "value": "Primary"
+            }
+          ]
+        ]
+      },
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "cta_type",
+            {
+              "__TYPE__": "FieldContent",
+              "type": "Select",
+              "value": "Secondary"
+            }
+          ],
+          [
+            "cta_label",
+            {
+              "__TYPE__": "FieldContent",
+              "type": "Text",
+              "value": "Watch video"
+            }
+          ],
+          [
+            "cta_link",
+            {
+              "__TYPE__": "LinkContent",
+              "value": {
+                "__TYPE__": "ExternalLink",
+                "url": "https://prismic.io"
+              }
+            }
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Get started today",
+              "spans": []
+            },
+            "direction": "ltr"
+          }
+        ]
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "It’s time to take control of your books. Buy our software so you can feel like you’re doing something productive.",
+              "spans": []
+            },
+            "direction": "ltr"
+          }
+        ]
+      },
+      "cta_label": {
+        "__TYPE__": "FieldContent",
+        "type": "Text",
+        "value": "Get 6 months free"
+      },
+      "cta_link": {
+        "__TYPE__": "LinkContent",
+        "value": {
+          "__TYPE__": "ExternalLink",
+          "url": "http://twitter.com"
+        }
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": []
+      }
+    ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "whiteBackground",
+    "primary": {
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Get started right now",
+              "spans": []
+            },
+            "direction": "ltr"
+          }
+        ]
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "It’s time to take control of your books. Buy our software so you can feel like you’re doing something productive.",
+              "spans": []
+            },
+            "direction": "ltr"
+          }
+        ]
+      },
+      "cta_label": {
+        "__TYPE__": "FieldContent",
+        "type": "Text",
+        "value": "Get 6 months free"
+      },
+      "cta_link": {
+        "__TYPE__": "LinkContent",
+        "value": {
+          "__TYPE__": "ExternalLink",
+          "url": "http://google.com"
+        }
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": []
+      }
+    ]
+  }
+]

@@ -35,7 +35,9 @@
           "type": "Image",
           "config": {
             "label": "Logo",
-            "constraint": {},
+            "constraint": {
+              "height": 48
+            },
             "thumbnails": []
           }
         }
@@ -66,28 +68,45 @@
             "placeholder_true": "true",
             "default_value": false
           }
-        },
-        "logo_first_column": {
+        }
+      },
+      "items": {
+        "logo": {
           "type": "Image",
           "config": {
-            "label": "Logo First Column",
-            "constraint": {},
+            "label": "Logo",
+            "constraint": {
+              "width": 200
+            },
             "thumbnails": []
           }
-        },
-        "logo_second_column": {
-          "type": "Image",
+        }
+      },
+      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+    },
+    {
+      "id": "single",
+      "name": "Single",
+      "docURL": "...",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "LogoCloud",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
           "config": {
-            "label": "Logo Second Column",
-            "constraint": {},
-            "thumbnails": []
+            "label": "Title",
+            "placeholder": "This is where it all begins...",
+            "allowTargetBlank": true,
+            "single": "paragraph"
           }
         },
-        "logo_third_column": {
+        "logo": {
           "type": "Image",
           "config": {
-            "label": "Logo Third Column",
-            "constraint": {},
+            "label": "Logo",
+            "constraint": {
+              "width": 320
+            },
             "thumbnails": []
           }
         }
@@ -96,8 +115,8 @@
       "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
     },
     {
-      "id": "single",
-      "name": "Single",
+      "id": "simpleDarkMode",
+      "name": "Simple Dark Mode",
       "docURL": "...",
       "version": "sktwi1xtmkfgx8626",
       "description": "LogoCloud",
@@ -119,17 +138,20 @@
             "placeholder_true": "true",
             "default_value": false
           }
-        },
+        }
+      },
+      "items": {
         "logo": {
           "type": "Image",
           "config": {
             "label": "Logo",
-            "constraint": {},
+            "constraint": {
+              "width": 0
+            },
             "thumbnails": []
           }
         }
       },
-      "items": {},
       "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
     }
   ]

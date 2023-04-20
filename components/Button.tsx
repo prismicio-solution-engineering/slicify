@@ -35,10 +35,10 @@ export function Button({
   submit,
   ...props
 }: {
-  variant: string;
-  color: string;
+  variant?: string;
+  color?: string;
   className?: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   href?: string;
   field?: prismicT.LinkField;
   submit?: boolean;
