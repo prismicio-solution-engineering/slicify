@@ -83,7 +83,7 @@ export default function Form({ slice }: FormProps) {
           >
             <div className="flex gap-x-4">
               <TextField
-                id="email-address"
+                id="email"
                 label="Email address"
                 name="email"
                 type="email"
