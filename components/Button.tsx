@@ -32,20 +32,26 @@ export function Button({
   className,
   href = "#",
   field,
+  submit,
   ...props
 }: {
   variant: string;
   color: string;
-  className: string;
+  className?: string;
   children: React.ReactNode;
   href?: string;
   field?: prismicT.LinkField;
+  submit?: boolean;
 }) {
   className = clsx(
     baseStyles[variant],
     variantStyles[variant][color],
     className
   );
+
+  if (submit) {
+    return <button type="submit" className={className} {...props} />;
+  }
 
   return field ? (
     // <Link href={href} className={className} {...props} />

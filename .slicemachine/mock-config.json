@@ -52,6 +52,11 @@
         "primary": {},
         "items": {}
       }
+    },
+    "Form": {
+      "default": {
+        "primary": {}
+      }
     }
   },
   "_cts": {

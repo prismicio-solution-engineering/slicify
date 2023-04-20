@@ -24,7 +24,7 @@ interface HomePageDocumentData {
  * Slice for *Home Page → Slice Zone*
  *
  */
-type HomePageDocumentDataSlicesSlice = FeaturesSlice | PricingSlice;
+type HomePageDocumentDataSlicesSlice = FeaturesSlice | PricingSlice | FormSlice;
 /**
  * Home Page document from Prismic
  *
@@ -374,6 +374,75 @@ type FeaturesSliceVariation = FeaturesSliceRightSide | FeaturesSliceLeftSide | F
  *
  */
 export type FeaturesSlice = prismicT.SharedSlice<"features", FeaturesSliceVariation>;
+/**
+ * Primary content in Form → Primary
+ *
+ */
+interface FormSliceDefaultPrimary {
+    /**
+     * Description field in *Form → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: This is where it all begins...
+     * - **API ID Path**: form.primary.description
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    description: prismicT.RichTextField;
+    /**
+     * Placeholder field in *Form → Primary*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: form.primary.placeholder
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    placeholder: prismicT.KeyTextField;
+    /**
+     * Subscribe Label field in *Form → Primary*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: form.primary.subscribe_label
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    subscribe_label: prismicT.KeyTextField;
+    /**
+     * Disclaimer field in *Form → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: form.primary.disclaimer
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    disclaimer: prismicT.RichTextField;
+}
+/**
+ * Default variation for Form Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Form`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type FormSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<FormSliceDefaultPrimary>, never>;
+/**
+ * Slice variation for *Form*
+ *
+ */
+type FormSliceVariation = FormSliceDefault;
+/**
+ * Form Shared Slice
+ *
+ * - **API ID**: `form`
+ * - **Description**: `Form`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type FormSlice = prismicT.SharedSlice<"form", FormSliceVariation>;
 /**
  * Primary content in Hero → Primary
  *
@@ -1053,6 +1122,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { HomePageDocumentData, HomePageDocumentDataSlicesSlice, HomePageDocument, AllDocumentTypes, FeaturesSliceRightSidePrimary, FeaturesSliceRightSideItem, FeaturesSliceRightSide, FeaturesSliceLeftSidePrimary, FeaturesSliceLeftSideItem, FeaturesSliceLeftSide, FeaturesSliceAbovePrimary, FeaturesSliceAboveItem, FeaturesSliceAbove, FeaturesSliceBelowPrimary, FeaturesSliceBelowItem, FeaturesSliceBelow, FeaturesSliceVariation, FeaturesSlice, HeroSliceDefaultPrimary, HeroSliceDefault, HeroSliceTitleOnlyPrimary, HeroSliceTitleOnly, HeroSliceWithBackgroundPrimary, HeroSliceWithBackground, HeroSliceVariation, HeroSlice, LogoCloudSliceDefaultPrimary, LogoCloudSliceDefaultItem, LogoCloudSliceDefault, LogoCloudSliceThreeColumnsPrimary, LogoCloudSliceThreeColumns, LogoCloudSliceSinglePrimary, LogoCloudSliceSingle, LogoCloudSliceVariation, LogoCloudSlice, PricingSliceDefaultPrimary, PricingSliceDefaultItem, PricingSliceDefault, PricingSliceWithPromoPrimary, PricingSliceWithPromoItem, PricingSliceWithPromo, PricingSliceVariation, PricingSlice };
+        export type { HomePageDocumentData, HomePageDocumentDataSlicesSlice, HomePageDocument, AllDocumentTypes, FeaturesSliceRightSidePrimary, FeaturesSliceRightSideItem, FeaturesSliceRightSide, FeaturesSliceLeftSidePrimary, FeaturesSliceLeftSideItem, FeaturesSliceLeftSide, FeaturesSliceAbovePrimary, FeaturesSliceAboveItem, FeaturesSliceAbove, FeaturesSliceBelowPrimary, FeaturesSliceBelowItem, FeaturesSliceBelow, FeaturesSliceVariation, FeaturesSlice, FormSliceDefaultPrimary, FormSliceDefault, FormSliceVariation, FormSlice, HeroSliceDefaultPrimary, HeroSliceDefault, HeroSliceTitleOnlyPrimary, HeroSliceTitleOnly, HeroSliceWithBackgroundPrimary, HeroSliceWithBackground, HeroSliceVariation, HeroSlice, LogoCloudSliceDefaultPrimary, LogoCloudSliceDefaultItem, LogoCloudSliceDefault, LogoCloudSliceThreeColumnsPrimary, LogoCloudSliceThreeColumns, LogoCloudSliceSinglePrimary, LogoCloudSliceSingle, LogoCloudSliceVariation, LogoCloudSlice, PricingSliceDefaultPrimary, PricingSliceDefaultItem, PricingSliceDefault, PricingSliceWithPromoPrimary, PricingSliceWithPromoItem, PricingSliceWithPromo, PricingSliceVariation, PricingSlice };
     }
 }

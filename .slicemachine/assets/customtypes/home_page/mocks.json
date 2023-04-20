@@ -3,7 +3,7 @@
     "__TYPE__": "SliceContentType",
     "value": [
       {
-        "key": "features$e0098c51-1b81-45c6-af55-2333926857cb",
+        "key": "features$4ed3a619-53bd-4ca1-aec4-fd1ba1ab88b5",
         "name": "features",
         "widget": {
           "__TYPE__": "SharedSliceContent",
@@ -15,7 +15,7 @@
                 {
                   "type": "heading2",
                   "content": {
-                    "text": "Truth"
+                    "text": "Serve"
                   }
                 }
               ]
@@ -26,7 +26,7 @@
                 {
                   "type": "paragraph",
                   "content": {
-                    "text": "Ipsum nisi esse ex consequat est magna laboris velit nostrud aute id reprehenderit incididunt excepteur incididunt."
+                    "text": "Voluptate magna qui culpa nisi incididunt Lorem do nisi dolore aliquip ex culpa enim nisi. Nostrud id consectetur et veniam velit labore incididunt aliquip."
                   }
                 }
               ]
@@ -44,7 +44,7 @@
                       {
                         "type": "paragraph",
                         "content": {
-                          "text": "Velit mollit labore officia ipsum laboris in dolor dolor do reprehenderit consectetur elit minim do. Laborum ex nisi deserunt sunt amet commodo nostrud Lorem fugiat sit nisi in."
+                          "text": "Culpa id enim ullamco deserunt ut quis."
                         }
                       }
                     ]
@@ -58,7 +58,7 @@
                       {
                         "type": "paragraph",
                         "content": {
-                          "text": "Aliquip aliquip cillum nisi culpa minim id."
+                          "text": "Nostrud culpa velit aliqua velit minim consectetur."
                         }
                       }
                     ]
@@ -70,18 +70,18 @@
                     "__TYPE__": "ImageContent",
                     "origin": {
                       "id": "main",
-                      "url": "https://images.unsplash.com/photo-1551739440-5dd934d3a94a",
-                      "width": 3456,
-                      "height": 4320
+                      "url": "https://images.unsplash.com/photo-1531771686035-25f47595c87a",
+                      "width": 3024,
+                      "height": 3778
                     },
-                    "url": "https://images.unsplash.com/photo-1551739440-5dd934d3a94a?rect=0%2C996%2C3456%2C2327&w=2174&h=1464",
+                    "url": "https://images.unsplash.com/photo-1531771686035-25f47595c87a?rect=0%2C871%2C3024%2C2036&w=2174&h=1464",
                     "width": 2174,
                     "height": 1464,
                     "edit": {
                       "zoom": 1,
                       "crop": {
                         "x": 0,
-                        "y": 996
+                        "y": 871
                       },
                       "background": "transparent"
                     },
@@ -94,8 +94,108 @@
         }
       },
       {
-        "key": "pricing$5e85a65d-7d42-4b19-98dc-091e4569e035",
+        "key": "pricing$72e76815-b3a2-4a61-8f87-b0735b2b52fb",
         "name": "pricing",
+        "widget": {
+          "__TYPE__": "SharedSliceContent",
+          "variation": "default",
+          "primary": {
+            "title": {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "heading2",
+                  "content": {
+                    "text": "Money"
+                  }
+                }
+              ]
+            },
+            "description": {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Aliquip exercitation excepteur minim irure. Enim nulla amet occaecat velit consequat ad non Lorem elit eiusmod nulla veniam sunt nisi eu. Esse ut enim exercitation pariatur magna irure fugiat ex amet est dolor consectetur quis sit sint."
+                  }
+                }
+              ]
+            }
+          },
+          "items": [
+            {
+              "__TYPE__": "GroupItemContent",
+              "value": [
+                [
+                  "name",
+                  {
+                    "__TYPE__": "FieldContent",
+                    "value": "solar",
+                    "type": "Text"
+                  }
+                ],
+                [
+                  "price",
+                  {
+                    "__TYPE__": "FieldContent",
+                    "value": "swept",
+                    "type": "Text"
+                  }
+                ],
+                [
+                  "description",
+                  {
+                    "__TYPE__": "StructuredTextContent",
+                    "value": [
+                      {
+                        "type": "paragraph",
+                        "content": {
+                          "text": "Nisi proident aute duis incididunt id sit minim."
+                        }
+                      }
+                    ]
+                  }
+                ],
+                [
+                  "register_link",
+                  {
+                    "__TYPE__": "LinkContent",
+                    "value": {
+                      "__TYPE__": "ExternalLink",
+                      "url": "http://google.com"
+                    }
+                  }
+                ],
+                [
+                  "features",
+                  {
+                    "__TYPE__": "StructuredTextContent",
+                    "value": [
+                      {
+                        "type": "paragraph",
+                        "content": {
+                          "text": "Deserunt mollit quis nostrud anim eiusmod eu qui quis ea. Ex enim sunt ea consequat pariatur sit."
+                        }
+                      }
+                    ]
+                  }
+                ],
+                [
+                  "featured",
+                  {
+                    "__TYPE__": "BooleanContent",
+                    "value": true
+                  }
+                ]
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "key": "form$b864c930-ff73-4d60-bc0e-6e4d1f7ab0cd",
+        "name": "form",
         "widget": {
           "__TYPE__": "SharedSliceContent",
           "variation": "default",
@@ -106,7 +206,7 @@
                 {
                   "type": "heading1",
                   "content": {
-                    "text": "Score"
+                    "text": "Needs"
                   }
                 }
               ]

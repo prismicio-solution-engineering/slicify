@@ -15,6 +15,9 @@
             },
             "pricing": {
               "type": "SharedSlice"
+            },
+            "form": {
+              "type": "SharedSlice"
             }
           }
         }
