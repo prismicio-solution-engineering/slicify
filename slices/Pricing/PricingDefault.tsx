@@ -1,8 +1,8 @@
-import type { Content } from '@prismicio/client'
-import { PrismicRichText, SliceComponentProps } from '@prismicio/react'
+import type { Content } from "@prismicio/client";
+import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 
 import { Container } from "@/components/Container";
-import Plan from './Plan';
+import Plan from "./Plan";
 
 function SwirlyDoodle({ className }: { className: string }) {
   return (
@@ -21,7 +21,11 @@ function SwirlyDoodle({ className }: { className: string }) {
   );
 }
 
-export default function PricingDefault({ slice }: {slice: Content.PricingSliceDefault}) {
+export default function PricingDefault({
+  slice,
+}: {
+  slice: Content.PricingSliceDefault;
+}) {
   return (
     <section
       id="pricing"
@@ -29,52 +33,62 @@ export default function PricingDefault({ slice }: {slice: Content.PricingSliceDe
       className="bg-slate-900 py-20 sm:py-32"
     >
       <Container>
-        <div className="md:text-center"> {/* mx-auto max-w-7xl px-6 pb-96 pt-24 text-center sm:pt-32 lg:px-8 */}
-          <PrismicRichText field={slice.primary.title} components={{
-            heading2: ({ children }) => (
-              <h2 className="font-display text-3xl tracking-tight text-white sm:text-4xl">
-                {children}
-              </h2>
-            ),
-            label: ({ node, children }) => {
-              return (
-                <>
-                  {
-                    node.data.label === "highlight" &&
-                    <span className="relative whitespace-nowrap">
-                      <SwirlyDoodle className="absolute left-0 top-1/2 h-[1em] w-full fill-blue-400" />
-                      <span className="relative">{children}</span>
-                    </span>
-                  }
-                </>
-              )
-            }
-          }} />
-          <PrismicRichText field={slice.primary.description} components={{
-            paragraph: ({ children }) => (
-              <p className="mt-4 text-lg text-slate-400">
-                {children}
-              </p>
-            ),
-          }}
+        <div className="md:text-center">
+          {" "}
+          {/* mx-auto max-w-7xl px-6 pb-96 pt-24 text-center sm:pt-32 lg:px-8 */}
+          <PrismicRichText
+            field={slice.primary.title}
+            components={{
+              heading2: ({ children }) => (
+                <h2 className="font-display text-3xl tracking-tight text-white sm:text-4xl">
+                  {children}
+                </h2>
+              ),
+              label: ({ node, children }) => {
+                return (
+                  <>
+                    {node.data.label === "highlight" && (
+                      <span className="relative whitespace-nowrap">
+                        <SwirlyDoodle className="absolute left-0 top-1/2 h-[1em] w-full fill-blue-400" />
+                        <span className="relative">{children}</span>
+                      </span>
+                    )}
+                  </>
+                );
+              },
+            }}
+          />
+          <PrismicRichText
+            field={slice.primary.description}
+            components={{
+              paragraph: ({ children }) => (
+                <p className="mt-4 text-lg text-slate-400">{children}</p>
+              ),
+            }}
           />
         </div>
-        <div className={`-mx-4 mt-16 grid max-w-2xl grid-cols-1 gap-y-10 sm:mx-auto lg:-mx-8 lg:max-w-none ${slice.items.length === 1 ? "lg:justify-items-center" : slice.items.length === 2 ? "lg:grid-cols-2 lg:auto-cols-fr lg:justify-items-center" : "lg:grid-cols-3"} xl:mx-0 xl:gap-x-8`}>
-          {
-            slice.items.map((plan, index) => (
-              <Plan
-                key={"plan" + plan.name + index}
-                name={plan.name}
-                price={plan.price}
-                description={plan.description}
-                link={plan.register_link}
-                features={plan.features}
-                featured={plan.featured}
-              />
-            ))
-          }
+        <div
+          className={`-mx-4 mt-16 grid max-w-2xl grid-cols-1 gap-y-10 sm:mx-auto lg:-mx-8 lg:max-w-none ${
+            slice.items.length === 1
+              ? "lg:justify-items-center"
+              : slice.items.length === 2
+              ? "lg:grid-cols-2 lg:auto-cols-fr lg:justify-items-center"
+              : "lg:grid-cols-3"
+          } xl:mx-0 xl:gap-x-8`}
+        >
+          {slice.items.map((plan, index) => (
+            <Plan
+              key={"plan" + plan.name + index}
+              name={plan.name}
+              price={plan.price}
+              description={plan.description}
+              link={plan.register_link}
+              features={plan.features}
+              featured={plan.featured}
+            />
+          ))}
         </div>
       </Container>
     </section>
-  )
+  );
 }

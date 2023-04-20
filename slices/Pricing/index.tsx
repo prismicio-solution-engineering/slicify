@@ -9,8 +9,8 @@ export type PricingProps = SliceComponentProps<Content.PricingSlice>;
 export default function Pricing({ slice }: PricingProps) {
   switch (slice.variation) {
     case "default":
-      return <PricingDefault slice={slice}/>
+      return <PricingDefault slice={slice} />;
     case "withPromo":
-      return <PricingWithPromo slice={slice}/>
+      return <PricingWithPromo slice={slice} />;
   }
 }

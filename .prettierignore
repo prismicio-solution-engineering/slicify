@@ -9,6 +9,7 @@
 .slicemachine/**
 customtypes/**
 *.json
+.prismic/**
 
 # libraries index to edit
 slices/index.tsx

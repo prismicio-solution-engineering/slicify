@@ -41,7 +41,7 @@ export function Button({
   children: React.ReactNode;
   href?: string;
   field?: prismicT.LinkField;
-  submit?: boolean
+  submit?: boolean;
 }) {
   className = clsx(
     baseStyles[variant],
@@ -50,13 +50,7 @@ export function Button({
   );
 
   if (submit) {
-    return (
-      <button
-        type="submit"
-        className={className}
-        {...props}
-      />
-    )
+    return <button type="submit" className={className} {...props} />;
   }
 
   return field ? (
