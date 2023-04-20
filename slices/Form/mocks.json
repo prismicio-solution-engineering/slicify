@@ -1,0 +1,58 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Want product news and updates?",
+              "spans": []
+            },
+            "direction": "ltr"
+          },
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Sign up for our newsletter.",
+              "spans": []
+            },
+            "direction": "ltr"
+          }
+        ]
+      },
+      "placeholder": {
+        "__TYPE__": "FieldContent",
+        "type": "Text",
+        "value": "Enter your email"
+      },
+      "subscribe_label": {
+        "__TYPE__": "FieldContent",
+        "type": "Text",
+        "value": "Subscribe"
+      },
+      "disclaimer": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "We care about your data. Read our privacy policy.",
+              "spans": []
+            },
+            "direction": "ltr"
+          }
+        ]
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": []
+      }
+    ]
+  }
+]
