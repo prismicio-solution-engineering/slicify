@@ -92,6 +92,21 @@
       "centeredWithBackground": {
         "primary": {}
       }
+    },
+    "Pricing": {
+      "default": {
+        "primary": {},
+        "items": {}
+      },
+      "withPromo": {
+        "primary": {},
+        "items": {}
+      }
+    },
+    "Form": {
+      "default": {
+        "primary": {}
+      }
     }
   },
   "_cts": {

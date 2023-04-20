@@ -3,24 +3,30 @@
 import CallToAction from './CallToAction';
 import Faq from './Faq';
 import Features from './Features';
+import Form from './Form';
 import Hero from './Hero';
 import LogoCloud from './LogoCloud';
 import Testimonials from './Testimonials';
+import Pricing from './Pricing';
 
 export {
 	CallToAction,
 	Faq,
 	Features,
+	Form,
 	Hero,
 	LogoCloud,
 	Testimonials,
+	Pricing,
 };
 
 export const components = {
 	call_to_action: CallToAction,
 	faq: Faq,
 	features: Features,
+	form: Form,
 	hero: Hero,
 	logo_cloud: LogoCloud,
 	testimonials: Testimonials,
+	pricing: Pricing,
 };

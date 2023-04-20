@@ -18,7 +18,7 @@ export function createClient({
   req,
   ...config
 }: prismicNext.CreateClientConfig = {}) {
-  const client = prismic.createClient("slicify", { routes, ...config });
+  const client = prismic.createClient(repositoryName, { routes, ...config });
 
   prismicNext.enableAutoPreviews({ client, previewData, req });
 

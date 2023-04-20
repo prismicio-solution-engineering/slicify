@@ -10,12 +10,19 @@ import { asText } from "@prismicio/helpers";
 import { PrismicNextImage } from "@prismicio/next";
 import { Simplify } from "@prismicio/types/dist/value/types";
 
-function Feature({ feature, isActive, className, ...props }:
-  {
-    feature: (Simplify<Content.FeaturesSliceBelowItem> | Simplify<Content.FeaturesSliceAboveItem>) & { eyebrowElement?: JSX.Element },
-    isActive: boolean,
-    className: string
-  }) {
+function Feature({
+  feature,
+  isActive,
+  className,
+  ...props
+}: {
+  feature: (
+    | Simplify<Content.FeaturesSliceBelowItem>
+    | Simplify<Content.FeaturesSliceAboveItem>
+  ) & { eyebrowElement?: JSX.Element };
+  isActive: boolean;
+  className: string;
+}) {
   return (
     <div
       className={clsx(className, !isActive && "opacity-75 hover:opacity-100")}
@@ -49,9 +56,7 @@ function Feature({ feature, isActive, className, ...props }:
         field={feature.feature_description}
         components={{
           paragraph: ({ children }) => (
-            <p className="mt-4 text-sm text-slate-600">
-              {children}
-            </p>
+            <p className="mt-4 text-sm text-slate-600">{children}</p>
           ),
         }}
       />
@@ -59,7 +64,9 @@ function Feature({ feature, isActive, className, ...props }:
   );
 }
 
-function FeaturesMobile({ slice }: {
+function FeaturesMobile({
+  slice,
+}: {
   slice: Content.FeaturesSliceBelow | Content.FeaturesSliceAbove;
 }) {
   return (
@@ -84,16 +91,18 @@ function FeaturesMobile({ slice }: {
   );
 }
 
-function FeaturesDesktop({ slice, above }: {
-  slice: Content.FeaturesSliceBelow | Content.FeaturesSliceAbove,
-  above: boolean
+function FeaturesDesktop({
+  slice,
+  above,
+}: {
+  slice: Content.FeaturesSliceBelow | Content.FeaturesSliceAbove;
+  above: boolean;
 }) {
   return (
     <Tab.Group as="div" className="hidden lg:mt-20 lg:block">
       {({ selectedIndex }) => (
         <>
-          {
-            !above &&
+          {!above && (
             <Tab.List className="grid grid-cols-3 gap-x-8">
               {slice.items.map((feature, featureIndex) => (
                 <Feature
@@ -105,15 +114,19 @@ function FeaturesDesktop({ slice, above }: {
                         <span className="absolute inset-0" />
                         {asText(feature.eyebrow)}
                       </Tab>
-                    )
+                    ),
                   }}
                   isActive={featureIndex === selectedIndex}
                   className="relative"
                 />
               ))}
             </Tab.List>
-          }
-          <Tab.Panels className={`relative overflow-hidden rounded-4xl bg-slate-200 px-14 py-16 xl:px-16 ${above ===false && "mt-20"}`}>
+          )}
+          <Tab.Panels
+            className={`relative overflow-hidden rounded-4xl bg-slate-200 px-14 py-16 xl:px-16 ${
+              above === false && "mt-20"
+            }`}
+          >
             <div className="-mx-5 flex">
               {slice.items.map((feature, featureIndex) => (
                 <Tab.Panel
@@ -139,8 +152,7 @@ function FeaturesDesktop({ slice, above }: {
             </div>
             <div className="pointer-events-none absolute inset-0 rounded-4xl ring-1 ring-inset ring-slate-900/10" />
           </Tab.Panels>
-          {
-            above &&
+          {above && (
             <Tab.List className="grid grid-cols-3 gap-x-8 mt-20">
               {slice.items.map((feature, featureIndex) => (
                 <Feature
@@ -152,14 +164,14 @@ function FeaturesDesktop({ slice, above }: {
                         <span className="absolute inset-0" />
                         {asText(feature.eyebrow)}
                       </Tab>
-                    )
+                    ),
                   }}
                   isActive={featureIndex === selectedIndex}
                   className="relative"
                 />
               ))}
             </Tab.List>
-          }
+          )}
         </>
       )}
     </Tab.Group>
@@ -168,7 +180,7 @@ function FeaturesDesktop({ slice, above }: {
 
 export default function FeaturesVertical({
   slice,
-  above = false
+  above = false,
 }: {
   slice: Content.FeaturesSliceBelow | Content.FeaturesSliceAbove;
   above: boolean;

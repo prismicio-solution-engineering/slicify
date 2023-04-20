@@ -12,6 +12,12 @@
           "choices": {
             "features": {
               "type": "SharedSlice"
+            },
+            "pricing": {
+              "type": "SharedSlice"
+            },
+            "form": {
+              "type": "SharedSlice"
             }
           }
         }
