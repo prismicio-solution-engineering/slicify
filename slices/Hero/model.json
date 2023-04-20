@@ -239,11 +239,14 @@
             "select": null
           }
         },
-        "background_image": {
+        "background_video": {
           "type": "Image",
           "config": {
-            "label": "Background Image",
-            "constraint": {},
+            "label": "Background Video",
+            "constraint": {
+              "width": 2245,
+              "height": 1636
+            },
             "thumbnails": []
           }
         }

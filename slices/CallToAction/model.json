@@ -17,7 +17,7 @@
             "label": "Title",
             "placeholder": "This is where it all begins...",
             "allowTargetBlank": true,
-            "single": "heading2"
+            "multi": "heading2"
           }
         },
         "description": {
@@ -26,7 +26,7 @@
             "label": "Description",
             "placeholder": "",
             "allowTargetBlank": true,
-            "single": "paragraph,strong"
+            "multi": "paragraph,strong"
           }
         },
         "cta_label": {
@@ -61,7 +61,8 @@
             "label": "Title",
             "placeholder": "This is where it all begins...",
             "allowTargetBlank": true,
-            "single": "heading2"
+            "multi": "heading2",
+            "labels": ["highlighted"]
           }
         },
         "description": {
@@ -70,7 +71,7 @@
             "label": "Description",
             "placeholder": "",
             "allowTargetBlank": true,
-            "single": "paragraph,strong"
+            "multi": "paragraph,strong"
           }
         },
         "cta_label": {
@@ -105,7 +106,7 @@
             "label": "Title",
             "placeholder": "This is where it all begins...",
             "allowTargetBlank": true,
-            "single": "heading2"
+            "multi": "heading2"
           }
         },
         "description": {
@@ -114,14 +115,17 @@
             "label": "Description",
             "placeholder": "",
             "allowTargetBlank": true,
-            "single": "paragraph,strong"
+            "multi": "paragraph,strong"
           }
         },
         "featured_image": {
           "type": "Image",
           "config": {
             "label": "Featured Image",
-            "constraint": {},
+            "constraint": {
+              "width": 912,
+              "height": 615
+            },
             "thumbnails": []
           }
         }
@@ -170,7 +174,7 @@
             "label": "Title",
             "placeholder": "This is where it all begins...",
             "allowTargetBlank": true,
-            "single": "heading2"
+            "multi": "heading2"
           }
         },
         "description": {
@@ -179,14 +183,17 @@
             "label": "Description",
             "placeholder": "",
             "allowTargetBlank": true,
-            "single": "paragraph,strong"
+            "multi": "paragraph,strong"
           }
         },
         "featured_image": {
           "type": "Image",
           "config": {
             "label": "Featured Image",
-            "constraint": {},
+            "constraint": {
+              "width": 1824,
+              "height": 1080
+            },
             "thumbnails": []
           }
         }
@@ -214,8 +221,7 @@
             "placeholder": "",
             "options": [
               "Primary",
-              "Secondary",
-              "Text"
+              "Secondary"
             ]
           }
         }

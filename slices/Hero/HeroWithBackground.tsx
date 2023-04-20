@@ -26,14 +26,14 @@ export default function HeroWithBackground({
     <section>
       {/* Blue background */}
       <div className="relative isolate overflow-hidden bg-light-black">
-        <Image
+        {/* <PrismicNextImage
           className="absolute inset-0 -z-10 h-full w-full object-cover object-right md:object-center opacity-80 "
-          src={ video ? backgroundVideo : backgroundImage}
-          alt=""
+          field={ video ? slice.primary.background_video : slice.primary.background_image}
+          priority
           width={2245}
           height={1636}
           unoptimized
-          />
+          /> */}
 
         <Container className="pb-16 pt-20 text-center lg:pt-32">
           <h1 className="mx-auto max-w-4xl font-display text-5xl font-medium tracking-tight text-white sm:text-7xl">

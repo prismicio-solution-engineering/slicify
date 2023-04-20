@@ -44,13 +44,13 @@ interface CallToActionSliceDefaultPrimary {
     /**
      * Title field in *CallToAction → Primary*
      *
-     * - **Field Type**: Title
+     * - **Field Type**: Rich Text
      * - **Placeholder**: This is where it all begins...
      * - **API ID Path**: call_to_action.primary.title
      * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
      *
      */
-    title: prismicT.TitleField;
+    title: prismicT.RichTextField;
     /**
      * Description field in *CallToAction → Primary*
      *
@@ -99,13 +99,13 @@ interface CallToActionSliceWhiteBackgroundPrimary {
     /**
      * Title field in *CallToAction → Primary*
      *
-     * - **Field Type**: Title
+     * - **Field Type**: Rich Text
      * - **Placeholder**: This is where it all begins...
      * - **API ID Path**: call_to_action.primary.title
      * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
      *
      */
-    title: prismicT.TitleField;
+    title: prismicT.RichTextField;
     /**
      * Description field in *CallToAction → Primary*
      *
@@ -154,13 +154,13 @@ interface CallToActionSliceWithImageRightPrimary {
     /**
      * Title field in *CallToAction → Primary*
      *
-     * - **Field Type**: Title
+     * - **Field Type**: Rich Text
      * - **Placeholder**: This is where it all begins...
      * - **API ID Path**: call_to_action.primary.title
      * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
      *
      */
-    title: prismicT.TitleField;
+    title: prismicT.RichTextField;
     /**
      * Description field in *CallToAction → Primary*
      *
@@ -235,13 +235,13 @@ interface CallToActionSliceWithImageLeftPrimary {
     /**
      * Title field in *CallToAction → Primary*
      *
-     * - **Field Type**: Title
+     * - **Field Type**: Rich Text
      * - **Placeholder**: This is where it all begins...
      * - **API ID Path**: call_to_action.primary.title
      * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
      *
      */
-    title: prismicT.TitleField;
+    title: prismicT.RichTextField;
     /**
      * Description field in *CallToAction → Primary*
      *
@@ -297,7 +297,7 @@ export interface CallToActionSliceWithImageLeftItem {
      * - **Documentation**: https://prismic.io/docs/core-concepts/select
      *
      */
-    cta_type: prismicT.SelectField<"Primary" | "Secondary" | "Text">;
+    cta_type: prismicT.SelectField<"Primary" | "Secondary">;
 }
 /**
  * With Image Left variation for CallToAction Slice
@@ -337,6 +337,42 @@ interface FaqSliceDefaultPrimary {
      *
      */
     title: prismicT.TitleField;
+    /**
+     * Description field in *Faq → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: faq.primary.description
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    description: prismicT.RichTextField;
+}
+/**
+ * Item in Faq → Items
+ *
+ */
+export interface FaqSliceDefaultItem {
+    /**
+     * Question field in *Faq → Items*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: faq.items[].question
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    question: prismicT.RichTextField;
+    /**
+     * Answer field in *Faq → Items*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: faq.items[].answer
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    answer: prismicT.RichTextField;
 }
 /**
  * Default variation for Faq Slice
@@ -346,12 +382,236 @@ interface FaqSliceDefaultPrimary {
  * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
  *
  */
-export type FaqSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<FaqSliceDefaultPrimary>, never>;
+export type FaqSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<FaqSliceDefaultPrimary>, Simplify<FaqSliceDefaultItem>>;
+/**
+ * Primary content in Faq → Primary
+ *
+ */
+interface FaqSliceTwoColumnsPrimary {
+    /**
+     * Title field in *Faq → Primary*
+     *
+     * - **Field Type**: Title
+     * - **Placeholder**: This is where it all begins...
+     * - **API ID Path**: faq.primary.title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    title: prismicT.TitleField;
+    /**
+     * Description field in *Faq → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: faq.primary.description
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    description: prismicT.RichTextField;
+}
+/**
+ * Item in Faq → Items
+ *
+ */
+export interface FaqSliceTwoColumnsItem {
+    /**
+     * Question field in *Faq → Items*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: faq.items[].question
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    question: prismicT.RichTextField;
+    /**
+     * Answer field in *Faq → Items*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: faq.items[].answer
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    answer: prismicT.RichTextField;
+}
+/**
+ * Two Columns variation for Faq Slice
+ *
+ * - **API ID**: `twoColumns`
+ * - **Description**: `Faq`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type FaqSliceTwoColumns = prismicT.SharedSliceVariation<"twoColumns", Simplify<FaqSliceTwoColumnsPrimary>, Simplify<FaqSliceTwoColumnsItem>>;
+/**
+ * Primary content in Faq → Primary
+ *
+ */
+interface FaqSliceThreeColumnsPrimary {
+    /**
+     * Title field in *Faq → Primary*
+     *
+     * - **Field Type**: Title
+     * - **Placeholder**: This is where it all begins...
+     * - **API ID Path**: faq.primary.title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    title: prismicT.TitleField;
+    /**
+     * Description field in *Faq → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: faq.primary.description
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    description: prismicT.RichTextField;
+}
+/**
+ * Item in Faq → Items
+ *
+ */
+export interface FaqSliceThreeColumnsItem {
+    /**
+     * Question field in *Faq → Items*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: faq.items[].question
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    question: prismicT.RichTextField;
+    /**
+     * Answer field in *Faq → Items*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: faq.items[].answer
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    answer: prismicT.RichTextField;
+}
+/**
+ * Three Columns variation for Faq Slice
+ *
+ * - **API ID**: `threeColumns`
+ * - **Description**: `Faq`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type FaqSliceThreeColumns = prismicT.SharedSliceVariation<"threeColumns", Simplify<FaqSliceThreeColumnsPrimary>, Simplify<FaqSliceThreeColumnsItem>>;
+/**
+ * Primary content in Faq → Primary
+ *
+ */
+interface FaqSliceCenteredPrimary {
+    /**
+     * Title field in *Faq → Primary*
+     *
+     * - **Field Type**: Title
+     * - **Placeholder**: This is where it all begins...
+     * - **API ID Path**: faq.primary.title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    title: prismicT.TitleField;
+}
+/**
+ * Item in Faq → Items
+ *
+ */
+export interface FaqSliceCenteredItem {
+    /**
+     * Question field in *Faq → Items*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: faq.items[].question
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    question: prismicT.RichTextField;
+    /**
+     * Answer field in *Faq → Items*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: faq.items[].answer
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    answer: prismicT.RichTextField;
+}
+/**
+ * Centered variation for Faq Slice
+ *
+ * - **API ID**: `centered`
+ * - **Description**: `Faq`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type FaqSliceCentered = prismicT.SharedSliceVariation<"centered", Simplify<FaqSliceCenteredPrimary>, Simplify<FaqSliceCenteredItem>>;
+/**
+ * Primary content in Faq → Primary
+ *
+ */
+interface FaqSliceCenteredWithBackgroundPrimary {
+    /**
+     * Title field in *Faq → Primary*
+     *
+     * - **Field Type**: Title
+     * - **Placeholder**: This is where it all begins...
+     * - **API ID Path**: faq.primary.title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    title: prismicT.TitleField;
+}
+/**
+ * Item in Faq → Items
+ *
+ */
+export interface FaqSliceCenteredWithBackgroundItem {
+    /**
+     * Question field in *Faq → Items*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: faq.items[].question
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    question: prismicT.RichTextField;
+    /**
+     * Answer field in *Faq → Items*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: faq.items[].answer
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    answer: prismicT.RichTextField;
+}
+/**
+ * Centered With Background variation for Faq Slice
+ *
+ * - **API ID**: `centeredWithBackground`
+ * - **Description**: `Faq`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type FaqSliceCenteredWithBackground = prismicT.SharedSliceVariation<"centeredWithBackground", Simplify<FaqSliceCenteredWithBackgroundPrimary>, Simplify<FaqSliceCenteredWithBackgroundItem>>;
 /**
  * Slice variation for *Faq*
  *
  */
-type FaqSliceVariation = FaqSliceDefault;
+type FaqSliceVariation = FaqSliceDefault | FaqSliceTwoColumns | FaqSliceThreeColumns | FaqSliceCentered | FaqSliceCenteredWithBackground;
 /**
  * Faq Shared Slice
  *
@@ -1010,15 +1270,15 @@ interface HeroSliceWithVideoBackgroundPrimary {
      */
     secondary_cta_link: prismicT.LinkField;
     /**
-     * Background Image field in *Hero → Primary*
+     * Background Video field in *Hero → Primary*
      *
      * - **Field Type**: Image
      * - **Placeholder**: *None*
-     * - **API ID Path**: hero.primary.background_image
+     * - **API ID Path**: hero.primary.background_video
      * - **Documentation**: https://prismic.io/docs/core-concepts/image
      *
      */
-    background_image: prismicT.ImageField<never>;
+    background_video: prismicT.ImageField<never>;
 }
 /**
  * With Video Background variation for Hero Slice
@@ -1162,17 +1422,6 @@ interface LogoCloudSliceSinglePrimary {
      *
      */
     title: prismicT.RichTextField;
-    /**
-     * Dark mode field in *LogoCloud → Primary*
-     *
-     * - **Field Type**: Boolean
-     * - **Placeholder**: *None*
-     * - **Default Value**: false
-     * - **API ID Path**: logo_cloud.primary.dark_mode
-     * - **Documentation**: https://prismic.io/docs/core-concepts/boolean
-     *
-     */
-    dark_mode: prismicT.BooleanField;
     /**
      * Logo field in *LogoCloud → Primary*
      *
@@ -1427,26 +1676,6 @@ export type TestimonialsSliceScrollingCards = prismicT.SharedSliceVariation<"scr
  */
 interface TestimonialsSliceTwoColumnsWithSeparatorPrimary {
     /**
-     * Title field in *Testimonials → Primary*
-     *
-     * - **Field Type**: Title
-     * - **Placeholder**: This is where it all begins...
-     * - **API ID Path**: testimonials.primary.title
-     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-     *
-     */
-    title: prismicT.TitleField;
-    /**
-     * Description field in *Testimonials → Primary*
-     *
-     * - **Field Type**: Rich Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: testimonials.primary.description
-     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-     *
-     */
-    description: prismicT.RichTextField;
-    /**
      * Company logo column 1 field in *Testimonials → Primary*
      *
      * - **Field Type**: Image
@@ -1562,25 +1791,15 @@ export type TestimonialsSliceTwoColumnsWithSeparator = prismicT.SharedSliceVaria
  */
 interface TestimonialsSliceSingleCenteredPrimary {
     /**
-     * Title field in *Testimonials → Primary*
+     * Company logo field in *Testimonials → Primary*
      *
-     * - **Field Type**: Title
-     * - **Placeholder**: This is where it all begins...
-     * - **API ID Path**: testimonials.primary.title
-     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-     *
-     */
-    title: prismicT.TitleField;
-    /**
-     * Description field in *Testimonials → Primary*
-     *
-     * - **Field Type**: Rich Text
+     * - **Field Type**: Image
      * - **Placeholder**: *None*
-     * - **API ID Path**: testimonials.primary.description
-     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     * - **API ID Path**: testimonials.primary.company_logo
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
      *
      */
-    description: prismicT.RichTextField;
+    company_logo: prismicT.ImageField<never>;
     /**
      * Quote field in *Testimonials → Primary*
      *
@@ -1636,26 +1855,6 @@ export type TestimonialsSliceSingleCentered = prismicT.SharedSliceVariation<"sin
  *
  */
 interface TestimonialsSliceSingleWithLargeImagePrimary {
-    /**
-     * Title field in *Testimonials → Primary*
-     *
-     * - **Field Type**: Title
-     * - **Placeholder**: This is where it all begins...
-     * - **API ID Path**: testimonials.primary.title
-     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-     *
-     */
-    title: prismicT.TitleField;
-    /**
-     * Description field in *Testimonials → Primary*
-     *
-     * - **Field Type**: Rich Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: testimonials.primary.description
-     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-     *
-     */
-    description: prismicT.RichTextField;
     /**
      * Quote field in *Testimonials → Primary*
      *
@@ -1725,6 +1924,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { HomePageDocumentData, HomePageDocumentDataSlicesSlice, HomePageDocument, AllDocumentTypes, CallToActionSliceDefaultPrimary, CallToActionSliceDefault, CallToActionSliceWhiteBackgroundPrimary, CallToActionSliceWhiteBackground, CallToActionSliceWithImageRightPrimary, CallToActionSliceWithImageRightItem, CallToActionSliceWithImageRight, CallToActionSliceWithImageLeftPrimary, CallToActionSliceWithImageLeftItem, CallToActionSliceWithImageLeft, CallToActionSliceVariation, CallToActionSlice, FaqSliceDefaultPrimary, FaqSliceDefault, FaqSliceVariation, FaqSlice, FeaturesSliceRightSidePrimary, FeaturesSliceRightSideItem, FeaturesSliceRightSide, FeaturesSliceLeftSidePrimary, FeaturesSliceLeftSideItem, FeaturesSliceLeftSide, FeaturesSliceAbovePrimary, FeaturesSliceAboveItem, FeaturesSliceAbove, FeaturesSliceBelowPrimary, FeaturesSliceBelowItem, FeaturesSliceBelow, FeaturesSliceVariation, FeaturesSlice, HeroSliceDefaultPrimary, HeroSliceDefault, HeroSliceTitleOnlyPrimary, HeroSliceTitleOnly, HeroSliceWithBackgroundPrimary, HeroSliceWithBackground, HeroSliceWithVideoBackgroundPrimary, HeroSliceWithVideoBackground, HeroSliceVariation, HeroSlice, LogoCloudSliceDefaultPrimary, LogoCloudSliceDefaultItem, LogoCloudSliceDefault, LogoCloudSliceThreeColumnsPrimary, LogoCloudSliceThreeColumnsItem, LogoCloudSliceThreeColumns, LogoCloudSliceSinglePrimary, LogoCloudSliceSingle, LogoCloudSliceSimpleDarkModePrimary, LogoCloudSliceSimpleDarkModeItem, LogoCloudSliceSimpleDarkMode, LogoCloudSliceVariation, LogoCloudSlice, TestimonialsSliceDefaultPrimary, TestimonialsSliceDefaultItem, TestimonialsSliceDefault, TestimonialsSliceScrollingCardsPrimary, TestimonialsSliceScrollingCardsItem, TestimonialsSliceScrollingCards, TestimonialsSliceTwoColumnsWithSeparatorPrimary, TestimonialsSliceTwoColumnsWithSeparator, TestimonialsSliceSingleCenteredPrimary, TestimonialsSliceSingleCentered, TestimonialsSliceSingleWithLargeImagePrimary, TestimonialsSliceSingleWithLargeImage, TestimonialsSliceVariation, TestimonialsSlice };
+        export type { HomePageDocumentData, HomePageDocumentDataSlicesSlice, HomePageDocument, AllDocumentTypes, CallToActionSliceDefaultPrimary, CallToActionSliceDefault, CallToActionSliceWhiteBackgroundPrimary, CallToActionSliceWhiteBackground, CallToActionSliceWithImageRightPrimary, CallToActionSliceWithImageRightItem, CallToActionSliceWithImageRight, CallToActionSliceWithImageLeftPrimary, CallToActionSliceWithImageLeftItem, CallToActionSliceWithImageLeft, CallToActionSliceVariation, CallToActionSlice, FaqSliceDefaultPrimary, FaqSliceDefaultItem, FaqSliceDefault, FaqSliceTwoColumnsPrimary, FaqSliceTwoColumnsItem, FaqSliceTwoColumns, FaqSliceThreeColumnsPrimary, FaqSliceThreeColumnsItem, FaqSliceThreeColumns, FaqSliceCenteredPrimary, FaqSliceCenteredItem, FaqSliceCentered, FaqSliceCenteredWithBackgroundPrimary, FaqSliceCenteredWithBackgroundItem, FaqSliceCenteredWithBackground, FaqSliceVariation, FaqSlice, FeaturesSliceRightSidePrimary, FeaturesSliceRightSideItem, FeaturesSliceRightSide, FeaturesSliceLeftSidePrimary, FeaturesSliceLeftSideItem, FeaturesSliceLeftSide, FeaturesSliceAbovePrimary, FeaturesSliceAboveItem, FeaturesSliceAbove, FeaturesSliceBelowPrimary, FeaturesSliceBelowItem, FeaturesSliceBelow, FeaturesSliceVariation, FeaturesSlice, HeroSliceDefaultPrimary, HeroSliceDefault, HeroSliceTitleOnlyPrimary, HeroSliceTitleOnly, HeroSliceWithBackgroundPrimary, HeroSliceWithBackground, HeroSliceWithVideoBackgroundPrimary, HeroSliceWithVideoBackground, HeroSliceVariation, HeroSlice, LogoCloudSliceDefaultPrimary, LogoCloudSliceDefaultItem, LogoCloudSliceDefault, LogoCloudSliceThreeColumnsPrimary, LogoCloudSliceThreeColumnsItem, LogoCloudSliceThreeColumns, LogoCloudSliceSinglePrimary, LogoCloudSliceSingle, LogoCloudSliceSimpleDarkModePrimary, LogoCloudSliceSimpleDarkModeItem, LogoCloudSliceSimpleDarkMode, LogoCloudSliceVariation, LogoCloudSlice, TestimonialsSliceDefaultPrimary, TestimonialsSliceDefaultItem, TestimonialsSliceDefault, TestimonialsSliceScrollingCardsPrimary, TestimonialsSliceScrollingCardsItem, TestimonialsSliceScrollingCards, TestimonialsSliceTwoColumnsWithSeparatorPrimary, TestimonialsSliceTwoColumnsWithSeparator, TestimonialsSliceSingleCenteredPrimary, TestimonialsSliceSingleCentered, TestimonialsSliceSingleWithLargeImagePrimary, TestimonialsSliceSingleWithLargeImage, TestimonialsSliceVariation, TestimonialsSlice };
     }
 }

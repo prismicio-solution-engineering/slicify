@@ -217,21 +217,21 @@
           "url": "https://prismic.io"
         }
       },
-      "background_image": {
+      "background_video": {
         "__TYPE__": "ImageContent",
         "origin": {
           "id": "main",
-          "url": "https://images.unsplash.com/photo-1547082299-de196ea013d6",
-          "width": 4272,
-          "height": 2848
+          "url": "https://images.unsplash.com/photo-1547394765-185e1e68f34e",
+          "width": 6000,
+          "height": 4000
         },
-        "url": "https://images.unsplash.com/photo-1547082299-de196ea013d6",
-        "width": 4272,
-        "height": 2848,
+        "url": "https://images.unsplash.com/photo-1547394765-185e1e68f34e?rect=256%2C0%2C5489%2C4000&w=2245&h=1636",
+        "width": 2245,
+        "height": 1636,
         "edit": {
           "zoom": 1,
           "crop": {
-            "x": 0,
+            "x": 256,
             "y": 0
           },
           "background": "transparent"

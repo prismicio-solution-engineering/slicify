@@ -9,6 +9,9 @@
       },
       "withBackground": {
         "primary": {}
+      },
+      "withVideoBackground": {
+        "primary": {}
       }
     },
     "LogoCloud": {
@@ -24,7 +27,8 @@
         "primary": {}
       },
       "simpleDarkMode": {
-        "primary": {}
+        "primary": {},
+        "items": {}
       }
     },
     "Features": {
@@ -53,6 +57,13 @@
       "withImageRight": {
         "primary": {},
         "items": {}
+      },
+      "whiteBackground": {
+        "primary": {}
+      },
+      "withImageLeft": {
+        "primary": {},
+        "items": {}
       }
     },
     "Testimonials": {
@@ -65,9 +76,23 @@
       },
       "singleCentered": {
         "primary": {}
+      },
+      "singleWithLargeImage": {
+        "primary": {}
       }
     },
-    "Faq": {}
+    "Faq": {
+      "default": {
+        "primary": {},
+        "items": {}
+      },
+      "centered": {
+        "primary": {}
+      },
+      "centeredWithBackground": {
+        "primary": {}
+      }
+    }
   },
   "_cts": {
     "home_page": {}
