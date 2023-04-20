@@ -14,10 +14,11 @@ module.exports = {
       colors: {
         "dark-blue": "#0F172A",
         "vibrant-blue": "#2563EB",
-        "black": "0F172A",
+        "dark-gray": "#0F172A",
         "light-black": "#334155",
         "light-blue": "#60A5FA",
         "light-blue-70": "rgba(147, 197, 253, 0.7)",
+        "light-gray": "#E2E8F0"
       },
       borderRadius: {
         '4xl': '2rem',
