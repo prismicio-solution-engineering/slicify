@@ -6,8 +6,8 @@ import Features from './Features';
 import Form from './Form';
 import Hero from './Hero';
 import LogoCloud from './LogoCloud';
-import Testimonials from './Testimonials';
 import Pricing from './Pricing';
+import Testimonials from './Testimonials';
 
 export {
 	CallToAction,
@@ -16,8 +16,8 @@ export {
 	Form,
 	Hero,
 	LogoCloud,
-	Testimonials,
 	Pricing,
+	Testimonials,
 };
 
 export const components = {
@@ -27,6 +27,6 @@ export const components = {
 	form: Form,
 	hero: Hero,
 	logo_cloud: LogoCloud,
-	testimonials: Testimonials,
 	pricing: Pricing,
+	testimonials: Testimonials,
 };
