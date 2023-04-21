@@ -16,7 +16,7 @@ export default function LogoCloudSingle({
       <Container className="pb-16 pt-20 text-center lg:pt-32">
         <div className="font-display text-3xl text-slate-900">
           <span className="relative whitespace-nowrap">
-            <UnderlineDoodle className="absolute left-0 top-2/3 h-[0.58em] w-full fill-light-blue-70" />
+            <UnderlineDoodle className="absolute left-0 top-1/2 h-[1em] w-full fill-light-blue-70" />
             <PrismicRichText
               field={slice.primary.title}
               components={{

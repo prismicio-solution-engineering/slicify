@@ -9,7 +9,7 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "Consequat ea ipsum veniam laboris dolore id est aute anim amet dolor ea eu magna culpa."
+              "text": "Trusted by these six companies so far"
             }
           }
         ]
@@ -63,7 +63,7 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "Id dolor tempor voluptate culpa ipsum velit adipisicing deserunt nulla nisi. Aute tempor ea commodo ex ullamco mollit velit consequat consequat nisi nostrud minim irure culpa. Dolor officia dolore laborum qui dolor est reprehenderit."
+              "text": "Trusted by these six companies so far"
             }
           }
         ]
@@ -89,60 +89,6 @@
               "url": "https://images.unsplash.com/photo-1576662712957-9c79ae1280f8?rect=0%2C0%2C3456%2C3456&w=200&h=200",
               "width": 200,
               "height": 200,
-              "edit": {
-                "zoom": 1,
-                "crop": {
-                  "x": 0,
-                  "y": 0
-                },
-                "background": "transparent"
-              },
-              "credits": null,
-              "alt": null,
-              "__TYPE__": "ImageContent",
-              "thumbnails": {}
-            }
-          ]
-        ]
-      }
-    ]
-  },
-  {
-    "__TYPE__": "SharedSliceContent",
-    "variation": "simpleDarkMode",
-    "primary": {
-      "title": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "Officia minim amet nostrud ipsum exercitation aute ad in. Id labore magna ullamco pariatur cupidatat mollit non ex ipsum consequat exercitation."
-            }
-          }
-        ]
-      },
-      "dark_mode": {
-        "__TYPE__": "BooleanContent",
-        "value": true
-      }
-    },
-    "items": [
-      {
-        "__TYPE__": "GroupItemContent",
-        "value": [
-          [
-            "logo",
-            {
-              "origin": {
-                "id": "main",
-                "url": "https://images.unsplash.com/photo-1547082299-de196ea013d6",
-                "width": 4272,
-                "height": 2848
-              },
-              "url": "https://images.unsplash.com/photo-1547082299-de196ea013d6",
-              "width": 4272,
-              "height": 2848,
               "edit": {
                 "zoom": 1,
                 "crop": {
@@ -206,6 +152,62 @@
       {
         "__TYPE__": "GroupItemContent",
         "value": []
+      }
+    ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "simpleDarkMode",
+    "primary": {
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Trusted by these six companies so far",
+              "spans": []
+            },
+            "direction": "ltr"
+          }
+        ]
+      },
+      "dark_mode": {
+        "__TYPE__": "BooleanContent",
+        "value": true
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "logo",
+            {
+              "origin": {
+                "id": "main",
+                "url": "https://images.unsplash.com/photo-1547082299-de196ea013d6",
+                "width": 4272,
+                "height": 2848
+              },
+              "url": "https://images.unsplash.com/photo-1547082299-de196ea013d6",
+              "width": 4272,
+              "height": 2848,
+              "edit": {
+                "zoom": 1,
+                "crop": {
+                  "x": 0,
+                  "y": 0
+                },
+                "background": "transparent"
+              },
+              "credits": null,
+              "alt": null,
+              "__TYPE__": "ImageContent",
+              "thumbnails": {}
+            }
+          ]
+        ]
       }
     ]
   }

@@ -25,7 +25,7 @@ export default function LogoCloudGrid({
           role="list"
           className="mt-8 flex items-center justify-center gap-x-8 sm:flex-col sm:gap-x-0 sm:gap-y-10 xl:flex-row xl:gap-x-12 xl:gap-y-0"
         >
-          <ul className="grid grid-cols-2 gap-y-8 overflow-hidden sm:mx-0 md:grid-cols-3 sm:gap-x-20 sm:gap-y-8">
+          <ul className="grid grid-cols-1 gap-y-8 overflow-hidden sm:mx-0 sm:grid-cols-2 md:grid-cols-3 sm:gap-x-20 sm:gap-y-8">
             {slice.items.map((company, idx) => (
               <li key={idx} className="object-cover h-70">
                 <PrismicNextImage
