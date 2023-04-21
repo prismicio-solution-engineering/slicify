@@ -80,7 +80,7 @@ const testimonials = [
 ];
 
 
-export default function TestimonialsMansonry({
+export default function TestimonialsMasonry({
   slice,
 }: {
   slice: Content.TestimonialsSliceDefault;
