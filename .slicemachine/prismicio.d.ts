@@ -44,13 +44,13 @@ interface CallToActionSliceDefaultPrimary {
     /**
      * Title field in *CallToAction → Primary*
      *
-     * - **Field Type**: Rich Text
+     * - **Field Type**: Title
      * - **Placeholder**: This is where it all begins...
      * - **API ID Path**: call_to_action.primary.title
      * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
      *
      */
-    title: prismicT.RichTextField;
+    title: prismicT.TitleField;
     /**
      * Description field in *CallToAction → Primary*
      *
@@ -99,13 +99,13 @@ interface CallToActionSliceWhiteBackgroundPrimary {
     /**
      * Title field in *CallToAction → Primary*
      *
-     * - **Field Type**: Rich Text
+     * - **Field Type**: Title
      * - **Placeholder**: This is where it all begins...
      * - **API ID Path**: call_to_action.primary.title
      * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
      *
      */
-    title: prismicT.RichTextField;
+    title: prismicT.TitleField;
     /**
      * Description field in *CallToAction → Primary*
      *
@@ -154,13 +154,13 @@ interface CallToActionSliceWithImageRightPrimary {
     /**
      * Title field in *CallToAction → Primary*
      *
-     * - **Field Type**: Rich Text
+     * - **Field Type**: Title
      * - **Placeholder**: This is where it all begins...
      * - **API ID Path**: call_to_action.primary.title
      * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
      *
      */
-    title: prismicT.RichTextField;
+    title: prismicT.TitleField;
     /**
      * Description field in *CallToAction → Primary*
      *
@@ -235,13 +235,13 @@ interface CallToActionSliceWithImageLeftPrimary {
     /**
      * Title field in *CallToAction → Primary*
      *
-     * - **Field Type**: Rich Text
+     * - **Field Type**: Title
      * - **Placeholder**: This is where it all begins...
      * - **API ID Path**: call_to_action.primary.title
      * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
      *
      */
-    title: prismicT.RichTextField;
+    title: prismicT.TitleField;
     /**
      * Description field in *CallToAction → Primary*
      *
