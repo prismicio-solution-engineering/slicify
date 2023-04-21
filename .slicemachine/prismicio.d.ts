@@ -973,35 +973,15 @@ export type FormSlice = prismicT.SharedSlice<"form", FormSliceVariation>;
  */
 interface HeroSliceDefaultPrimary {
     /**
-     * Title Top line field in *Hero → Primary*
+     * Title field in *Hero → Primary*
      *
-     * - **Field Type**: Text
+     * - **Field Type**: Title
      * - **Placeholder**: *None*
-     * - **API ID Path**: hero.primary.title_top_line
-     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     * - **API ID Path**: hero.primary.title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
      *
      */
-    title_top_line: prismicT.KeyTextField;
-    /**
-     * Title highlighted key words field in *Hero → Primary*
-     *
-     * - **Field Type**: Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: hero.primary.title_highlighted_key_words
-     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
-     *
-     */
-    title_highlighted_key_words: prismicT.KeyTextField;
-    /**
-     * Title Bottom Line field in *Hero → Primary*
-     *
-     * - **Field Type**: Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: hero.primary.title_bottom_line
-     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
-     *
-     */
-    title_bottom_line: prismicT.KeyTextField;
+    title: prismicT.TitleField;
     /**
      * Description field in *Hero → Primary*
      *
@@ -1012,46 +992,42 @@ interface HeroSliceDefaultPrimary {
      *
      */
     description: prismicT.RichTextField;
+}
+/**
+ * Item in Hero → Items
+ *
+ */
+export interface HeroSliceDefaultItem {
     /**
-     * Primary Cta Label field in *Hero → Primary*
+     * Cta Label field in *Hero → Items*
      *
      * - **Field Type**: Text
      * - **Placeholder**: *None*
-     * - **API ID Path**: hero.primary.primary_cta_label
+     * - **API ID Path**: hero.items[].cta_label
      * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
      *
      */
-    primary_cta_label: prismicT.KeyTextField;
+    cta_label: prismicT.KeyTextField;
     /**
-     * Primary Cta Link field in *Hero → Primary*
+     * Cta Link field in *Hero → Items*
      *
      * - **Field Type**: Link
      * - **Placeholder**: *None*
-     * - **API ID Path**: hero.primary.primary_cta_link
+     * - **API ID Path**: hero.items[].cta_link
      * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
      *
      */
-    primary_cta_link: prismicT.LinkField;
+    cta_link: prismicT.LinkField;
     /**
-     * Secondary Cta Label field in *Hero → Primary*
+     * Cta Type field in *Hero → Items*
      *
-     * - **Field Type**: Text
+     * - **Field Type**: Select
      * - **Placeholder**: *None*
-     * - **API ID Path**: hero.primary.secondary_cta_label
-     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     * - **API ID Path**: hero.items[].cta_type
+     * - **Documentation**: https://prismic.io/docs/core-concepts/select
      *
      */
-    secondary_cta_label: prismicT.KeyTextField;
-    /**
-     * Secondary Cta Link field in *Hero → Primary*
-     *
-     * - **Field Type**: Link
-     * - **Placeholder**: *None*
-     * - **API ID Path**: hero.primary.secondary_cta_link
-     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
-     *
-     */
-    secondary_cta_link: prismicT.LinkField;
+    cta_type: prismicT.SelectField<"Primary" | "Secondary" | "Text">;
 }
 /**
  * Default variation for Hero Slice
@@ -1061,42 +1037,22 @@ interface HeroSliceDefaultPrimary {
  * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
  *
  */
-export type HeroSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<HeroSliceDefaultPrimary>, never>;
+export type HeroSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<HeroSliceDefaultPrimary>, Simplify<HeroSliceDefaultItem>>;
 /**
  * Primary content in Hero → Primary
  *
  */
 interface HeroSliceTitleOnlyPrimary {
     /**
-     * Title Top line field in *Hero → Primary*
+     * Title field in *Hero → Primary*
      *
-     * - **Field Type**: Text
+     * - **Field Type**: Title
      * - **Placeholder**: *None*
-     * - **API ID Path**: hero.primary.title_top_line
-     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     * - **API ID Path**: hero.primary.title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
      *
      */
-    title_top_line: prismicT.KeyTextField;
-    /**
-     * Title highlighted key words field in *Hero → Primary*
-     *
-     * - **Field Type**: Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: hero.primary.title_highlighted_key_words
-     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
-     *
-     */
-    title_highlighted_key_words: prismicT.KeyTextField;
-    /**
-     * Title Bottom Line field in *Hero → Primary*
-     *
-     * - **Field Type**: Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: hero.primary.title_bottom_line
-     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
-     *
-     */
-    title_bottom_line: prismicT.KeyTextField;
+    title: prismicT.TitleField;
 }
 /**
  * Title Only variation for Hero Slice
@@ -1113,25 +1069,15 @@ export type HeroSliceTitleOnly = prismicT.SharedSliceVariation<"titleOnly", Simp
  */
 interface HeroSliceWithBackgroundPrimary {
     /**
-     * Title Top line field in *Hero → Primary*
+     * Title field in *Hero → Primary*
      *
-     * - **Field Type**: Text
+     * - **Field Type**: Title
      * - **Placeholder**: *None*
-     * - **API ID Path**: hero.primary.title_top_line
-     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     * - **API ID Path**: hero.primary.title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
      *
      */
-    title_top_line: prismicT.KeyTextField;
-    /**
-     * Title Bottom Line field in *Hero → Primary*
-     *
-     * - **Field Type**: Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: hero.primary.title_bottom_line
-     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
-     *
-     */
-    title_bottom_line: prismicT.KeyTextField;
+    title: prismicT.TitleField;
     /**
      * Description field in *Hero → Primary*
      *
@@ -1142,56 +1088,42 @@ interface HeroSliceWithBackgroundPrimary {
      *
      */
     description: prismicT.RichTextField;
+}
+/**
+ * Item in Hero → Items
+ *
+ */
+export interface HeroSliceWithBackgroundItem {
     /**
-     * Primary Cta Label field in *Hero → Primary*
+     * Cta Label field in *Hero → Items*
      *
      * - **Field Type**: Text
      * - **Placeholder**: *None*
-     * - **API ID Path**: hero.primary.primary_cta_label
+     * - **API ID Path**: hero.items[].cta_label
      * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
      *
      */
-    primary_cta_label: prismicT.KeyTextField;
+    cta_label: prismicT.KeyTextField;
     /**
-     * Primary Cta Link field in *Hero → Primary*
+     * Cta Link field in *Hero → Items*
      *
      * - **Field Type**: Link
      * - **Placeholder**: *None*
-     * - **API ID Path**: hero.primary.primary_cta_link
+     * - **API ID Path**: hero.items[].cta_link
      * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
      *
      */
-    primary_cta_link: prismicT.LinkField;
+    cta_link: prismicT.LinkField;
     /**
-     * Secondary Cta Label field in *Hero → Primary*
+     * Cta Type field in *Hero → Items*
      *
-     * - **Field Type**: Text
+     * - **Field Type**: Select
      * - **Placeholder**: *None*
-     * - **API ID Path**: hero.primary.secondary_cta_label
-     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     * - **API ID Path**: hero.items[].cta_type
+     * - **Documentation**: https://prismic.io/docs/core-concepts/select
      *
      */
-    secondary_cta_label: prismicT.KeyTextField;
-    /**
-     * Secondary Cta Link field in *Hero → Primary*
-     *
-     * - **Field Type**: Link
-     * - **Placeholder**: *None*
-     * - **API ID Path**: hero.primary.secondary_cta_link
-     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
-     *
-     */
-    secondary_cta_link: prismicT.LinkField;
-    /**
-     * Background Image field in *Hero → Primary*
-     *
-     * - **Field Type**: Image
-     * - **Placeholder**: *None*
-     * - **API ID Path**: hero.primary.background_image
-     * - **Documentation**: https://prismic.io/docs/core-concepts/image
-     *
-     */
-    background_image: prismicT.ImageField<never>;
+    cta_type: prismicT.SelectField<"Primary" | "Secondary" | "Text">;
 }
 /**
  * With Background variation for Hero Slice
@@ -1201,32 +1133,22 @@ interface HeroSliceWithBackgroundPrimary {
  * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
  *
  */
-export type HeroSliceWithBackground = prismicT.SharedSliceVariation<"withBackground", Simplify<HeroSliceWithBackgroundPrimary>, never>;
+export type HeroSliceWithBackground = prismicT.SharedSliceVariation<"withBackground", Simplify<HeroSliceWithBackgroundPrimary>, Simplify<HeroSliceWithBackgroundItem>>;
 /**
  * Primary content in Hero → Primary
  *
  */
 interface HeroSliceWithVideoBackgroundPrimary {
     /**
-     * Title Top line field in *Hero → Primary*
+     * Title field in *Hero → Primary*
      *
-     * - **Field Type**: Text
+     * - **Field Type**: Title
      * - **Placeholder**: *None*
-     * - **API ID Path**: hero.primary.title_top_line
-     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     * - **API ID Path**: hero.primary.title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
      *
      */
-    title_top_line: prismicT.KeyTextField;
-    /**
-     * Title Bottom Line field in *Hero → Primary*
-     *
-     * - **Field Type**: Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: hero.primary.title_bottom_line
-     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
-     *
-     */
-    title_bottom_line: prismicT.KeyTextField;
+    title: prismicT.TitleField;
     /**
      * Description field in *Hero → Primary*
      *
@@ -1237,46 +1159,6 @@ interface HeroSliceWithVideoBackgroundPrimary {
      *
      */
     description: prismicT.RichTextField;
-    /**
-     * Primary Cta Label field in *Hero → Primary*
-     *
-     * - **Field Type**: Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: hero.primary.primary_cta_label
-     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
-     *
-     */
-    primary_cta_label: prismicT.KeyTextField;
-    /**
-     * Primary Cta Link field in *Hero → Primary*
-     *
-     * - **Field Type**: Link
-     * - **Placeholder**: *None*
-     * - **API ID Path**: hero.primary.primary_cta_link
-     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
-     *
-     */
-    primary_cta_link: prismicT.LinkField;
-    /**
-     * Secondary Cta Label field in *Hero → Primary*
-     *
-     * - **Field Type**: Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: hero.primary.secondary_cta_label
-     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
-     *
-     */
-    secondary_cta_label: prismicT.KeyTextField;
-    /**
-     * Secondary Cta Link field in *Hero → Primary*
-     *
-     * - **Field Type**: Link
-     * - **Placeholder**: *None*
-     * - **API ID Path**: hero.primary.secondary_cta_link
-     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
-     *
-     */
-    secondary_cta_link: prismicT.LinkField;
     /**
      * Background Video field in *Hero → Primary*
      *
@@ -1289,6 +1171,42 @@ interface HeroSliceWithVideoBackgroundPrimary {
     background_video: prismicT.ImageField<never>;
 }
 /**
+ * Item in Hero → Items
+ *
+ */
+export interface HeroSliceWithVideoBackgroundItem {
+    /**
+     * Cta Label field in *Hero → Items*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: hero.items[].cta_label
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    cta_label: prismicT.KeyTextField;
+    /**
+     * Cta Link field in *Hero → Items*
+     *
+     * - **Field Type**: Link
+     * - **Placeholder**: *None*
+     * - **API ID Path**: hero.items[].cta_link
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    cta_link: prismicT.LinkField;
+    /**
+     * Cta Type field in *Hero → Items*
+     *
+     * - **Field Type**: Select
+     * - **Placeholder**: *None*
+     * - **API ID Path**: hero.items[].cta_type
+     * - **Documentation**: https://prismic.io/docs/core-concepts/select
+     *
+     */
+    cta_type: prismicT.SelectField<"Primary" | "Secondary" | "Text">;
+}
+/**
  * With Video Background variation for Hero Slice
  *
  * - **API ID**: `withVideoBackground`
@@ -1296,7 +1214,7 @@ interface HeroSliceWithVideoBackgroundPrimary {
  * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
  *
  */
-export type HeroSliceWithVideoBackground = prismicT.SharedSliceVariation<"withVideoBackground", Simplify<HeroSliceWithVideoBackgroundPrimary>, never>;
+export type HeroSliceWithVideoBackground = prismicT.SharedSliceVariation<"withVideoBackground", Simplify<HeroSliceWithVideoBackgroundPrimary>, Simplify<HeroSliceWithVideoBackgroundItem>>;
 /**
  * Slice variation for *Hero*
  *
@@ -2179,6 +2097,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { HomePageDocumentData, HomePageDocumentDataSlicesSlice, HomePageDocument, AllDocumentTypes, CallToActionSliceDefaultPrimary, CallToActionSliceDefault, CallToActionSliceWhiteBackgroundPrimary, CallToActionSliceWhiteBackground, CallToActionSliceWithImageRightPrimary, CallToActionSliceWithImageRightItem, CallToActionSliceWithImageRight, CallToActionSliceWithImageLeftPrimary, CallToActionSliceWithImageLeftItem, CallToActionSliceWithImageLeft, CallToActionSliceVariation, CallToActionSlice, FaqSliceTwoColumnsPrimary, FaqSliceTwoColumnsItem, FaqSliceTwoColumns, FaqSliceThreeColumnsPrimary, FaqSliceThreeColumnsItem, FaqSliceThreeColumns, FaqSliceCenteredPrimary, FaqSliceCenteredItem, FaqSliceCentered, FaqSliceCenteredWithBackgroundPrimary, FaqSliceCenteredWithBackgroundItem, FaqSliceCenteredWithBackground, FaqSliceVariation, FaqSlice, FeaturesSliceRightSidePrimary, FeaturesSliceRightSideItem, FeaturesSliceRightSide, FeaturesSliceLeftSidePrimary, FeaturesSliceLeftSideItem, FeaturesSliceLeftSide, FeaturesSliceAbovePrimary, FeaturesSliceAboveItem, FeaturesSliceAbove, FeaturesSliceBelowPrimary, FeaturesSliceBelowItem, FeaturesSliceBelow, FeaturesSliceVariation, FeaturesSlice, FormSliceDefaultPrimary, FormSliceDefault, FormSliceVariation, FormSlice, HeroSliceDefaultPrimary, HeroSliceDefault, HeroSliceTitleOnlyPrimary, HeroSliceTitleOnly, HeroSliceWithBackgroundPrimary, HeroSliceWithBackground, HeroSliceWithVideoBackgroundPrimary, HeroSliceWithVideoBackground, HeroSliceVariation, HeroSlice, LogoCloudSliceDefaultPrimary, LogoCloudSliceDefaultItem, LogoCloudSliceDefault, LogoCloudSliceThreeColumnsPrimary, LogoCloudSliceThreeColumnsItem, LogoCloudSliceThreeColumns, LogoCloudSliceSinglePrimary, LogoCloudSliceSingle, LogoCloudSliceSimpleDarkModePrimary, LogoCloudSliceSimpleDarkModeItem, LogoCloudSliceSimpleDarkMode, LogoCloudSliceVariation, LogoCloudSlice, PricingSliceDefaultPrimary, PricingSliceDefaultItem, PricingSliceDefault, PricingSliceWithPromoPrimary, PricingSliceWithPromoItem, PricingSliceWithPromo, PricingSliceVariation, PricingSlice, TestimonialsSliceDefaultPrimary, TestimonialsSliceDefaultItem, TestimonialsSliceDefault, TestimonialsSliceScrollingCardsPrimary, TestimonialsSliceScrollingCardsItem, TestimonialsSliceScrollingCards, TestimonialsSliceTwoColumnsWithSeparatorPrimary, TestimonialsSliceTwoColumnsWithSeparator, TestimonialsSliceSingleCenteredPrimary, TestimonialsSliceSingleCentered, TestimonialsSliceSingleWithLargeImagePrimary, TestimonialsSliceSingleWithLargeImage, TestimonialsSliceVariation, TestimonialsSlice };
+        export type { HomePageDocumentData, HomePageDocumentDataSlicesSlice, HomePageDocument, AllDocumentTypes, CallToActionSliceDefaultPrimary, CallToActionSliceDefault, CallToActionSliceWhiteBackgroundPrimary, CallToActionSliceWhiteBackground, CallToActionSliceWithImageRightPrimary, CallToActionSliceWithImageRightItem, CallToActionSliceWithImageRight, CallToActionSliceWithImageLeftPrimary, CallToActionSliceWithImageLeftItem, CallToActionSliceWithImageLeft, CallToActionSliceVariation, CallToActionSlice, FaqSliceTwoColumnsPrimary, FaqSliceTwoColumnsItem, FaqSliceTwoColumns, FaqSliceThreeColumnsPrimary, FaqSliceThreeColumnsItem, FaqSliceThreeColumns, FaqSliceCenteredPrimary, FaqSliceCenteredItem, FaqSliceCentered, FaqSliceCenteredWithBackgroundPrimary, FaqSliceCenteredWithBackgroundItem, FaqSliceCenteredWithBackground, FaqSliceVariation, FaqSlice, FeaturesSliceRightSidePrimary, FeaturesSliceRightSideItem, FeaturesSliceRightSide, FeaturesSliceLeftSidePrimary, FeaturesSliceLeftSideItem, FeaturesSliceLeftSide, FeaturesSliceAbovePrimary, FeaturesSliceAboveItem, FeaturesSliceAbove, FeaturesSliceBelowPrimary, FeaturesSliceBelowItem, FeaturesSliceBelow, FeaturesSliceVariation, FeaturesSlice, FormSliceDefaultPrimary, FormSliceDefault, FormSliceVariation, FormSlice, HeroSliceDefaultPrimary, HeroSliceDefaultItem, HeroSliceDefault, HeroSliceTitleOnlyPrimary, HeroSliceTitleOnly, HeroSliceWithBackgroundPrimary, HeroSliceWithBackgroundItem, HeroSliceWithBackground, HeroSliceWithVideoBackgroundPrimary, HeroSliceWithVideoBackgroundItem, HeroSliceWithVideoBackground, HeroSliceVariation, HeroSlice, LogoCloudSliceDefaultPrimary, LogoCloudSliceDefaultItem, LogoCloudSliceDefault, LogoCloudSliceThreeColumnsPrimary, LogoCloudSliceThreeColumnsItem, LogoCloudSliceThreeColumns, LogoCloudSliceSinglePrimary, LogoCloudSliceSingle, LogoCloudSliceSimpleDarkModePrimary, LogoCloudSliceSimpleDarkModeItem, LogoCloudSliceSimpleDarkMode, LogoCloudSliceVariation, LogoCloudSlice, PricingSliceDefaultPrimary, PricingSliceDefaultItem, PricingSliceDefault, PricingSliceWithPromoPrimary, PricingSliceWithPromoItem, PricingSliceWithPromo, PricingSliceVariation, PricingSlice, TestimonialsSliceDefaultPrimary, TestimonialsSliceDefaultItem, TestimonialsSliceDefault, TestimonialsSliceScrollingCardsPrimary, TestimonialsSliceScrollingCardsItem, TestimonialsSliceScrollingCards, TestimonialsSliceTwoColumnsWithSeparatorPrimary, TestimonialsSliceTwoColumnsWithSeparator, TestimonialsSliceSingleCenteredPrimary, TestimonialsSliceSingleCentered, TestimonialsSliceSingleWithLargeImagePrimary, TestimonialsSliceSingleWithLargeImage, TestimonialsSliceVariation, TestimonialsSlice };
     }
 }
