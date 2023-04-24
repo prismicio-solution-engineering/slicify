@@ -44,13 +44,23 @@ export default function TestimonialsScrollingCards({
               className="absolute md:min-w-screen-xl flex md:gap-x-8 flex-col md:flex-row gap-8"
             >
               {slice?.items?.map((item, idx) => (
-                <li key={idx} className="inline-flex md:w-96 sm:w-80 sm:space-x-4 flex-col text-center">
+                <li
+                  key={idx}
+                  className="inline-flex md:w-96 sm:w-80 sm:space-x-4 flex-col text-center"
+                >
                   <figure className="relative w-full rounded-2xl bg-white p-6 shadow-xl shadow-slate-900/10">
                     <QuoteIcon className="absolute left-6 top-6 fill-slate-100" />
                     <blockquote className="relative">
-                      <p className="text-lg tracking-tight h-40 overflow-y-scroll text-ellipsis text-slate-900">
-                        <PrismicRichText field={item.quote} />
-                      </p>
+                      <PrismicRichText
+                        field={item.quote}
+                        components={{
+                          paragraph: ({ children }) => (
+                            <p className="text-lg tracking-tight h-40 overflow-y-scroll text-ellipsis text-slate-900">
+                              {children}
+                            </p>
+                          ),
+                        }}
+                      />
                     </blockquote>
                     <figcaption className="relative mt-6 flex items-center justify-between border-t border-slate-100 pt-6">
                       <div>
