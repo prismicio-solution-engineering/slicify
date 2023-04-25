@@ -1,7 +1,7 @@
 [
   {
     "__TYPE__": "SharedSliceContent",
-    "variation": "titleOnly",
+    "variation": "default",
     "primary": {
       "title": {
         "__TYPE__": "StructuredTextContent",
@@ -9,7 +9,7 @@
           {
             "type": "heading1",
             "content": {
-              "text": "Accounting made simple for small businesses."
+              "text": "Former"
             }
           }
         ]
@@ -20,10 +20,58 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "Most bookkeeping software is accurate, but hard to use. We make the opposite trade-off, and hope you don’t get audited.",
-              "spans": []
-            },
-            "direction": "ltr"
+              "text": "Fugiat occaecat amet sunt exercitation est officia consectetur ipsum esse Lorem mollit. Proident ea exercitation mollit culpa mollit est aute adipisicing eu ullamco aliquip est irure do. Voluptate aute et consectetur."
+            }
+          }
+        ]
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "cta_label",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "surface",
+              "type": "Text"
+            }
+          ],
+          [
+            "cta_link",
+            {
+              "__TYPE__": "LinkContent",
+              "value": {
+                "__TYPE__": "ExternalLink",
+                "url": "http://google.com"
+              }
+            }
+          ],
+          [
+            "cta_type",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "Text",
+              "type": "Select"
+            }
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "titleOnly",
+    "primary": {
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading1",
+            "content": {
+              "text": "Herself"
+            }
           }
         ]
       }
@@ -45,7 +93,7 @@
           {
             "type": "heading1",
             "content": {
-              "text": "Accounting made simple for small businesses."
+              "text": "Smaller"
             }
           }
         ]
@@ -56,10 +104,8 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "Most bookkeeping software is accurate, but hard to use. We make the opposite trade-off, and hope you don’t get audited.",
-              "spans": []
-            },
-            "direction": "ltr"
+              "text": "Non cupidatat adipisicing sunt deserunt voluptate commodo. Amet magna ea ipsum sit ut cillum dolore proident velit sint duis eiusmod proident laboris aliquip."
+            }
           }
         ]
       }
@@ -72,8 +118,8 @@
             "cta_label",
             {
               "__TYPE__": "FieldContent",
-              "type": "Text",
-              "value": "Get 6 months free"
+              "value": "nest",
+              "type": "Text"
             }
           ],
           [
@@ -90,39 +136,8 @@
             "cta_type",
             {
               "__TYPE__": "FieldContent",
-              "value": "Primary",
+              "value": "Text",
               "type": "Select"
-            }
-          ]
-        ]
-      },
-      {
-        "__TYPE__": "GroupItemContent",
-        "value": [
-          [
-            "cta_link",
-            {
-              "__TYPE__": "LinkContent",
-              "value": {
-                "__TYPE__": "ExternalLink",
-                "url": "http://twitter.com"
-              }
-            }
-          ],
-          [
-            "cta_label",
-            {
-              "__TYPE__": "FieldContent",
-              "type": "Text",
-              "value": "Watch video"
-            }
-          ],
-          [
-            "cta_type",
-            {
-              "__TYPE__": "FieldContent",
-              "type": "Select",
-              "value": "Secondary"
             }
           ]
         ]
@@ -139,7 +154,7 @@
           {
             "type": "heading1",
             "content": {
-              "text": "Accounting made simple for small businesses."
+              "text": "Ahead"
             }
           }
         ]
@@ -150,12 +165,39 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "Most bookkeeping software is accurate, but hard to use. We make the opposite trade-off, and hope you don’t get audited.",
-              "spans": []
-            },
-            "direction": "ltr"
+              "text": "Dolore sint aliqua adipisicing voluptate aliqua consectetur fugiat exercitation. Do consequat laboris ut id occaecat eu ipsum."
+            }
           }
         ]
+      },
+      "background_video": {
+        "title": "Onda Beach Relaxing Waves - Dominican Ocean Sounds Will Help You Unwind",
+        "author_name": "Naturaleza Viva - Sonidos y Paisajes Increíbles",
+        "author_url": "https://www.youtube.com/@naturaleza-viva",
+        "type": "video",
+        "height": 113,
+        "width": 200,
+        "version": "1.0",
+        "provider_name": "YouTube",
+        "provider_url": "https://www.youtube.com/",
+        "thumbnail_height": 360,
+        "thumbnail_width": 480,
+        "thumbnail_url": "https://i.ytimg.com/vi/Xn8tufsbSz0/hqdefault.jpg",
+        "html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/Xn8tufsbSz0?start=5215&feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen title=\"Onda Beach Relaxing Waves - Dominican Ocean Sounds Will Help You Unwind\"></iframe>",
+        "__TYPE__": "EmbedContent",
+        "all": {
+          "type": "video",
+          "author_name": "Naturaleza Viva - Sonidos y Paisajes Increíbles",
+          "author_url": "https://www.youtube.com/@naturaleza-viva",
+          "html": "<iframe width=\"200\" height=\"113\" src=\"https://www.youtube.com/embed/Xn8tufsbSz0?start=5215&feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen title=\"Onda Beach Relaxing Waves - Dominican Ocean Sounds Will Help You Unwind\"></iframe>",
+          "provider_name": "YouTube",
+          "provider_url": "https://www.youtube.com/",
+          "thumbnail_height": 360,
+          "thumbnail_width": 480,
+          "thumbnail_url": "https://i.ytimg.com/vi/Xn8tufsbSz0/hqdefault.jpg",
+          "title": "Onda Beach Relaxing Waves - Dominican Ocean Sounds Will Help You Unwind",
+          "version": "1.0"
+        }
       }
     },
     "items": [
@@ -166,8 +208,8 @@
             "cta_label",
             {
               "__TYPE__": "FieldContent",
-              "type": "Text",
-              "value": "Get 6 months free"
+              "value": "rest",
+              "type": "Text"
             }
           ],
           [
@@ -176,7 +218,7 @@
               "__TYPE__": "LinkContent",
               "value": {
                 "__TYPE__": "ExternalLink",
-                "url": "http://twitter.com"
+                "url": "https://prismic.io"
               }
             }
           ],
@@ -186,131 +228,6 @@
               "__TYPE__": "FieldContent",
               "value": "Primary",
               "type": "Select"
-            }
-          ]
-        ]
-      },
-      {
-        "__TYPE__": "GroupItemContent",
-        "value": [
-          [
-            "cta_link",
-            {
-              "__TYPE__": "LinkContent",
-              "value": {
-                "__TYPE__": "ExternalLink",
-                "url": "http://twitter.com"
-              }
-            }
-          ],
-          [
-            "cta_label",
-            {
-              "__TYPE__": "FieldContent",
-              "type": "Text",
-              "value": "Watch video"
-            }
-          ],
-          [
-            "cta_type",
-            {
-              "__TYPE__": "FieldContent",
-              "type": "Select",
-              "value": "Secondary"
-            }
-          ]
-        ]
-      }
-    ]
-  },
-  {
-    "__TYPE__": "SharedSliceContent",
-    "variation": "default",
-    "primary": {
-      "title": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "heading1",
-            "content": {
-              "text": "Accounting made simple for small businesses."
-            }
-          }
-        ]
-      },
-      "description": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "Most bookkeeping software is accurate, but hard to use. We make the opposite trade-off, and hope you don’t get audited.",
-              "spans": []
-            },
-            "direction": "ltr"
-          }
-        ]
-      }
-    },
-    "items": [
-      {
-        "__TYPE__": "GroupItemContent",
-        "value": [
-          [
-            "cta_label",
-            {
-              "__TYPE__": "FieldContent",
-              "type": "Text",
-              "value": "Get 6 months free"
-            }
-          ],
-          [
-            "cta_link",
-            {
-              "__TYPE__": "LinkContent",
-              "value": {
-                "__TYPE__": "ExternalLink",
-                "url": "http://twitter.com"
-              }
-            }
-          ],
-          [
-            "cta_type",
-            {
-              "__TYPE__": "FieldContent",
-              "value": "Primary",
-              "type": "Select"
-            }
-          ]
-        ]
-      },
-      {
-        "__TYPE__": "GroupItemContent",
-        "value": [
-          [
-            "cta_link",
-            {
-              "__TYPE__": "LinkContent",
-              "value": {
-                "__TYPE__": "ExternalLink",
-                "url": "http://twitter.com"
-              }
-            }
-          ],
-          [
-            "cta_label",
-            {
-              "__TYPE__": "FieldContent",
-              "type": "Text",
-              "value": "Watch video"
-            }
-          ],
-          [
-            "cta_type",
-            {
-              "__TYPE__": "FieldContent",
-              "type": "Select",
-              "value": "Secondary"
             }
           ]
         ]

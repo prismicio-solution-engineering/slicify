@@ -176,14 +176,10 @@
           }
         },
         "background_video": {
-          "type": "Image",
+          "type": "Embed",
           "config": {
             "label": "Background Video",
-            "constraint": {
-              "width": 2245,
-              "height": 1636
-            },
-            "thumbnails": []
+            "placeholder": ""
           }
         }
       },
