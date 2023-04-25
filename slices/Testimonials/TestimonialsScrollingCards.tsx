@@ -46,7 +46,7 @@ export default function TestimonialsScrollingCards({
               {slice?.items?.map((item, idx) => (
                 <li
                   key={idx}
-                  className="inline-flex md:w-96 sm:w-80 sm:space-x-4 flex-col text-center"
+                  className="inline-flex md:w-96 sm:w-80 sm:space-x-4 flex-col"
                 >
                   <figure className="relative w-full rounded-2xl bg-white p-6 shadow-xl shadow-slate-900/10">
                     <QuoteIcon className="absolute left-6 top-6 fill-slate-100" />
@@ -62,7 +62,7 @@ export default function TestimonialsScrollingCards({
                         }}
                       />
                     </blockquote>
-                    <figcaption className="relative mt-6 flex items-center justify-between border-t border-slate-100 pt-6">
+                    <figcaption className="relative mt-6 flex items-center justify-between border-t border-slate-100 pt-6 text-left">
                       <div>
                         <div className="font-display text-base text-slate-900">
                           <PrismicRichText
@@ -72,7 +72,7 @@ export default function TestimonialsScrollingCards({
                             }}
                           />
                         </div>
-                        <div className="mt-1 text-sm text-slate-500">
+                        <div className="mt-1 text-sm w-60 overflow-ellipsis line-clamp-2 text-slate-500">
                           <PrismicRichText
                             field={item.author_role}
                             components={{
