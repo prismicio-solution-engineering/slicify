@@ -13,11 +13,13 @@ export default function LogoCloudSimple({
   darkMode: boolean;
 }) {
   return (
-    <section>
+    <section
+      className={`pb-16 pt-20 lg:pt-32  ${
+        darkMode && "bg-dark-blue"
+      }`}
+    >
       <Container
-        className={`pb-16 pt-20 text-center lg:pt-32  ${
-          darkMode && "bg-dark-blue"
-        }`}
+        className="text-center"
       >
         <PrismicRichText
           field={slice.primary.title}
@@ -41,8 +43,9 @@ export default function LogoCloudSimple({
             {slice.items.map((company, idx) => (
               <li key={idx} className="flex">
                 <PrismicNextImage
-                  className="h-14 w-14 object-cover"
+                  className="object-cover"
                   field={company.logo}
+                  height={48}
                   unoptimized
                 />
               </li>

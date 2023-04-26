@@ -9,7 +9,7 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "Consequat ea ipsum veniam laboris dolore id est aute anim amet dolor ea eu magna culpa."
+              "text": "Trusted by these six companies so far"
             }
           }
         ]
@@ -26,7 +26,6 @@
           [
             "logo",
             {
-              "__TYPE__": "ImageContent",
               "origin": {
                 "id": "main",
                 "url": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853",
@@ -44,6 +43,9 @@
                 },
                 "background": "transparent"
               },
+              "credits": null,
+              "alt": null,
+              "__TYPE__": "ImageContent",
               "thumbnails": {}
             }
           ]
@@ -61,7 +63,7 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "Id dolor tempor voluptate culpa ipsum velit adipisicing deserunt nulla nisi. Aute tempor ea commodo ex ullamco mollit velit consequat consequat nisi nostrud minim irure culpa. Dolor officia dolore laborum qui dolor est reprehenderit."
+              "text": "Trusted by these six companies so far"
             }
           }
         ]
@@ -78,7 +80,6 @@
           [
             "logo",
             {
-              "__TYPE__": "ImageContent",
               "origin": {
                 "id": "main",
                 "url": "https://images.unsplash.com/photo-1576662712957-9c79ae1280f8",
@@ -96,6 +97,9 @@
                 },
                 "background": "transparent"
               },
+              "credits": null,
+              "alt": null,
+              "__TYPE__": "ImageContent",
               "thumbnails": {}
             }
           ]
@@ -113,13 +117,14 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "Reprehenderit eiusmod deserunt id et dolor deserunt velit amet tempor duis."
-            }
+              "text": "Premium partner",
+              "spans": []
+            },
+            "direction": "ltr"
           }
         ]
       },
       "logo": {
-        "__TYPE__": "ImageContent",
         "origin": {
           "id": "main",
           "url": "https://images.unsplash.com/photo-1586952518485-11b180e92764",
@@ -137,6 +142,9 @@
           },
           "background": "transparent"
         },
+        "credits": null,
+        "alt": null,
+        "__TYPE__": "ImageContent",
         "thumbnails": {}
       }
     },
@@ -157,8 +165,10 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "Officia minim amet nostrud ipsum exercitation aute ad in. Id labore magna ullamco pariatur cupidatat mollit non ex ipsum consequat exercitation."
-            }
+              "text": "Trusted by these six companies so far",
+              "spans": []
+            },
+            "direction": "ltr"
           }
         ]
       },
@@ -174,7 +184,6 @@
           [
             "logo",
             {
-              "__TYPE__": "ImageContent",
               "origin": {
                 "id": "main",
                 "url": "https://images.unsplash.com/photo-1547082299-de196ea013d6",
@@ -192,6 +201,9 @@
                 },
                 "background": "transparent"
               },
+              "credits": null,
+              "alt": null,
+              "__TYPE__": "ImageContent",
               "thumbnails": {}
             }
           ]

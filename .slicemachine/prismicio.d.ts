@@ -6,62 +6,114 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = {
     [KeyType in keyof T]: T[KeyType];
 };
-/** Content for Header documents */
-interface HeaderDocumentData {
+/** Content for Blog Article documents */
+interface BlogArticleDocumentData {
     /**
-     * Logo field in *Header*
+     * Title field in *Blog Article*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: blog_article.title
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    title: prismicT.RichTextField;
+    /**
+     * Author field in *Blog Article*
+     *
+     * - **Field Type**: Content Relationship
+     * - **Placeholder**: *None*
+     * - **API ID Path**: blog_article.author
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    author: prismicT.RelationField;
+    /**
+     * Excerpt field in *Blog Article*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: blog_article.excerpt
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    excerpt: prismicT.RichTextField;
+    /**
+     * Featured Image field in *Blog Article*
      *
      * - **Field Type**: Image
      * - **Placeholder**: *None*
-     * - **API ID Path**: header.logo
+     * - **API ID Path**: blog_article.featured_image
      * - **Tab**: Main
      * - **Documentation**: https://prismic.io/docs/core-concepts/image
      *
      */
-    logo: prismicT.ImageField<never>;
+    featured_image: prismicT.ImageField<never>;
     /**
-     * Slice Zone field in *Header*
+     * Category field in *Blog Article*
+     *
+     * - **Field Type**: Content Relationship
+     * - **Placeholder**: *None*
+     * - **API ID Path**: blog_article.category
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    category: prismicT.RelationField;
+    /**
+     * Table Of Content field in *Blog Article*
+     *
+     * - **Field Type**: Boolean
+     * - **Placeholder**: *None*
+     * - **Default Value**: true
+     * - **API ID Path**: blog_article.table_of_content
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/boolean
+     *
+     */
+    table_of_content: prismicT.BooleanField;
+    /**
+     * Slice Zone field in *Blog Article*
      *
      * - **Field Type**: Slice Zone
      * - **Placeholder**: *None*
-     * - **API ID Path**: header.slices[]
+     * - **API ID Path**: blog_article.slices[]
      * - **Tab**: Main
      * - **Documentation**: https://prismic.io/docs/core-concepts/slices
      *
      */
-    slices: prismicT.SliceZone<HeaderDocumentDataSlicesSlice>;
-    /**
-     * Slice Zone field in *Header*
-     *
-     * - **Field Type**: Slice Zone
-     * - **Placeholder**: *None*
-     * - **API ID Path**: header.slices1[]
-     * - **Tab**: Right Hand Side
-     * - **Documentation**: https://prismic.io/docs/core-concepts/slices
-     *
-     */
-    slices1: prismicT.SliceZone<HeaderDocumentDataSlices1Slice>;
+    slices: prismicT.SliceZone<BlogArticleDocumentDataSlicesSlice>;
 }
 /**
- * Slice for *Header → Slice Zone*
+ * Slice for *Blog Article → Slice Zone*
  *
  */
-type HeaderDocumentDataSlicesSlice = HeaderLinkSlice;
+type BlogArticleDocumentDataSlicesSlice = TextSlice | FormSlice;
 /**
- * Slice for *Header → Slice Zone*
+ * Blog Article document from Prismic
  *
+ * - **API ID**: `blog_article`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
  */
-type HeaderDocumentDataSlices1Slice = HeaderLinkSlice;
+export type BlogArticleDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<BlogArticleDocumentData>, "blog_article", Lang>;
+/** Content for Blog index documents */
+type BlogIndexDocumentData = Record<string, never>;
 /**
- * Header document from Prismic
+ * Blog index document from Prismic
  *
- * - **API ID**: `header`
+ * - **API ID**: `blog_index`
  * - **Repeatable**: `false`
  * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
  *
  * @typeParam Lang - Language API ID of the document.
  */
-export type HeaderDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<HeaderDocumentData>, "header", Lang>;
+export type BlogIndexDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<BlogIndexDocumentData>, "blog_index", Lang>;
 /** Content for Home Page documents */
 interface HomePageDocumentData {
     /**
@@ -80,7 +132,7 @@ interface HomePageDocumentData {
  * Slice for *Home Page → Slice Zone*
  *
  */
-type HomePageDocumentDataSlicesSlice = FeaturesSlice | PricingSlice | FormSlice | CallToActionSlice | FaqSlice | HeroSlice | LogoCloudSlice | TestimonialsSlice;
+type HomePageDocumentDataSlicesSlice = FeaturesSlice | PricingSlice | FormSlice | CallToActionSlice | FaqSlice | HeroSlice | LogoCloudSlice | TestimonialsSlice | TextSlice;
 /**
  * Home Page document from Prismic
  *
@@ -91,7 +143,36 @@ type HomePageDocumentDataSlicesSlice = FeaturesSlice | PricingSlice | FormSlice 
  * @typeParam Lang - Language API ID of the document.
  */
 export type HomePageDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<HomePageDocumentData>, "home_page", Lang>;
-export type AllDocumentTypes = HeaderDocument | HomePageDocument;
+/** Content for Landing Page documents */
+interface LandingPageDocumentData {
+    /**
+     * Slice Zone field in *Landing Page*
+     *
+     * - **Field Type**: Slice Zone
+     * - **Placeholder**: *None*
+     * - **API ID Path**: landing_page.slices[]
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/slices
+     *
+     */
+    slices: prismicT.SliceZone<LandingPageDocumentDataSlicesSlice>;
+}
+/**
+ * Slice for *Landing Page → Slice Zone*
+ *
+ */
+type LandingPageDocumentDataSlicesSlice = PricingSlice | CallToActionSlice | FaqSlice | LogoCloudSlice | FormSlice | TestimonialsSlice | FeaturesSlice;
+/**
+ * Landing Page document from Prismic
+ *
+ * - **API ID**: `landing_page`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type LandingPageDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<LandingPageDocumentData>, "landing_page", Lang>;
+export type AllDocumentTypes = BlogArticleDocument | BlogIndexDocument | HomePageDocument | LandingPageDocument;
 /**
  * Primary content in CallToAction → Primary
  *
@@ -100,13 +181,13 @@ interface CallToActionSliceDefaultPrimary {
     /**
      * Title field in *CallToAction → Primary*
      *
-     * - **Field Type**: Rich Text
+     * - **Field Type**: Title
      * - **Placeholder**: This is where it all begins...
      * - **API ID Path**: call_to_action.primary.title
      * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
      *
      */
-    title: prismicT.RichTextField;
+    title: prismicT.TitleField;
     /**
      * Description field in *CallToAction → Primary*
      *
@@ -155,13 +236,13 @@ interface CallToActionSliceWhiteBackgroundPrimary {
     /**
      * Title field in *CallToAction → Primary*
      *
-     * - **Field Type**: Rich Text
+     * - **Field Type**: Title
      * - **Placeholder**: This is where it all begins...
      * - **API ID Path**: call_to_action.primary.title
      * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
      *
      */
-    title: prismicT.RichTextField;
+    title: prismicT.TitleField;
     /**
      * Description field in *CallToAction → Primary*
      *
@@ -210,13 +291,13 @@ interface CallToActionSliceWithImageRightPrimary {
     /**
      * Title field in *CallToAction → Primary*
      *
-     * - **Field Type**: Rich Text
+     * - **Field Type**: Title
      * - **Placeholder**: This is where it all begins...
      * - **API ID Path**: call_to_action.primary.title
      * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
      *
      */
-    title: prismicT.RichTextField;
+    title: prismicT.TitleField;
     /**
      * Description field in *CallToAction → Primary*
      *
@@ -291,13 +372,13 @@ interface CallToActionSliceWithImageLeftPrimary {
     /**
      * Title field in *CallToAction → Primary*
      *
-     * - **Field Type**: Rich Text
+     * - **Field Type**: Title
      * - **Placeholder**: This is where it all begins...
      * - **API ID Path**: call_to_action.primary.title
      * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
      *
      */
-    title: prismicT.RichTextField;
+    title: prismicT.TitleField;
     /**
      * Description field in *CallToAction → Primary*
      *
@@ -1195,35 +1276,15 @@ export type FormSlice = prismicT.SharedSlice<"form", FormSliceVariation>;
  */
 interface HeroSliceDefaultPrimary {
     /**
-     * Title Top line field in *Hero → Primary*
+     * Title field in *Hero → Primary*
      *
-     * - **Field Type**: Text
+     * - **Field Type**: Title
      * - **Placeholder**: *None*
-     * - **API ID Path**: hero.primary.title_top_line
-     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     * - **API ID Path**: hero.primary.title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
      *
      */
-    title_top_line: prismicT.KeyTextField;
-    /**
-     * Title highlighted key words field in *Hero → Primary*
-     *
-     * - **Field Type**: Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: hero.primary.title_highlighted_key_words
-     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
-     *
-     */
-    title_highlighted_key_words: prismicT.KeyTextField;
-    /**
-     * Title Bottom Line field in *Hero → Primary*
-     *
-     * - **Field Type**: Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: hero.primary.title_bottom_line
-     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
-     *
-     */
-    title_bottom_line: prismicT.KeyTextField;
+    title: prismicT.TitleField;
     /**
      * Description field in *Hero → Primary*
      *
@@ -1234,46 +1295,42 @@ interface HeroSliceDefaultPrimary {
      *
      */
     description: prismicT.RichTextField;
+}
+/**
+ * Item in Hero → Items
+ *
+ */
+export interface HeroSliceDefaultItem {
     /**
-     * Primary Cta Label field in *Hero → Primary*
+     * Cta Label field in *Hero → Items*
      *
      * - **Field Type**: Text
      * - **Placeholder**: *None*
-     * - **API ID Path**: hero.primary.primary_cta_label
+     * - **API ID Path**: hero.items[].cta_label
      * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
      *
      */
-    primary_cta_label: prismicT.KeyTextField;
+    cta_label: prismicT.KeyTextField;
     /**
-     * Primary Cta Link field in *Hero → Primary*
+     * Cta Link field in *Hero → Items*
      *
      * - **Field Type**: Link
      * - **Placeholder**: *None*
-     * - **API ID Path**: hero.primary.primary_cta_link
+     * - **API ID Path**: hero.items[].cta_link
      * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
      *
      */
-    primary_cta_link: prismicT.LinkField;
+    cta_link: prismicT.LinkField;
     /**
-     * Secondary Cta Label field in *Hero → Primary*
+     * Cta Type field in *Hero → Items*
      *
-     * - **Field Type**: Text
+     * - **Field Type**: Select
      * - **Placeholder**: *None*
-     * - **API ID Path**: hero.primary.secondary_cta_label
-     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     * - **API ID Path**: hero.items[].cta_type
+     * - **Documentation**: https://prismic.io/docs/core-concepts/select
      *
      */
-    secondary_cta_label: prismicT.KeyTextField;
-    /**
-     * Secondary Cta Link field in *Hero → Primary*
-     *
-     * - **Field Type**: Link
-     * - **Placeholder**: *None*
-     * - **API ID Path**: hero.primary.secondary_cta_link
-     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
-     *
-     */
-    secondary_cta_link: prismicT.LinkField;
+    cta_type: prismicT.SelectField<"Primary" | "Secondary" | "Text">;
 }
 /**
  * Default variation for Hero Slice
@@ -1283,42 +1340,22 @@ interface HeroSliceDefaultPrimary {
  * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
  *
  */
-export type HeroSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<HeroSliceDefaultPrimary>, never>;
+export type HeroSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<HeroSliceDefaultPrimary>, Simplify<HeroSliceDefaultItem>>;
 /**
  * Primary content in Hero → Primary
  *
  */
 interface HeroSliceTitleOnlyPrimary {
     /**
-     * Title Top line field in *Hero → Primary*
+     * Title field in *Hero → Primary*
      *
-     * - **Field Type**: Text
+     * - **Field Type**: Title
      * - **Placeholder**: *None*
-     * - **API ID Path**: hero.primary.title_top_line
-     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     * - **API ID Path**: hero.primary.title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
      *
      */
-    title_top_line: prismicT.KeyTextField;
-    /**
-     * Title highlighted key words field in *Hero → Primary*
-     *
-     * - **Field Type**: Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: hero.primary.title_highlighted_key_words
-     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
-     *
-     */
-    title_highlighted_key_words: prismicT.KeyTextField;
-    /**
-     * Title Bottom Line field in *Hero → Primary*
-     *
-     * - **Field Type**: Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: hero.primary.title_bottom_line
-     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
-     *
-     */
-    title_bottom_line: prismicT.KeyTextField;
+    title: prismicT.TitleField;
 }
 /**
  * Title Only variation for Hero Slice
@@ -1335,25 +1372,15 @@ export type HeroSliceTitleOnly = prismicT.SharedSliceVariation<"titleOnly", Simp
  */
 interface HeroSliceWithBackgroundPrimary {
     /**
-     * Title Top line field in *Hero → Primary*
+     * Title field in *Hero → Primary*
      *
-     * - **Field Type**: Text
+     * - **Field Type**: Title
      * - **Placeholder**: *None*
-     * - **API ID Path**: hero.primary.title_top_line
-     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     * - **API ID Path**: hero.primary.title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
      *
      */
-    title_top_line: prismicT.KeyTextField;
-    /**
-     * Title Bottom Line field in *Hero → Primary*
-     *
-     * - **Field Type**: Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: hero.primary.title_bottom_line
-     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
-     *
-     */
-    title_bottom_line: prismicT.KeyTextField;
+    title: prismicT.TitleField;
     /**
      * Description field in *Hero → Primary*
      *
@@ -1364,56 +1391,42 @@ interface HeroSliceWithBackgroundPrimary {
      *
      */
     description: prismicT.RichTextField;
+}
+/**
+ * Item in Hero → Items
+ *
+ */
+export interface HeroSliceWithBackgroundItem {
     /**
-     * Primary Cta Label field in *Hero → Primary*
+     * Cta Label field in *Hero → Items*
      *
      * - **Field Type**: Text
      * - **Placeholder**: *None*
-     * - **API ID Path**: hero.primary.primary_cta_label
+     * - **API ID Path**: hero.items[].cta_label
      * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
      *
      */
-    primary_cta_label: prismicT.KeyTextField;
+    cta_label: prismicT.KeyTextField;
     /**
-     * Primary Cta Link field in *Hero → Primary*
+     * Cta Link field in *Hero → Items*
      *
      * - **Field Type**: Link
      * - **Placeholder**: *None*
-     * - **API ID Path**: hero.primary.primary_cta_link
+     * - **API ID Path**: hero.items[].cta_link
      * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
      *
      */
-    primary_cta_link: prismicT.LinkField;
+    cta_link: prismicT.LinkField;
     /**
-     * Secondary Cta Label field in *Hero → Primary*
+     * Cta Type field in *Hero → Items*
      *
-     * - **Field Type**: Text
+     * - **Field Type**: Select
      * - **Placeholder**: *None*
-     * - **API ID Path**: hero.primary.secondary_cta_label
-     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     * - **API ID Path**: hero.items[].cta_type
+     * - **Documentation**: https://prismic.io/docs/core-concepts/select
      *
      */
-    secondary_cta_label: prismicT.KeyTextField;
-    /**
-     * Secondary Cta Link field in *Hero → Primary*
-     *
-     * - **Field Type**: Link
-     * - **Placeholder**: *None*
-     * - **API ID Path**: hero.primary.secondary_cta_link
-     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
-     *
-     */
-    secondary_cta_link: prismicT.LinkField;
-    /**
-     * Background Image field in *Hero → Primary*
-     *
-     * - **Field Type**: Image
-     * - **Placeholder**: *None*
-     * - **API ID Path**: hero.primary.background_image
-     * - **Documentation**: https://prismic.io/docs/core-concepts/image
-     *
-     */
-    background_image: prismicT.ImageField<never>;
+    cta_type: prismicT.SelectField<"Primary" | "Secondary" | "Text">;
 }
 /**
  * With Background variation for Hero Slice
@@ -1423,32 +1436,22 @@ interface HeroSliceWithBackgroundPrimary {
  * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
  *
  */
-export type HeroSliceWithBackground = prismicT.SharedSliceVariation<"withBackground", Simplify<HeroSliceWithBackgroundPrimary>, never>;
+export type HeroSliceWithBackground = prismicT.SharedSliceVariation<"withBackground", Simplify<HeroSliceWithBackgroundPrimary>, Simplify<HeroSliceWithBackgroundItem>>;
 /**
  * Primary content in Hero → Primary
  *
  */
 interface HeroSliceWithVideoBackgroundPrimary {
     /**
-     * Title Top line field in *Hero → Primary*
+     * Title field in *Hero → Primary*
      *
-     * - **Field Type**: Text
+     * - **Field Type**: Title
      * - **Placeholder**: *None*
-     * - **API ID Path**: hero.primary.title_top_line
-     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     * - **API ID Path**: hero.primary.title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
      *
      */
-    title_top_line: prismicT.KeyTextField;
-    /**
-     * Title Bottom Line field in *Hero → Primary*
-     *
-     * - **Field Type**: Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: hero.primary.title_bottom_line
-     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
-     *
-     */
-    title_bottom_line: prismicT.KeyTextField;
+    title: prismicT.TitleField;
     /**
      * Description field in *Hero → Primary*
      *
@@ -1460,55 +1463,51 @@ interface HeroSliceWithVideoBackgroundPrimary {
      */
     description: prismicT.RichTextField;
     /**
-     * Primary Cta Label field in *Hero → Primary*
-     *
-     * - **Field Type**: Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: hero.primary.primary_cta_label
-     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
-     *
-     */
-    primary_cta_label: prismicT.KeyTextField;
-    /**
-     * Primary Cta Link field in *Hero → Primary*
-     *
-     * - **Field Type**: Link
-     * - **Placeholder**: *None*
-     * - **API ID Path**: hero.primary.primary_cta_link
-     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
-     *
-     */
-    primary_cta_link: prismicT.LinkField;
-    /**
-     * Secondary Cta Label field in *Hero → Primary*
-     *
-     * - **Field Type**: Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: hero.primary.secondary_cta_label
-     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
-     *
-     */
-    secondary_cta_label: prismicT.KeyTextField;
-    /**
-     * Secondary Cta Link field in *Hero → Primary*
-     *
-     * - **Field Type**: Link
-     * - **Placeholder**: *None*
-     * - **API ID Path**: hero.primary.secondary_cta_link
-     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
-     *
-     */
-    secondary_cta_link: prismicT.LinkField;
-    /**
      * Background Video field in *Hero → Primary*
      *
-     * - **Field Type**: Image
+     * - **Field Type**: Embed
      * - **Placeholder**: *None*
      * - **API ID Path**: hero.primary.background_video
-     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     * - **Documentation**: https://prismic.io/docs/core-concepts/embed
      *
      */
-    background_video: prismicT.ImageField<never>;
+    background_video: prismicT.EmbedField;
+}
+/**
+ * Item in Hero → Items
+ *
+ */
+export interface HeroSliceWithVideoBackgroundItem {
+    /**
+     * Cta Label field in *Hero → Items*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: hero.items[].cta_label
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    cta_label: prismicT.KeyTextField;
+    /**
+     * Cta Link field in *Hero → Items*
+     *
+     * - **Field Type**: Link
+     * - **Placeholder**: *None*
+     * - **API ID Path**: hero.items[].cta_link
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    cta_link: prismicT.LinkField;
+    /**
+     * Cta Type field in *Hero → Items*
+     *
+     * - **Field Type**: Select
+     * - **Placeholder**: *None*
+     * - **API ID Path**: hero.items[].cta_type
+     * - **Documentation**: https://prismic.io/docs/core-concepts/select
+     *
+     */
+    cta_type: prismicT.SelectField<"Primary" | "Secondary" | "Text">;
 }
 /**
  * With Video Background variation for Hero Slice
@@ -1518,7 +1517,7 @@ interface HeroSliceWithVideoBackgroundPrimary {
  * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
  *
  */
-export type HeroSliceWithVideoBackground = prismicT.SharedSliceVariation<"withVideoBackground", Simplify<HeroSliceWithVideoBackgroundPrimary>, never>;
+export type HeroSliceWithVideoBackground = prismicT.SharedSliceVariation<"withVideoBackground", Simplify<HeroSliceWithVideoBackgroundPrimary>, Simplify<HeroSliceWithVideoBackgroundItem>>;
 /**
  * Slice variation for *Hero*
  *
@@ -1548,17 +1547,6 @@ interface LogoCloudSliceDefaultPrimary {
      *
      */
     title: prismicT.RichTextField;
-    /**
-     * Dark mode field in *LogoCloud → Primary*
-     *
-     * - **Field Type**: Boolean
-     * - **Placeholder**: *None*
-     * - **Default Value**: false
-     * - **API ID Path**: logo_cloud.primary.dark_mode
-     * - **Documentation**: https://prismic.io/docs/core-concepts/boolean
-     *
-     */
-    dark_mode: prismicT.BooleanField;
 }
 /**
  * Item in LogoCloud → Items
@@ -1600,17 +1588,6 @@ interface LogoCloudSliceThreeColumnsPrimary {
      *
      */
     title: prismicT.RichTextField;
-    /**
-     * Dark mode field in *LogoCloud → Primary*
-     *
-     * - **Field Type**: Boolean
-     * - **Placeholder**: *None*
-     * - **Default Value**: false
-     * - **API ID Path**: logo_cloud.primary.dark_mode
-     * - **Documentation**: https://prismic.io/docs/core-concepts/boolean
-     *
-     */
-    dark_mode: prismicT.BooleanField;
 }
 /**
  * Item in LogoCloud → Items
@@ -1687,17 +1664,6 @@ interface LogoCloudSliceSimpleDarkModePrimary {
      *
      */
     title: prismicT.RichTextField;
-    /**
-     * Dark mode field in *LogoCloud → Primary*
-     *
-     * - **Field Type**: Boolean
-     * - **Placeholder**: *None*
-     * - **Default Value**: false
-     * - **API ID Path**: logo_cloud.primary.dark_mode
-     * - **Documentation**: https://prismic.io/docs/core-concepts/boolean
-     *
-     */
-    dark_mode: prismicT.BooleanField;
 }
 /**
  * Item in LogoCloud → Items
@@ -2516,129 +2482,49 @@ type TestimonialsSliceVariation = TestimonialsSliceDefault | TestimonialsSliceSc
  */
 export type TestimonialsSlice = prismicT.SharedSlice<"testimonials", TestimonialsSliceVariation>;
 /**
- * Primary content in HeaderLink → Primary
+ * Primary content in Text → Primary
  *
  */
-interface HeaderLinkSliceDefaultPrimary {
+interface TextSliceDefaultPrimary {
     /**
-     * Label field in *HeaderLink → Primary*
+     * Text Section field in *Text → Primary*
      *
      * - **Field Type**: Rich Text
-     * - **Placeholder**: This is where it all begins...
-     * - **API ID Path**: header_link.primary.label
+     * - **Placeholder**: *None*
+     * - **API ID Path**: text.primary.text_section
      * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
      *
      */
-    label: prismicT.RichTextField;
-    /**
-     * Link field in *HeaderLink → Primary*
-     *
-     * - **Field Type**: Link
-     * - **Placeholder**: *None*
-     * - **API ID Path**: header_link.primary.link
-     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
-     *
-     */
-    link: prismicT.LinkField;
+    text_section: prismicT.RichTextField;
 }
 /**
- * Default variation for HeaderLink Slice
+ * Default variation for Text Slice
  *
  * - **API ID**: `default`
- * - **Description**: `HeaderLink`
+ * - **Description**: `Text`
  * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
  *
  */
-export type HeaderLinkSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<HeaderLinkSliceDefaultPrimary>, never>;
+export type TextSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<TextSliceDefaultPrimary>, never>;
 /**
- * Primary content in HeaderLink → Primary
+ * Slice variation for *Text*
  *
  */
-interface HeaderLinkSliceSamePageAnchorPrimary {
-    /**
-     * Label field in *HeaderLink → Primary*
-     *
-     * - **Field Type**: Rich Text
-     * - **Placeholder**: This is where it all begins...
-     * - **API ID Path**: header_link.primary.label
-     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-     *
-     */
-    label: prismicT.RichTextField;
-    /**
-     * Anchor field in *HeaderLink → Primary*
-     *
-     * - **Field Type**: Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: header_link.primary.anchor
-     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
-     *
-     */
-    anchor: prismicT.KeyTextField;
-}
+type TextSliceVariation = TextSliceDefault;
 /**
- * SamePageAnchor variation for HeaderLink Slice
+ * Text Shared Slice
  *
- * - **API ID**: `samePageAnchor`
- * - **Description**: `HeaderLink`
+ * - **API ID**: `text`
+ * - **Description**: `Text`
  * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
  *
  */
-export type HeaderLinkSliceSamePageAnchor = prismicT.SharedSliceVariation<"samePageAnchor", Simplify<HeaderLinkSliceSamePageAnchorPrimary>, never>;
-/**
- * Primary content in HeaderLink → Primary
- *
- */
-interface HeaderLinkSliceButtonPrimary {
-    /**
-     * Label field in *HeaderLink → Primary*
-     *
-     * - **Field Type**: Rich Text
-     * - **Placeholder**: This is where it all begins...
-     * - **API ID Path**: header_link.primary.label
-     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-     *
-     */
-    label: prismicT.RichTextField;
-    /**
-     * Link field in *HeaderLink → Primary*
-     *
-     * - **Field Type**: Link
-     * - **Placeholder**: *None*
-     * - **API ID Path**: header_link.primary.link
-     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
-     *
-     */
-    link: prismicT.LinkField;
-}
-/**
- * Button variation for HeaderLink Slice
- *
- * - **API ID**: `button`
- * - **Description**: `HeaderLink`
- * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
- *
- */
-export type HeaderLinkSliceButton = prismicT.SharedSliceVariation<"button", Simplify<HeaderLinkSliceButtonPrimary>, never>;
-/**
- * Slice variation for *HeaderLink*
- *
- */
-type HeaderLinkSliceVariation = HeaderLinkSliceDefault | HeaderLinkSliceSamePageAnchor | HeaderLinkSliceButton;
-/**
- * HeaderLink Shared Slice
- *
- * - **API ID**: `header_link`
- * - **Description**: `HeaderLink`
- * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
- *
- */
-export type HeaderLinkSlice = prismicT.SharedSlice<"header_link", HeaderLinkSliceVariation>;
+export type TextSlice = prismicT.SharedSlice<"text", TextSliceVariation>;
 declare module "@prismicio/client" {
     interface CreateClient {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { HeaderDocumentData, HeaderDocumentDataSlicesSlice, HeaderDocumentDataSlices1Slice, HeaderDocument, HomePageDocumentData, HomePageDocumentDataSlicesSlice, HomePageDocument, AllDocumentTypes, CallToActionSliceDefaultPrimary, CallToActionSliceDefault, CallToActionSliceWhiteBackgroundPrimary, CallToActionSliceWhiteBackground, CallToActionSliceWithImageRightPrimary, CallToActionSliceWithImageRightItem, CallToActionSliceWithImageRight, CallToActionSliceWithImageLeftPrimary, CallToActionSliceWithImageLeftItem, CallToActionSliceWithImageLeft, CallToActionSliceVariation, CallToActionSlice, FaqSliceTwoColumnsPrimary, FaqSliceTwoColumnsItem, FaqSliceTwoColumns, FaqSliceThreeColumnsPrimary, FaqSliceThreeColumnsItem, FaqSliceThreeColumns, FaqSliceCenteredPrimary, FaqSliceCenteredItem, FaqSliceCentered, FaqSliceCenteredWithBackgroundPrimary, FaqSliceCenteredWithBackgroundItem, FaqSliceCenteredWithBackground, FaqSliceVariation, FaqSlice, FeaturesSliceRightSidePrimary, FeaturesSliceRightSideItem, FeaturesSliceRightSide, FeaturesSliceLeftSidePrimary, FeaturesSliceLeftSideItem, FeaturesSliceLeftSide, FeaturesSliceAbovePrimary, FeaturesSliceAboveItem, FeaturesSliceAbove, FeaturesSliceBelowPrimary, FeaturesSliceBelowItem, FeaturesSliceBelow, FeaturesSliceVariation, FeaturesSlice, FormSliceSimplePrimary, FormSliceSimple, FormSliceWithDetailsPrimary, FormSliceWithDetailsItem, FormSliceWithDetails, FormSliceCenteredPrimary, FormSliceCentered, FormSliceVariation, FormSlice, HeroSliceDefaultPrimary, HeroSliceDefault, HeroSliceTitleOnlyPrimary, HeroSliceTitleOnly, HeroSliceWithBackgroundPrimary, HeroSliceWithBackground, HeroSliceWithVideoBackgroundPrimary, HeroSliceWithVideoBackground, HeroSliceVariation, HeroSlice, LogoCloudSliceDefaultPrimary, LogoCloudSliceDefaultItem, LogoCloudSliceDefault, LogoCloudSliceThreeColumnsPrimary, LogoCloudSliceThreeColumnsItem, LogoCloudSliceThreeColumns, LogoCloudSliceSinglePrimary, LogoCloudSliceSingle, LogoCloudSliceSimpleDarkModePrimary, LogoCloudSliceSimpleDarkModeItem, LogoCloudSliceSimpleDarkMode, LogoCloudSliceVariation, LogoCloudSlice, HeaderLinkSliceDefaultPrimary, HeaderLinkSliceDefault, HeaderLinkSliceSamePageAnchorPrimary, HeaderLinkSliceSamePageAnchor, HeaderLinkSliceButtonPrimary, HeaderLinkSliceButton, HeaderLinkSliceVariation, HeaderLinkSlice, PricingSliceDefaultPrimary, PricingSliceDefaultItem, PricingSliceDefault, PricingSliceWithPromoPrimary, PricingSliceWithPromoItem, PricingSliceWithPromo, PricingSliceVariation, PricingSlice, TestimonialsSliceDefaultPrimary, TestimonialsSliceDefaultItem, TestimonialsSliceDefault, TestimonialsSliceScrollingCardsPrimary, TestimonialsSliceScrollingCardsItem, TestimonialsSliceScrollingCards, TestimonialsSliceTwoColumnsWithSeparatorPrimary, TestimonialsSliceTwoColumnsWithSeparator, TestimonialsSliceSingleCenteredPrimary, TestimonialsSliceSingleCentered, TestimonialsSliceSingleWithLargeImagePrimary, TestimonialsSliceSingleWithLargeImage, TestimonialsSliceVariation, TestimonialsSlice };
+        export type { BlogArticleDocumentData, BlogArticleDocumentDataSlicesSlice, BlogArticleDocument, BlogIndexDocumentData, BlogIndexDocument, HomePageDocumentData, HomePageDocumentDataSlicesSlice, HomePageDocument, LandingPageDocumentData, LandingPageDocumentDataSlicesSlice, LandingPageDocument, AllDocumentTypes, CallToActionSliceDefaultPrimary, CallToActionSliceDefault, CallToActionSliceWhiteBackgroundPrimary, CallToActionSliceWhiteBackground, CallToActionSliceWithImageRightPrimary, CallToActionSliceWithImageRightItem, CallToActionSliceWithImageRight, CallToActionSliceWithImageLeftPrimary, CallToActionSliceWithImageLeftItem, CallToActionSliceWithImageLeft, CallToActionSliceVariation, CallToActionSlice, FaqSliceTwoColumnsPrimary, FaqSliceTwoColumnsItem, FaqSliceTwoColumns, FaqSliceThreeColumnsPrimary, FaqSliceThreeColumnsItem, FaqSliceThreeColumns, FaqSliceCenteredPrimary, FaqSliceCenteredItem, FaqSliceCentered, FaqSliceCenteredWithBackgroundPrimary, FaqSliceCenteredWithBackgroundItem, FaqSliceCenteredWithBackground, FaqSliceVariation, FaqSlice, FeaturesSliceRightSidePrimary, FeaturesSliceRightSideItem, FeaturesSliceRightSide, FeaturesSliceLeftSidePrimary, FeaturesSliceLeftSideItem, FeaturesSliceLeftSide, FeaturesSliceAbovePrimary, FeaturesSliceAboveItem, FeaturesSliceAbove, FeaturesSliceBelowPrimary, FeaturesSliceBelowItem, FeaturesSliceBelow, FeaturesSliceVariation, FeaturesSlice, FormSliceDefaultPrimary, FormSliceDefault, FormSliceVariation, FormSlice, HeroSliceDefaultPrimary, HeroSliceDefaultItem, HeroSliceDefault, HeroSliceTitleOnlyPrimary, HeroSliceTitleOnly, HeroSliceWithBackgroundPrimary, HeroSliceWithBackgroundItem, HeroSliceWithBackground, HeroSliceWithVideoBackgroundPrimary, HeroSliceWithVideoBackgroundItem, HeroSliceWithVideoBackground, HeroSliceVariation, HeroSlice, LogoCloudSliceDefaultPrimary, LogoCloudSliceDefaultItem, LogoCloudSliceDefault, LogoCloudSliceThreeColumnsPrimary, LogoCloudSliceThreeColumnsItem, LogoCloudSliceThreeColumns, LogoCloudSliceSinglePrimary, LogoCloudSliceSingle, LogoCloudSliceSimpleDarkModePrimary, LogoCloudSliceSimpleDarkModeItem, LogoCloudSliceSimpleDarkMode, LogoCloudSliceVariation, LogoCloudSlice, PricingSliceDefaultPrimary, PricingSliceDefaultItem, PricingSliceDefault, PricingSliceWithPromoPrimary, PricingSliceWithPromoItem, PricingSliceWithPromo, PricingSliceVariation, PricingSlice, TestimonialsSliceDefaultPrimary, TestimonialsSliceDefaultItem, TestimonialsSliceDefault, TestimonialsSliceScrollingCardsPrimary, TestimonialsSliceScrollingCardsItem, TestimonialsSliceScrollingCards, TestimonialsSliceTwoColumnsWithSeparatorPrimary, TestimonialsSliceTwoColumnsWithSeparator, TestimonialsSliceSingleCenteredPrimary, TestimonialsSliceSingleCentered, TestimonialsSliceSingleWithLargeImagePrimary, TestimonialsSliceSingleWithLargeImage, TestimonialsSliceVariation, TestimonialsSlice, TextSliceDefaultPrimary, TextSliceDefault, TextSliceVariation, TextSlice };
     }
 }

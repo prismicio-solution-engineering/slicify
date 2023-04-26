@@ -15,6 +15,7 @@ import avatarImage2 from "@/images/avatars/avatar-2.png";
 import avatarImage3 from "@/images/avatars/avatar-3.png";
 import avatarImage4 from "@/images/avatars/avatar-4.png";
 import avatarImage5 from "@/images/avatars/avatar-5.png";
+import { PrismicNextImage } from "@prismicio/next";
 
 const testimonials = [
   [
@@ -79,8 +80,7 @@ const testimonials = [
   ],
 ];
 
-
-export default function TestimonialsMansonry({
+export default function TestimonialsMasonry({
   slice,
 }: {
   slice: Content.TestimonialsSliceDefault;
@@ -114,7 +114,7 @@ export default function TestimonialsMansonry({
             }}
           />
         </div>
-        <ul
+        {/* <ul
           role="list"
           className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:gap-8 lg:mt-20 lg:max-w-none lg:grid-cols-3"
         >
@@ -153,6 +153,63 @@ export default function TestimonialsMansonry({
                   </li>
                 ))}
               </ul>
+            </li>
+          ))}
+        </ul> */}
+        <ul
+          className="mx-auto mt-16 max-w-2xl w-full lg:columns-3 sm:columns-2 gap-6 sm:gap-8 lg:mt-20 lg:max-w-none"
+          // className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:gap-8 lg:mt-20 lg:max-w-none lg:grid-cols-3"
+        >
+
+          {slice?.items?.map((item, idx) => (
+            <li
+              key={idx}
+              className="mb-8 md:w-96 sm:w-80 sm:space-x-4"
+            >
+              <figure className="relative rounded-2xl bg-white p-6 shadow-xl shadow-slate-900/10">
+
+                <QuoteIcon className="absolute left-6 top-6 fill-slate-100" />
+                <blockquote className="relative">
+                  <PrismicRichText
+                    field={item.quote}
+                    components={{
+                      paragraph: ({ children }) => (
+                        <p className="text-lg tracking-tight text-slate-900">
+                          {children}
+                        </p>
+                      ),
+                    }}
+                  />
+                </blockquote>
+                <figcaption className="relative mt-6 flex items-center justify-between border-t border-slate-100 pt-6 text-left">
+                  <div>
+                    <div className="font-display text-base text-slate-900">
+                      <PrismicRichText
+                        field={item.author}
+                        components={{
+                          paragraph: ({ children }) => <p>{children}</p>,
+                        }}
+                      />
+                    </div>
+                    <div className="mt-1 text-sm text-slate-500">
+                      <PrismicRichText
+                        field={item.author_role}
+                        components={{
+                          paragraph: ({ children }) => <p>{children}</p>,
+                        }}
+                      />
+                    </div>
+                  </div>
+                  <div className="overflow-hidden rounded-full bg-slate-50">
+                    <PrismicNextImage
+                      className="h-14 w-14 object-cover"
+                      field={item.author_image}
+                      width={56}
+                      height={56}
+                    />
+                  </div>
+                </figcaption>
+              </figure>
             </li>
           ))}
         </ul>
