@@ -1,22 +1,23 @@
 {
-  "id": "home_page",
-  "label": "Home Page",
-  "repeatable": false,
+  "id": "landing_page",
+  "label": "Landing Page",
+  "repeatable": true,
   "status": true,
   "json": {
     "Main": {
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "Slug",
+          "placeholder": "the-page-url-slug"
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "features": {
-              "type": "SharedSlice"
-            },
             "pricing": {
-              "type": "SharedSlice"
-            },
-            "form": {
               "type": "SharedSlice"
             },
             "call_to_action": {
@@ -25,16 +26,16 @@
             "faq": {
               "type": "SharedSlice"
             },
-            "hero": {
+            "logo_cloud": {
               "type": "SharedSlice"
             },
-            "logo_cloud": {
+            "form": {
               "type": "SharedSlice"
             },
             "testimonials": {
               "type": "SharedSlice"
             },
-            "text": {
+            "features": {
               "type": "SharedSlice"
             }
           }

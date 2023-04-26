@@ -11,6 +11,18 @@ const routes = [
     type: "home_page",
     path: "/",
   },
+  {
+    type: 'blog_index',
+    path: '/blog',
+},
+{
+    type: 'blog_article',
+    path: '/blog/:uid',
+},
+// { Error when added
+//     type: 'landing_page',
+//     path: '/lp/:uid',
+// },
 ];
 
 export function createClient({

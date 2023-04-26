@@ -8,6 +8,7 @@ import Hero from './Hero';
 import LogoCloud from './LogoCloud';
 import Pricing from './Pricing';
 import Testimonials from './Testimonials';
+import Text from './Text';
 
 export {
 	CallToAction,
@@ -18,6 +19,7 @@ export {
 	LogoCloud,
 	Pricing,
 	Testimonials,
+	Text,
 };
 
 export const components = {
@@ -29,4 +31,5 @@ export const components = {
 	logo_cloud: LogoCloud,
 	pricing: Pricing,
 	testimonials: Testimonials,
+	text: Text,
 };

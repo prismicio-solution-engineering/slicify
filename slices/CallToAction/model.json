@@ -17,7 +17,7 @@
             "label": "Title",
             "placeholder": "This is where it all begins...",
             "allowTargetBlank": true,
-            "multi": "heading2"
+            "single": "heading2"
           }
         },
         "description": {
@@ -61,8 +61,10 @@
             "label": "Title",
             "placeholder": "This is where it all begins...",
             "allowTargetBlank": true,
-            "multi": "heading2",
-            "labels": ["highlighted"]
+            "labels": [
+              "highlight"
+            ],
+            "single": "heading2"
           }
         },
         "description": {
@@ -106,7 +108,7 @@
             "label": "Title",
             "placeholder": "This is where it all begins...",
             "allowTargetBlank": true,
-            "multi": "heading2"
+            "single": "heading2"
           }
         },
         "description": {
@@ -174,7 +176,7 @@
             "label": "Title",
             "placeholder": "This is where it all begins...",
             "allowTargetBlank": true,
-            "multi": "heading2"
+            "single": "heading2"
           }
         },
         "description": {
