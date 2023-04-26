@@ -137,6 +137,8 @@
   },
   "_cts": {
     "home_page": {},
-    "blog_article": {}
+    "blog_article": {},
+    "blog_index": {},
+    "landing_page": {}
   }
 }

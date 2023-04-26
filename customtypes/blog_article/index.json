@@ -60,6 +60,20 @@
           "placeholder_true": "Display",
           "default_value": true
         }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "text": {
+              "type": "SharedSlice"
+            },
+            "form": {
+              "type": "SharedSlice"
+            }
+          }
+        }
       }
     },
     "Header": {},
