@@ -120,6 +120,17 @@
     }
   },
   "_cts": {
-    "home_page": {}
+    "home_page": {},
+    "header": {}
+  },
+  "slices/navigation": {
+    "HeaderLink": {
+      "default": {
+        "primary": {}
+      },
+      "samePageAnchor": {
+        "primary": {}
+      }
+    }
   }
 }

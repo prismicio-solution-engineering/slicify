@@ -4,10 +4,11 @@ import { createClient } from "../prismicio";
 import { Content } from "@prismicio/client";
 import { SliceZone } from "@prismicio/react";
 import { components } from "@/slices";
+import { Header } from "@/components/Header";
 
 type HomePageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
-export default function Home({ page }: HomePageProps) {
+export default function Home({ page, header }: HomePageProps) {
   return (
     <>
       <Head>
@@ -17,6 +18,7 @@ export default function Home({ page }: HomePageProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
+        <Header {...header.data}/>
         <SliceZone slices={page.data.slices} components={components} />
       </main>
     </>
@@ -30,9 +32,13 @@ export async function getStaticProps({ previewData }: GetStaticPropsContext) {
   const page = await client.getSingle<Content.HomePageDocument>("home_page");
   //    ^ Typed as HomePageDocument
 
+  const header = await client.getSingle<Content.HeaderDocument>("header");
+  //    ^ Typed as HeaderDocument
+
   return {
     props: {
       page,
+      header
     },
   };
 }
