@@ -1705,6 +1705,125 @@ type LogoCloudSliceVariation = LogoCloudSliceDefault | LogoCloudSliceThreeColumn
  */
 export type LogoCloudSlice = prismicT.SharedSlice<"logo_cloud", LogoCloudSliceVariation>;
 /**
+ * Primary content in HeaderLink → Primary
+ *
+ */
+interface HeaderLinkSliceDefaultPrimary {
+    /**
+     * Label field in *HeaderLink → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: This is where it all begins...
+     * - **API ID Path**: header_link.primary.label
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    label: prismicT.RichTextField;
+    /**
+     * Link field in *HeaderLink → Primary*
+     *
+     * - **Field Type**: Link
+     * - **Placeholder**: *None*
+     * - **API ID Path**: header_link.primary.link
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    link: prismicT.LinkField;
+}
+/**
+ * Default variation for HeaderLink Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `HeaderLink`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type HeaderLinkSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<HeaderLinkSliceDefaultPrimary>, never>;
+/**
+ * Primary content in HeaderLink → Primary
+ *
+ */
+interface HeaderLinkSliceSamePageAnchorPrimary {
+    /**
+     * Label field in *HeaderLink → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: This is where it all begins...
+     * - **API ID Path**: header_link.primary.label
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    label: prismicT.RichTextField;
+    /**
+     * Anchor field in *HeaderLink → Primary*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: header_link.primary.anchor
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    anchor: prismicT.KeyTextField;
+}
+/**
+ * SamePageAnchor variation for HeaderLink Slice
+ *
+ * - **API ID**: `samePageAnchor`
+ * - **Description**: `HeaderLink`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type HeaderLinkSliceSamePageAnchor = prismicT.SharedSliceVariation<"samePageAnchor", Simplify<HeaderLinkSliceSamePageAnchorPrimary>, never>;
+/**
+ * Primary content in HeaderLink → Primary
+ *
+ */
+interface HeaderLinkSliceButtonPrimary {
+    /**
+     * Label field in *HeaderLink → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: This is where it all begins...
+     * - **API ID Path**: header_link.primary.label
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    label: prismicT.RichTextField;
+    /**
+     * Link field in *HeaderLink → Primary*
+     *
+     * - **Field Type**: Link
+     * - **Placeholder**: *None*
+     * - **API ID Path**: header_link.primary.link
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    link: prismicT.LinkField;
+}
+/**
+ * Button variation for HeaderLink Slice
+ *
+ * - **API ID**: `button`
+ * - **Description**: `HeaderLink`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type HeaderLinkSliceButton = prismicT.SharedSliceVariation<"button", Simplify<HeaderLinkSliceButtonPrimary>, never>;
+/**
+ * Slice variation for *HeaderLink*
+ *
+ */
+type HeaderLinkSliceVariation = HeaderLinkSliceDefault | HeaderLinkSliceSamePageAnchor | HeaderLinkSliceButton;
+/**
+ * HeaderLink Shared Slice
+ *
+ * - **API ID**: `header_link`
+ * - **Description**: `HeaderLink`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type HeaderLinkSlice = prismicT.SharedSlice<"header_link", HeaderLinkSliceVariation>;
+/**
  * Primary content in Pricing → Primary
  *
  */
