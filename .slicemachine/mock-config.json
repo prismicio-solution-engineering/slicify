@@ -127,6 +127,16 @@
     "Form": {
       "default": {
         "primary": {}
+      },
+      "simple": {
+        "items": {}
+      },
+      "withDetails": {
+        "primary": {},
+        "items": {}
+      },
+      "centered": {
+        "primary": {}
       }
     },
     "Text": {
