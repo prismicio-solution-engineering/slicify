@@ -1,1 +1,68 @@
-{}
+{
+  "test": {
+    "__TYPE__": "StructuredTextContent",
+    "value": [
+      {
+        "type": "paragraph",
+        "content": {
+          "text": "Sit nisi veniam cupidatat elit laborum non nisi exercitation. Velit exercitation ex aute reprehenderit sunt id magna id."
+        }
+      }
+    ]
+  },
+  "slices": {
+    "__TYPE__": "SliceContentType",
+    "value": [
+      {
+        "key": "call_to_action$4d2c8051-301d-4baa-b150-9abb957b097c",
+        "name": "call_to_action",
+        "widget": {
+          "__TYPE__": "SharedSliceContent",
+          "variation": "default",
+          "primary": {
+            "title": {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "heading2",
+                  "content": {
+                    "text": "Difficult"
+                  }
+                }
+              ]
+            },
+            "description": {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Quis in anim ut. Eu ipsum dolore in minim magna quis quis sit magna. Consequat excepteur commodo proident do sunt adipisicing."
+                  }
+                }
+              ]
+            },
+            "cta_label": {
+              "__TYPE__": "FieldContent",
+              "value": "unknown",
+              "type": "Text"
+            },
+            "cta_link": {
+              "__TYPE__": "LinkContent",
+              "value": {
+                "__TYPE__": "ExternalLink",
+                "url": "http://twitter.com"
+              }
+            }
+          },
+          "items": [
+            {
+              "__TYPE__": "GroupItemContent",
+              "value": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

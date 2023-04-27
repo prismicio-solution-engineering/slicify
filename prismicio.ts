@@ -2,7 +2,7 @@ import * as prismic from "@prismicio/client";
 import * as prismicNext from "@prismicio/next";
 import sm from "./sm.json";
 
-export const repositoryName = prismic.getRepositoryName(sm.apiEndpoint);
+export const repositoryName = process.env.NEXT_PUBLIC_API_ENDPOINT ? process.env.NEXT_PUBLIC_API_ENDPOINT : prismic.getRepositoryName(sm.apiEndpoint);
 
 // Update the routes array to match your project's route structure
 /** @type {prismic.ClientConfig['routes']} **/
@@ -19,10 +19,10 @@ const routes = [
     type: 'blog_article',
     path: '/blog/:uid',
 },
-// { Error when added
-//     type: 'landing_page',
-//     path: '/lp/:uid',
-// },
+{
+    type: 'landing_page',
+    path: '/lp/:uid',
+},
 ];
 
 export function createClient({
