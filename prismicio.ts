@@ -19,10 +19,10 @@ const routes = [
     type: 'blog_article',
     path: '/blog/:uid',
 },
-// { Error when added
-//     type: 'landing_page',
-//     path: '/lp/:uid',
-// },
+{
+    type: 'landing_page',
+    path: '/lp/:uid',
+},
 ];
 
 export function createClient({
