@@ -150,7 +150,10 @@
     "header": {},
     "blog_article": {},
     "blog_index": {},
-    "landing_page": {}
+    "landing_page": {},
+    "footer": {
+      "social_links": {}
+    }
   },
   "slices/navigation": {
     "HeaderLink": {
