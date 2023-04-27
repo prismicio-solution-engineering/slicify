@@ -1,14 +1,16 @@
-import { Fragment } from "react";
+import { Fragment, ReactNode } from "react";
 import Link from "next/link";
 import { Popover, Transition } from "@headlessui/react";
 import clsx from "clsx";
 
-import { Button } from "@/components/Button";
 import { Container } from "@/components/Container";
 import { Logo } from "@/components/Logo";
 import { NavLink } from "@/components/NavLink";
+import { HeaderDocumentData } from "@/.slicemachine/prismicio";
+import { PrismicRichText, SliceZone } from "@prismicio/react";
+import { components } from "@/slices/navigation";
 
-function MobileNavLink({ href, children }) {
+function MobileNavLink({ href, children }: { href: string, children: ReactNode }) {
   return (
     <Popover.Button as={Link} href={href} className="block w-full p-2">
       {children}
@@ -16,7 +18,7 @@ function MobileNavLink({ href, children }) {
   );
 }
 
-function MobileNavIcon({ open }) {
+function MobileNavIcon({ open }: { open: boolean }) {
   return (
     <svg
       aria-hidden="true"
@@ -43,7 +45,7 @@ function MobileNavIcon({ open }) {
   );
 }
 
-function MobileNavigation() {
+function MobileNavigation({ header }: { header: HeaderDocumentData }) {
   return (
     <Popover>
       <Popover.Button
@@ -77,6 +79,13 @@ function MobileNavigation() {
             as="div"
             className="absolute inset-x-0 top-full mt-4 flex origin-top flex-col rounded-2xl bg-white p-4 text-lg tracking-tight text-slate-900 shadow-xl ring-1 ring-slate-900/5"
           >
+            {
+              header.slices.map((link, index) => (
+                <MobileNavLink href="#features">
+                  <PrismicRichText field={link.primary.label} />
+                </MobileNavLink>
+              )
+              )}
             <MobileNavLink href="#features">Features</MobileNavLink>
             <MobileNavLink href="#testimonials">Testimonials</MobileNavLink>
             <MobileNavLink href="#pricing">Pricing</MobileNavLink>
@@ -89,7 +98,7 @@ function MobileNavigation() {
   );
 }
 
-export function Header() {
+export function Header(header: HeaderDocumentData) {
   return (
     <header className="py-10">
       <Container>
@@ -99,22 +108,13 @@ export function Header() {
               <Logo className="h-10 w-auto" />
             </Link>
             <div className="hidden md:flex md:gap-x-6">
-              <NavLink href="#features">Features</NavLink>
-              <NavLink href="#testimonials">Testimonials</NavLink>
-              <NavLink href="#pricing">Pricing</NavLink>
+              <SliceZone slices={header.slices} components={components} />
             </div>
           </div>
           <div className="flex items-center gap-x-5 md:gap-x-8">
-            <div className="hidden md:block">
-              <NavLink href="/login">Sign in</NavLink>
-            </div>
-            <Button href="/register" color="blue">
-              <span>
-                Get started <span className="hidden lg:inline">today</span>
-              </span>
-            </Button>
+            <SliceZone slices={header.slices1} components={components} />
             <div className="-mr-1 md:hidden">
-              <MobileNavigation />
+              <MobileNavigation header={header} />
             </div>
           </div>
         </nav>

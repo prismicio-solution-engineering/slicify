@@ -147,8 +147,19 @@
   },
   "_cts": {
     "home_page": {},
+    "header": {},
     "blog_article": {},
     "blog_index": {},
     "landing_page": {}
+  },
+  "slices/navigation": {
+    "HeaderLink": {
+      "default": {
+        "primary": {}
+      },
+      "samePageAnchor": {
+        "primary": {}
+      }
+    }
   }
 }
