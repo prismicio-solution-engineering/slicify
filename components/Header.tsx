@@ -5,17 +5,34 @@ import clsx from "clsx";
 
 import { Container } from "@/components/Container";
 import { Logo } from "@/components/Logo";
-import { NavLink } from "@/components/NavLink";
-import { HeaderDocumentData } from "@/.slicemachine/prismicio";
-import { PrismicRichText, SliceZone } from "@prismicio/react";
+import { HeaderDocumentData, HeaderLinkSlice } from "@/.slicemachine/prismicio";
+import { PrismicLink, PrismicRichText, SliceZone } from "@prismicio/react";
 import { components } from "@/slices/navigation";
+import { PrismicNextImage } from "@prismicio/next";
 
-function MobileNavLink({ href, children }: { href: string, children: ReactNode }) {
-  return (
-    <Popover.Button as={Link} href={href} className="block w-full p-2">
-      {children}
-    </Popover.Button>
-  );
+function MobileNavLink({ link, children }: { children: ReactNode, link: HeaderLinkSlice }) {
+  switch (link.variation) {
+    case "default":
+      return (
+        <Popover.Button>
+          <PrismicLink field={link.primary.link}>
+            {children}
+          </PrismicLink>
+        </Popover.Button>
+      )
+    case "button":
+      return (
+        <></>
+      )
+    case "samePageAnchor":
+      return (
+        <Popover.Button>
+          <PrismicLink href={"#" + link.primary.anchor} >
+            {children}
+          </PrismicLink>
+        </Popover.Button>
+      )
+  }
 }
 
 function MobileNavIcon({ open }: { open: boolean }) {
@@ -81,16 +98,19 @@ function MobileNavigation({ header }: { header: HeaderDocumentData }) {
           >
             {
               header.slices.map((link, index) => (
-                <MobileNavLink href="#features">
+                <MobileNavLink link={link} key={index}>
                   <PrismicRichText field={link.primary.label} />
                 </MobileNavLink>
               )
               )}
-            <MobileNavLink href="#features">Features</MobileNavLink>
-            <MobileNavLink href="#testimonials">Testimonials</MobileNavLink>
-            <MobileNavLink href="#pricing">Pricing</MobileNavLink>
             <hr className="m-2 border-slate-300/40" />
-            <MobileNavLink href="/login">Sign in</MobileNavLink>
+            {
+              header.slices1.map((link, index) => (
+                <MobileNavLink link={link} key={index}>
+                  <PrismicRichText field={link.primary.label} />
+                </MobileNavLink>
+              )
+              )}
           </Popover.Panel>
         </Transition.Child>
       </Transition.Root>
@@ -105,7 +125,7 @@ export function Header(header: HeaderDocumentData) {
         <nav className="relative z-50 flex justify-between">
           <div className="flex items-center md:gap-x-12">
             <Link href="#" aria-label="Home">
-              <Logo className="h-10 w-auto" />
+              <PrismicNextImage field={header.logo} className="h-10 w-auto" />
             </Link>
             <div className="hidden md:flex md:gap-x-6">
               <SliceZone slices={header.slices} components={components} />

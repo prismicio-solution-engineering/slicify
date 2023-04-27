@@ -1,14 +1,15 @@
 import Head from "next/head";
 import type { GetStaticPropsContext, InferGetStaticPropsType } from "next";
-import { createClient } from "../prismicio";
+import { createClient } from "@/prismicio";
 import { Content } from "@prismicio/client";
 import { SliceZone } from "@prismicio/react";
 import { components } from "@/slices";
 import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 
 type HomePageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
-export default function Home({ page, header }: HomePageProps) {
+export default function Home({ page, header, footer }: HomePageProps) {
   return (
     <>
       <Head>
@@ -20,6 +21,7 @@ export default function Home({ page, header }: HomePageProps) {
       <main>
         <Header {...header.data}/>
         <SliceZone slices={page.data.slices} components={components} />
+        <Footer {...footer.data}/>
       </main>
     </>
   );
@@ -35,10 +37,14 @@ export async function getStaticProps({ previewData }: GetStaticPropsContext) {
   const header = await client.getSingle<Content.HeaderDocument>("header");
   //    ^ Typed as HeaderDocument
 
+  const footer = await client.getSingle<Content.FooterDocument>("footer");
+  //    ^ Typed as FooterDocument
+
   return {
     props: {
       page,
-      header
+      header,
+      footer
     },
   };
 }

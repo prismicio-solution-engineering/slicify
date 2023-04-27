@@ -9,7 +9,7 @@
           {
             "type": "heading1",
             "content": {
-              "text": "Social"
+              "text": "Chapter"
             }
           }
         ]
@@ -20,7 +20,7 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "Cupidatat non aute culpa ullamco dolore ullamco pariatur labore incididunt qui ullamco irure quis ad. Tempor cupidatat cupidatat occaecat aute aute ea. Et amet deserunt cillum commodo in."
+              "text": "Exercitation pariatur mollit culpa. Quis eiusmod labore pariatur elit non enim labore ad proident do consectetur duis aliqua eu."
             }
           }
         ]
@@ -34,7 +34,7 @@
             "cta_label",
             {
               "__TYPE__": "FieldContent",
-              "value": "bet",
+              "value": "bite",
               "type": "Text"
             }
           ],
@@ -52,7 +52,7 @@
             "cta_type",
             {
               "__TYPE__": "FieldContent",
-              "value": "Secondary",
+              "value": "Primary",
               "type": "Select"
             }
           ]
@@ -70,7 +70,7 @@
           {
             "type": "heading1",
             "content": {
-              "text": "Facing"
+              "text": "Numeral"
             }
           }
         ]
@@ -93,7 +93,7 @@
           {
             "type": "heading1",
             "content": {
-              "text": "Positive"
+              "text": "Chose"
             }
           }
         ]
@@ -104,7 +104,7 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "Dolore Lorem qui irure Lorem ipsum id eu. Fugiat ipsum sit nulla est anim dolore sit aute incididunt et sunt laborum."
+              "text": "Id labore commodo exercitation mollit est minim ad do."
             }
           }
         ]
@@ -118,7 +118,7 @@
             "cta_label",
             {
               "__TYPE__": "FieldContent",
-              "value": "guess",
+              "value": "food",
               "type": "Text"
             }
           ],
@@ -128,7 +128,7 @@
               "__TYPE__": "LinkContent",
               "value": {
                 "__TYPE__": "ExternalLink",
-                "url": "https://slicemachine.dev"
+                "url": "http://google.com"
               }
             }
           ],
@@ -136,7 +136,7 @@
             "cta_type",
             {
               "__TYPE__": "FieldContent",
-              "value": "Secondary",
+              "value": "Primary",
               "type": "Select"
             }
           ]
@@ -154,7 +154,7 @@
           {
             "type": "heading1",
             "content": {
-              "text": "Influence"
+              "text": "Everyone"
             }
           }
         ]
@@ -165,7 +165,7 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "Adipisicing commodo sunt tempor non officia do ullamco ipsum anim proident et. Velit cillum velit mollit velit proident velit eu cupidatat et irure."
+              "text": "Sit tempor Lorem labore."
             }
           }
         ]
@@ -208,7 +208,7 @@
             "cta_label",
             {
               "__TYPE__": "FieldContent",
-              "value": "locate",
+              "value": "breath",
               "type": "Text"
             }
           ],
@@ -226,7 +226,7 @@
             "cta_type",
             {
               "__TYPE__": "FieldContent",
-              "value": "Primary",
+              "value": "Text",
               "type": "Select"
             }
           ]
