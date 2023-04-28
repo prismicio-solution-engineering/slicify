@@ -103,7 +103,35 @@ type BlogArticleDocumentDataSlicesSlice = TextSlice | FormSlice;
  */
 export type BlogArticleDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<BlogArticleDocumentData>, "blog_article", Lang>;
 /** Content for Blog index documents */
-type BlogIndexDocumentData = Record<string, never>;
+interface BlogIndexDocumentData {
+    /**
+     * test field in *Blog index*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: blog_index.test
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    test: prismicT.RichTextField;
+    /**
+     * Slice Zone field in *Blog index*
+     *
+     * - **Field Type**: Slice Zone
+     * - **Placeholder**: *None*
+     * - **API ID Path**: blog_index.slices[]
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/slices
+     *
+     */
+    slices: prismicT.SliceZone<BlogIndexDocumentDataSlicesSlice>;
+}
+/**
+ * Slice for *Blog index → Slice Zone*
+ *
+ */
+type BlogIndexDocumentDataSlicesSlice = CallToActionSlice;
 /**
  * Blog index document from Prismic
  *
@@ -114,6 +142,131 @@ type BlogIndexDocumentData = Record<string, never>;
  * @typeParam Lang - Language API ID of the document.
  */
 export type BlogIndexDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<BlogIndexDocumentData>, "blog_index", Lang>;
+/** Content for Footer documents */
+interface FooterDocumentData {
+    /**
+     * Logo field in *Footer*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: footer.logo
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    logo: prismicT.ImageField<never>;
+    /**
+     * Links field in *Footer*
+     *
+     * - **Field Type**: Group
+     * - **Placeholder**: *None*
+     * - **API ID Path**: footer.links[]
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/group
+     *
+     */
+    links: prismicT.GroupField<Simplify<FooterDocumentDataLinksItem>>;
+    /**
+     * Social Links field in *Footer*
+     *
+     * - **Field Type**: Group
+     * - **Placeholder**: *None*
+     * - **API ID Path**: footer.social_links[]
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/group
+     *
+     */
+    social_links: prismicT.GroupField<Simplify<FooterDocumentDataSocialLinksItem>>;
+    /**
+     * Copyright field in *Footer*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: footer.copyright
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    copyright: prismicT.RichTextField;
+    /**
+     * Slice Zone field in *Footer*
+     *
+     * - **Field Type**: Slice Zone
+     * - **Placeholder**: *None*
+     * - **API ID Path**: footer.slices[]
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/slices
+     *
+     */
+    slices: prismicT.SliceZone<FooterDocumentDataSlicesSlice>;
+}
+/**
+ * Item in Footer → Links
+ *
+ */
+export interface FooterDocumentDataLinksItem {
+    /**
+     * Link field in *Footer → Links*
+     *
+     * - **Field Type**: Link
+     * - **Placeholder**: *None*
+     * - **API ID Path**: footer.links[].link
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    link: prismicT.LinkField;
+    /**
+     * Label field in *Footer → Links*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: footer.links[].label
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    label: prismicT.RichTextField;
+}
+/**
+ * Item in Footer → Social Links
+ *
+ */
+export interface FooterDocumentDataSocialLinksItem {
+    /**
+     * Icon field in *Footer → Social Links*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: footer.social_links[].icon
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    icon: prismicT.ImageField<never>;
+    /**
+     * Link field in *Footer → Social Links*
+     *
+     * - **Field Type**: Link
+     * - **Placeholder**: *None*
+     * - **API ID Path**: footer.social_links[].link
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    link: prismicT.LinkField;
+}
+/**
+ * Slice for *Footer → Slice Zone*
+ *
+ */
+type FooterDocumentDataSlicesSlice = never;
+/**
+ * Footer document from Prismic
+ *
+ * - **API ID**: `footer`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type FooterDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<FooterDocumentData>, "footer", Lang>;
 /** Content for Header documents */
 interface HeaderDocumentData {
     /**
@@ -154,7 +307,7 @@ interface HeaderDocumentData {
  * Slice for *Header → Slice Zone*
  *
  */
-type HeaderDocumentDataSlicesSlice = never;
+type HeaderDocumentDataSlicesSlice = HeaderLinkSlice;
 /**
  * Slice for *Header → Slice Zone*
  *
@@ -228,7 +381,7 @@ type LandingPageDocumentDataSlicesSlice = PricingSlice | CallToActionSlice | Faq
  * @typeParam Lang - Language API ID of the document.
  */
 export type LandingPageDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<LandingPageDocumentData>, "landing_page", Lang>;
-export type AllDocumentTypes = BlogArticleDocument | BlogIndexDocument | HeaderDocument | HomePageDocument | LandingPageDocument;
+export type AllDocumentTypes = BlogArticleDocument | BlogIndexDocument | FooterDocument | HeaderDocument | HomePageDocument | LandingPageDocument;
 /**
  * Primary content in CallToAction → Primary
  *
@@ -2576,11 +2729,130 @@ type TextSliceVariation = TextSliceDefault;
  *
  */
 export type TextSlice = prismicT.SharedSlice<"text", TextSliceVariation>;
+/**
+ * Primary content in HeaderLink → Primary
+ *
+ */
+interface HeaderLinkSliceDefaultPrimary {
+    /**
+     * Label field in *HeaderLink → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: This is where it all begins...
+     * - **API ID Path**: header_link.primary.label
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    label: prismicT.RichTextField;
+    /**
+     * Link field in *HeaderLink → Primary*
+     *
+     * - **Field Type**: Link
+     * - **Placeholder**: *None*
+     * - **API ID Path**: header_link.primary.link
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    link: prismicT.LinkField;
+}
+/**
+ * Default variation for HeaderLink Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `HeaderLink`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type HeaderLinkSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<HeaderLinkSliceDefaultPrimary>, never>;
+/**
+ * Primary content in HeaderLink → Primary
+ *
+ */
+interface HeaderLinkSliceSamePageAnchorPrimary {
+    /**
+     * Label field in *HeaderLink → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: This is where it all begins...
+     * - **API ID Path**: header_link.primary.label
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    label: prismicT.RichTextField;
+    /**
+     * Anchor field in *HeaderLink → Primary*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: header_link.primary.anchor
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    anchor: prismicT.KeyTextField;
+}
+/**
+ * SamePageAnchor variation for HeaderLink Slice
+ *
+ * - **API ID**: `samePageAnchor`
+ * - **Description**: `HeaderLink`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type HeaderLinkSliceSamePageAnchor = prismicT.SharedSliceVariation<"samePageAnchor", Simplify<HeaderLinkSliceSamePageAnchorPrimary>, never>;
+/**
+ * Primary content in HeaderLink → Primary
+ *
+ */
+interface HeaderLinkSliceButtonPrimary {
+    /**
+     * Label field in *HeaderLink → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: This is where it all begins...
+     * - **API ID Path**: header_link.primary.label
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    label: prismicT.RichTextField;
+    /**
+     * Link field in *HeaderLink → Primary*
+     *
+     * - **Field Type**: Link
+     * - **Placeholder**: *None*
+     * - **API ID Path**: header_link.primary.link
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    link: prismicT.LinkField;
+}
+/**
+ * Button variation for HeaderLink Slice
+ *
+ * - **API ID**: `button`
+ * - **Description**: `HeaderLink`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type HeaderLinkSliceButton = prismicT.SharedSliceVariation<"button", Simplify<HeaderLinkSliceButtonPrimary>, never>;
+/**
+ * Slice variation for *HeaderLink*
+ *
+ */
+type HeaderLinkSliceVariation = HeaderLinkSliceDefault | HeaderLinkSliceSamePageAnchor | HeaderLinkSliceButton;
+/**
+ * HeaderLink Shared Slice
+ *
+ * - **API ID**: `header_link`
+ * - **Description**: `HeaderLink`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type HeaderLinkSlice = prismicT.SharedSlice<"header_link", HeaderLinkSliceVariation>;
 declare module "@prismicio/client" {
     interface CreateClient {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { BlogArticleDocumentData, BlogArticleDocumentDataSlicesSlice, BlogArticleDocument, BlogIndexDocumentData, BlogIndexDocument, HeaderDocumentData, HeaderDocumentDataSlicesSlice, HeaderDocumentDataSlices1Slice, HeaderDocument, HomePageDocumentData, HomePageDocumentDataSlicesSlice, HomePageDocument, LandingPageDocumentData, LandingPageDocumentDataSlicesSlice, LandingPageDocument, AllDocumentTypes, CallToActionSliceDefaultPrimary, CallToActionSliceDefault, CallToActionSliceWhiteBackgroundPrimary, CallToActionSliceWhiteBackground, CallToActionSliceWithImageRightPrimary, CallToActionSliceWithImageRightItem, CallToActionSliceWithImageRight, CallToActionSliceWithImageLeftPrimary, CallToActionSliceWithImageLeftItem, CallToActionSliceWithImageLeft, CallToActionSliceVariation, CallToActionSlice, FaqSliceTwoColumnsPrimary, FaqSliceTwoColumnsItem, FaqSliceTwoColumns, FaqSliceThreeColumnsPrimary, FaqSliceThreeColumnsItem, FaqSliceThreeColumns, FaqSliceCenteredPrimary, FaqSliceCenteredItem, FaqSliceCentered, FaqSliceCenteredWithBackgroundPrimary, FaqSliceCenteredWithBackgroundItem, FaqSliceCenteredWithBackground, FaqSliceVariation, FaqSlice, FeaturesSliceRightSidePrimary, FeaturesSliceRightSideItem, FeaturesSliceRightSide, FeaturesSliceLeftSidePrimary, FeaturesSliceLeftSideItem, FeaturesSliceLeftSide, FeaturesSliceAbovePrimary, FeaturesSliceAboveItem, FeaturesSliceAbove, FeaturesSliceBelowPrimary, FeaturesSliceBelowItem, FeaturesSliceBelow, FeaturesSliceVariation, FeaturesSlice, FormSliceSimplePrimary, FormSliceSimple, FormSliceWithDetailsPrimary, FormSliceWithDetailsItem, FormSliceWithDetails, FormSliceCenteredPrimary, FormSliceCentered, FormSliceVariation, FormSlice, HeroSliceDefaultPrimary, HeroSliceDefaultItem, HeroSliceDefault, HeroSliceTitleOnlyPrimary, HeroSliceTitleOnly, HeroSliceWithBackgroundPrimary, HeroSliceWithBackgroundItem, HeroSliceWithBackground, HeroSliceWithVideoBackgroundPrimary, HeroSliceWithVideoBackgroundItem, HeroSliceWithVideoBackground, HeroSliceVariation, HeroSlice, LogoCloudSliceDefaultPrimary, LogoCloudSliceDefaultItem, LogoCloudSliceDefault, LogoCloudSliceThreeColumnsPrimary, LogoCloudSliceThreeColumnsItem, LogoCloudSliceThreeColumns, LogoCloudSliceSinglePrimary, LogoCloudSliceSingle, LogoCloudSliceSimpleDarkModePrimary, LogoCloudSliceSimpleDarkModeItem, LogoCloudSliceSimpleDarkMode, LogoCloudSliceVariation, LogoCloudSlice, HeaderLinkSliceDefaultPrimary, HeaderLinkSliceDefault, HeaderLinkSliceSamePageAnchorPrimary, HeaderLinkSliceSamePageAnchor, HeaderLinkSliceButtonPrimary, HeaderLinkSliceButton, HeaderLinkSliceVariation, HeaderLinkSlice, PricingSliceDefaultPrimary, PricingSliceDefaultItem, PricingSliceDefault, PricingSliceWithPromoPrimary, PricingSliceWithPromoItem, PricingSliceWithPromo, PricingSliceVariation, PricingSlice, TestimonialsSliceDefaultPrimary, TestimonialsSliceDefaultItem, TestimonialsSliceDefault, TestimonialsSliceScrollingCardsPrimary, TestimonialsSliceScrollingCardsItem, TestimonialsSliceScrollingCards, TestimonialsSliceTwoColumnsWithSeparatorPrimary, TestimonialsSliceTwoColumnsWithSeparator, TestimonialsSliceSingleCenteredPrimary, TestimonialsSliceSingleCentered, TestimonialsSliceSingleWithLargeImagePrimary, TestimonialsSliceSingleWithLargeImage, TestimonialsSliceVariation, TestimonialsSlice, TextSliceDefaultPrimary, TextSliceDefault, TextSliceVariation, TextSlice };
+        export type { BlogArticleDocumentData, BlogArticleDocumentDataSlicesSlice, BlogArticleDocument, BlogIndexDocumentData, BlogIndexDocumentDataSlicesSlice, BlogIndexDocument, FooterDocumentData, FooterDocumentDataLinksItem, FooterDocumentDataSocialLinksItem, FooterDocumentDataSlicesSlice, FooterDocument, HeaderDocumentData, HeaderDocumentDataSlicesSlice, HeaderDocumentDataSlices1Slice, HeaderDocument, HomePageDocumentData, HomePageDocumentDataSlicesSlice, HomePageDocument, LandingPageDocumentData, LandingPageDocumentDataSlicesSlice, LandingPageDocument, AllDocumentTypes, CallToActionSliceDefaultPrimary, CallToActionSliceDefault, CallToActionSliceWhiteBackgroundPrimary, CallToActionSliceWhiteBackground, CallToActionSliceWithImageRightPrimary, CallToActionSliceWithImageRightItem, CallToActionSliceWithImageRight, CallToActionSliceWithImageLeftPrimary, CallToActionSliceWithImageLeftItem, CallToActionSliceWithImageLeft, CallToActionSliceVariation, CallToActionSlice, FaqSliceTwoColumnsPrimary, FaqSliceTwoColumnsItem, FaqSliceTwoColumns, FaqSliceThreeColumnsPrimary, FaqSliceThreeColumnsItem, FaqSliceThreeColumns, FaqSliceCenteredPrimary, FaqSliceCenteredItem, FaqSliceCentered, FaqSliceCenteredWithBackgroundPrimary, FaqSliceCenteredWithBackgroundItem, FaqSliceCenteredWithBackground, FaqSliceVariation, FaqSlice, FeaturesSliceRightSidePrimary, FeaturesSliceRightSideItem, FeaturesSliceRightSide, FeaturesSliceLeftSidePrimary, FeaturesSliceLeftSideItem, FeaturesSliceLeftSide, FeaturesSliceAbovePrimary, FeaturesSliceAboveItem, FeaturesSliceAbove, FeaturesSliceBelowPrimary, FeaturesSliceBelowItem, FeaturesSliceBelow, FeaturesSliceVariation, FeaturesSlice, FormSliceSimplePrimary, FormSliceSimple, FormSliceWithDetailsPrimary, FormSliceWithDetailsItem, FormSliceWithDetails, FormSliceCenteredPrimary, FormSliceCentered, FormSliceVariation, FormSlice, HeroSliceDefaultPrimary, HeroSliceDefaultItem, HeroSliceDefault, HeroSliceTitleOnlyPrimary, HeroSliceTitleOnly, HeroSliceWithBackgroundPrimary, HeroSliceWithBackgroundItem, HeroSliceWithBackground, HeroSliceWithVideoBackgroundPrimary, HeroSliceWithVideoBackgroundItem, HeroSliceWithVideoBackground, HeroSliceVariation, HeroSlice, LogoCloudSliceDefaultPrimary, LogoCloudSliceDefaultItem, LogoCloudSliceDefault, LogoCloudSliceThreeColumnsPrimary, LogoCloudSliceThreeColumnsItem, LogoCloudSliceThreeColumns, LogoCloudSliceSinglePrimary, LogoCloudSliceSingle, LogoCloudSliceSimpleDarkModePrimary, LogoCloudSliceSimpleDarkModeItem, LogoCloudSliceSimpleDarkMode, LogoCloudSliceVariation, LogoCloudSlice, HeaderLinkSliceDefaultPrimary, HeaderLinkSliceDefault, HeaderLinkSliceSamePageAnchorPrimary, HeaderLinkSliceSamePageAnchor, HeaderLinkSliceButtonPrimary, HeaderLinkSliceButton, HeaderLinkSliceVariation, HeaderLinkSlice, PricingSliceDefaultPrimary, PricingSliceDefaultItem, PricingSliceDefault, PricingSliceWithPromoPrimary, PricingSliceWithPromoItem, PricingSliceWithPromo, PricingSliceVariation, PricingSlice, TestimonialsSliceDefaultPrimary, TestimonialsSliceDefaultItem, TestimonialsSliceDefault, TestimonialsSliceScrollingCardsPrimary, TestimonialsSliceScrollingCardsItem, TestimonialsSliceScrollingCards, TestimonialsSliceTwoColumnsWithSeparatorPrimary, TestimonialsSliceTwoColumnsWithSeparator, TestimonialsSliceSingleCenteredPrimary, TestimonialsSliceSingleCentered, TestimonialsSliceSingleWithLargeImagePrimary, TestimonialsSliceSingleWithLargeImage, TestimonialsSliceVariation, TestimonialsSlice, TextSliceDefaultPrimary, TextSliceDefault, TextSliceVariation, TextSlice };
     }
 }

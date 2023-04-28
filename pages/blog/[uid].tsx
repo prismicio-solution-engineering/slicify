@@ -64,11 +64,9 @@ export async function getStaticProps({
   const client = createClient({ previewData });
   //    ^ Automatically contains references to document types
 
-  const page = await client.getByUID<Content.BlogArticleDocument>(
-    "blog_article",
-    params.uid
-  );
+  const page = params && params.uid &&
   //    ^ Typed as BlogIndexDocument
+  await client.getByUID<Content.BlogArticleDocument>("blog_article", params.uid);
 
   if (!page) {
     return {

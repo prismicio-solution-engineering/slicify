@@ -9,7 +9,10 @@
         "type": "Image",
         "config": {
           "label": "Logo",
-          "constraint": {},
+          "constraint": {
+            "width": 436,
+            "height": 160
+          },
           "thumbnails": []
         }
       },
