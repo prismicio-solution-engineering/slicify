@@ -2,12 +2,13 @@ import Head from "next/head";
 import type { GetStaticPropsContext, InferGetStaticPropsType } from "next";
 import { createClient } from "../../prismicio";
 import { Content } from "@prismicio/client";
-import { SliceZone } from "@prismicio/react";
+import { PrismicLink, PrismicRichText, SliceZone } from "@prismicio/react";
 import * as prismicH from "@prismicio/helpers";
 import { components } from "@/slices";
+import { Container } from "@/components/Container";
 
 type BlogArticleProps = InferGetStaticPropsType<typeof getStaticProps>;
-type PageParams = { uid: string }
+type PageParams = { uid: string };
 
 export default function BlogArticle({ page }: BlogArticleProps) {
   return (
@@ -18,19 +19,55 @@ export default function BlogArticle({ page }: BlogArticleProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        <SliceZone slices={page.data.slices} components={components} />
-      </main>
+      <div className="bg-gray-50">
+        <div className="relative bg-gray-800 py-32 px-6 sm:py-40 sm:px-12 lg:px-16">
+          <div className="absolute inset-0 overflow-hidden">
+            <img
+              className="h-full w-full object-cover object-center"
+              src={page.data.featured_image.url}
+              alt={page.data.featured_image.alt}
+            />
+          </div>
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 bg-gray-900 bg-opacity-50"
+          />
+          <div className="relative mx-auto flex max-w-3xl flex-col items-center text-center">
+            <span className="mb-2 block text-center text-lg font-semibold text-white">
+              {/* {page.data.category} */}
+              <PrismicLink document={page.data.category}>My Link</PrismicLink>
+            </span>
+            <div
+              id="cause-heading"
+              className="text-3xl font-bold tracking-tight text-white sm:text-4xl"
+            >
+              <PrismicRichText field={page.data.title} />
+            </div>
+            <div className="mt-3 text-xl text-white">
+              <PrismicRichText field={page.data.excerpt} />
+            </div>
+          </div>
+        </div>
+        {/* <main className="mx-auto max-w-6xl text-base leading-7 p-10 text-gray-700 bg-white shadow-md rounded-md mt-6"> */}
+        <main className="leading-7 p-10 bg-white shadow-md rounded-md mt-6">
+          <SliceZone slices={page.data.slices} components={components} />
+        </main>
+      </div>
     </>
   );
 }
 
-export async function getStaticProps({ previewData, params}: GetStaticPropsContext<PageParams>) {
+export async function getStaticProps({
+  previewData,
+  params,
+}: GetStaticPropsContext<PageParams>) {
   const client = createClient({ previewData });
   //    ^ Automatically contains references to document types
 
-  const page = await client
-  .getByUID<Content.BlogArticleDocument>("blog_article", params.uid);
+  const page = await client.getByUID<Content.BlogArticleDocument>(
+    "blog_article",
+    params.uid
+  );
   //    ^ Typed as BlogIndexDocument
 
   if (!page) {
@@ -51,7 +88,7 @@ export async function getStaticPaths() {
   const client = createClient();
   const documents = await client.getAllByType("blog_article", { lang: "*" });
   return {
-      paths: documents.map((page) => `/${page.lang}${prismicH.asLink(page)}`),
-      fallback: false, // if a page has already been generated but doesn't show => display the cached page
+    paths: documents.map((page) => `/${page.lang}${prismicH.asLink(page)}`),
+    fallback: false, // if a page has already been generated but doesn't show => display the cached page
   };
 }
