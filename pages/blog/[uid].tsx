@@ -6,9 +6,13 @@ import { PrismicLink, PrismicRichText, SliceZone } from "@prismicio/react";
 import * as prismicH from "@prismicio/helpers";
 import { components } from "@/slices";
 import { Container } from "@/components/Container";
+import { PrismicNextImage } from "@prismicio/next";
+import { UnderlineDoodle } from "@/components/UnderlineDoodle";
 
 type BlogArticleProps = InferGetStaticPropsType<typeof getStaticProps>;
 type PageParams = { uid: string };
+
+const dateOptions = { year: "numeric", month: "short", day: "numeric" };
 
 export default function BlogArticle({ page }: BlogArticleProps) {
   return (
@@ -19,40 +23,65 @@ export default function BlogArticle({ page }: BlogArticleProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="bg-gray-50">
-        <div className="relative bg-gray-800 py-32 px-6 sm:py-40 sm:px-12 lg:px-16">
-          <div className="absolute inset-0 overflow-hidden">
-            <img
-              className="h-full w-full object-cover object-center"
-              src={page.data.featured_image.url}
-              alt={page.data.featured_image.alt}
+
+      <section>
+        <div className="relative isolate overflow-hidden bg-black">
+          <PrismicNextImage
+            className="absolute inset-0 -z-10 h-full w-full object-cover object-right md:object-center"
+            field={page.data.featured_image}
+            width={2245}
+            height={1636}
+            unoptimized
+          />
+          <div className="mx-auto p-12 px-14 rounded-xl my-16 max-w-6xl bg-white bg-opacity-50 flex flex-col gap-6">
+            <div className="text-gray-500 border-l-2 border-l-light-blue-70 pl-3 text-base">
+              <time dateTime={page.last_publication_date}>
+                {new Date(page.last_publication_date).toLocaleDateString(
+                  page.lang,
+                  dateOptions
+                )}
+              </time>
+            </div>
+            <PrismicRichText
+              field={page.data.title}
+              components={{
+                heading1: ({ children }) => (
+                  <h1 className="font-display text-5xl font-medium tracking-tight text-dark-blue">
+                    {children}
+                  </h1>
+                ),
+                label: ({ node, children }) => {
+                  return (
+                    <>
+                      {node.data.label === "highlight" && (
+                        <span className="relative font-display whitespace-nowrap text-vibrant-blue">
+                          <UnderlineDoodle className="absolute left-0 top-2/3 h-[0.58em] w-full fill-light-blue-70" />
+                          <span className="relative">{children}</span>
+                        </span>
+                      )}
+                    </>
+                  );
+                },
+              }}
+            />
+            <PrismicRichText
+              field={page.data.excerpt}
+              components={{
+                paragraph: ({ children }) => (
+                  <p className="font-sans text-lg tracking-tight text-dark-blue">
+                    {children}
+                  </p>
+                ),
+              }}
             />
           </div>
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 bg-gray-900 bg-opacity-50"
-          />
-          <div className="relative mx-auto flex max-w-3xl flex-col items-center text-center">
-            <span className="mb-2 block text-center text-lg font-semibold text-white">
-              {/* {page.data.category} */}
-              <PrismicLink document={page.data.category}>My Link</PrismicLink>
-            </span>
-            <div
-              id="cause-heading"
-              className="text-3xl font-bold tracking-tight text-white sm:text-4xl"
-            >
-              <PrismicRichText field={page.data.title} />
-            </div>
-            <div className="mt-3 text-xl text-white">
-              <PrismicRichText field={page.data.excerpt} />
-            </div>
-          </div>
         </div>
-        {/* <main className="mx-auto max-w-6xl text-base leading-7 p-10 text-gray-700 bg-white shadow-md rounded-md mt-6"> */}
-        <main className="leading-7 p-10 bg-white shadow-md rounded-md mt-6">
+      </section>
+      <main>
+        <Container>
           <SliceZone slices={page.data.slices} components={components} />
-        </main>
-      </div>
+        </Container>
+      </main>
     </>
   );
 }
@@ -64,9 +93,14 @@ export async function getStaticProps({
   const client = createClient({ previewData });
   //    ^ Automatically contains references to document types
 
-  const page = params && params.uid &&
-  //    ^ Typed as BlogIndexDocument
-  await client.getByUID<Content.BlogArticleDocument>("blog_article", params.uid);
+  const page =
+    params &&
+    params.uid &&
+    //    ^ Typed as BlogIndexDocument
+    (await client.getByUID<Content.BlogArticleDocument>(
+      "blog_article",
+      params.uid
+    ));
 
   if (!page) {
     return {

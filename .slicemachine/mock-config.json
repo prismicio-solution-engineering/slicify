@@ -153,7 +153,9 @@
     "landing_page": {},
     "footer": {
       "social_links": {}
-    }
+    },
+    "blog_category": {},
+    "author": {}
   },
   "slices/navigation": {
     "HeaderLink": {

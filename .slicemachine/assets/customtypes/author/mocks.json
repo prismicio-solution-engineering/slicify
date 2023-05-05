@@ -1,0 +1,37 @@
+{
+  "uid": {
+    "__TYPE__": "UIDContent",
+    "value": "receive"
+  },
+  "author_name": {
+    "__TYPE__": "FieldContent",
+    "value": "water",
+    "type": "Text"
+  },
+  "author_role": {
+    "__TYPE__": "FieldContent",
+    "value": "needle",
+    "type": "Text"
+  },
+  "author_image": {
+    "__TYPE__": "ImageContent",
+    "origin": {
+      "id": "main",
+      "url": "https://images.unsplash.com/photo-1515378960530-7c0da6231fb1",
+      "width": 5616,
+      "height": 3744
+    },
+    "url": "https://images.unsplash.com/photo-1515378960530-7c0da6231fb1",
+    "width": 5616,
+    "height": 3744,
+    "edit": {
+      "zoom": 1,
+      "crop": {
+        "x": 0,
+        "y": 0
+      },
+      "background": "transparent"
+    },
+    "thumbnails": {}
+  }
+}

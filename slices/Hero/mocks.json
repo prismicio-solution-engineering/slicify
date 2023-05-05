@@ -9,7 +9,7 @@
           {
             "type": "heading1",
             "content": {
-              "text": "Coast"
+              "text": "River"
             }
           }
         ]
@@ -20,7 +20,7 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "Aliqua commodo enim deserunt pariatur nulla et ad sint."
+              "text": "Consequat aute deserunt exercitation elit sunt nisi mollit ipsum ad in irure aliqua sunt anim. Deserunt adipisicing incididunt non. Ea elit cupidatat irure occaecat quis anim sunt aliquip."
             }
           }
         ]
@@ -34,7 +34,91 @@
             "cta_label",
             {
               "__TYPE__": "FieldContent",
-              "value": "came",
+              "value": "follow",
+              "type": "Text"
+            }
+          ],
+          [
+            "cta_link",
+            {
+              "__TYPE__": "LinkContent",
+              "value": {
+                "__TYPE__": "ExternalLink",
+                "url": "http://google.com"
+              }
+            }
+          ],
+          [
+            "cta_type",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "Text",
+              "type": "Select"
+            }
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "titleOnly",
+    "primary": {
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading1",
+            "content": {
+              "text": "Forward"
+            }
+          }
+        ]
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": []
+      }
+    ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "withBackground",
+    "primary": {
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading1",
+            "content": {
+              "text": "Close"
+            }
+          }
+        ]
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Sint eiusmod reprehenderit voluptate anim ad qui in occaecat laborum et voluptate. Nulla eu fugiat est amet dolore laborum excepteur aliquip nisi minim ipsum irure quis. In ad commodo Lorem ut."
+            }
+          }
+        ]
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "cta_label",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "look",
               "type": "Text"
             }
           ],
@@ -62,90 +146,6 @@
   },
   {
     "__TYPE__": "SharedSliceContent",
-    "variation": "titleOnly",
-    "primary": {
-      "title": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "heading1",
-            "content": {
-              "text": "Typical"
-            }
-          }
-        ]
-      }
-    },
-    "items": [
-      {
-        "__TYPE__": "GroupItemContent",
-        "value": []
-      }
-    ]
-  },
-  {
-    "__TYPE__": "SharedSliceContent",
-    "variation": "withBackground",
-    "primary": {
-      "title": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "heading1",
-            "content": {
-              "text": "Process"
-            }
-          }
-        ]
-      },
-      "description": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "Ut voluptate ex nostrud est nostrud elit esse eiusmod velit ea eu amet ex proident sunt. Anim tempor cupidatat laborum amet esse ex voluptate. Occaecat ullamco magna Lorem amet minim aliqua voluptate duis excepteur ex et adipisicing nostrud."
-            }
-          }
-        ]
-      }
-    },
-    "items": [
-      {
-        "__TYPE__": "GroupItemContent",
-        "value": [
-          [
-            "cta_label",
-            {
-              "__TYPE__": "FieldContent",
-              "value": "enemy",
-              "type": "Text"
-            }
-          ],
-          [
-            "cta_link",
-            {
-              "__TYPE__": "LinkContent",
-              "value": {
-                "__TYPE__": "ExternalLink",
-                "url": "https://prismic.io"
-              }
-            }
-          ],
-          [
-            "cta_type",
-            {
-              "__TYPE__": "FieldContent",
-              "value": "Text",
-              "type": "Select"
-            }
-          ]
-        ]
-      }
-    ]
-  },
-  {
-    "__TYPE__": "SharedSliceContent",
     "variation": "withVideoBackground",
     "primary": {
       "title": {
@@ -154,7 +154,7 @@
           {
             "type": "heading1",
             "content": {
-              "text": "Carried"
+              "text": "Balance"
             }
           }
         ]
@@ -165,7 +165,7 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "Esse Lorem magna occaecat irure deserunt nulla in enim exercitation cillum mollit esse adipisicing. Duis occaecat ad ex ad tempor anim sunt sunt."
+              "text": "Eiusmod reprehenderit Lorem ullamco. Aute quis minim labore proident culpa laboris. Enim officia eiusmod ad nulla ea culpa anim."
             }
           }
         ]
@@ -208,7 +208,7 @@
             "cta_label",
             {
               "__TYPE__": "FieldContent",
-              "value": "ask",
+              "value": "smallest",
               "type": "Text"
             }
           ],
@@ -218,7 +218,7 @@
               "__TYPE__": "LinkContent",
               "value": {
                 "__TYPE__": "ExternalLink",
-                "url": "https://slicemachine.dev"
+                "url": "https://prismic.io"
               }
             }
           ],
