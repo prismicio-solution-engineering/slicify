@@ -1,5 +1,18 @@
+import { useEffect } from "react";
 import type { Content } from "@prismicio/client";
-import { PrismicLink, PrismicRichText, SliceComponentProps } from "@prismicio/react";
+import * as prismicR from "@prismicio/richtext";
+import * as prismicH from "@prismicio/helpers";
+import {
+  PrismicLink,
+  PrismicRichText,
+  SliceComponentProps,
+} from "@prismicio/react";
+import hljs from "highlight.js";
+import javascript from "highlight.js/lib/languages/javascript";
+import json from "highlight.js/lib/languages/json";
+
+hljs.registerLanguage("javascript", javascript);
+hljs.registerLanguage("json", json);
 
 export type TextProps = SliceComponentProps<Content.TextSlice>;
 
@@ -14,8 +27,11 @@ export default function Text({ slice }: TextProps) {
   //   case "withImageLeft":
   //     return <CtaWithImage slice={slice} imageRight={false} />;
   // }
+  useEffect(() => {
+    hljs.highlightAll();
+  }, []);
   return (
-    <section className="mx-auto">
+    <section className="max-w-4xl mx-auto flex flex-col gap-4">
       <PrismicRichText
         field={slice.primary.text_section}
         components={{
@@ -45,17 +61,40 @@ export default function Text({ slice }: TextProps) {
             </h6>
           ),
           paragraph: ({ children }) => (
-            <p className="mb-4 text-lg tracking-tight text-dark-blue">
+            <p className="mb-4 prose-lg tracking-tight text-dark-blue">
               {children}
             </p>
           ),
-          preformatted: ({ children }) => <> {children} </>,
-          strong: ({ children }) => <> {children} </>,
-          em: ({ children }) => <> {children} </>,
-          listItem: ({ children }) => <> {children} </>,
-          oListItem: ({ children }) => <> {children} </>,
-          list: ({ children }) => <> {children} </>,
-          oList: ({ children }) => <> {children} </>,
+          preformatted: ({ node }) => (
+            // <pre className="prose bg-[#0d1117] rounded-xl shadow-lg">
+            //     <code className="whitespace-pre-wrap">{children}</code>
+            // </pre>
+            <pre className="my-3 p-6 bg-[#0d1117] rounded-xl shadow-lg">
+              <code className="whitespace-pre-wrap">
+                {JSON.stringify(node.text)}
+              </code>
+              {/* <code className="whitespace-pre-wrap">{prismicR.asText(node, "\n")}</code> */}
+            </pre>
+          ),
+          // em: ({ children }) => <> {children} </>,
+          list: ({ children }) => (
+            <ul
+              role="list"
+              className="marker:text-vibrant-blue marker:tracking-[10px] list-disc flex flex-col gap-4"
+            >
+              {" "}
+              {children}{" "}
+            </ul>
+          ),
+          oList: ({ children }) => (
+            <ol
+              role="list"
+              className="marker:text-vibrant-blue marker:tracking-[5px] list-decimal"
+            >
+              {" "}
+              {children}{" "}
+            </ol>
+          ),
           // image: ({ node }) =>
           //   node.linkTo
           //     ? `[![${node.alt}](${node.url})](${node.linkTo.url})\n\n`
@@ -67,37 +106,36 @@ export default function Text({ slice }: TextProps) {
               data-oembed-type={node.oembed.type}
               data-oembed-provider={node.oembed.provider_name}
               // {label(node)}
+              dangerouslySetInnerHTML={{__html: node.oembed.html ?? ''}}
+              className={`${node.oembed.type === "video" && "youtube-video"} rounded`}
             >
-              {node.oembed.html}
+           
             </div>
           ),
           hyperlink: ({ children, node }) => (
             <PrismicLink
               field={node.data}
-              className="font-semibold text-vibrant-blue hover:text-light-blue"
+              className="font-semibold text-vibrant-blue underline underline-offset-2 hover:text-light-blue"
             >
               {children}
             </PrismicLink>
           ),
-          // span: ({ text }) => (text ? text : ''),
           label: ({ node, children }) => {
             return (
               <>
                 {node.data.label === "highlight" && (
-                  <span className="relative text-blue-600">{children}</span>
+                  <span className="text-blue-600">{children}</span>
                 )}
                 {node.data.label === "inline code" && (
-                  <span className="relative text-blue-600">{children}</span>
-                )}
-                {node.data.label === "inline quote" && (
-                  <span className="relative text-blue-600">{children}</span>
+                  <span className="px-2 py-1 bg-[#f1f1f8] font-code rounded text-sm font-semibold text-black">
+                    {children}
+                  </span>
                 )}
               </>
             );
           },
         }}
       />
-
     </section>
   );
 }

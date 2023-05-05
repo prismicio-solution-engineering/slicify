@@ -32,6 +32,7 @@ module.exports = {
       fontFamily: {
         sans: ["Inter", ...defaultTheme.fontFamily.sans],
         display: ["Lexend", ...defaultTheme.fontFamily.sans],
+        code: ["ui-monospace", ...defaultTheme.fontFamily.mono],
       },
       maxWidth: {
         "2xl": "40rem",

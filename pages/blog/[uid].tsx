@@ -33,7 +33,7 @@ export default function BlogArticle({ page }: BlogArticleProps) {
             height={1636}
             unoptimized
           />
-          <div className="mx-auto p-12 px-14 rounded-xl my-16 max-w-6xl bg-white bg-opacity-50 flex flex-col gap-6">
+          <div className="mx-auto p-12 px-14 rounded-xl my-16 max-w-4xl bg-white bg-opacity-50 flex flex-col gap-6">
             <div className="text-gray-500 border-l-2 border-l-light-blue-70 pl-3 text-base">
               <time dateTime={page.last_publication_date}>
                 {new Date(page.last_publication_date).toLocaleDateString(
@@ -77,10 +77,9 @@ export default function BlogArticle({ page }: BlogArticleProps) {
           </div>
         </div>
       </section>
+        {/* Remove className to have full width */}
       <main>
-        <Container>
           <SliceZone slices={page.data.slices} components={components} />
-        </Container>
       </main>
     </>
   );

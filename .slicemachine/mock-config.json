@@ -143,6 +143,12 @@
       "default": {
         "primary": {}
       }
+    },
+    "ArticleList": {},
+    "HighlightedText": {
+      "default": {
+        "primary": {}
+      }
     }
   },
   "_cts": {

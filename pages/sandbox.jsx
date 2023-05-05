@@ -18,6 +18,7 @@ hljs.configure({
     ignoreUnescapedHTML: true,
     languages: ["javascript", "js", "jsx", "typescript", "ts", "tsx", "mts", "cts", "css"]
 })
+
 const footerNavigation = [
     {
         name: 'Facebook',
