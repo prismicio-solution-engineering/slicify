@@ -143,6 +143,17 @@
       "default": {
         "primary": {}
       }
+    },
+    "ArticleList": {
+      "default": {
+        "primary": {},
+        "items": {}
+      }
+    },
+    "HighlightedText": {
+      "default": {
+        "primary": {}
+      }
     }
   },
   "_cts": {
@@ -153,7 +164,9 @@
     "landing_page": {},
     "footer": {
       "social_links": {}
-    }
+    },
+    "blog_category": {},
+    "author": {}
   },
   "slices/navigation": {
     "HeaderLink": {

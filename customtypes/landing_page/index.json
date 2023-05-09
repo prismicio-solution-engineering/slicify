@@ -37,6 +37,12 @@
             },
             "features": {
               "type": "SharedSlice"
+            },
+            "text": {
+              "type": "SharedSlice"
+            },
+            "header_link": {
+              "type": "SharedSlice"
             }
           }
         }

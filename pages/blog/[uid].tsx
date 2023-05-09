@@ -2,14 +2,16 @@ import Head from "next/head";
 import type { GetStaticPropsContext, InferGetStaticPropsType } from "next";
 import { createClient } from "../../prismicio";
 import { Content } from "@prismicio/client";
-import { SliceZone } from "@prismicio/react";
+import { PrismicRichText, SliceZone } from "@prismicio/react";
 import * as prismicH from "@prismicio/helpers";
 import { components } from "@/slices";
+import { PrismicNextImage } from "@prismicio/next";
+import { UnderlineDoodle } from "@/components/UnderlineDoodle";
 
 type BlogArticleProps = InferGetStaticPropsType<typeof getStaticProps>;
-type PageParams = { uid: string }
+type PageParams = { uid: string };
 
-export default function BlogArticle({ page }: BlogArticleProps) {
+export default function BlogArticle({ page, author }: BlogArticleProps) {
   return (
     <>
       <Head>
@@ -18,6 +20,80 @@ export default function BlogArticle({ page }: BlogArticleProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+      <section>
+        <div className="relative isolate overflow-hidden bg-black">
+          <PrismicNextImage
+            className="absolute inset-0 -z-10 h-full w-full object-cover object-right md:object-center"
+            field={page.data.featured_image}
+            width={2245}
+            height={1636}
+            unoptimized
+          />
+          <div className="mx-auto p-12 px-14 rounded-xl my-16 max-w-4xl bg-white bg-opacity-50 flex flex-col gap-6">
+            <div className="text-gray-500 border-l-2 border-l-light-blue-70 pl-3 text-base">
+              <time dateTime={page.last_publication_date}>
+                {new Date(page.last_publication_date).toLocaleDateString(
+                  page.lang,
+                  { year: "numeric", month: "short", day: "numeric" }
+                )}
+              </time>
+            </div>
+            <PrismicRichText
+              field={page.data.title}
+              components={{
+                heading1: ({ children }) => (
+                  <h1 className="font-display text-5xl font-medium tracking-tight text-dark-blue">
+                    {children}
+                  </h1>
+                ),
+                label: ({ node, children }) => {
+                  return (
+                    <>
+                      {node.data.label === "highlight" && (
+                        <span className="relative font-display whitespace-nowrap text-vibrant-blue">
+                          <UnderlineDoodle className="absolute left-0 top-2/3 h-[0.58em] w-full fill-light-blue-70" />
+                          <span className="relative">{children}</span>
+                        </span>
+                      )}
+                    </>
+                  );
+                },
+              }}
+            />
+            <PrismicRichText
+              field={page.data.excerpt}
+              components={{
+                paragraph: ({ children }) => (
+                  <p className="font-sans text-lg tracking-tight text-dark-blue">
+                    {children}
+                  </p>
+                ),
+              }}
+            />
+            <figcaption className="relative flex items-center gap-4 text-left">
+              <div className="overflow-hidden rounded-full bg-slate-50">
+                <PrismicNextImage
+                  className="h-12 w-12 object-cover"
+                  alt=""
+                  field={author.data.author_image}
+                  width={48}
+                  height={48}
+                />
+              </div>
+              <div>
+                <div className="font-display text-base text-slate-900">
+                  {author.data.author_name} -{" "}
+                  <span className="text-slate-500">
+                    {author.data.author_role}
+                  </span>
+                </div>
+              </div>
+            </figcaption>
+          </div>
+        </div>
+      </section>
+      {/* Remove className to have full width */}
       <main>
         <SliceZone slices={page.data.slices} components={components} />
       </main>
@@ -25,13 +101,40 @@ export default function BlogArticle({ page }: BlogArticleProps) {
   );
 }
 
-export async function getStaticProps({ previewData, params}: GetStaticPropsContext<PageParams>) {
+export async function getStaticProps({
+  previewData,
+  params,
+}: GetStaticPropsContext<PageParams>) {
   const client = createClient({ previewData });
   //    ^ Automatically contains references to document types
 
-  const page = params && params.uid &&
-  //    ^ Typed as BlogIndexDocument
-  await client.getByUID<Content.BlogArticleDocument>("blog_article", params.uid);
+  const authorGraphQuery = `
+  {
+    blog_article {
+      author {
+        ...on author {
+          ...authorFields
+        }
+      }
+    }
+  }
+  `;
+
+  const page =
+    params &&
+    params.uid &&
+    //    ^ Typed as BlogIndexDocument
+    (await client.getByUID<Content.BlogArticleDocument>(
+      "blog_article",
+      params.uid
+    ));
+
+  const writer =
+    params &&
+    params.uid &&
+    (await client.getByUID("blog_article", params?.uid, {
+      graphQuery: authorGraphQuery,
+    }));
 
   if (!page) {
     return {
@@ -42,6 +145,7 @@ export async function getStaticProps({ previewData, params}: GetStaticPropsConte
   return {
     props: {
       page,
+      author: writer?.data.author,
     },
   };
 }
@@ -51,7 +155,7 @@ export async function getStaticPaths() {
   const client = createClient();
   const documents = await client.getAllByType("blog_article", { lang: "*" });
   return {
-      paths: documents.map((page) => `/${page.lang}${prismicH.asLink(page)}`),
-      fallback: false, // if a page has already been generated but doesn't show => display the cached page
+    paths: documents.map((page) => `/${page.lang}${prismicH.asLink(page)}`),
+    fallback: false, // if a page has already been generated but doesn't show => display the cached page
   };
 }

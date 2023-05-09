@@ -32,6 +32,7 @@ module.exports = {
       fontFamily: {
         sans: ["Inter", ...defaultTheme.fontFamily.sans],
         display: ["Lexend", ...defaultTheme.fontFamily.sans],
+        code: ["ui-monospace", ...defaultTheme.fontFamily.mono],
       },
       maxWidth: {
         "2xl": "40rem",
@@ -74,6 +75,7 @@ module.exports = {
   },
   plugins: [
     require('@tailwindcss/aspect-ratio'),
-    require("@tailwindcss/forms")
+    require("@tailwindcss/forms"),
+    require('@tailwindcss/typography')
   ],
 };

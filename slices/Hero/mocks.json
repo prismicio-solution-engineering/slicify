@@ -9,7 +9,7 @@
           {
             "type": "heading1",
             "content": {
-              "text": "Coast"
+              "text": "Prize"
             }
           }
         ]
@@ -20,7 +20,7 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "Aliqua commodo enim deserunt pariatur nulla et ad sint."
+              "text": "Sunt pariatur do quis pariatur sint elit. Reprehenderit et aliqua fugiat tempor id deserunt exercitation pariatur reprehenderit commodo id irure esse eu amet."
             }
           }
         ]
@@ -34,7 +34,7 @@
             "cta_label",
             {
               "__TYPE__": "FieldContent",
-              "value": "came",
+              "value": "south",
               "type": "Text"
             }
           ],
@@ -44,7 +44,7 @@
               "__TYPE__": "LinkContent",
               "value": {
                 "__TYPE__": "ExternalLink",
-                "url": "https://prismic.io"
+                "url": "https://slicemachine.dev"
               }
             }
           ],
@@ -52,7 +52,7 @@
             "cta_type",
             {
               "__TYPE__": "FieldContent",
-              "value": "Primary",
+              "value": "Text",
               "type": "Select"
             }
           ]
@@ -70,7 +70,7 @@
           {
             "type": "heading1",
             "content": {
-              "text": "Typical"
+              "text": "Region"
             }
           }
         ]
@@ -93,7 +93,7 @@
           {
             "type": "heading1",
             "content": {
-              "text": "Process"
+              "text": "Settlers"
             }
           }
         ]
@@ -104,7 +104,7 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "Ut voluptate ex nostrud est nostrud elit esse eiusmod velit ea eu amet ex proident sunt. Anim tempor cupidatat laborum amet esse ex voluptate. Occaecat ullamco magna Lorem amet minim aliqua voluptate duis excepteur ex et adipisicing nostrud."
+              "text": "Minim mollit irure ullamco proident. Aliquip in commodo ullamco deserunt tempor. Tempor nulla minim est pariatur culpa officia consectetur."
             }
           }
         ]
@@ -118,7 +118,7 @@
             "cta_label",
             {
               "__TYPE__": "FieldContent",
-              "value": "enemy",
+              "value": "tall",
               "type": "Text"
             }
           ],
@@ -154,7 +154,7 @@
           {
             "type": "heading1",
             "content": {
-              "text": "Carried"
+              "text": "Large"
             }
           }
         ]
@@ -165,7 +165,7 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "Esse Lorem magna occaecat irure deserunt nulla in enim exercitation cillum mollit esse adipisicing. Duis occaecat ad ex ad tempor anim sunt sunt."
+              "text": "Laborum aliqua irure nostrud. Consequat anim consectetur officia nostrud non minim elit ullamco nisi esse incididunt commodo anim id. Minim est ut nisi Lorem ut cillum do dolor non officia."
             }
           }
         ]
@@ -208,7 +208,7 @@
             "cta_label",
             {
               "__TYPE__": "FieldContent",
-              "value": "ask",
+              "value": "terrible",
               "type": "Text"
             }
           ],
@@ -226,7 +226,7 @@
             "cta_type",
             {
               "__TYPE__": "FieldContent",
-              "value": "Primary",
+              "value": "Text",
               "type": "Select"
             }
           ]

@@ -6,19 +6,65 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = {
     [KeyType in keyof T]: T[KeyType];
 };
+/** Content for Author documents */
+interface AuthorDocumentData {
+    /**
+     * Author Name field in *Author*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: author.author_name
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    author_name: prismicT.KeyTextField;
+    /**
+     * Author Role field in *Author*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: author.author_role
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    author_role: prismicT.KeyTextField;
+    /**
+     * Author Image field in *Author*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: author.author_image
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    author_image: prismicT.ImageField<never>;
+}
+/**
+ * Author document from Prismic
+ *
+ * - **API ID**: `author`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type AuthorDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<AuthorDocumentData>, "author", Lang>;
 /** Content for Blog Article documents */
 interface BlogArticleDocumentData {
     /**
      * Title field in *Blog Article*
      *
-     * - **Field Type**: Rich Text
+     * - **Field Type**: Title
      * - **Placeholder**: *None*
      * - **API ID Path**: blog_article.title
      * - **Tab**: Main
      * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
      *
      */
-    title: prismicT.RichTextField;
+    title: prismicT.TitleField;
     /**
      * Author field in *Blog Article*
      *
@@ -29,7 +75,7 @@ interface BlogArticleDocumentData {
      * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
      *
      */
-    author: prismicT.RelationField;
+    author: prismicT.RelationField<"author">;
     /**
      * Excerpt field in *Blog Article*
      *
@@ -62,7 +108,7 @@ interface BlogArticleDocumentData {
      * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
      *
      */
-    category: prismicT.RelationField;
+    category: prismicT.RelationField<"blog_category">;
     /**
      * Table Of Content field in *Blog Article*
      *
@@ -91,7 +137,7 @@ interface BlogArticleDocumentData {
  * Slice for *Blog Article → Slice Zone*
  *
  */
-type BlogArticleDocumentDataSlicesSlice = TextSlice | FormSlice;
+type BlogArticleDocumentDataSlicesSlice = TextSlice | FormSlice | ArticleListSlice | HighlightedTextSlice | TestimonialsSlice | CallToActionSlice;
 /**
  * Blog Article document from Prismic
  *
@@ -102,6 +148,30 @@ type BlogArticleDocumentDataSlicesSlice = TextSlice | FormSlice;
  * @typeParam Lang - Language API ID of the document.
  */
 export type BlogArticleDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<BlogArticleDocumentData>, "blog_article", Lang>;
+/** Content for Blog Category documents */
+interface BlogCategoryDocumentData {
+    /**
+     * Category Name field in *Blog Category*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: blog_category.category_name
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    category_name: prismicT.KeyTextField;
+}
+/**
+ * Blog Category document from Prismic
+ *
+ * - **API ID**: `blog_category`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type BlogCategoryDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<BlogCategoryDocumentData>, "blog_category", Lang>;
 /** Content for Blog index documents */
 interface BlogIndexDocumentData {
     /**
@@ -370,7 +440,7 @@ interface LandingPageDocumentData {
  * Slice for *Landing Page → Slice Zone*
  *
  */
-type LandingPageDocumentDataSlicesSlice = PricingSlice | CallToActionSlice | FaqSlice | LogoCloudSlice | FormSlice | TestimonialsSlice | FeaturesSlice;
+type LandingPageDocumentDataSlicesSlice = PricingSlice | CallToActionSlice | FaqSlice | LogoCloudSlice | FormSlice | TestimonialsSlice | FeaturesSlice | TextSlice | HeaderLinkSlice;
 /**
  * Landing Page document from Prismic
  *
@@ -381,7 +451,174 @@ type LandingPageDocumentDataSlicesSlice = PricingSlice | CallToActionSlice | Faq
  * @typeParam Lang - Language API ID of the document.
  */
 export type LandingPageDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<LandingPageDocumentData>, "landing_page", Lang>;
-export type AllDocumentTypes = BlogArticleDocument | BlogIndexDocument | FooterDocument | HeaderDocument | HomePageDocument | LandingPageDocument;
+export type AllDocumentTypes = AuthorDocument | BlogArticleDocument | BlogCategoryDocument | BlogIndexDocument | FooterDocument | HeaderDocument | HomePageDocument | LandingPageDocument;
+/**
+ * Primary content in ArticleList → Primary
+ *
+ */
+interface ArticleListSliceDefaultPrimary {
+    /**
+     * Title field in *ArticleList → Primary*
+     *
+     * - **Field Type**: Title
+     * - **Placeholder**: This is where it all begins...
+     * - **API ID Path**: article_list.primary.title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    title: prismicT.TitleField;
+    /**
+     * Description field in *ArticleList → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: article_list.primary.description
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    description: prismicT.RichTextField;
+}
+/**
+ * Item in ArticleList → Items
+ *
+ */
+export interface ArticleListSliceDefaultItem {
+    /**
+     * Article field in *ArticleList → Items*
+     *
+     * - **Field Type**: Content Relationship
+     * - **Placeholder**: *None*
+     * - **API ID Path**: article_list.items[].article
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    article: prismicT.RelationField<"blog_article">;
+}
+/**
+ * Default variation for ArticleList Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `ArticleList`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ArticleListSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<ArticleListSliceDefaultPrimary>, Simplify<ArticleListSliceDefaultItem>>;
+/**
+ * Primary content in ArticleList → Primary
+ *
+ */
+interface ArticleListSliceVerticalListPrimary {
+    /**
+     * Title field in *ArticleList → Primary*
+     *
+     * - **Field Type**: Title
+     * - **Placeholder**: This is where it all begins...
+     * - **API ID Path**: article_list.primary.title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    title: prismicT.TitleField;
+    /**
+     * Description field in *ArticleList → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: article_list.primary.description
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    description: prismicT.RichTextField;
+}
+/**
+ * Item in ArticleList → Items
+ *
+ */
+export interface ArticleListSliceVerticalListItem {
+    /**
+     * Article field in *ArticleList → Items*
+     *
+     * - **Field Type**: Content Relationship
+     * - **Placeholder**: *None*
+     * - **API ID Path**: article_list.items[].article
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    article: prismicT.RelationField<"blog_article">;
+}
+/**
+ * Vertical list variation for ArticleList Slice
+ *
+ * - **API ID**: `verticalList`
+ * - **Description**: `ArticleList`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ArticleListSliceVerticalList = prismicT.SharedSliceVariation<"verticalList", Simplify<ArticleListSliceVerticalListPrimary>, Simplify<ArticleListSliceVerticalListItem>>;
+/**
+ * Primary content in ArticleList → Primary
+ *
+ */
+interface ArticleListSliceHorizontalListPrimary {
+    /**
+     * Title field in *ArticleList → Primary*
+     *
+     * - **Field Type**: Title
+     * - **Placeholder**: This is where it all begins...
+     * - **API ID Path**: article_list.primary.title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    title: prismicT.TitleField;
+    /**
+     * Description field in *ArticleList → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: article_list.primary.description
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    description: prismicT.RichTextField;
+}
+/**
+ * Item in ArticleList → Items
+ *
+ */
+export interface ArticleListSliceHorizontalListItem {
+    /**
+     * Article field in *ArticleList → Items*
+     *
+     * - **Field Type**: Content Relationship
+     * - **Placeholder**: *None*
+     * - **API ID Path**: article_list.items[].article
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    article: prismicT.RelationField<"blog_article">;
+}
+/**
+ * Horizontal list variation for ArticleList Slice
+ *
+ * - **API ID**: `horizontalList`
+ * - **Description**: `ArticleList`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ArticleListSliceHorizontalList = prismicT.SharedSliceVariation<"horizontalList", Simplify<ArticleListSliceHorizontalListPrimary>, Simplify<ArticleListSliceHorizontalListItem>>;
+/**
+ * Slice variation for *ArticleList*
+ *
+ */
+type ArticleListSliceVariation = ArticleListSliceDefault | ArticleListSliceVerticalList | ArticleListSliceHorizontalList;
+/**
+ * ArticleList Shared Slice
+ *
+ * - **API ID**: `article_list`
+ * - **Description**: `ArticleList`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ArticleListSlice = prismicT.SharedSlice<"article_list", ArticleListSliceVariation>;
 /**
  * Primary content in CallToAction → Primary
  *
@@ -1742,6 +1979,160 @@ type HeroSliceVariation = HeroSliceDefault | HeroSliceTitleOnly | HeroSliceWithB
  */
 export type HeroSlice = prismicT.SharedSlice<"hero", HeroSliceVariation>;
 /**
+ * Primary content in HighlightedText → Primary
+ *
+ */
+interface HighlightedTextSliceDefaultPrimary {
+    /**
+     * Title field in *HighlightedText → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: This is where it all begins...
+     * - **API ID Path**: highlighted_text.primary.title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    title: prismicT.RichTextField;
+    /**
+     * Content field in *HighlightedText → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: highlighted_text.primary.content
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    content: prismicT.RichTextField;
+}
+/**
+ * Default variation for HighlightedText Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `HighlightedText`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type HighlightedTextSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<HighlightedTextSliceDefaultPrimary>, never>;
+/**
+ * Primary content in HighlightedText → Primary
+ *
+ */
+interface HighlightedTextSliceWarningPrimary {
+    /**
+     * Title field in *HighlightedText → Primary*
+     *
+     * - **Field Type**: Title
+     * - **Placeholder**: This is where it all begins...
+     * - **API ID Path**: highlighted_text.primary.title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    title: prismicT.TitleField;
+    /**
+     * Content field in *HighlightedText → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: highlighted_text.primary.content
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    content: prismicT.RichTextField;
+}
+/**
+ * Warning variation for HighlightedText Slice
+ *
+ * - **API ID**: `warning`
+ * - **Description**: `HighlightedText`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type HighlightedTextSliceWarning = prismicT.SharedSliceVariation<"warning", Simplify<HighlightedTextSliceWarningPrimary>, never>;
+/**
+ * Primary content in HighlightedText → Primary
+ *
+ */
+interface HighlightedTextSliceInformationPrimary {
+    /**
+     * Title field in *HighlightedText → Primary*
+     *
+     * - **Field Type**: Title
+     * - **Placeholder**: This is where it all begins...
+     * - **API ID Path**: highlighted_text.primary.title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    title: prismicT.TitleField;
+    /**
+     * Content field in *HighlightedText → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: highlighted_text.primary.content
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    content: prismicT.RichTextField;
+}
+/**
+ * Information variation for HighlightedText Slice
+ *
+ * - **API ID**: `information`
+ * - **Description**: `HighlightedText`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type HighlightedTextSliceInformation = prismicT.SharedSliceVariation<"information", Simplify<HighlightedTextSliceInformationPrimary>, never>;
+/**
+ * Primary content in HighlightedText → Primary
+ *
+ */
+interface HighlightedTextSliceUpdatePrimary {
+    /**
+     * Title field in *HighlightedText → Primary*
+     *
+     * - **Field Type**: Title
+     * - **Placeholder**: This is where it all begins...
+     * - **API ID Path**: highlighted_text.primary.title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    title: prismicT.TitleField;
+    /**
+     * Content field in *HighlightedText → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: highlighted_text.primary.content
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    content: prismicT.RichTextField;
+}
+/**
+ * Update variation for HighlightedText Slice
+ *
+ * - **API ID**: `update`
+ * - **Description**: `HighlightedText`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type HighlightedTextSliceUpdate = prismicT.SharedSliceVariation<"update", Simplify<HighlightedTextSliceUpdatePrimary>, never>;
+/**
+ * Slice variation for *HighlightedText*
+ *
+ */
+type HighlightedTextSliceVariation = HighlightedTextSliceDefault | HighlightedTextSliceWarning | HighlightedTextSliceInformation | HighlightedTextSliceUpdate;
+/**
+ * HighlightedText Shared Slice
+ *
+ * - **API ID**: `highlighted_text`
+ * - **Description**: `HighlightedText`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type HighlightedTextSlice = prismicT.SharedSlice<"highlighted_text", HighlightedTextSliceVariation>;
+/**
  * Primary content in LogoCloud → Primary
  *
  */
@@ -2853,6 +3244,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { BlogArticleDocumentData, BlogArticleDocumentDataSlicesSlice, BlogArticleDocument, BlogIndexDocumentData, BlogIndexDocumentDataSlicesSlice, BlogIndexDocument, FooterDocumentData, FooterDocumentDataLinksItem, FooterDocumentDataSocialLinksItem, FooterDocumentDataSlicesSlice, FooterDocument, HeaderDocumentData, HeaderDocumentDataSlicesSlice, HeaderDocumentDataSlices1Slice, HeaderDocument, HomePageDocumentData, HomePageDocumentDataSlicesSlice, HomePageDocument, LandingPageDocumentData, LandingPageDocumentDataSlicesSlice, LandingPageDocument, AllDocumentTypes, CallToActionSliceDefaultPrimary, CallToActionSliceDefault, CallToActionSliceWhiteBackgroundPrimary, CallToActionSliceWhiteBackground, CallToActionSliceWithImageRightPrimary, CallToActionSliceWithImageRightItem, CallToActionSliceWithImageRight, CallToActionSliceWithImageLeftPrimary, CallToActionSliceWithImageLeftItem, CallToActionSliceWithImageLeft, CallToActionSliceVariation, CallToActionSlice, FaqSliceTwoColumnsPrimary, FaqSliceTwoColumnsItem, FaqSliceTwoColumns, FaqSliceThreeColumnsPrimary, FaqSliceThreeColumnsItem, FaqSliceThreeColumns, FaqSliceCenteredPrimary, FaqSliceCenteredItem, FaqSliceCentered, FaqSliceCenteredWithBackgroundPrimary, FaqSliceCenteredWithBackgroundItem, FaqSliceCenteredWithBackground, FaqSliceVariation, FaqSlice, FeaturesSliceRightSidePrimary, FeaturesSliceRightSideItem, FeaturesSliceRightSide, FeaturesSliceLeftSidePrimary, FeaturesSliceLeftSideItem, FeaturesSliceLeftSide, FeaturesSliceAbovePrimary, FeaturesSliceAboveItem, FeaturesSliceAbove, FeaturesSliceBelowPrimary, FeaturesSliceBelowItem, FeaturesSliceBelow, FeaturesSliceVariation, FeaturesSlice, FormSliceSimplePrimary, FormSliceSimple, FormSliceWithDetailsPrimary, FormSliceWithDetailsItem, FormSliceWithDetails, FormSliceCenteredPrimary, FormSliceCentered, FormSliceVariation, FormSlice, HeroSliceDefaultPrimary, HeroSliceDefaultItem, HeroSliceDefault, HeroSliceTitleOnlyPrimary, HeroSliceTitleOnly, HeroSliceWithBackgroundPrimary, HeroSliceWithBackgroundItem, HeroSliceWithBackground, HeroSliceWithVideoBackgroundPrimary, HeroSliceWithVideoBackgroundItem, HeroSliceWithVideoBackground, HeroSliceVariation, HeroSlice, LogoCloudSliceDefaultPrimary, LogoCloudSliceDefaultItem, LogoCloudSliceDefault, LogoCloudSliceThreeColumnsPrimary, LogoCloudSliceThreeColumnsItem, LogoCloudSliceThreeColumns, LogoCloudSliceSinglePrimary, LogoCloudSliceSingle, LogoCloudSliceSimpleDarkModePrimary, LogoCloudSliceSimpleDarkModeItem, LogoCloudSliceSimpleDarkMode, LogoCloudSliceVariation, LogoCloudSlice, HeaderLinkSliceDefaultPrimary, HeaderLinkSliceDefault, HeaderLinkSliceSamePageAnchorPrimary, HeaderLinkSliceSamePageAnchor, HeaderLinkSliceButtonPrimary, HeaderLinkSliceButton, HeaderLinkSliceVariation, HeaderLinkSlice, PricingSliceDefaultPrimary, PricingSliceDefaultItem, PricingSliceDefault, PricingSliceWithPromoPrimary, PricingSliceWithPromoItem, PricingSliceWithPromo, PricingSliceVariation, PricingSlice, TestimonialsSliceDefaultPrimary, TestimonialsSliceDefaultItem, TestimonialsSliceDefault, TestimonialsSliceScrollingCardsPrimary, TestimonialsSliceScrollingCardsItem, TestimonialsSliceScrollingCards, TestimonialsSliceTwoColumnsWithSeparatorPrimary, TestimonialsSliceTwoColumnsWithSeparator, TestimonialsSliceSingleCenteredPrimary, TestimonialsSliceSingleCentered, TestimonialsSliceSingleWithLargeImagePrimary, TestimonialsSliceSingleWithLargeImage, TestimonialsSliceVariation, TestimonialsSlice, TextSliceDefaultPrimary, TextSliceDefault, TextSliceVariation, TextSlice };
+        export type { AuthorDocumentData, AuthorDocument, BlogArticleDocumentData, BlogArticleDocumentDataSlicesSlice, BlogArticleDocument, BlogCategoryDocumentData, BlogCategoryDocument, BlogIndexDocumentData, BlogIndexDocumentDataSlicesSlice, BlogIndexDocument, FooterDocumentData, FooterDocumentDataLinksItem, FooterDocumentDataSocialLinksItem, FooterDocumentDataSlicesSlice, FooterDocument, HeaderDocumentData, HeaderDocumentDataSlicesSlice, HeaderDocumentDataSlices1Slice, HeaderDocument, HomePageDocumentData, HomePageDocumentDataSlicesSlice, HomePageDocument, LandingPageDocumentData, LandingPageDocumentDataSlicesSlice, LandingPageDocument, AllDocumentTypes, ArticleListSliceDefaultPrimary, ArticleListSliceDefaultItem, ArticleListSliceDefault, ArticleListSliceVerticalListPrimary, ArticleListSliceVerticalListItem, ArticleListSliceVerticalList, ArticleListSliceHorizontalListPrimary, ArticleListSliceHorizontalListItem, ArticleListSliceHorizontalList, ArticleListSliceVariation, ArticleListSlice, CallToActionSliceDefaultPrimary, CallToActionSliceDefault, CallToActionSliceWhiteBackgroundPrimary, CallToActionSliceWhiteBackground, CallToActionSliceWithImageRightPrimary, CallToActionSliceWithImageRightItem, CallToActionSliceWithImageRight, CallToActionSliceWithImageLeftPrimary, CallToActionSliceWithImageLeftItem, CallToActionSliceWithImageLeft, CallToActionSliceVariation, CallToActionSlice, FaqSliceTwoColumnsPrimary, FaqSliceTwoColumnsItem, FaqSliceTwoColumns, FaqSliceThreeColumnsPrimary, FaqSliceThreeColumnsItem, FaqSliceThreeColumns, FaqSliceCenteredPrimary, FaqSliceCenteredItem, FaqSliceCentered, FaqSliceCenteredWithBackgroundPrimary, FaqSliceCenteredWithBackgroundItem, FaqSliceCenteredWithBackground, FaqSliceVariation, FaqSlice, FeaturesSliceRightSidePrimary, FeaturesSliceRightSideItem, FeaturesSliceRightSide, FeaturesSliceLeftSidePrimary, FeaturesSliceLeftSideItem, FeaturesSliceLeftSide, FeaturesSliceAbovePrimary, FeaturesSliceAboveItem, FeaturesSliceAbove, FeaturesSliceBelowPrimary, FeaturesSliceBelowItem, FeaturesSliceBelow, FeaturesSliceVariation, FeaturesSlice, FormSliceSimplePrimary, FormSliceSimple, FormSliceWithDetailsPrimary, FormSliceWithDetailsItem, FormSliceWithDetails, FormSliceCenteredPrimary, FormSliceCentered, FormSliceVariation, FormSlice, HeroSliceDefaultPrimary, HeroSliceDefaultItem, HeroSliceDefault, HeroSliceTitleOnlyPrimary, HeroSliceTitleOnly, HeroSliceWithBackgroundPrimary, HeroSliceWithBackgroundItem, HeroSliceWithBackground, HeroSliceWithVideoBackgroundPrimary, HeroSliceWithVideoBackgroundItem, HeroSliceWithVideoBackground, HeroSliceVariation, HeroSlice, HighlightedTextSliceDefaultPrimary, HighlightedTextSliceDefault, HighlightedTextSliceWarningPrimary, HighlightedTextSliceWarning, HighlightedTextSliceInformationPrimary, HighlightedTextSliceInformation, HighlightedTextSliceUpdatePrimary, HighlightedTextSliceUpdate, HighlightedTextSliceVariation, HighlightedTextSlice, LogoCloudSliceDefaultPrimary, LogoCloudSliceDefaultItem, LogoCloudSliceDefault, LogoCloudSliceThreeColumnsPrimary, LogoCloudSliceThreeColumnsItem, LogoCloudSliceThreeColumns, LogoCloudSliceSinglePrimary, LogoCloudSliceSingle, LogoCloudSliceSimpleDarkModePrimary, LogoCloudSliceSimpleDarkModeItem, LogoCloudSliceSimpleDarkMode, LogoCloudSliceVariation, LogoCloudSlice, HeaderLinkSliceDefaultPrimary, HeaderLinkSliceDefault, HeaderLinkSliceSamePageAnchorPrimary, HeaderLinkSliceSamePageAnchor, HeaderLinkSliceButtonPrimary, HeaderLinkSliceButton, HeaderLinkSliceVariation, HeaderLinkSlice, PricingSliceDefaultPrimary, PricingSliceDefaultItem, PricingSliceDefault, PricingSliceWithPromoPrimary, PricingSliceWithPromoItem, PricingSliceWithPromo, PricingSliceVariation, PricingSlice, TestimonialsSliceDefaultPrimary, TestimonialsSliceDefaultItem, TestimonialsSliceDefault, TestimonialsSliceScrollingCardsPrimary, TestimonialsSliceScrollingCardsItem, TestimonialsSliceScrollingCards, TestimonialsSliceTwoColumnsWithSeparatorPrimary, TestimonialsSliceTwoColumnsWithSeparator, TestimonialsSliceSingleCenteredPrimary, TestimonialsSliceSingleCentered, TestimonialsSliceSingleWithLargeImagePrimary, TestimonialsSliceSingleWithLargeImage, TestimonialsSliceVariation, TestimonialsSlice, TextSliceDefaultPrimary, TextSliceDefault, TextSliceVariation, TextSlice };
     }
 }
