@@ -30,7 +30,10 @@
         "type": "Image",
         "config": {
           "label": "Author Image",
-          "constraint": {},
+          "constraint": {
+            "width": 48,
+            "height": 48
+          },
           "thumbnails": []
         }
       }

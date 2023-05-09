@@ -9,7 +9,7 @@
           {
             "type": "heading1",
             "content": {
-              "text": "Advice"
+              "text": "Prize"
             }
           }
         ]
@@ -20,7 +20,7 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "Cupidatat consectetur reprehenderit eiusmod. Officia est laborum irure deserunt cillum quis duis nisi cupidatat ut. Culpa voluptate pariatur exercitation aute laboris amet aute enim ut."
+              "text": "Sunt pariatur do quis pariatur sint elit. Reprehenderit et aliqua fugiat tempor id deserunt exercitation pariatur reprehenderit commodo id irure esse eu amet."
             }
           }
         ]
@@ -34,7 +34,7 @@
             "cta_label",
             {
               "__TYPE__": "FieldContent",
-              "value": "earn",
+              "value": "south",
               "type": "Text"
             }
           ],
@@ -44,7 +44,7 @@
               "__TYPE__": "LinkContent",
               "value": {
                 "__TYPE__": "ExternalLink",
-                "url": "http://twitter.com"
+                "url": "https://slicemachine.dev"
               }
             }
           ],
@@ -70,7 +70,7 @@
           {
             "type": "heading1",
             "content": {
-              "text": "Strange"
+              "text": "Region"
             }
           }
         ]
@@ -93,7 +93,7 @@
           {
             "type": "heading1",
             "content": {
-              "text": "Group"
+              "text": "Settlers"
             }
           }
         ]
@@ -104,7 +104,7 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "Culpa voluptate ut magna. Veniam occaecat irure qui voluptate cupidatat est exercitation enim."
+              "text": "Minim mollit irure ullamco proident. Aliquip in commodo ullamco deserunt tempor. Tempor nulla minim est pariatur culpa officia consectetur."
             }
           }
         ]
@@ -118,7 +118,7 @@
             "cta_label",
             {
               "__TYPE__": "FieldContent",
-              "value": "war",
+              "value": "tall",
               "type": "Text"
             }
           ],
@@ -136,7 +136,7 @@
             "cta_type",
             {
               "__TYPE__": "FieldContent",
-              "value": "Primary",
+              "value": "Secondary",
               "type": "Select"
             }
           ]
@@ -154,7 +154,7 @@
           {
             "type": "heading1",
             "content": {
-              "text": "Height"
+              "text": "Large"
             }
           }
         ]
@@ -165,7 +165,7 @@
           {
             "type": "paragraph",
             "content": {
-              "text": "Ex Lorem ut commodo laboris enim officia. Sit eiusmod ipsum in nulla fugiat aliqua duis est consequat."
+              "text": "Laborum aliqua irure nostrud. Consequat anim consectetur officia nostrud non minim elit ullamco nisi esse incididunt commodo anim id. Minim est ut nisi Lorem ut cillum do dolor non officia."
             }
           }
         ]
@@ -208,7 +208,7 @@
             "cta_label",
             {
               "__TYPE__": "FieldContent",
-              "value": "excited",
+              "value": "terrible",
               "type": "Text"
             }
           ],
@@ -218,7 +218,7 @@
               "__TYPE__": "LinkContent",
               "value": {
                 "__TYPE__": "ExternalLink",
-                "url": "http://twitter.com"
+                "url": "https://slicemachine.dev"
               }
             }
           ],
@@ -226,7 +226,7 @@
             "cta_type",
             {
               "__TYPE__": "FieldContent",
-              "value": "Primary",
+              "value": "Text",
               "type": "Select"
             }
           ]

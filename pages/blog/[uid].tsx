@@ -2,19 +2,16 @@ import Head from "next/head";
 import type { GetStaticPropsContext, InferGetStaticPropsType } from "next";
 import { createClient } from "../../prismicio";
 import { Content } from "@prismicio/client";
-import { PrismicLink, PrismicRichText, SliceZone } from "@prismicio/react";
+import { PrismicRichText, SliceZone } from "@prismicio/react";
 import * as prismicH from "@prismicio/helpers";
 import { components } from "@/slices";
-import { Container } from "@/components/Container";
 import { PrismicNextImage } from "@prismicio/next";
 import { UnderlineDoodle } from "@/components/UnderlineDoodle";
 
 type BlogArticleProps = InferGetStaticPropsType<typeof getStaticProps>;
 type PageParams = { uid: string };
 
-const dateOptions = { year: "numeric", month: "short", day: "numeric" };
-
-export default function BlogArticle({ page }: BlogArticleProps) {
+export default function BlogArticle({ page, author }: BlogArticleProps) {
   return (
     <>
       <Head>
@@ -38,7 +35,7 @@ export default function BlogArticle({ page }: BlogArticleProps) {
               <time dateTime={page.last_publication_date}>
                 {new Date(page.last_publication_date).toLocaleDateString(
                   page.lang,
-                  dateOptions
+                  { year: "numeric", month: "short", day: "numeric" }
                 )}
               </time>
             </div>
@@ -74,12 +71,31 @@ export default function BlogArticle({ page }: BlogArticleProps) {
                 ),
               }}
             />
+            <figcaption className="relative flex items-center gap-4 text-left">
+              <div className="overflow-hidden rounded-full bg-slate-50">
+                <PrismicNextImage
+                  className="h-12 w-12 object-cover"
+                  alt=""
+                  field={author.data.author_image}
+                  width={48}
+                  height={48}
+                />
+              </div>
+              <div>
+                <div className="font-display text-base text-slate-900">
+                  {author.data.author_name} -{" "}
+                  <span className="text-slate-500">
+                    {author.data.author_role}
+                  </span>
+                </div>
+              </div>
+            </figcaption>
           </div>
         </div>
       </section>
-        {/* Remove className to have full width */}
+      {/* Remove className to have full width */}
       <main>
-          <SliceZone slices={page.data.slices} components={components} />
+        <SliceZone slices={page.data.slices} components={components} />
       </main>
     </>
   );
@@ -92,6 +108,18 @@ export async function getStaticProps({
   const client = createClient({ previewData });
   //    ^ Automatically contains references to document types
 
+  const authorGraphQuery = `
+  {
+    blog_article {
+      author {
+        ...on author {
+          ...authorFields
+        }
+      }
+    }
+  }
+  `;
+
   const page =
     params &&
     params.uid &&
@@ -100,6 +128,13 @@ export async function getStaticProps({
       "blog_article",
       params.uid
     ));
+
+  const writer =
+    params &&
+    params.uid &&
+    (await client.getByUID("blog_article", params?.uid, {
+      graphQuery: authorGraphQuery,
+    }));
 
   if (!page) {
     return {
@@ -110,6 +145,7 @@ export async function getStaticProps({
   return {
     props: {
       page,
+      author: writer?.data.author,
     },
   };
 }

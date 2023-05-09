@@ -144,7 +144,12 @@
         "primary": {}
       }
     },
-    "ArticleList": {},
+    "ArticleList": {
+      "default": {
+        "primary": {},
+        "items": {}
+      }
+    },
     "HighlightedText": {
       "default": {
         "primary": {}

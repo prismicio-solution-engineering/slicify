@@ -5,8 +5,8 @@
   "description": "ArticleList",
   "variations": [
     {
-      "id": "default",
-      "name": "Default",
+      "id": "verticalList",
+      "name": "Vertical list",
       "docURL": "...",
       "version": "sktwi1xtmkfgx8626",
       "description": "ArticleList",
@@ -14,14 +14,75 @@
         "title": {
           "type": "StructuredText",
           "config": {
-            "single": "heading1",
             "label": "Title",
-            "placeholder": "This is where it all begins..."
+            "placeholder": "This is where it all begins...",
+            "allowTargetBlank": true,
+            "single": "heading2"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,strong,em,hyperlink"
           }
         }
       },
-      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format",
-      "items": {}
+      "items": {
+        "article": {
+          "type": "Link",
+          "config": {
+            "label": "Article",
+            "select": "document",
+            "customtypes": [
+              "blog_article"
+            ]
+          }
+        }
+      },
+      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+    },
+    {
+      "id": "horizontalList",
+      "name": "Horizontal list",
+      "docURL": "...",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "ArticleList",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "This is where it all begins...",
+            "allowTargetBlank": true,
+            "single": "heading2"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,strong,em,hyperlink"
+          }
+        }
+      },
+      "items": {
+        "article": {
+          "type": "Link",
+          "config": {
+            "label": "Article",
+            "select": "document",
+            "customtypes": [
+              "blog_article"
+            ]
+          }
+        }
+      },
+      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
     }
   ]
 }

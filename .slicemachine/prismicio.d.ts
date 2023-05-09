@@ -467,6 +467,32 @@ interface ArticleListSliceDefaultPrimary {
      *
      */
     title: prismicT.TitleField;
+    /**
+     * Description field in *ArticleList → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: article_list.primary.description
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    description: prismicT.RichTextField;
+}
+/**
+ * Item in ArticleList → Items
+ *
+ */
+export interface ArticleListSliceDefaultItem {
+    /**
+     * Article field in *ArticleList → Items*
+     *
+     * - **Field Type**: Content Relationship
+     * - **Placeholder**: *None*
+     * - **API ID Path**: article_list.items[].article
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    article: prismicT.RelationField<"blog_article">;
 }
 /**
  * Default variation for ArticleList Slice
@@ -476,12 +502,114 @@ interface ArticleListSliceDefaultPrimary {
  * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
  *
  */
-export type ArticleListSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<ArticleListSliceDefaultPrimary>, never>;
+export type ArticleListSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<ArticleListSliceDefaultPrimary>, Simplify<ArticleListSliceDefaultItem>>;
+/**
+ * Primary content in ArticleList → Primary
+ *
+ */
+interface ArticleListSliceVerticalListPrimary {
+    /**
+     * Title field in *ArticleList → Primary*
+     *
+     * - **Field Type**: Title
+     * - **Placeholder**: This is where it all begins...
+     * - **API ID Path**: article_list.primary.title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    title: prismicT.TitleField;
+    /**
+     * Description field in *ArticleList → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: article_list.primary.description
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    description: prismicT.RichTextField;
+}
+/**
+ * Item in ArticleList → Items
+ *
+ */
+export interface ArticleListSliceVerticalListItem {
+    /**
+     * Article field in *ArticleList → Items*
+     *
+     * - **Field Type**: Content Relationship
+     * - **Placeholder**: *None*
+     * - **API ID Path**: article_list.items[].article
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    article: prismicT.RelationField<"blog_article">;
+}
+/**
+ * Vertical list variation for ArticleList Slice
+ *
+ * - **API ID**: `verticalList`
+ * - **Description**: `ArticleList`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ArticleListSliceVerticalList = prismicT.SharedSliceVariation<"verticalList", Simplify<ArticleListSliceVerticalListPrimary>, Simplify<ArticleListSliceVerticalListItem>>;
+/**
+ * Primary content in ArticleList → Primary
+ *
+ */
+interface ArticleListSliceHorizontalListPrimary {
+    /**
+     * Title field in *ArticleList → Primary*
+     *
+     * - **Field Type**: Title
+     * - **Placeholder**: This is where it all begins...
+     * - **API ID Path**: article_list.primary.title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    title: prismicT.TitleField;
+    /**
+     * Description field in *ArticleList → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: article_list.primary.description
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    description: prismicT.RichTextField;
+}
+/**
+ * Item in ArticleList → Items
+ *
+ */
+export interface ArticleListSliceHorizontalListItem {
+    /**
+     * Article field in *ArticleList → Items*
+     *
+     * - **Field Type**: Content Relationship
+     * - **Placeholder**: *None*
+     * - **API ID Path**: article_list.items[].article
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    article: prismicT.RelationField<"blog_article">;
+}
+/**
+ * Horizontal list variation for ArticleList Slice
+ *
+ * - **API ID**: `horizontalList`
+ * - **Description**: `ArticleList`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ArticleListSliceHorizontalList = prismicT.SharedSliceVariation<"horizontalList", Simplify<ArticleListSliceHorizontalListPrimary>, Simplify<ArticleListSliceHorizontalListItem>>;
 /**
  * Slice variation for *ArticleList*
  *
  */
-type ArticleListSliceVariation = ArticleListSliceDefault;
+type ArticleListSliceVariation = ArticleListSliceDefault | ArticleListSliceVerticalList | ArticleListSliceHorizontalList;
 /**
  * ArticleList Shared Slice
  *
@@ -1858,13 +1986,13 @@ interface HighlightedTextSliceDefaultPrimary {
     /**
      * Title field in *HighlightedText → Primary*
      *
-     * - **Field Type**: Title
+     * - **Field Type**: Rich Text
      * - **Placeholder**: This is where it all begins...
      * - **API ID Path**: highlighted_text.primary.title
      * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
      *
      */
-    title: prismicT.TitleField;
+    title: prismicT.RichTextField;
     /**
      * Content field in *HighlightedText → Primary*
      *
@@ -3116,6 +3244,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { AuthorDocumentData, AuthorDocument, BlogArticleDocumentData, BlogArticleDocumentDataSlicesSlice, BlogArticleDocument, BlogCategoryDocumentData, BlogCategoryDocument, BlogIndexDocumentData, BlogIndexDocumentDataSlicesSlice, BlogIndexDocument, FooterDocumentData, FooterDocumentDataLinksItem, FooterDocumentDataSocialLinksItem, FooterDocumentDataSlicesSlice, FooterDocument, HeaderDocumentData, HeaderDocumentDataSlicesSlice, HeaderDocumentDataSlices1Slice, HeaderDocument, HomePageDocumentData, HomePageDocumentDataSlicesSlice, HomePageDocument, LandingPageDocumentData, LandingPageDocumentDataSlicesSlice, LandingPageDocument, AllDocumentTypes, ArticleListSliceDefaultPrimary, ArticleListSliceDefault, ArticleListSliceVariation, ArticleListSlice, CallToActionSliceDefaultPrimary, CallToActionSliceDefault, CallToActionSliceWhiteBackgroundPrimary, CallToActionSliceWhiteBackground, CallToActionSliceWithImageRightPrimary, CallToActionSliceWithImageRightItem, CallToActionSliceWithImageRight, CallToActionSliceWithImageLeftPrimary, CallToActionSliceWithImageLeftItem, CallToActionSliceWithImageLeft, CallToActionSliceVariation, CallToActionSlice, FaqSliceTwoColumnsPrimary, FaqSliceTwoColumnsItem, FaqSliceTwoColumns, FaqSliceThreeColumnsPrimary, FaqSliceThreeColumnsItem, FaqSliceThreeColumns, FaqSliceCenteredPrimary, FaqSliceCenteredItem, FaqSliceCentered, FaqSliceCenteredWithBackgroundPrimary, FaqSliceCenteredWithBackgroundItem, FaqSliceCenteredWithBackground, FaqSliceVariation, FaqSlice, FeaturesSliceRightSidePrimary, FeaturesSliceRightSideItem, FeaturesSliceRightSide, FeaturesSliceLeftSidePrimary, FeaturesSliceLeftSideItem, FeaturesSliceLeftSide, FeaturesSliceAbovePrimary, FeaturesSliceAboveItem, FeaturesSliceAbove, FeaturesSliceBelowPrimary, FeaturesSliceBelowItem, FeaturesSliceBelow, FeaturesSliceVariation, FeaturesSlice, FormSliceSimplePrimary, FormSliceSimple, FormSliceWithDetailsPrimary, FormSliceWithDetailsItem, FormSliceWithDetails, FormSliceCenteredPrimary, FormSliceCentered, FormSliceVariation, FormSlice, HeroSliceDefaultPrimary, HeroSliceDefaultItem, HeroSliceDefault, HeroSliceTitleOnlyPrimary, HeroSliceTitleOnly, HeroSliceWithBackgroundPrimary, HeroSliceWithBackgroundItem, HeroSliceWithBackground, HeroSliceWithVideoBackgroundPrimary, HeroSliceWithVideoBackgroundItem, HeroSliceWithVideoBackground, HeroSliceVariation, HeroSlice, HighlightedTextSliceDefaultPrimary, HighlightedTextSliceDefault, HighlightedTextSliceWarningPrimary, HighlightedTextSliceWarning, HighlightedTextSliceInformationPrimary, HighlightedTextSliceInformation, HighlightedTextSliceUpdatePrimary, HighlightedTextSliceUpdate, HighlightedTextSliceVariation, HighlightedTextSlice, LogoCloudSliceDefaultPrimary, LogoCloudSliceDefaultItem, LogoCloudSliceDefault, LogoCloudSliceThreeColumnsPrimary, LogoCloudSliceThreeColumnsItem, LogoCloudSliceThreeColumns, LogoCloudSliceSinglePrimary, LogoCloudSliceSingle, LogoCloudSliceSimpleDarkModePrimary, LogoCloudSliceSimpleDarkModeItem, LogoCloudSliceSimpleDarkMode, LogoCloudSliceVariation, LogoCloudSlice, HeaderLinkSliceDefaultPrimary, HeaderLinkSliceDefault, HeaderLinkSliceSamePageAnchorPrimary, HeaderLinkSliceSamePageAnchor, HeaderLinkSliceButtonPrimary, HeaderLinkSliceButton, HeaderLinkSliceVariation, HeaderLinkSlice, PricingSliceDefaultPrimary, PricingSliceDefaultItem, PricingSliceDefault, PricingSliceWithPromoPrimary, PricingSliceWithPromoItem, PricingSliceWithPromo, PricingSliceVariation, PricingSlice, TestimonialsSliceDefaultPrimary, TestimonialsSliceDefaultItem, TestimonialsSliceDefault, TestimonialsSliceScrollingCardsPrimary, TestimonialsSliceScrollingCardsItem, TestimonialsSliceScrollingCards, TestimonialsSliceTwoColumnsWithSeparatorPrimary, TestimonialsSliceTwoColumnsWithSeparator, TestimonialsSliceSingleCenteredPrimary, TestimonialsSliceSingleCentered, TestimonialsSliceSingleWithLargeImagePrimary, TestimonialsSliceSingleWithLargeImage, TestimonialsSliceVariation, TestimonialsSlice, TextSliceDefaultPrimary, TextSliceDefault, TextSliceVariation, TextSlice };
+        export type { AuthorDocumentData, AuthorDocument, BlogArticleDocumentData, BlogArticleDocumentDataSlicesSlice, BlogArticleDocument, BlogCategoryDocumentData, BlogCategoryDocument, BlogIndexDocumentData, BlogIndexDocumentDataSlicesSlice, BlogIndexDocument, FooterDocumentData, FooterDocumentDataLinksItem, FooterDocumentDataSocialLinksItem, FooterDocumentDataSlicesSlice, FooterDocument, HeaderDocumentData, HeaderDocumentDataSlicesSlice, HeaderDocumentDataSlices1Slice, HeaderDocument, HomePageDocumentData, HomePageDocumentDataSlicesSlice, HomePageDocument, LandingPageDocumentData, LandingPageDocumentDataSlicesSlice, LandingPageDocument, AllDocumentTypes, ArticleListSliceDefaultPrimary, ArticleListSliceDefaultItem, ArticleListSliceDefault, ArticleListSliceVerticalListPrimary, ArticleListSliceVerticalListItem, ArticleListSliceVerticalList, ArticleListSliceHorizontalListPrimary, ArticleListSliceHorizontalListItem, ArticleListSliceHorizontalList, ArticleListSliceVariation, ArticleListSlice, CallToActionSliceDefaultPrimary, CallToActionSliceDefault, CallToActionSliceWhiteBackgroundPrimary, CallToActionSliceWhiteBackground, CallToActionSliceWithImageRightPrimary, CallToActionSliceWithImageRightItem, CallToActionSliceWithImageRight, CallToActionSliceWithImageLeftPrimary, CallToActionSliceWithImageLeftItem, CallToActionSliceWithImageLeft, CallToActionSliceVariation, CallToActionSlice, FaqSliceTwoColumnsPrimary, FaqSliceTwoColumnsItem, FaqSliceTwoColumns, FaqSliceThreeColumnsPrimary, FaqSliceThreeColumnsItem, FaqSliceThreeColumns, FaqSliceCenteredPrimary, FaqSliceCenteredItem, FaqSliceCentered, FaqSliceCenteredWithBackgroundPrimary, FaqSliceCenteredWithBackgroundItem, FaqSliceCenteredWithBackground, FaqSliceVariation, FaqSlice, FeaturesSliceRightSidePrimary, FeaturesSliceRightSideItem, FeaturesSliceRightSide, FeaturesSliceLeftSidePrimary, FeaturesSliceLeftSideItem, FeaturesSliceLeftSide, FeaturesSliceAbovePrimary, FeaturesSliceAboveItem, FeaturesSliceAbove, FeaturesSliceBelowPrimary, FeaturesSliceBelowItem, FeaturesSliceBelow, FeaturesSliceVariation, FeaturesSlice, FormSliceSimplePrimary, FormSliceSimple, FormSliceWithDetailsPrimary, FormSliceWithDetailsItem, FormSliceWithDetails, FormSliceCenteredPrimary, FormSliceCentered, FormSliceVariation, FormSlice, HeroSliceDefaultPrimary, HeroSliceDefaultItem, HeroSliceDefault, HeroSliceTitleOnlyPrimary, HeroSliceTitleOnly, HeroSliceWithBackgroundPrimary, HeroSliceWithBackgroundItem, HeroSliceWithBackground, HeroSliceWithVideoBackgroundPrimary, HeroSliceWithVideoBackgroundItem, HeroSliceWithVideoBackground, HeroSliceVariation, HeroSlice, HighlightedTextSliceDefaultPrimary, HighlightedTextSliceDefault, HighlightedTextSliceWarningPrimary, HighlightedTextSliceWarning, HighlightedTextSliceInformationPrimary, HighlightedTextSliceInformation, HighlightedTextSliceUpdatePrimary, HighlightedTextSliceUpdate, HighlightedTextSliceVariation, HighlightedTextSlice, LogoCloudSliceDefaultPrimary, LogoCloudSliceDefaultItem, LogoCloudSliceDefault, LogoCloudSliceThreeColumnsPrimary, LogoCloudSliceThreeColumnsItem, LogoCloudSliceThreeColumns, LogoCloudSliceSinglePrimary, LogoCloudSliceSingle, LogoCloudSliceSimpleDarkModePrimary, LogoCloudSliceSimpleDarkModeItem, LogoCloudSliceSimpleDarkMode, LogoCloudSliceVariation, LogoCloudSlice, HeaderLinkSliceDefaultPrimary, HeaderLinkSliceDefault, HeaderLinkSliceSamePageAnchorPrimary, HeaderLinkSliceSamePageAnchor, HeaderLinkSliceButtonPrimary, HeaderLinkSliceButton, HeaderLinkSliceVariation, HeaderLinkSlice, PricingSliceDefaultPrimary, PricingSliceDefaultItem, PricingSliceDefault, PricingSliceWithPromoPrimary, PricingSliceWithPromoItem, PricingSliceWithPromo, PricingSliceVariation, PricingSlice, TestimonialsSliceDefaultPrimary, TestimonialsSliceDefaultItem, TestimonialsSliceDefault, TestimonialsSliceScrollingCardsPrimary, TestimonialsSliceScrollingCardsItem, TestimonialsSliceScrollingCards, TestimonialsSliceTwoColumnsWithSeparatorPrimary, TestimonialsSliceTwoColumnsWithSeparator, TestimonialsSliceSingleCenteredPrimary, TestimonialsSliceSingleCentered, TestimonialsSliceSingleWithLargeImagePrimary, TestimonialsSliceSingleWithLargeImage, TestimonialsSliceVariation, TestimonialsSlice, TextSliceDefaultPrimary, TextSliceDefault, TextSliceVariation, TextSlice };
     }
 }
