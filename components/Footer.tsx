@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import { Container } from "@/components/Container";
-import { FooterDocumentData } from "@/.slicemachine/prismicio";
+import { FooterDocumentData } from "@/prismicio-types";
 import { PrismicNextImage } from "@prismicio/next";
 import { PrismicLink, PrismicRichText } from "@prismicio/react";
 import { createSerializerP } from "@/utils/createSerializer";

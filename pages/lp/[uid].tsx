@@ -4,12 +4,14 @@ import { createClient } from "../../prismicio";
 import { Content } from "@prismicio/client";
 import { SliceZone } from "@prismicio/react";
 import * as prismicH from "@prismicio/helpers";
-import { components } from "@/slices";
+import { components } from "@/slices/marketing";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 
 type LandingPageProps = InferGetStaticPropsType<typeof getStaticProps>;
 type PageParams = { uid: string }
 
-export default function LandingPage({ page }: LandingPageProps) {
+export default function LandingPage({ page, header, footer  }: LandingPageProps) {
   return (
     <>
       <Head>
@@ -19,7 +21,9 @@ export default function LandingPage({ page }: LandingPageProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
+        <Header {...header.data}/>
         <SliceZone slices={page.data.slices} components={components} />
+        <Footer {...footer.data}/>
       </main>
     </>
   );
@@ -33,6 +37,12 @@ export async function getStaticProps({ previewData, params}: GetStaticPropsConte
   //    ^ Typed as BlogIndexDocument
   await client.getByUID<Content.LandingPageDocument>("landing_page", params.uid);
 
+  const header = await client.getSingle<Content.HeaderDocument>("header");
+  //    ^ Typed as HeaderDocument
+
+  const footer = await client.getSingle<Content.FooterDocument>("footer");
+  //    ^ Typed as FooterDocument
+
   if (!page) {
     return {
       notFound: true,
@@ -42,6 +52,8 @@ export async function getStaticProps({ previewData, params}: GetStaticPropsConte
   return {
     props: {
       page,
+      header,
+      footer
     },
   };
 }

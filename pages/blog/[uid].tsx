@@ -4,14 +4,25 @@ import { createClient } from "../../prismicio";
 import { Content } from "@prismicio/client";
 import { PrismicRichText, SliceZone } from "@prismicio/react";
 import * as prismicH from "@prismicio/helpers";
-import { components } from "@/slices";
+import { components } from "@/slices/marketing";
 import { PrismicNextImage } from "@prismicio/next";
 import { UnderlineDoodle } from "@/components/UnderlineDoodle";
+import { EmptyLinkField } from "@prismicio/types";
+import { isFilled } from "@prismicio/helpers";
 
 type BlogArticleProps = InferGetStaticPropsType<typeof getStaticProps>;
 type PageParams = { uid: string };
 
+type BlogArticleDocumentWithLinkedAuthor = Content.BlogArticleDocument & {
+  data: {
+    author: {
+      data?: Content.AuthorDocument['data']
+    }
+  }
+}
+
 export default function BlogArticle({ page, author }: BlogArticleProps) {
+  console.log(author)
   return (
     <>
       <Head>
@@ -71,25 +82,27 @@ export default function BlogArticle({ page, author }: BlogArticleProps) {
                 ),
               }}
             />
-            <figcaption className="relative flex items-center gap-4 text-left">
-              <div className="overflow-hidden rounded-full bg-slate-50">
-                <PrismicNextImage
-                  className="h-12 w-12 object-cover"
-                  alt=""
-                  field={author.data.author_image}
-                  width={48}
-                  height={48}
-                />
-              </div>
-              <div>
-                <div className="font-display text-base text-slate-900">
-                  {author.data.author_name} -{" "}
-                  <span className="text-slate-500">
-                    {author.data.author_role}
-                  </span>
+            {author.data &&
+              <figcaption className="relative flex items-center gap-4 text-left">
+                <div className="overflow-hidden rounded-full bg-slate-50">
+                  <PrismicNextImage
+                    className="h-12 w-12 object-cover"
+                    alt=""
+                    field={author.data.author_image}
+                    width={48}
+                    height={48}
+                  />
                 </div>
-              </div>
-            </figcaption>
+                <div>
+                  <div className="font-display text-base text-slate-900">
+                    {author.data.author_name} -{" "}
+                    <span className="text-slate-500">
+                      {author.data.author_role}
+                    </span>
+                  </div>
+                </div>
+              </figcaption>
+            }
           </div>
         </div>
       </section>
@@ -120,33 +133,35 @@ export async function getStaticProps({
   }
   `;
 
-  const page =
-    params &&
-    params.uid &&
-    //    ^ Typed as BlogIndexDocument
-    (await client.getByUID<Content.BlogArticleDocument>(
-      "blog_article",
-      params.uid
-    ));
+  if (params && params.uid) {
+    const page =
+      //    ^ Typed as BlogIndexDocument
+      (await client.getByUID<Content.BlogArticleDocument>(
+        "blog_article",
+        params.uid
+      ));
 
-  const writer =
-    params &&
-    params.uid &&
-    (await client.getByUID("blog_article", params?.uid, {
-      graphQuery: authorGraphQuery,
-    }));
+    if (!page) {
+      return {
+        notFound: true,
+      };
+    }
 
-  if (!page) {
+    const linkedAuthor =
+      (await client.getByUID<BlogArticleDocumentWithLinkedAuthor>("blog_article", params?.uid, {
+        graphQuery: authorGraphQuery,
+      }));
+
     return {
-      notFound: true,
+      props: {
+        page,
+        author: linkedAuthor.data.author,
+      },
     };
   }
 
   return {
-    props: {
-      page,
-      author: writer?.data.author,
-    },
+    notFound: true,
   };
 }
 
