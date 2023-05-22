@@ -4,14 +4,26 @@ import { createClient } from "../../prismicio";
 import { Content } from "@prismicio/client";
 import { PrismicRichText, SliceZone } from "@prismicio/react";
 import * as prismicH from "@prismicio/helpers";
-import { components } from "@/slices";
+import { components as mktComponents } from "@/slices/marketing";
+import { components as blogComponents } from "@/slices/blog";
 import { PrismicNextImage } from "@prismicio/next";
 import { UnderlineDoodle } from "@/components/UnderlineDoodle";
+import { authorGraphQuery } from "@/utils/graphQueries";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 
 type BlogArticleProps = InferGetStaticPropsType<typeof getStaticProps>;
 type PageParams = { uid: string };
 
-export default function BlogArticle({ page, author }: BlogArticleProps) {
+type BlogArticleDocumentWithLinkedAuthor = Content.BlogArticleDocument & {
+  data: {
+    author: {
+      data?: Content.AuthorDocument['data']
+    }
+  }
+}
+
+export default function BlogArticle({ page, author, header, footer }: BlogArticleProps) {
   return (
     <>
       <Head>
@@ -20,82 +32,85 @@ export default function BlogArticle({ page, author }: BlogArticleProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <section>
-        <div className="relative isolate overflow-hidden bg-black">
-          <PrismicNextImage
-            className="absolute inset-0 -z-10 h-full w-full object-cover object-right md:object-center"
-            field={page.data.featured_image}
-            width={2245}
-            height={1636}
-            unoptimized
-          />
-          <div className="mx-auto p-12 px-14 rounded-xl my-16 max-w-4xl bg-white bg-opacity-50 flex flex-col gap-6">
-            <div className="text-gray-500 border-l-2 border-l-light-blue-70 pl-3 text-base">
-              <time dateTime={page.last_publication_date}>
-                {new Date(page.last_publication_date).toLocaleDateString(
-                  page.lang,
-                  { year: "numeric", month: "short", day: "numeric" }
-                )}
-              </time>
-            </div>
-            <PrismicRichText
-              field={page.data.title}
-              components={{
-                heading1: ({ children }) => (
-                  <h1 className="font-display text-5xl font-medium tracking-tight text-dark-blue">
-                    {children}
-                  </h1>
-                ),
-                label: ({ node, children }) => {
-                  return (
-                    <>
-                      {node.data.label === "highlight" && (
-                        <span className="relative font-display whitespace-nowrap text-vibrant-blue">
-                          <UnderlineDoodle className="absolute left-0 top-2/3 h-[0.58em] w-full fill-light-blue-70" />
-                          <span className="relative">{children}</span>
-                        </span>
-                      )}
-                    </>
-                  );
-                },
-              }}
-            />
-            <PrismicRichText
-              field={page.data.excerpt}
-              components={{
-                paragraph: ({ children }) => (
-                  <p className="font-sans text-lg tracking-tight text-dark-blue">
-                    {children}
-                  </p>
-                ),
-              }}
-            />
-            <figcaption className="relative flex items-center gap-4 text-left">
-              <div className="overflow-hidden rounded-full bg-slate-50">
-                <PrismicNextImage
-                  className="h-12 w-12 object-cover"
-                  alt=""
-                  field={author.data.author_image}
-                  width={48}
-                  height={48}
-                />
-              </div>
-              <div>
-                <div className="font-display text-base text-slate-900">
-                  {author.data.author_name} -{" "}
-                  <span className="text-slate-500">
-                    {author.data.author_role}
-                  </span>
-                </div>
-              </div>
-            </figcaption>
-          </div>
-        </div>
-      </section>
-      {/* Remove className to have full width */}
       <main>
-        <SliceZone slices={page.data.slices} components={components} />
+        <Header {...header.data} />
+        <section>
+          <div className="relative isolate overflow-hidden bg-black px-6">
+            <PrismicNextImage
+              className="absolute inset-0 -z-10 h-full w-full object-cover object-right md:object-center"
+              field={page.data.featured_image}
+              width={2245}
+              height={1636}
+              unoptimized
+            />
+            <div className="mx-auto p-12 px-14 rounded-xl my-16 max-w-4xl bg-white bg-opacity-50 flex flex-col gap-6">
+              <div className="text-gray-500 border-l-2 border-l-light-blue-70 pl-3 text-base">
+                <time dateTime={page.last_publication_date}>
+                  {new Date(page.last_publication_date).toLocaleDateString(
+                    page.lang,
+                    { year: "numeric", month: "short", day: "numeric" }
+                  )}
+                </time>
+              </div>
+              <PrismicRichText
+                field={page.data.title}
+                components={{
+                  heading1: ({ children }) => (
+                    <h1 className="font-display text-5xl font-medium tracking-tight text-dark-blue">
+                      {children}
+                    </h1>
+                  ),
+                  label: ({ node, children }) => {
+                    return (
+                      <>
+                        {node.data.label === "highlight" && (
+                          <span className="relative font-display whitespace-nowrap text-vibrant-blue">
+                            <UnderlineDoodle className="absolute left-0 top-2/3 h-[0.58em] w-full fill-light-blue-70" />
+                            <span className="relative">{children}</span>
+                          </span>
+                        )}
+                      </>
+                    );
+                  },
+                }}
+              />
+              <PrismicRichText
+                field={page.data.excerpt}
+                components={{
+                  paragraph: ({ children }) => (
+                    <p className="font-sans text-lg tracking-tight text-dark-blue">
+                      {children}
+                    </p>
+                  ),
+                }}
+              />
+              {author.data &&
+                <figcaption className="relative flex items-center gap-4 text-left">
+                  <div className="overflow-hidden rounded-full bg-slate-50">
+                    <PrismicNextImage
+                      className="h-12 w-12 object-cover"
+                      alt=""
+                      field={author.data.author_image}
+                      width={48}
+                      height={48}
+                    />
+                  </div>
+                  <div>
+                    <div className="font-display text-base text-slate-900">
+                      {author.data.author_name} -{" "}
+                      <span className="text-slate-500">
+                        {author.data.author_role}
+                      </span>
+                    </div>
+                  </div>
+                </figcaption>
+              }
+            </div>
+          </div>
+        </section>
+        {/* Remove className to have full width */}
+        <SliceZone slices={page.data.slices} components={{...mktComponents, ...blogComponents}} />
+        <Footer {...footer.data} />
       </main>
     </>
   );
@@ -108,45 +123,40 @@ export async function getStaticProps({
   const client = createClient({ previewData });
   //    ^ Automatically contains references to document types
 
-  const authorGraphQuery = `
-  {
-    blog_article {
-      author {
-        ...on author {
-          ...authorFields
-        }
-      }
+  if (params && params.uid) {
+    const page =
+      //    ^ Typed as BlogIndexDocument
+      (await client.getByUID<Content.BlogArticleDocument>(
+        "blog_article",
+        params.uid
+      ));
+
+    const linkedAuthor =
+      (await client.getByUID<BlogArticleDocumentWithLinkedAuthor>("blog_article", params.uid, {
+        graphQuery: authorGraphQuery,
+      }));
+
+    const header = await client.getSingle<Content.HeaderDocument>("header");
+    //    ^ Typed as HeaderDocument
+
+    const footer = await client.getSingle<Content.FooterDocument>("footer");
+    //    ^ Typed as FooterDocument
+
+
+    if (page) {
+      return {
+        props: {
+          page,
+          author: linkedAuthor.data.author,
+          header: header,
+          footer: footer
+        },
+      };
     }
-  }
-  `;
-
-  const page =
-    params &&
-    params.uid &&
-    //    ^ Typed as BlogIndexDocument
-    (await client.getByUID<Content.BlogArticleDocument>(
-      "blog_article",
-      params.uid
-    ));
-
-  const writer =
-    params &&
-    params.uid &&
-    (await client.getByUID("blog_article", params?.uid, {
-      graphQuery: authorGraphQuery,
-    }));
-
-  if (!page) {
-    return {
-      notFound: true,
-    };
   }
 
   return {
-    props: {
-      page,
-      author: writer?.data.author,
-    },
+    notFound: true,
   };
 }
 

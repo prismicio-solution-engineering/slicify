@@ -1,5 +1,5 @@
 const prismic = require("@prismicio/client");
-const sm = require("./sm.json");
+const sm = require("./slicemachine.config.json");
 
 /** @type {import('next').NextConfig} */
 

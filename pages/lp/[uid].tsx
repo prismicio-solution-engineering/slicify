@@ -4,12 +4,14 @@ import { createClient } from "../../prismicio";
 import { Content } from "@prismicio/client";
 import { SliceZone } from "@prismicio/react";
 import * as prismicH from "@prismicio/helpers";
-import { components } from "@/slices";
+import { components } from "@/slices/marketing";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 
 type LandingPageProps = InferGetStaticPropsType<typeof getStaticProps>;
 type PageParams = { uid: string }
 
-export default function LandingPage({ page }: LandingPageProps) {
+export default function LandingPage({ page, header, footer }: LandingPageProps) {
   return (
     <>
       <Head>
@@ -19,30 +21,40 @@ export default function LandingPage({ page }: LandingPageProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
+        <Header {...header.data} />
         <SliceZone slices={page.data.slices} components={components} />
+        <Footer {...footer.data} />
       </main>
     </>
   );
 }
 
-export async function getStaticProps({ previewData, params}: GetStaticPropsContext<PageParams>) {
+export async function getStaticProps({ previewData, params }: GetStaticPropsContext<PageParams>) {
   const client = createClient({ previewData });
   //    ^ Automatically contains references to document types
 
-  const page = params && params.uid &&
-  //    ^ Typed as BlogIndexDocument
-  await client.getByUID<Content.LandingPageDocument>("landing_page", params.uid);
+  if (params && params.uid) {
+    const page = await client.getByUID<Content.LandingPageDocument>("landing_page", params.uid);
+    //    ^ Typed as BlogIndexDocument
 
-  if (!page) {
-    return {
-      notFound: true,
-    };
+    const header = await client.getSingle<Content.HeaderDocument>("header");
+    //    ^ Typed as HeaderDocument
+
+    const footer = await client.getSingle<Content.FooterDocument>("footer");
+    //    ^ Typed as FooterDocument
+
+    if (page) {
+      return {
+        props: {
+          page,
+          header,
+          footer
+        },
+      };
+    }
   }
-
   return {
-    props: {
-      page,
-    },
+    notFound: true,
   };
 }
 
@@ -51,7 +63,7 @@ export async function getStaticPaths() {
   const client = createClient();
   const documents = await client.getAllByType("landing_page", { lang: "*" });
   return {
-      paths: documents.map((page) => `/${page.lang}${prismicH.asLink(page)}`),
-      fallback: false, // if a page has already been generated but doesn't show => display the cached page
+    paths: documents.map((page) => `/${page.lang}${prismicH.asLink(page)}`),
+    fallback: false, // if a page has already been generated but doesn't show => display the cached page
   };
 }

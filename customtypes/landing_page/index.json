@@ -7,43 +7,21 @@
     "Main": {
       "uid": {
         "type": "UID",
-        "config": {
-          "label": "Slug",
-          "placeholder": "the-page-url-slug"
-        }
+        "config": { "label": "Slug", "placeholder": "the-page-url-slug" }
       },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "pricing": {
-              "type": "SharedSlice"
-            },
-            "call_to_action": {
-              "type": "SharedSlice"
-            },
-            "faq": {
-              "type": "SharedSlice"
-            },
-            "logo_cloud": {
-              "type": "SharedSlice"
-            },
-            "form": {
-              "type": "SharedSlice"
-            },
-            "testimonials": {
-              "type": "SharedSlice"
-            },
-            "features": {
-              "type": "SharedSlice"
-            },
-            "text": {
-              "type": "SharedSlice"
-            },
-            "header_link": {
-              "type": "SharedSlice"
-            }
+            "pricing": { "type": "SharedSlice" },
+            "call_to_action": { "type": "SharedSlice" },
+            "faq": { "type": "SharedSlice" },
+            "logo_cloud": { "type": "SharedSlice" },
+            "form": { "type": "SharedSlice" },
+            "testimonials": { "type": "SharedSlice" },
+            "features": { "type": "SharedSlice" },
+            "hero": { "type": "SharedSlice" }
           }
         }
       }

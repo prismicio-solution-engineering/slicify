@@ -5,7 +5,7 @@ import clsx from "clsx";
 
 import { Container } from "@/components/Container";
 import { Logo } from "@/components/Logo";
-import { HeaderDocumentData, HeaderLinkSlice } from "@/.slicemachine/prismicio";
+import { HeaderDocumentData, HeaderLinkSlice } from "@/prismicio-types";
 import { PrismicLink, PrismicRichText, SliceZone } from "@prismicio/react";
 import { components } from "@/slices/navigation";
 import { PrismicNextImage } from "@prismicio/next";
