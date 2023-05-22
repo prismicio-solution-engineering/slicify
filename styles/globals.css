@@ -8,15 +8,6 @@
     aspect-ratio: 16/9;
 }
 
-.list-disc ::marker {
-    content: '\2B24 ';
-    font-size: 10px;
-}
-
-.list-decimal ::marker {
-    font-weight: 500;
-}
-
 .youtube-video > iframe {
     width: 100%;
     aspect-ratio: 16/9;

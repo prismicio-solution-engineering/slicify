@@ -1,12 +1,11 @@
 import { useEffect } from "react";
 import type { Content } from "@prismicio/client";
-import * as prismicR from "@prismicio/richtext";
-import * as prismicH from "@prismicio/helpers";
 import {
   PrismicLink,
   PrismicRichText,
   SliceComponentProps,
 } from "@prismicio/react";
+import * as prismicH from "@prismicio/helpers";
 import hljs from "highlight.js";
 import javascript from "highlight.js/lib/languages/javascript";
 import json from "highlight.js/lib/languages/json";
@@ -31,7 +30,7 @@ export default function Text({ slice }: TextProps) {
     hljs.highlightAll();
   }, []);
   return (
-    <section className="max-w-4xl mx-auto flex flex-col gap-4">
+    <section className="max-w-4xl px-6 mx-auto flex flex-col gap-4">
       <PrismicRichText
         field={slice.primary.text_section}
         components={{
@@ -71,7 +70,7 @@ export default function Text({ slice }: TextProps) {
             // </pre>
             <pre className="my-3 p-6 bg-[#0d1117] rounded-xl shadow-lg">
               <code className="whitespace-pre-wrap">
-                {JSON.stringify(node.text)}
+                {node.text}
               </code>
               {/* <code className="whitespace-pre-wrap">{prismicR.asText(node, "\n")}</code> */}
             </pre>
@@ -80,20 +79,28 @@ export default function Text({ slice }: TextProps) {
           list: ({ children }) => (
             <ul
               role="list"
-              className="marker:text-vibrant-blue marker:tracking-[10px] list-disc flex flex-col gap-4"
+              className="marker:text-vibrant-blue list-inside	list-disc prose-lg"
             >
-              {" "}
-              {children}{" "}
+              {children}
             </ul>
+          ),
+          listItem: ({ children }) => (
+            <li className="mb-4">
+              {children}
+            </li>
           ),
           oList: ({ children }) => (
             <ol
               role="list"
-              className="marker:text-vibrant-blue marker:tracking-[5px] list-decimal"
+              className="marker:text-vibrant-blue list-inside list-decimal prose-lg"
             >
-              {" "}
-              {children}{" "}
+              {children}
             </ol>
+          ),
+          oListItem: ({ children }) => (
+            <li className="mb-4">
+              {children}
+            </li>
           ),
           // image: ({ node }) =>
           //   node.linkTo

@@ -4,10 +4,12 @@ import { createClient } from "../../prismicio";
 import { Content } from "@prismicio/client";
 import { SliceZone } from "@prismicio/react";
 import { components } from "@/slices/marketing";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 
 type BlogIndexProps = InferGetStaticPropsType<typeof getStaticProps>;
 
-export default function BlogIndex({ page }: BlogIndexProps) {
+export default function BlogIndex({ page, header, footer }: BlogIndexProps) {
   return (
     <>
       <Head>
@@ -17,7 +19,9 @@ export default function BlogIndex({ page }: BlogIndexProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
+        <Header {...header.data} />
         <SliceZone slices={page.data.slices} components={components} />
+        <Footer {...footer.data} />
       </main>
     </>
   );
@@ -30,9 +34,17 @@ export async function getStaticProps({ previewData }: GetStaticPropsContext) {
   const page = await client.getSingle<Content.BlogIndexDocument>("blog_index");
   //    ^ Typed as BlogIndexDocument
 
+  const header = await client.getSingle<Content.HeaderDocument>("header");
+  //    ^ Typed as HeaderDocument
+
+  const footer = await client.getSingle<Content.FooterDocument>("footer");
+  //    ^ Typed as FooterDocument
+
   return {
     props: {
       page,
+      header,
+      footer
     },
   };
 }

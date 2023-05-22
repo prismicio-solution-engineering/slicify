@@ -1,13 +1,13 @@
 import type { Content } from "@prismicio/client";
 import Image from "next/image";
 import { PrismicRichText } from "@prismicio/react";
+import { PrismicNextImage } from "@prismicio/next";
 
 // Tailwind imports
 import { Button } from "@/components/Button";
 import { Container } from "@/components/Container";
 import backgroundImage from "@/images/background-call-to-action.jpg";
-import screenshot from "@/images/screenshots/payroll.png";
-import { PrismicNextImage } from "@prismicio/next";
+import clsx from "clsx";
 
 export default function CtaWithImage({
   slice,
@@ -21,9 +21,7 @@ export default function CtaWithImage({
   return (
     <section
       id="get-started-today"
-      className={`relative overflow-hidden ${
-        imageRight && "bg-blue-600"
-      } pt-16`}
+      className={`relative overflow-hidden bg-blue-600 pt-16`}
     >
       <Image
         className="absolute left-1/2 top-1/2 max-w-none -translate-x-1/2 -translate-y-1/2"
@@ -34,7 +32,7 @@ export default function CtaWithImage({
         unoptimized
       />
       <Container className="relative isolate overflow-hidden px-6 pt-16 sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
-        <div className="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
+        <div className={clsx("mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left", !imageRight && "order-last")}>
           {/* <h2 >
             Boost your productivity.
             Start using our app today.
@@ -63,7 +61,7 @@ export default function CtaWithImage({
               ),
             }}
           />
-          <div className="mt-10 flex justify-start gap-x-6">
+          <div className="mt-10 lg:flex justify-start gap-x-6">
             {slice.items?.map((item, idx) => {
               return item.cta_type === "Primary" ? (
                 <Button key={idx} field={item.cta_link} color="white">
@@ -83,22 +81,14 @@ export default function CtaWithImage({
             })}
           </div>
         </div>
-        <div className="relative mt-16 h-80 lg:mt-8">
+        <div className="relative mt-16 h-80 lg:mt-8 lg:w-[45rem]">
           <PrismicNextImage
-            className="absolute left-0 top-0 w-[57rem] max-w-none rounded-md bg-white/5 ring-1 ring-white/10"
+            className={clsx("absolute w-[57rem] lg:w-[45rem] max-w-none rounded-md bg-white/5 ring-1 ring-white/10", imageRight?  "left-0 top-0"  : "right-0 top-0")}
             field={slice.primary.featured_image}
             width={1824}
             height={1080}
             unoptimized
           />
-          {/* <Image
-            className="absolute left-0 top-0 w-[57rem] max-w-none rounded-md bg-white/5 ring-1 ring-white/10"
-            src={screenshot}
-            alt="App screenshot"
-            width={1824}
-            height={1080}
-            unoptimized
-          /> */}
         </div>
       </Container>
     </section>
