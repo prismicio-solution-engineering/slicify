@@ -10,75 +10,7 @@ import Image from "next/image";
 // Tailwind imports
 import { Container } from "@/components/Container";
 import { QuoteIcon } from "@/components/QuoteIcon";
-import avatarImage1 from "@/images/avatars/avatar-1.png";
-import avatarImage2 from "@/images/avatars/avatar-2.png";
-import avatarImage3 from "@/images/avatars/avatar-3.png";
-import avatarImage4 from "@/images/avatars/avatar-4.png";
-import avatarImage5 from "@/images/avatars/avatar-5.png";
 import { PrismicNextImage } from "@prismicio/next";
-
-const testimonials = [
-  [
-    {
-      content:
-        "TaxPal is so easy to use I can’t help but wonder if it’s really doing the things the government expects me to do.",
-      author: {
-        name: "Sheryl Berge",
-        role: "CEO at Lynch LLC",
-        image: avatarImage1,
-      },
-    },
-    {
-      content:
-        "I’m trying to get a hold of someone in support, I’m in a lot of trouble right now and they are saying it has something to do with my books. Please get back to me right away.",
-      author: {
-        name: "Amy Hahn",
-        role: "Director at Velocity Industries",
-        image: avatarImage4,
-      },
-    },
-  ],
-  [
-    {
-      content:
-        "The best part about TaxPal is every time I pay my employees, my bank balance doesn’t go down like it used to. Looking forward to spending this extra cash when I figure out why my card is being declined.",
-      author: {
-        name: "Leland Kiehn",
-        role: "Founder of Kiehn and Sons",
-        image: avatarImage5,
-      },
-    },
-    {
-      content:
-        "There are so many things I had to do with my old software that I just don’t do at all with TaxPal. Suspicious but I can’t say I don’t love it.",
-      author: {
-        name: "Erin Powlowski",
-        role: "COO at Armstrong Inc",
-        image: avatarImage2,
-      },
-    },
-  ],
-  [
-    {
-      content:
-        "I used to have to remit tax to the EU and with TaxPal I somehow don’t have to do that anymore. Nervous to travel there now though.",
-      author: {
-        name: "Peter Renolds",
-        role: "Founder of West Inc",
-        image: avatarImage3,
-      },
-    },
-    {
-      content:
-        "This is the fourth email I’ve sent to your support team. I am literally being held in jail for tax fraud. Please answer your damn emails, this is important.",
-      author: {
-        name: "Amy Hahn",
-        role: "Director at Velocity Industries",
-        image: avatarImage4,
-      },
-    },
-  ],
-];
 
 export default function TestimonialsMasonry({
   slice,
@@ -92,7 +24,7 @@ export default function TestimonialsMasonry({
       className="bg-slate-50 py-20 sm:py-32"
     >
       <Container>
-        <div className="mx-auto max-w-2xl md:text-center">
+        <div className="mx-auto max-w-2xl sm:text-center">
           <PrismicRichText
             field={slice.primary.title}
             components={{
@@ -114,18 +46,13 @@ export default function TestimonialsMasonry({
             }}
           />
         </div>
-        <ul
-          className="mx-auto mt-16 max-w-2xl w-full lg:columns-3 sm:columns-2 gap-6 sm:gap-8 lg:mt-20 lg:max-w-none"
-          // className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:gap-8 lg:mt-20 lg:max-w-none lg:grid-cols-3"
-        >
-
+        <ul className="mx-auto mt-16 max-w-2xl w-full lg:columns-3 sm:columns-2 md:gap-6 sm:gap-8 lg:mt-20 lg:max-w-6xl xl:max-w-7xl">
           {slice?.items?.map((item, idx) => (
             <li
               key={idx}
-              className="mb-8 md:w-96 sm:w-80 sm:space-x-4"
+              className="mb-8 xl:w-96 sm:w-80 xs:w-72 sm:space-x-4 break-inside-avoid"
             >
               <figure className="relative rounded-2xl bg-white p-6 shadow-xl shadow-slate-900/10">
-
                 <QuoteIcon className="absolute left-6 top-6 fill-slate-100" />
                 <blockquote className="relative">
                   <PrismicRichText
