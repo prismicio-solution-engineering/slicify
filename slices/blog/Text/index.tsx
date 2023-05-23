@@ -5,7 +5,6 @@ import {
   PrismicRichText,
   SliceComponentProps,
 } from "@prismicio/react";
-import * as prismicH from "@prismicio/helpers";
 import hljs from "highlight.js";
 import javascript from "highlight.js/lib/languages/javascript";
 import json from "highlight.js/lib/languages/json";

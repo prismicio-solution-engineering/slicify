@@ -22,37 +22,13 @@
         },
         "link": {
           "type": "Link",
-          "config": {
-            "label": "Link",
-            "placeholder": "",
-            "select": null
-          }
-        }
-      },
-      "items": {},
-      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
-    },
-    {
-      "id": "samePageAnchor",
-      "name": "SamePageAnchor",
-      "docURL": "...",
-      "version": "sktwi1xtmkfgx8626",
-      "description": "HeaderLink",
-      "primary": {
-        "label": {
-          "type": "StructuredText",
-          "config": {
-            "label": "Label",
-            "placeholder": "This is where it all begins...",
-            "allowTargetBlank": true,
-            "single": "paragraph"
-          }
+          "config": { "label": "Link", "placeholder": "", "select": null }
         },
         "anchor": {
           "type": "Text",
           "config": {
             "label": "Anchor",
-            "placeholder": ""
+            "placeholder": "For internal links, optional"
           }
         }
       },
@@ -77,11 +53,7 @@
         },
         "link": {
           "type": "Link",
-          "config": {
-            "label": "Link",
-            "placeholder": "",
-            "select": null
-          }
+          "config": { "label": "Link", "placeholder": "", "select": null }
         }
       },
       "items": {},
