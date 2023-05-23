@@ -55,7 +55,16 @@ export function TextField({
           {label}
         </Label>
       )}
-      <input id={id} type={type} {...props} required className={formClasses} placeholder={placeholder} autoComplete={autoComplete} name={name}/>
+      <input
+        id={id}
+        type={type}
+        {...props}
+        required
+        className={formClasses}
+        placeholder={placeholder}
+        autoComplete={autoComplete}
+        name={name}
+      />
     </div>
   );
 }

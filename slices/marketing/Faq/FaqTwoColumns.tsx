@@ -59,11 +59,7 @@ export default function FaqTwoColumns({
                   <PrismicRichText
                     field={faq.question}
                     components={{
-                      paragraph: ({ children }) => (
-                        <p >
-                          {children}
-                        </p>
-                      ),
+                      paragraph: ({ children }) => <p>{children}</p>,
                       hyperlink: ({ children }) => (
                         <a
                           href="#"
@@ -79,11 +75,7 @@ export default function FaqTwoColumns({
                   <PrismicRichText
                     field={faq.answer}
                     components={{
-                      paragraph: ({ children }) => (
-                        <p>
-                          {children}
-                        </p>
-                      ),
+                      paragraph: ({ children }) => <p>{children}</p>,
                       hyperlink: ({ children }) => (
                         <a
                           href="#"

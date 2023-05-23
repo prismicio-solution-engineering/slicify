@@ -1,16 +1,15 @@
 import { Button } from "@/components/Button";
 import type { Content } from "@prismicio/client";
-import {
-  PrismicLink,
-  PrismicRichText,
-} from "@prismicio/react";
+import { PrismicLink, PrismicRichText } from "@prismicio/react";
 import { FormEvent, createElement } from "react";
 import { TextField } from "@/components/Fields";
-import { createSerializerH2, createSerializerP }from "@/utils/createSerializer";
+import {
+  createSerializerH2,
+  createSerializerP,
+} from "@/utils/createSerializer";
 import { handleSubmitNewsletter } from "@/utils/formHandler";
 
-export default function Form( slice:Content.FormSliceSimple) {
-
+export default function Form(slice: Content.FormSliceSimple) {
   return (
     <section>
       <div className="bg-white py-16 sm:py-24 lg:py-32">
@@ -19,8 +18,12 @@ export default function Form( slice:Content.FormSliceSimple) {
             <PrismicRichText
               field={slice.primary.description}
               components={{
-                heading2: createSerializerH2("inline sm:block lg:inline xl:block"),
-                paragraph: createSerializerP("inline sm:block lg:inline xl:block"),
+                heading2: createSerializerH2(
+                  "inline sm:block lg:inline xl:block"
+                ),
+                paragraph: createSerializerP(
+                  "inline sm:block lg:inline xl:block"
+                ),
               }}
             />
           </div>

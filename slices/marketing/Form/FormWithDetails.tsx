@@ -2,15 +2,12 @@ import { Button } from "@/components/Button";
 import type { Content } from "@prismicio/client";
 import Image from "next/image";
 import backgroundImage from "@/images/background-call-to-action.jpg";
-import {
-  PrismicRichText,
-} from "@prismicio/react";
+import { PrismicRichText } from "@prismicio/react";
 import { TextField } from "@/components/Fields";
 import { handleSubmitNewsletter } from "@/utils/formHandler";
 import { PrismicNextImage } from "@prismicio/next";
 
 export default function Form(slice: Content.FormSliceWithDetails) {
-
   return (
     <div className="relative isolate overflow-hidden py-16 sm:py-24 lg:py-32">
       <Image
@@ -44,7 +41,10 @@ export default function Form(slice: Content.FormSliceWithDetails) {
                 ),
               }}
             />
-            <form onSubmit={handleSubmitNewsletter} className="mt-6 flex max-w-md gap-x-4">
+            <form
+              onSubmit={handleSubmitNewsletter}
+              className="mt-6 flex max-w-md gap-x-4"
+            >
               <TextField
                 id="email"
                 label="Email address"
@@ -66,40 +66,38 @@ export default function Form(slice: Content.FormSliceWithDetails) {
             </form>
           </div>
           <dl className="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:pt-2">
-            {
-              slice.items.map((feature, index) => (
-                <div className="flex flex-col items-start">
-                  <div className="rounded-md bg-white/5 p-2 ring-1 ring-white/10">
-                    <PrismicNextImage
-                      className="h-6 w-6 fill-none aria-hidden text-white"
-                      field={feature.icon}
-                      alt=""
-                      sizes="52.75rem"
-                    />
-                  </div>
-                  <PrismicRichText
-                    field={feature.title}
-                    components={{
-                      paragraph: ({ children }) => (
-                        <dt className="mt-4 font-semibold text-white">
-                          {children}
-                        </dt>
-                      ),
-                    }}
-                  />
-                  <PrismicRichText
-                    field={feature.description}
-                    components={{
-                      paragraph: ({ children }) => (
-                        <dd className="mt-2 leading-7 text-gray-300">
-                          {children}
-                        </dd>
-                      ),
-                    }}
+            {slice.items.map((feature, index) => (
+              <div className="flex flex-col items-start">
+                <div className="rounded-md bg-white/5 p-2 ring-1 ring-white/10">
+                  <PrismicNextImage
+                    className="h-6 w-6 fill-none aria-hidden text-white"
+                    field={feature.icon}
+                    alt=""
+                    sizes="52.75rem"
                   />
                 </div>
-              )
-              )}
+                <PrismicRichText
+                  field={feature.title}
+                  components={{
+                    paragraph: ({ children }) => (
+                      <dt className="mt-4 font-semibold text-white">
+                        {children}
+                      </dt>
+                    ),
+                  }}
+                />
+                <PrismicRichText
+                  field={feature.description}
+                  components={{
+                    paragraph: ({ children }) => (
+                      <dd className="mt-2 leading-7 text-gray-300">
+                        {children}
+                      </dd>
+                    ),
+                  }}
+                />
+              </div>
+            ))}
           </dl>
         </div>
       </div>

@@ -4,7 +4,9 @@ import sm from "./slicemachine.config.json";
 import { KeyTextField } from "@prismicio/types";
 import Link, { LinkProps } from "next/link";
 
-export const repositoryName = process.env.NEXT_PUBLIC_API_ENDPOINT ? process.env.NEXT_PUBLIC_API_ENDPOINT : prismic.getRepositoryName(sm.apiEndpoint);
+export const repositoryName = process.env.NEXT_PUBLIC_API_ENDPOINT
+  ? process.env.NEXT_PUBLIC_API_ENDPOINT
+  : prismic.getRepositoryName(sm.apiEndpoint);
 
 // Update the routes array to match your project's route structure
 /** @type {prismic.ClientConfig['routes']} **/
@@ -14,17 +16,17 @@ const routes = [
     path: "/:lang/",
   },
   {
-    type: 'blog_index',
-    path: '/:lang/blog',
-},
-{
-    type: 'blog_article',
-    path: '/:lang/blog/:uid',
-},
-{
-    type: 'landing_page',
-    path: '/:lang/lp/:uid',
-},
+    type: "blog_index",
+    path: "/:lang/blog",
+  },
+  {
+    type: "blog_article",
+    path: "/:lang/blog/:uid",
+  },
+  {
+    type: "landing_page",
+    path: "/:lang/lp/:uid",
+  },
 ];
 
 export function createClient({
@@ -40,12 +42,10 @@ export function createClient({
 }
 
 interface AnchorLinkProps extends LinkProps {
-  anchor? : KeyTextField
+  anchor?: KeyTextField;
 }
 
-export const AnchorLink = ({...props} : AnchorLinkProps) => {
+export const AnchorLink = ({ ...props }: AnchorLinkProps) => {
   const resolvedHref = props.href + (props.anchor ? `#${props.anchor}` : "");
-  return (
-    <Link {...props} href={resolvedHref}/>
-  );
+  return <Link {...props} href={resolvedHref} />;
 };

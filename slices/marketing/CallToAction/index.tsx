@@ -1,9 +1,9 @@
-import type { Content } from '@prismicio/client'
-import { PrismicRichText, SliceComponentProps } from '@prismicio/react'
-import CtaSimple from './CtaSimple';
-import CtaWithImage from './CtaWithImage';
+import type { Content } from "@prismicio/client";
+import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
+import CtaSimple from "./CtaSimple";
+import CtaWithImage from "./CtaWithImage";
 
-export type CallToActionProps = SliceComponentProps<Content.CallToActionSlice>
+export type CallToActionProps = SliceComponentProps<Content.CallToActionSlice>;
 
 export default function CallToAction({ slice }: CallToActionProps) {
   switch (slice.variation) {
