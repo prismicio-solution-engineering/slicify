@@ -5,7 +5,6 @@ import {
   PrismicRichText,
   SliceComponentProps,
 } from "@prismicio/react";
-import * as prismicH from "@prismicio/helpers";
 import hljs from "highlight.js";
 import javascript from "highlight.js/lib/languages/javascript";
 import json from "highlight.js/lib/languages/json";
@@ -16,16 +15,6 @@ hljs.registerLanguage("json", json);
 export type TextProps = SliceComponentProps<Content.TextSlice>;
 
 export default function Text({ slice }: TextProps) {
-  // switch (slice.variation) {
-  //   case "default":
-  //     return <CtaSimple slice={slice} withBackground={true} />;
-  //   case "whiteBackground":
-  //     return <CtaSimple slice={slice} withBackground={false} />;
-  //   case "withImageRight":
-  //     return <CtaWithImage slice={slice} imageRight={true} />;
-  //   case "withImageLeft":
-  //     return <CtaWithImage slice={slice} imageRight={false} />;
-  // }
   useEffect(() => {
     hljs.highlightAll();
   }, []);
@@ -65,17 +54,12 @@ export default function Text({ slice }: TextProps) {
             </p>
           ),
           preformatted: ({ node }) => (
-            // <pre className="prose bg-[#0d1117] rounded-xl shadow-lg">
-            //     <code className="whitespace-pre-wrap">{children}</code>
-            // </pre>
-            <pre className="my-3 p-6 bg-[#0d1117] rounded-xl shadow-lg">
-              <code className="whitespace-pre-wrap">
+            <pre className="my-3 p-2 md:p-6 bg-[#0d1117] rounded-xl shadow-lg">
+              <code className="">
                 {node.text}
               </code>
-              {/* <code className="whitespace-pre-wrap">{prismicR.asText(node, "\n")}</code> */}
             </pre>
           ),
-          // em: ({ children }) => <> {children} </>,
           list: ({ children }) => (
             <ul
               role="list"
