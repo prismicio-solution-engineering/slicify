@@ -4,18 +4,19 @@ import { Popover, Transition } from "@headlessui/react";
 import clsx from "clsx";
 
 import { Container } from "@/components/Container";
-import { Logo } from "@/components/Logo";
 import { HeaderDocumentData, HeaderLinkSlice } from "@/prismicio-types";
 import { PrismicLink, PrismicRichText, SliceZone } from "@prismicio/react";
 import { components } from "@/slices/navigation";
 import { PrismicNextImage } from "@prismicio/next";
+import { AnchorLink } from "@/prismicio";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 
 function MobileNavLink({ link, children }: { children: ReactNode, link: HeaderLinkSlice }) {
   switch (link.variation) {
     case "default":
       return (
         <Popover.Button>
-          <PrismicLink field={link.primary.link}>
+          <PrismicLink field={link.primary.link} internalComponent={AnchorLink} anchor={link.primary.anchor}>
             {children}
           </PrismicLink>
         </Popover.Button>
@@ -23,14 +24,6 @@ function MobileNavLink({ link, children }: { children: ReactNode, link: HeaderLi
     case "button":
       return (
         <></>
-      )
-    case "samePageAnchor":
-      return (
-        <Popover.Button>
-          <PrismicLink href={"#" + link.primary.anchor} >
-            {children}
-          </PrismicLink>
-        </Popover.Button>
       )
   }
 }
@@ -118,13 +111,21 @@ function MobileNavigation({ header }: { header: HeaderDocumentData }) {
   );
 }
 
-export function Header(header: HeaderDocumentData) {
+type HeaderProps = {
+  header: HeaderDocumentData,
+  languages: {
+    url: string,
+    lang_name: string
+  }[]
+}
+
+export function Header({ header, languages }: HeaderProps) {
   return (
     <header className="py-10">
       <Container>
         <nav className="relative z-50 flex justify-between">
           <div className="flex items-center md:gap-x-12">
-            <Link href="#" aria-label="Home">
+            <Link href={`/${languages[0].lang_name}`} aria-label="Home">
               <PrismicNextImage field={header.logo} className="h-10 w-auto" />
             </Link>
             <div className="hidden md:flex md:gap-x-6">
@@ -133,6 +134,7 @@ export function Header(header: HeaderDocumentData) {
           </div>
           <div className="flex items-center gap-x-5 md:gap-x-8">
             <SliceZone slices={header.slices1} components={components} />
+            <LanguageSwitcher languages={languages} />
             <div className="-mr-1 md:hidden">
               <MobileNavigation header={header} />
             </div>
