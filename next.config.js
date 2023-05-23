@@ -13,7 +13,7 @@ const nextConfig = async () => {
     reactStrictMode: true,
     i18n: {
       locales,
-      defaultLocale: "en-us",
+      defaultLocale: locales[0],
       localeDetection: false,
     },
     images: {

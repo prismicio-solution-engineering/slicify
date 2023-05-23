@@ -1,11 +1,18 @@
-import { setPreviewData, redirectToPreviewURL } from "@prismicio/next";
-import { NextApiRequest, NextApiResponse } from "next";
+import * as prismicNext from "@prismicio/next";
+import type { NextApiRequest, NextApiResponse } from "next";
+
 import { createClient } from "../../prismicio";
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+/**
+ * This endpoint handles previews that are launched from the Page Builder.
+ */
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   const client = createClient({ req });
 
-  await setPreviewData({ req, res });
+  prismicNext.setPreviewData({ req, res });
 
-  await redirectToPreviewURL({ req, res, client });
-};
+  await prismicNext.redirectToPreviewURL({ req, res, client });
+}

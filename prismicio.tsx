@@ -1,6 +1,8 @@
 import * as prismic from "@prismicio/client";
 import * as prismicNext from "@prismicio/next";
 import sm from "./slicemachine.config.json";
+import { KeyTextField } from "@prismicio/types";
+import Link, { LinkProps } from "next/link";
 
 export const repositoryName = process.env.NEXT_PUBLIC_API_ENDPOINT ? process.env.NEXT_PUBLIC_API_ENDPOINT : prismic.getRepositoryName(sm.apiEndpoint);
 
@@ -9,19 +11,19 @@ export const repositoryName = process.env.NEXT_PUBLIC_API_ENDPOINT ? process.env
 const routes = [
   {
     type: "home_page",
-    path: "/",
+    path: "/:lang/",
   },
   {
     type: 'blog_index',
-    path: '/blog',
+    path: '/:lang/blog',
 },
 {
     type: 'blog_article',
-    path: '/blog/:uid',
+    path: '/:lang/blog/:uid',
 },
 {
     type: 'landing_page',
-    path: '/lp/:uid',
+    path: '/:lang/lp/:uid',
 },
 ];
 
@@ -36,3 +38,14 @@ export function createClient({
 
   return client;
 }
+
+interface AnchorLinkProps extends LinkProps {
+  anchor? : KeyTextField
+}
+
+export const AnchorLink = ({...props} : AnchorLinkProps) => {
+  const resolvedHref = props.href + (props.anchor ? `#${props.anchor}` : "");
+  return (
+    <Link {...props} href={resolvedHref}/>
+  );
+};
