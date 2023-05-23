@@ -32,7 +32,12 @@ export default function CtaWithImage({
         unoptimized
       />
       <Container className="relative isolate overflow-hidden px-6 pt-16 sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
-        <div className={clsx("mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left", !imageRight && "order-last")}>
+        <div
+          className={clsx(
+            "mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left",
+            !imageRight && "order-last"
+          )}
+        >
           {/* <h2 >
             Boost your productivity.
             Start using our app today.
@@ -83,7 +88,10 @@ export default function CtaWithImage({
         </div>
         <div className="relative mt-16 h-80 lg:mt-8 lg:w-[45rem]">
           <PrismicNextImage
-            className={clsx("absolute w-[57rem] lg:w-[45rem] max-w-none rounded-md bg-white/5 ring-1 ring-white/10", imageRight?  "left-0 top-0"  : "right-0 top-0")}
+            className={clsx(
+              "absolute w-[57rem] lg:w-[45rem] max-w-none rounded-md bg-white/5 ring-1 ring-white/10",
+              imageRight ? "left-0 top-0" : "right-0 top-0"
+            )}
             field={slice.primary.featured_image}
             width={1824}
             height={1080}

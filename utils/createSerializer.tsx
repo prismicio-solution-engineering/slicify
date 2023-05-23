@@ -1,8 +1,8 @@
-import { ElementType, ReactElement, ReactNode, createElement } from "react";
+import { ElementType, ReactNode, createElement } from "react";
 
-
-export function createSerializer(tag:ElementType, className: string) {
-  return ({ children }: { children: ReactNode[] }) => createElement(tag, { className }, ...children)
+export function createSerializer(tag: ElementType, className: string) {
+  return ({ children }: { children: ReactNode[] }) =>
+    createElement(tag, { className }, ...children);
 }
 
 export function createSerializerP(className: string) {

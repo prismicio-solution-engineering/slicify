@@ -8,7 +8,6 @@ import { MinusSmallIcon, PlusSmallIcon } from "@heroicons/react/24/outline";
 import backgroundImageBlue from "@/images/background-call-to-action.jpg";
 import Image from "next/image";
 
-
 export default function FaqCentered({
   slice,
   background = false,

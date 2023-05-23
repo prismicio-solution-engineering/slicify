@@ -31,7 +31,7 @@ export default function HeroWithBackground({
         ) : (
           // Change field for a video
           // <Image
-            // className="absolute inset-0 -z-10 h-full w-full object-cover object-right md:object-center opacity-80 "
+          // className="absolute inset-0 -z-10 h-full w-full object-cover object-right md:object-center opacity-80 "
           //   priority
           //   src={backgroundVideo}
           //   alt=""
@@ -39,7 +39,13 @@ export default function HeroWithBackground({
           //   height={1636}
           //   unoptimized
           // />
-          <div id="hero-video" className="absolute h-full w-full object-cover object-right md:object-center opacity-50" dangerouslySetInnerHTML={{ __html: slice.primary.background_video.html || "" }} />
+          <div
+            id="hero-video"
+            className="absolute h-full w-full object-cover object-right md:object-center opacity-50"
+            dangerouslySetInnerHTML={{
+              __html: slice.primary.background_video.html || "",
+            }}
+          />
         )}
         <Container className="pb-16 pt-20 text-center lg:pt-32">
           <PrismicRichText

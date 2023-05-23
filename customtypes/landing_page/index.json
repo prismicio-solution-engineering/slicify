@@ -26,7 +26,6 @@
         }
       }
     },
-
     "SEO and Metadata": {
       "meta_title": {
         "type": "Text",
@@ -65,15 +64,11 @@
             },
             "social_card_title": {
               "type": "Text",
-              "config": {
-                "label": "Social Card Title"
-              }
+              "config": { "label": "Social Card Title" }
             },
             "social_card_description": {
               "type": "Text",
-              "config": {
-                "label": "Social card description"
-              }
+              "config": { "label": "Social card description" }
             }
           },
           "label": "Social Cards - Facebook & Twitter"

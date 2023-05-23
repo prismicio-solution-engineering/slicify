@@ -10,6 +10,7 @@
 customtypes/**
 *.json
 .prismic/**
+slices/*/index.ts
 
 # libraries index to edit
 slices/index.tsx

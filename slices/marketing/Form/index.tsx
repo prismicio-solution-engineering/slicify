@@ -13,10 +13,10 @@ export type FormProps = SliceComponentProps<Content.FormSlice>;
 export default function Form({ slice }: FormProps) {
   switch (slice.variation) {
     case "simple":
-      return <FormSimple {...slice}/>;
+      return <FormSimple {...slice} />;
     case "withDetails":
-      return <FormWithDetails {...slice}/>;
+      return <FormWithDetails {...slice} />;
     case "centered":
-      return <FormCentered {...slice}/>;
+      return <FormCentered {...slice} />;
   }
 }

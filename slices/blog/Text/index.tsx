@@ -55,9 +55,7 @@ export default function Text({ slice }: TextProps) {
           ),
           preformatted: ({ node }) => (
             <pre className="my-3 p-2 md:p-6 bg-[#0d1117] rounded-xl shadow-lg">
-              <code className="">
-                {node.text}
-              </code>
+              <code className="">{node.text}</code>
             </pre>
           ),
           list: ({ children }) => (
@@ -68,11 +66,7 @@ export default function Text({ slice }: TextProps) {
               {children}
             </ul>
           ),
-          listItem: ({ children }) => (
-            <li className="mb-4">
-              {children}
-            </li>
-          ),
+          listItem: ({ children }) => <li className="mb-4">{children}</li>,
           oList: ({ children }) => (
             <ol
               role="list"
@@ -81,11 +75,7 @@ export default function Text({ slice }: TextProps) {
               {children}
             </ol>
           ),
-          oListItem: ({ children }) => (
-            <li className="mb-4">
-              {children}
-            </li>
-          ),
+          oListItem: ({ children }) => <li className="mb-4">{children}</li>,
           // image: ({ node }) =>
           //   node.linkTo
           //     ? `[![${node.alt}](${node.url})](${node.linkTo.url})\n\n`
@@ -97,11 +87,11 @@ export default function Text({ slice }: TextProps) {
               data-oembed-type={node.oembed.type}
               data-oembed-provider={node.oembed.provider_name}
               // {label(node)}
-              dangerouslySetInnerHTML={{__html: node.oembed.html ?? ''}}
-              className={`${node.oembed.type === "video" && "youtube-video"} rounded`}
-            >
-           
-            </div>
+              dangerouslySetInnerHTML={{ __html: node.oembed.html ?? "" }}
+              className={`${
+                node.oembed.type === "video" && "youtube-video"
+              } rounded`}
+            ></div>
           ),
           hyperlink: ({ children, node }) => (
             <PrismicLink
