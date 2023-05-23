@@ -218,7 +218,7 @@ interface BlogIndexDocumentData {
  * Slice for *Blog index → Slice Zone*
  *
  */
-type BlogIndexDocumentDataSlicesSlice = CallToActionSlice;
+type BlogIndexDocumentDataSlicesSlice = CallToActionSlice | ArticleListSlice;
 /**
  * Blog index document from Prismic
  *
@@ -3142,49 +3142,6 @@ export type TestimonialsSlice = prismicT.SharedSlice<
   TestimonialsSliceVariation
 >;
 /**
- * Primary content in Text → Primary
- *
- */
-interface TextSliceDefaultPrimary {
-  /**
-   * Text Section field in *Text → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: text.primary.text_section
-   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-   *
-   */
-  text_section: prismicT.RichTextField;
-}
-/**
- * Default variation for Text Slice
- *
- * - **API ID**: `default`
- * - **Description**: `Text`
- * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
- *
- */
-export type TextSliceDefault = prismicT.SharedSliceVariation<
-  "default",
-  Simplify<TextSliceDefaultPrimary>,
-  never
->;
-/**
- * Slice variation for *Text*
- *
- */
-type TextSliceVariation = TextSliceDefault;
-/**
- * Text Shared Slice
- *
- * - **API ID**: `text`
- * - **Description**: `Text`
- * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
- *
- */
-export type TextSlice = prismicT.SharedSlice<"text", TextSliceVariation>;
-/**
  * Primary content in HeaderLink → Primary
  *
  */
@@ -3321,6 +3278,49 @@ export type HeaderLinkSlice = prismicT.SharedSlice<
   "header_link",
   HeaderLinkSliceVariation
 >;
+/**
+ * Primary content in Text → Primary
+ *
+ */
+interface TextSliceDefaultPrimary {
+  /**
+   * Text Section field in *Text → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text.primary.text_section
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  text_section: prismicT.RichTextField;
+}
+/**
+ * Default variation for Text Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Text`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type TextSliceDefault = prismicT.SharedSliceVariation<
+  "default",
+  Simplify<TextSliceDefaultPrimary>,
+  never
+>;
+/**
+ * Slice variation for *Text*
+ *
+ */
+type TextSliceVariation = TextSliceDefault;
+/**
+ * Text Shared Slice
+ *
+ * - **API ID**: `text`
+ * - **Description**: `Text`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type TextSlice = prismicT.SharedSlice<"text", TextSliceVariation>;
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -3469,10 +3469,6 @@ declare module "@prismicio/client" {
       TestimonialsSliceSingleWithLargeImage,
       TestimonialsSliceVariation,
       TestimonialsSlice,
-      TextSliceDefaultPrimary,
-      TextSliceDefault,
-      TextSliceVariation,
-      TextSlice,
       HeaderLinkSliceDefaultPrimary,
       HeaderLinkSliceDefault,
       HeaderLinkSliceSamePageAnchorPrimary,
@@ -3481,6 +3477,10 @@ declare module "@prismicio/client" {
       HeaderLinkSliceButton,
       HeaderLinkSliceVariation,
       HeaderLinkSlice,
+      TextSliceDefaultPrimary,
+      TextSliceDefault,
+      TextSliceVariation,
+      TextSlice,
     };
   }
 }

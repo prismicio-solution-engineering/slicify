@@ -1,6 +1,7 @@
 import type { Content } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
-
+import * as prismicH from "@prismicio/helpers";
+import * as prismicT from "@prismicio/types";
 const posts = [
   {
     id: 1,
@@ -61,12 +62,39 @@ const posts = [
   },
   // More posts...
 ];
+
 export type ArticleListProps = SliceComponentProps<Content.ArticleListSlice>;
+
+const hasParentData = <
+  TContentRelationshipField extends prismicT.ContentRelationshipField
+>(
+  contentRelationshipField: TContentRelationshipField
+): contentRelationshipField is TContentRelationshipField & {
+  data: {
+    parent: Pick<Content.BlogArticleDocument["data"], "title">;
+  };
+} => {
+  return (
+    prismicH.isFilled.contentRelationship(contentRelationshipField) &&
+    typeof contentRelationshipField.data === "object" &&
+    contentRelationshipField.data !== null &&
+    "parent" in contentRelationshipField.data
+  );
+};
+export type BlogArticleDocumentWithLinkedAuthor =
+  Content.BlogArticleDocument & {
+    data: {
+      author: {
+        data?: Content.AuthorDocument["data"];
+      };
+    };
+  };
 
 function HorizontalThreeColumn({
   slice,
 }: {
   slice: Content.ArticleListSliceHorizontalList;
+  article: BlogArticleDocumentWithLinkedAuthor;
 }) {
   return (
     <div className="bg-white py-24 sm:py-32">
@@ -94,14 +122,14 @@ function HorizontalThreeColumn({
           />
         </div>
         <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-          {posts.map((post) => (
+          {slice.items?.map((post, idx) => (
             <article
-              key={post.id}
+              key={idx}
               className="flex flex-col items-start justify-between roundedshadow-xl rounded-2xl bg-white shadow-xl shadow-slate-900/10"
             >
               <div className="relative w-full">
                 <img
-                  src={post.imageUrl}
+                  src={post.featured_image}
                   alt=""
                   className="aspect-[16/9] w-full rounded-t-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
                 />
