@@ -35,7 +35,6 @@ export default function PricingDefault({
       <Container>
         <div className="md:text-center">
           {" "}
-          {/* mx-auto max-w-7xl px-6 pb-96 pt-24 text-center sm:pt-32 lg:px-8 */}
           <PrismicRichText
             field={slice.primary.title}
             components={{
