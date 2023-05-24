@@ -77,7 +77,9 @@ const hasParentData = <
 >(
   contentRelationshipField: TContentRelationshipField
 ): contentRelationshipField is TContentRelationshipField & {
-  data?: Content.BlogArticleDocument["data"];
+  linked_article?: Content.BlogArticleDocument["data"];
+  linked_author?: Content.AuthorDocument["data"];
+  linked_category?: Content.BlogCategoryDocument["data"];
 } => {
   return (
     prismicH.isFilled.contentRelationship(contentRelationshipField) &&
@@ -130,55 +132,79 @@ function HorizontalThreeColumn({
                   <div className="relative w-full">
                     <PrismicNextImage
                       className="aspect-[16/9] w-full rounded-t-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
-                      field={post.article.data?.featured_image}
+                      field={post.article.linked_article?.featured_image}
                       unoptimized
                     />
                   </div>
-                  {/* <div className="max-w-xl p-6">
+                  <div className="max-w-xl p-6">
                     <div className="flex items-center gap-x-4 text-xs">
-                      <time
-                        dateTime={post.article.data?.publication_date}
+                      {/* <time
+                        dateTime={post.article.linked_article?.publication_date}
                         className="text-gray-500"
                       >
-                        {post.article.data?.publication_date}
-                      </time>
+                        {post.article.linked_article?.publication_date}
+                      </time> */}
                       <PrismicLink
                         className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
-                        field={post.article.data?.category}
+                        field={post.article.linked_article?.category}
                       >
-                        {post.article.data?.category.data?.category_name}
+                        {post.article.linked_category?.category_name}
                       </PrismicLink>
                     </div>
                     <div className="group relative">
-                      <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+                      {/* <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
                         <PrismicLink field={post.article}>
                           <span className="absolute inset-0" />
-                          {post.article.data?.title}
+                          {children}
                         </PrismicLink>
-                      </h3>
-                      <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">
-                        {post.article.data?.description}
-                      </p>
+                      </h3> */}
+                      <PrismicRichText
+                        field={post.article.linked_article?.title}
+                        components={{
+                          heading3: ({ children }) => (
+                            <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+                              <PrismicLink field={post.article}>
+                                <span className="absolute inset-0" />
+                                {children}
+                              </PrismicLink>
+                            </h3>
+                          ),
+                        }}
+                      />
+                      <PrismicRichText
+                        field={post.article.linked_article?.excerpt}
+                        components={{
+                          paragraph: ({ children }) => (
+                            <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">
+                              {children}
+                            </p>
+                          ),
+                        }}
+                      />
                     </div>
                     <div className="relative mt-8 flex items-center gap-x-4">
-                      <img
-                        src={post.article.data?.author.data?.imageUrl}
+                      <PrismicNextImage
+                        field={post.article.linked_author?.author_image}
                         alt=""
                         className="h-10 w-10 rounded-full bg-gray-100"
                       />
                       <div className="text-sm leading-6">
                         <p className="font-semibold text-gray-900">
-                          <PrismicLink field={post.article.data?.author}>
+                          <PrismicLink
+                            field={post.article.linked_article?.author}
+                          >
                             <span className="absolute inset-0" />
-                            {post.article.data?.author.data?.name}
+                            {/* {post.article.linked_article?.author.data?.author_name} */}
+                            {post.article.linked_author?.author_name}
                           </PrismicLink>
                         </p>
                         <p className="text-gray-600">
-                          {post.article.data?.author.data?.role}
+                          {/* {post.article.linked_article?.author.data?.role} */}
+                          {post.article.linked_author?.author_role}
                         </p>
                       </div>
                     </div>
-                  </div> */}
+                  </div>
                 </article>
               )
           )}

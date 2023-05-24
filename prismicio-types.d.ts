@@ -123,6 +123,17 @@ interface BlogArticleDocumentData {
    */
   table_of_content: prismicT.BooleanField;
   /**
+   * Publication date field in *Blog Article*
+   *
+   * - **Field Type**: Timestamp
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_article.publication_date
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/timestamp
+   *
+   */
+  publication_date: prismicT.TimestampField;
+  /**
    * Slice Zone field in *Blog Article*
    *
    * - **Field Type**: Slice Zone
@@ -335,7 +346,7 @@ interface BlogIndexDocumentData {
  * Slice for *Blog index → Slice Zone*
  *
  */
-type BlogIndexDocumentDataSlicesSlice = CallToActionSlice | ArticleListSlice;
+type BlogIndexDocumentDataSlicesSlice = CallToActionSlice;
 /**
  * Item in Blog index → Social Cards - Facebook & Twitter
  *
