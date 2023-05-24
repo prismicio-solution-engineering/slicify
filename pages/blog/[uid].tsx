@@ -6,7 +6,7 @@ import { SliceZone } from "@prismicio/react";
 import * as prismicH from "@prismicio/helpers";
 import { components as mktComponents } from "@/slices/marketing";
 import { components as blogComponents } from "@/slices/blog";
-import { authorGraphQuery } from "@/utils/graphQueries";
+import { authorGraphQuery, blogArticleGraphQuery } from "@/utils/graphQueries";
 import { getLanguages } from "@/utils/getLanguages";
 import BlogLayout from "@/components/BlogLayout";
 
@@ -18,6 +18,15 @@ export type BlogArticleDocumentWithLinkedAuthor =
     data: {
       author: {
         data?: Content.AuthorDocument["data"];
+      };
+    };
+  };
+
+export type BlogArticleDocumentWithLinkedBlogArticles =
+  Content.BlogArticleDocument & {
+    data: {
+      blog_article: {
+        data?: Content.BlogArticleDocument["data"];
       };
     };
   };
@@ -88,6 +97,37 @@ export async function getStaticProps({
         }
       );
 
+    const linkedBlogArticles =
+      await client.getByUID<BlogArticleDocumentWithLinkedBlogArticles>(
+        //    ^ Typed as BlogArticleDocumentWithLinkedBlogArticles
+        "blog_article",
+        params.uid,
+        {
+          lang: locale,
+          graphQuery: blogArticleGraphQuery,
+        }
+      );
+
+    let index = 0;
+
+    const pageWithArticles = {
+      ...page,
+      data: {
+        ...page.data,
+        slices: page?.data?.slices?.map((slice) => {
+          if (slice.slice_type === "article_list") {
+            index++;
+            return {
+              ...linkedBlogArticles?.data?.slices[index - 1],
+            };
+          }
+          return {
+            ...slice,
+          };
+        }),
+      },
+    };
+
     const header = await client.getSingle<Content.HeaderDocument>("header", {
       lang: locale,
     });
@@ -103,7 +143,7 @@ export async function getStaticProps({
     if (page) {
       return {
         props: {
-          page,
+          page: pageWithArticles,
           author: linkedAuthor,
           header,
           footer,
