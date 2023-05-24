@@ -13,25 +13,47 @@ import BlogLayout from "@/components/BlogLayout";
 type BlogArticleProps = InferGetStaticPropsType<typeof getStaticProps>;
 type PageParams = { uid: string };
 
-export type BlogArticleDocumentWithLinkedAuthor = Content.BlogArticleDocument & {
-  data: {
-    author: {
-      data?: Content.AuthorDocument['data']
-    }
-  }
-}
+export type BlogArticleDocumentWithLinkedAuthor =
+  Content.BlogArticleDocument & {
+    data: {
+      author: {
+        data?: Content.AuthorDocument["data"];
+      };
+    };
+  };
 
-export default function BlogArticle({ page, author, header, footer, languages }: BlogArticleProps) {
+export default function BlogArticle({
+  page,
+  author,
+  header,
+  footer,
+  languages,
+}: BlogArticleProps) {
   return (
     <>
       <Head>
         <title>{page.data.meta_title || "Slicify - Blog Article"}</title>
-        <meta name="description" content={page.data.meta_title || "Slicify, nice article to understand slices for everyone."} />
+        <meta
+          name="description"
+          content={
+            page.data.meta_title ||
+            "Slicify, nice article to understand slices for everyone."
+          }
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <BlogLayout header={header.data} footer={footer.data} languages={languages} author={author} page={page}>
-        <SliceZone slices={page.data.slices} components={{ ...mktComponents, ...blogComponents}} />
+      <BlogLayout
+        header={header.data}
+        footer={footer.data}
+        languages={languages}
+        author={author}
+        page={page}
+      >
+        <SliceZone
+          slices={page.data.slices}
+          components={{ ...mktComponents, ...blogComponents }}
+        />
       </BlogLayout>
     </>
   );
@@ -49,23 +71,31 @@ export async function getStaticProps({
   if (params && params.uid) {
     const page =
       //    ^ Typed as BlogIndexDocument
-      (await client.getByUID<Content.BlogArticleDocument>(
+      await client.getByUID<Content.BlogArticleDocument>(
         "blog_article",
         params.uid,
         { lang: locale }
-      ));
+      );
 
     const linkedAuthor =
-    //    ^ Typed as BlogArticleDocumentWithLinkedAuthor
-      (await client.getByUID<BlogArticleDocumentWithLinkedAuthor>("blog_article", params.uid, {
-        lang: locale,
-        graphQuery: authorGraphQuery,
-      }));
+      //    ^ Typed as BlogArticleDocumentWithLinkedAuthor
+      await client.getByUID<BlogArticleDocumentWithLinkedAuthor>(
+        "blog_article",
+        params.uid,
+        {
+          lang: locale,
+          graphQuery: authorGraphQuery,
+        }
+      );
 
-    const header = await client.getSingle<Content.HeaderDocument>("header", { lang: locale });
+    const header = await client.getSingle<Content.HeaderDocument>("header", {
+      lang: locale,
+    });
     //    ^ Typed as HeaderDocument
 
-    const footer = await client.getSingle<Content.FooterDocument>("footer", { lang: locale });
+    const footer = await client.getSingle<Content.FooterDocument>("footer", {
+      lang: locale,
+    });
     //    ^ Typed as FooterDocument
 
     const languages = await getLanguages(page, client, locales);
@@ -77,7 +107,7 @@ export async function getStaticProps({
           author: linkedAuthor,
           header,
           footer,
-          languages
+          languages,
         },
       };
     }

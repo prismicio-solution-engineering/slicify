@@ -1,14 +1,10 @@
 import { Button } from "@/components/Button";
 import type { Content } from "@prismicio/client";
-import {
-  PrismicLink,
-  PrismicRichText,
-} from "@prismicio/react";
+import { PrismicLink, PrismicRichText } from "@prismicio/react";
 import { TextField } from "@/components/Fields";
 import { handleSubmitNewsletter } from "@/utils/formHandler";
 
 export default function Form(slice: Content.FormSliceCentered) {
- 
   return (
     <section>
       <div className="mx-auto max-w-7xl sm:px-6 lg:px-8 bg-dark-gray">
@@ -33,7 +29,10 @@ export default function Form(slice: Content.FormSliceCentered) {
               ),
             }}
           />
-          <form onSubmit={handleSubmitNewsletter} className="mx-auto mt-10 flex max-w-md gap-x-4">
+          <form
+            onSubmit={handleSubmitNewsletter}
+            className="mx-auto mt-10 flex max-w-md gap-x-4"
+          >
             <TextField
               id="email"
               label="Email address"

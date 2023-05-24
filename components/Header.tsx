@@ -4,27 +4,36 @@ import { Popover, Transition } from "@headlessui/react";
 import clsx from "clsx";
 
 import { Container } from "@/components/Container";
-import { HeaderDocumentData, HeaderLinkSlice } from "@/prismicio-types";
-import { PrismicLink, PrismicRichText, SliceZone } from "@prismicio/react";
-import { components } from "@/slices/navigation";
+import { HeaderDocumentData, HeaderDocumentDataLeftSideLinksItem, Simplify } from "@/prismicio-types";
+import { PrismicLink, PrismicRichText } from "@prismicio/react";
 import { PrismicNextImage } from "@prismicio/next";
 import { AnchorLink } from "@/prismicio";
 import { LanguageSwitcher } from "./LanguageSwitcher";
+import HeaderLinkDefault from "./HeaderLinkDefault";
+import HeaderLinkButton from "./HeaderLinkButton";
 
-function MobileNavLink({ link, children }: { children: ReactNode, link: HeaderLinkSlice }) {
-  switch (link.variation) {
-    case "default":
+function MobileNavLink({
+  link,
+  children,
+}: {
+  children: ReactNode;
+  link: Simplify<HeaderDocumentDataLeftSideLinksItem>;
+}) {
+  switch (link.link_type) {
+    case "Text Link":
       return (
         <Popover.Button>
-          <PrismicLink field={link.primary.link} internalComponent={AnchorLink} anchor={link.primary.anchor}>
+          <PrismicLink
+            field={link.link}
+            internalComponent={AnchorLink}
+            anchor={link.anchor}
+          >
             {children}
           </PrismicLink>
         </Popover.Button>
-      )
-    case "button":
-      return (
-        <></>
-      )
+      );
+    case "Button":
+      return <></>;
   }
 }
 
@@ -89,21 +98,17 @@ function MobileNavigation({ header }: { header: HeaderDocumentData }) {
             as="div"
             className="absolute inset-x-0 top-full mt-4 flex origin-top flex-col rounded-2xl bg-white p-4 text-lg tracking-tight text-slate-900 shadow-xl ring-1 ring-slate-900/5"
           >
-            {
-              header.slices.map((link, index) => (
-                <MobileNavLink link={link} key={index}>
-                  <PrismicRichText field={link.primary.label} />
-                </MobileNavLink>
-              )
-              )}
+            {header.left_side_links.map((link, index) => (
+              <MobileNavLink link={link} key={index}>
+                <PrismicRichText field={link.label} />
+              </MobileNavLink>
+            ))}
             <hr className="m-2 border-slate-300/40" />
-            {
-              header.slices1.map((link, index) => (
-                <MobileNavLink link={link} key={index}>
-                  <PrismicRichText field={link.primary.label} />
-                </MobileNavLink>
-              )
-              )}
+            {header.right_side_links.map((link, index) => (
+              <MobileNavLink link={link} key={index}>
+                <PrismicRichText field={link.label} />
+              </MobileNavLink>
+            ))}
           </Popover.Panel>
         </Transition.Child>
       </Transition.Root>
@@ -112,12 +117,12 @@ function MobileNavigation({ header }: { header: HeaderDocumentData }) {
 }
 
 type HeaderProps = {
-  header: HeaderDocumentData,
+  header: HeaderDocumentData;
   languages: {
-    url: string,
-    lang_name: string
-  }[]
-}
+    url: string;
+    lang_name: string;
+  }[];
+};
 
 export function Header({ header, languages }: HeaderProps) {
   return (
@@ -129,11 +134,27 @@ export function Header({ header, languages }: HeaderProps) {
               <PrismicNextImage field={header.logo} className="h-10 w-auto" />
             </Link>
             <div className="hidden md:flex md:gap-x-6">
-              <SliceZone slices={header.slices} components={components} />
+              {header.left_side_links.map((link, index) => {
+                switch (link.link_type) {
+                  case "Button":
+                    return <HeaderLinkButton key={index} {...link} />;
+                  case "Text Link":
+                    return <HeaderLinkDefault key={index} {...link} />;
+                }
+              })
+              }
             </div>
           </div>
           <div className="flex items-center gap-x-5 md:gap-x-8">
-            <SliceZone slices={header.slices1} components={components} />
+              {header.right_side_links.map((link, index) => {
+                switch (link.link_type) {
+                  case "Button":
+                    return <HeaderLinkButton key={index} {...link} />;
+                  case "Text Link":
+                    return <HeaderLinkDefault key={index} {...link} />;
+                }
+              })
+              }
             <LanguageSwitcher languages={languages} />
             <div className="-mr-1 md:hidden">
               <MobileNavigation header={header} />
