@@ -57,22 +57,22 @@ export function BlogHeader(page:BlogArticleDocument, author:Content.AuthorDocume
                   ),
                 }}
               />
-              {author.data &&
+              {author &&
                 <figcaption className="relative flex items-center gap-4 text-left">
                   <div className="overflow-hidden rounded-full bg-slate-50">
                     <PrismicNextImage
                       className="h-12 w-12 object-cover"
                       alt=""
-                      field={author.data.author_image}
+                      field={author.author_image}
                       width={48}
                       height={48}
                     />
                   </div>
                   <div>
                     <div className="font-display text-base text-slate-900">
-                      {author.data.author_name} -{" "}
+                      {author.author_name} -{" "}
                       <span className="text-slate-500">
-                        {author.data.author_role}
+                        {author.author_role}
                       </span>
                     </div>
                   </div>

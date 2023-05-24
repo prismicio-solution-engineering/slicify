@@ -1,7 +1,14 @@
 import type { Content } from "@prismicio/client";
-import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
+import {
+  PrismicLink,
+  PrismicRichText,
+  SliceComponentProps,
+} from "@prismicio/react";
 import * as prismicH from "@prismicio/helpers";
 import * as prismicT from "@prismicio/types";
+import Image from "next/image";
+import { PrismicNextImage } from "@prismicio/next";
+
 const posts = [
   {
     id: 1,
@@ -70,9 +77,7 @@ const hasParentData = <
 >(
   contentRelationshipField: TContentRelationshipField
 ): contentRelationshipField is TContentRelationshipField & {
-  data: {
-    parent: Pick<Content.BlogArticleDocument["data"], "title">;
-  };
+  data?: Content.BlogArticleDocument["data"];
 } => {
   return (
     prismicH.isFilled.contentRelationship(contentRelationshipField) &&
@@ -81,20 +86,12 @@ const hasParentData = <
     "parent" in contentRelationshipField.data
   );
 };
-export type BlogArticleDocumentWithLinkedAuthor =
-  Content.BlogArticleDocument & {
-    data: {
-      author: {
-        data?: Content.AuthorDocument["data"];
-      };
-    };
-  };
 
 function HorizontalThreeColumn({
   slice,
 }: {
   slice: Content.ArticleListSliceHorizontalList;
-  article: BlogArticleDocumentWithLinkedAuthor;
+  // | BlogArticleDocumentWithLinkedAuthor;
 }) {
   return (
     <div className="bg-white py-24 sm:py-32">
@@ -122,60 +119,69 @@ function HorizontalThreeColumn({
           />
         </div>
         <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-          {slice.items?.map((post, idx) => (
-            <article
-              key={idx}
-              className="flex flex-col items-start justify-between roundedshadow-xl rounded-2xl bg-white shadow-xl shadow-slate-900/10"
-            >
-              <div className="relative w-full">
-                <img
-                  src={post.featured_image}
-                  alt=""
-                  className="aspect-[16/9] w-full rounded-t-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
-                />
-              </div>
-              <div className="max-w-xl p-6">
-                <div className="flex items-center gap-x-4 text-xs">
-                  <time dateTime={post.datetime} className="text-gray-500">
-                    {post.date}
-                  </time>
-                  <a
-                    href={post.category.href}
-                    className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
-                  >
-                    {post.category.title}
-                  </a>
-                </div>
-                <div className="group relative">
-                  <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
-                    <a href={post.href}>
-                      <span className="absolute inset-0" />
-                      {post.title}
-                    </a>
-                  </h3>
-                  <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">
-                    {post.description}
-                  </p>
-                </div>
-                <div className="relative mt-8 flex items-center gap-x-4">
-                  <img
-                    src={post.author.imageUrl}
-                    alt=""
-                    className="h-10 w-10 rounded-full bg-gray-100"
-                  />
-                  <div className="text-sm leading-6">
-                    <p className="font-semibold text-gray-900">
-                      <a href={post.author.href}>
-                        <span className="absolute inset-0" />
-                        {post.author.name}
-                      </a>
-                    </p>
-                    <p className="text-gray-600">{post.author.role}</p>
+          {slice.items?.map(
+            (post, idx) =>
+              hasParentData(post.article) && (
+                // <PrismicText field={slice.primary.link.data.parent.title} />
+                <article
+                  key={idx}
+                  className="flex flex-col items-start justify-between roundedshadow-xl rounded-2xl bg-white shadow-xl shadow-slate-900/10"
+                >
+                  <div className="relative w-full">
+                    <PrismicNextImage
+                      className="aspect-[16/9] w-full rounded-t-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
+                      field={post.article.data?.featured_image}
+                      unoptimized
+                    />
                   </div>
-                </div>
-              </div>
-            </article>
-          ))}
+                  {/* <div className="max-w-xl p-6">
+                    <div className="flex items-center gap-x-4 text-xs">
+                      <time
+                        dateTime={post.article.data?.publication_date}
+                        className="text-gray-500"
+                      >
+                        {post.article.data?.publication_date}
+                      </time>
+                      <PrismicLink
+                        className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
+                        field={post.article.data?.category}
+                      >
+                        {post.article.data?.category.data?.category_name}
+                      </PrismicLink>
+                    </div>
+                    <div className="group relative">
+                      <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+                        <PrismicLink field={post.article}>
+                          <span className="absolute inset-0" />
+                          {post.article.data?.title}
+                        </PrismicLink>
+                      </h3>
+                      <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">
+                        {post.article.data?.description}
+                      </p>
+                    </div>
+                    <div className="relative mt-8 flex items-center gap-x-4">
+                      <img
+                        src={post.article.data?.author.data?.imageUrl}
+                        alt=""
+                        className="h-10 w-10 rounded-full bg-gray-100"
+                      />
+                      <div className="text-sm leading-6">
+                        <p className="font-semibold text-gray-900">
+                          <PrismicLink field={post.article.data?.author}>
+                            <span className="absolute inset-0" />
+                            {post.article.data?.author.data?.name}
+                          </PrismicLink>
+                        </p>
+                        <p className="text-gray-600">
+                          {post.article.data?.author.data?.role}
+                        </p>
+                      </div>
+                    </div>
+                  </div> */}
+                </article>
+              )
+          )}
         </div>
       </div>
     </div>
