@@ -39,5 +39,5 @@ export async function getLanguages(
       };
     });
   }
-  return [];
+  return [{url: doc.url || `/${doc.lang}`, lang_name: doc.lang}];
 }
