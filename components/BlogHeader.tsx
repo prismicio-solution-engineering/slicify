@@ -2,7 +2,6 @@ import { PrismicRichText } from "@prismicio/react";
 import { PrismicNextImage } from "@prismicio/next";
 import { UnderlineDoodle } from "@/components/UnderlineDoodle";
 import { BlogArticleDocument } from "@/prismicio-types";
-import { BlogArticleDocumentWithLinkedAuthor } from "@/pages/blog/[uid]";
 import { Content } from "@prismicio/client";
 
 export function BlogHeader(page:BlogArticleDocument, author:Content.AuthorDocument['data']) {
