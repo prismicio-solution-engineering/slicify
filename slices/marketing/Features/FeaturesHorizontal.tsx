@@ -44,7 +44,7 @@ export default function FeaturesHorizontal({
       <Image
         className="absolute left-1/2 top-1/2 max-w-none translate-x-[-44%] translate-y-[-42%]"
         src={backgroundImage}
-        alt=""
+        alt="blue background"
         width={2245}
         height={1636}
         unoptimized
@@ -172,7 +172,6 @@ export default function FeaturesHorizontal({
                       <PrismicNextImage
                         className="w-full"
                         field={feature.feature_screenshot}
-                        alt=""
                         priority
                         sizes="(min-width: 1024px) 67.8125rem, (min-width: 640px) 100vw, 45rem"
                       />

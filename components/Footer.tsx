@@ -13,6 +13,7 @@ export function Footer(footer: FooterDocumentData) {
         <div className="py-16">
           <PrismicNextImage
             field={footer.logo}
+            fallbackAlt=""
             className="mx-auto h-10 w-auto"
           />
           <nav className="mt-10 text-sm" aria-label="quick links">

@@ -120,7 +120,6 @@ function HorizontalThreeColumn({
                     <div className="relative mt-8 flex items-center gap-x-4">
                       <PrismicNextImage
                         field={post.article.data?.author.data?.author_image}
-                        alt=""
                         className="h-10 w-10 rounded-full bg-gray-100"
                       />
                       <div className="text-sm leading-6">

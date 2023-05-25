@@ -37,7 +37,6 @@ function Feature({
         <PrismicNextImage
           className="h-9 w-9 fill-none aria-hidden"
           field={feature.icon}
-          alt=""
           sizes="52.75rem"
         />
       </div>
@@ -80,7 +79,6 @@ function FeaturesMobile({
               <PrismicNextImage
                 className="w-full"
                 field={feature.feature_screenshot}
-                alt=""
                 sizes="52.75rem"
               />
             </div>
@@ -143,7 +141,6 @@ function FeaturesDesktop({
                     <PrismicNextImage
                       className="w-full"
                       field={feature.feature_screenshot}
-                      alt=""
                       sizes="52.75rem"
                     />
                   </div>

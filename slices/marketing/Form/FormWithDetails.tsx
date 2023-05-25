@@ -13,7 +13,7 @@ export default function Form(slice: Content.FormSliceWithDetails) {
       <Image
         className="absolute left-1/2 top-1/2 max-w-none -translate-x-1/2 -translate-y-1/2 -z-10"
         src={backgroundImage}
-        alt=""
+        alt="blue background"
         width={2347}
         height={1244}
         unoptimized

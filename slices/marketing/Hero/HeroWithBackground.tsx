@@ -23,7 +23,7 @@ export default function HeroWithBackground({
           <Image
             className="absolute inset-0 -z-10 h-full w-full object-cover object-right md:object-center"
             src={backgroundImage}
-            alt=""
+            alt="blue background"
             width={2245}
             height={1636}
             unoptimized
