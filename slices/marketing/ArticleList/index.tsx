@@ -1,4 +1,5 @@
 import type { Content } from "@prismicio/client";
+
 import {
   PrismicLink,
   PrismicRichText,
@@ -7,7 +8,6 @@ import {
 import * as prismicH from "@prismicio/helpers";
 import * as prismicT from "@prismicio/types";
 import { PrismicNextImage } from "@prismicio/next";
-
 
 export type ArticleListProps = SliceComponentProps<Content.ArticleListSlice>;
 
@@ -28,7 +28,7 @@ const hasParentData = <
   return (
     prismicH.isFilled.contentRelationship(contentRelationshipField) &&
     typeof contentRelationshipField.data === "object" &&
-    contentRelationshipField.data !== null 
+    contentRelationshipField.data !== null
   );
 };
 
@@ -62,7 +62,7 @@ function HorizontalThreeColumn({
             }}
           />
         </div>
-        <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+        <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:max-w-none lg:grid-cols-3">
           {slice.items?.map((post, idx) => {
             return (
               hasParentData(post.article) && (
@@ -79,12 +79,19 @@ function HorizontalThreeColumn({
                   </div>
                   <div className="max-w-xl p-6">
                     <div className="flex items-center gap-x-4 text-xs">
-                      {/* <time
-                        dateTime={post.article.linked_article?.publication_date}
-                        className="text-gray-500"
+                      <time
+                        datetime={prismicH
+                          .asDate(post.article.last_publication_date)
+                          .toISOString()}
                       >
-                        {post.article.linked_article?.publication_date}
-                      </time> */}
+                        {prismicH
+                          .asDate(post.article.last_publication_date)
+                          .toLocaleString(post.article.lang, {
+                            year: "numeric",
+                            month: "short",
+                            day: "numeric",
+                          })}
+                      </time>
                       <PrismicLink
                         className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
                         field={post.article.data?.category}
@@ -92,7 +99,7 @@ function HorizontalThreeColumn({
                         {post.article.data?.category.data?.category_name}
                       </PrismicLink>
                     </div>
-                    <div className="group relative">
+                    <div className="group relative mt-4">
                       <PrismicRichText
                         field={post.article.data?.title}
                         components={{
@@ -120,7 +127,9 @@ function HorizontalThreeColumn({
                     <div className="relative mt-8 flex items-center gap-x-4">
                       <PrismicNextImage
                         field={post.article.data?.author.data?.author_image}
-                        className="h-10 w-10 rounded-full bg-gray-100"
+                        className="h-10 w-10 rounded-full object-cover bg-gray-100"
+                        width={48}
+                        height={48}
                       />
                       <div className="text-sm leading-6">
                         <p className="font-semibold text-gray-900">
@@ -144,8 +153,6 @@ function HorizontalThreeColumn({
     </div>
   );
 }
-
-
 
 export default function ArticleList({ slice }: ArticleListProps) {
   switch (slice.variation) {

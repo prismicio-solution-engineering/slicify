@@ -132,7 +132,7 @@ interface BlogArticleDocumentData {
    * - **Documentation**: https://prismic.io/docs/core-concepts/timestamp
    *
    */
-  publication_date: prismicT.TimestampField;
+  publication_date: prismic.TimestampField;
   /**
    * Slice Zone field in *Blog Article*
    *
@@ -285,6 +285,28 @@ export type BlogCategoryDocument<Lang extends string = string> =
 /** Content for Blog index documents */
 interface BlogIndexDocumentData {
   /**
+   * Title field in *Blog index*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_index.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  title: prismic.TitleField;
+  /**
+   * Description field in *Blog index*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_index.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  description: prismic.RichTextField;
+  /**
    * Slice Zone field in *Blog index*
    *
    * - **Field Type**: Slice Zone
@@ -346,7 +368,10 @@ interface BlogIndexDocumentData {
  * Slice for *Blog index → Slice Zone*
  *
  */
-type BlogIndexDocumentDataSlicesSlice = CallToActionSlice;
+type BlogIndexDocumentDataSlicesSlice =
+  | ArticleListSlice
+  | FormSlice
+  | CallToActionSlice;
 /**
  * Item in Blog index → Social Cards - Facebook & Twitter
  *
@@ -3131,33 +3156,6 @@ export type PricingSlice = prismic.SharedSlice<
   PricingSliceVariation
 >;
 /**
- * Default variation for Test Slice
- *
- * - **API ID**: `default`
- * - **Description**: `Default`
- * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
- *
- */
-export type TestSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Record<string, never>,
-  never
->;
-/**
- * Slice variation for *Test*
- *
- */
-type TestSliceVariation = TestSliceDefault;
-/**
- * Test Shared Slice
- *
- * - **API ID**: `test`
- * - **Description**: `Test`
- * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
- *
- */
-export type TestSlice = prismic.SharedSlice<"test", TestSliceVariation>;
-/**
  * Primary content in Testimonials → Primary
  *
  */
@@ -3780,9 +3778,6 @@ declare module "@prismicio/client" {
       PricingSliceWithPromo,
       PricingSliceVariation,
       PricingSlice,
-      TestSliceDefault,
-      TestSliceVariation,
-      TestSlice,
       TestimonialsSliceDefaultPrimary,
       TestimonialsSliceDefaultItem,
       TestimonialsSliceDefault,

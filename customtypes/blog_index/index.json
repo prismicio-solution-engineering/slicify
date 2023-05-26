@@ -5,10 +5,34 @@
   "status": true,
   "json": {
     "Main": {
+      "title": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Title",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "heading1"
+        }
+      },
+      "description": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Description",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,strong,em,hyperlink,list-item"
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
-        "config": { "choices": { "call_to_action": { "type": "SharedSlice" } } }
+        "config": {
+          "choices": {
+            "article_list": { "type": "SharedSlice" },
+            "form": { "type": "SharedSlice" },
+            "call_to_action": { "type": "SharedSlice" }
+          }
+        }
       }
     },
     "SEO and Metadata": {

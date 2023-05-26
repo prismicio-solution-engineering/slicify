@@ -6,6 +6,7 @@ import { SliceZone } from "@prismicio/react";
 import { components } from "@/slices/marketing";
 import { getLanguages } from "@/utils/getLanguages";
 import MarketingLayout from "@/components/MarketingLayout";
+import { ArticleListVertical } from "@/components/ArticleListVertical";
 
 type BlogIndexProps = InferGetStaticPropsType<typeof getStaticProps>;
 
@@ -14,6 +15,7 @@ export default function BlogIndex({
   header,
   footer,
   languages,
+  articles,
 }: BlogIndexProps) {
   return (
     <>
@@ -31,6 +33,10 @@ export default function BlogIndex({
         footer={footer.data}
         languages={languages}
       >
+        <ArticleListVertical 
+          articles={articles}
+          page={page}
+        />
         <SliceZone slices={page.data.slices} components={components} />
       </MarketingLayout>
     </>
@@ -60,6 +66,10 @@ export async function getStaticProps({
   });
   //    ^ Typed as FooterDocument
 
+  const articles = await client.getAllByType("blog_article").catch(e => {
+    return null
+  });
+
   const languages = await getLanguages(page, client, locales);
 
   return {
@@ -68,6 +78,7 @@ export async function getStaticProps({
       header,
       footer,
       languages,
+      articles,
     },
   };
 }
