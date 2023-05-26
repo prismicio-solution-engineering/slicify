@@ -64,7 +64,6 @@ export function BlogHeader(
               <div className="overflow-hidden rounded-full bg-slate-50">
                 <PrismicNextImage
                   className="h-12 w-12 object-cover"
-                  alt=""
                   field={author.author_image}
                   width={48}
                   height={48}

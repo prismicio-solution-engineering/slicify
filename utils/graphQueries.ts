@@ -41,19 +41,7 @@ export const isOfTypeAuthorDocument=
   );
 };
 
-export const authorGraphQuery = `
-{
-  blog_article {
-    author {
-      ...on author {
-        ...authorFields
-      }
-    }
-  }
-}
-`;
-
-export const categoryGraphQuery = `
+export const blogArticleGraphQuery = `
 {
   blog_article {
     category {
@@ -61,14 +49,11 @@ export const categoryGraphQuery = `
         ...blog_categoryFields
       }
     }
-  }
-}
-`;
-
-
-export const blogArticleGraphQuery = `
-{
-  blog_article {
+    author {
+      ...on author {
+        ...authorFields
+      }
+    }
     slices {
       ... on article_list {
         variation {

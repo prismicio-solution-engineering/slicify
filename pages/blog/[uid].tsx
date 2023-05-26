@@ -6,7 +6,9 @@ import { SliceZone } from "@prismicio/react";
 import * as prismicH from "@prismicio/helpers";
 import { components as mktComponents } from "@/slices/marketing";
 import { components as blogComponents } from "@/slices/blog";
-import { authorGraphQuery, blogArticleGraphQuery, categoryGraphQuery } from "@/utils/graphQueries";
+import {
+  blogArticleGraphQuery,
+} from "@/utils/graphQueries";
 import { getLanguages } from "@/utils/getLanguages";
 import BlogLayout from "@/components/BlogLayout";
 
@@ -15,8 +17,6 @@ type PageParams = { uid: string };
 
 export default function BlogArticle({
   page,
-  author,
-  category,
   header,
   footer,
   languages,
@@ -39,8 +39,6 @@ export default function BlogArticle({
         header={header.data}
         footer={footer.data}
         languages={languages}
-        author={author}
-        category={category}
         page={page}
       >
         <SliceZone
@@ -68,28 +66,6 @@ export async function getStaticProps({
         "blog_article",
         params.uid,
         { lang: locale }
-      );
-
-    const linkedAuthor =
-      //    ^ Typed as BlogArticleDocument
-      await client.getByUID<Content.BlogArticleDocument>(
-        "blog_article",
-        params.uid,
-        {
-          lang: locale,
-          graphQuery: authorGraphQuery,
-        }
-      );
-
-    const linkedcategory =
-      //    ^ Typed as BlogArticleDocument
-      await client.getByUID<Content.BlogArticleDocument>(
-        "blog_article",
-        params.uid,
-        {
-          lang: locale,
-          graphQuery: categoryGraphQuery,
-        }
       );
 
     const linkedBlogArticles =
@@ -120,6 +96,8 @@ export async function getStaticProps({
             ...slice,
           };
         }),
+        author: linkedBlogArticles?.data?.author,
+        category: linkedBlogArticles?.data?.category,
       },
     };
 
@@ -139,8 +117,6 @@ export async function getStaticProps({
       return {
         props: {
           page: pageWithArticles,
-          author: linkedAuthor,
-          category: linkedcategory,
           header,
           footer,
           languages,

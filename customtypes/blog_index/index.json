@@ -28,7 +28,6 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "article_list": { "type": "SharedSlice" },
             "form": { "type": "SharedSlice" },
             "call_to_action": { "type": "SharedSlice" }
           }

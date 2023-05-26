@@ -21,8 +21,6 @@ type BlogLayoutProps = {
     url: string;
     lang_name: string;
   }[];
-  author: BlogArticleDocument;
-  category: BlogArticleDocument;
   page: BlogArticleDocument;
 };
 
@@ -47,12 +45,12 @@ export default function BlogLayout(props: PropsWithChildren<BlogLayoutProps>) {
                   { year: "numeric", month: "short", day: "numeric" }
                 )}
               </time>
-              {isOfTypeBlogCategoryDocument(props.category.data.category) && (
+              {isOfTypeBlogCategoryDocument(props.page.data.category) && (
                 <PrismicLink
-                  field={props.category.data.category}
+                  field={props.page.data.category}
                   className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
                 >
-                  {props.category.data.category.data?.category_name}
+                  {props.page.data.category.data?.category_name}
                 </PrismicLink>
               )}
             </div>
@@ -88,22 +86,21 @@ export default function BlogLayout(props: PropsWithChildren<BlogLayoutProps>) {
                 ),
               }}
             />
-            {isOfTypeAuthorDocument(props.author.data.author) && (
+            {isOfTypeAuthorDocument(props.page.data.author) && (
               <figcaption className="relative flex items-center gap-4 text-left">
                 <div className="overflow-hidden rounded-full bg-slate-50">
                   <PrismicNextImage
                     className="h-12 w-12 object-cover"
-                    alt=""
-                    field={props.author.data.author.data?.author_image}
+                    field={props.page.data.author.data?.author_image}
                     width={48}
                     height={48}
                   />
                 </div>
                 <div>
                   <div className="font-display text-base text-slate-900">
-                    {props.author.data.author.data?.author_name} -{" "}
+                    {props.page.data.author.data?.author_name} -{" "}
                     <span className="text-slate-500">
-                      {props.author.data.author.data?.author_role}
+                      {props.page.data.author.data?.author_role}
                     </span>
                   </div>
                 </div>

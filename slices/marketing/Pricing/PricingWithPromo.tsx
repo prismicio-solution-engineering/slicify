@@ -25,7 +25,7 @@ export default function PricingWithPromo({
         <Image
           className="absolute -z-50"
           src={backgroundImage}
-          alt="blue background"
+          alt=""
           width={2245}
           height={1636}
           unoptimized

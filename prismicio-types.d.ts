@@ -123,17 +123,6 @@ interface BlogArticleDocumentData {
    */
   table_of_content: prismic.BooleanField;
   /**
-   * Publication date field in *Blog Article*
-   *
-   * - **Field Type**: Timestamp
-   * - **Placeholder**: *None*
-   * - **API ID Path**: blog_article.publication_date
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/core-concepts/timestamp
-   *
-   */
-  publication_date: prismic.TimestampField;
-  /**
    * Slice Zone field in *Blog Article*
    *
    * - **Field Type**: Slice Zone
@@ -368,10 +357,7 @@ interface BlogIndexDocumentData {
  * Slice for *Blog index → Slice Zone*
  *
  */
-type BlogIndexDocumentDataSlicesSlice =
-  | ArticleListSlice
-  | FormSlice
-  | CallToActionSlice;
+type BlogIndexDocumentDataSlicesSlice = FormSlice | CallToActionSlice;
 /**
  * Item in Blog index → Social Cards - Facebook & Twitter
  *
@@ -980,61 +966,6 @@ export type AllDocumentTypes =
  * Primary content in ArticleList → Primary
  *
  */
-interface ArticleListSliceVerticalListPrimary {
-  /**
-   * Title field in *ArticleList → Primary*
-   *
-   * - **Field Type**: Title
-   * - **Placeholder**: This is where it all begins...
-   * - **API ID Path**: article_list.primary.title
-   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-   *
-   */
-  title: prismic.TitleField;
-  /**
-   * Description field in *ArticleList → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: article_list.primary.description
-   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-   *
-   */
-  description: prismic.RichTextField;
-}
-/**
- * Item in ArticleList → Items
- *
- */
-export interface ArticleListSliceVerticalListItem {
-  /**
-   * Article field in *ArticleList → Items*
-   *
-   * - **Field Type**: Content Relationship
-   * - **Placeholder**: *None*
-   * - **API ID Path**: article_list.items[].article
-   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
-   *
-   */
-  article: prismic.RelationField<"blog_article">;
-}
-/**
- * Vertical list variation for ArticleList Slice
- *
- * - **API ID**: `verticalList`
- * - **Description**: `ArticleList`
- * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
- *
- */
-export type ArticleListSliceVerticalList = prismic.SharedSliceVariation<
-  "verticalList",
-  Simplify<ArticleListSliceVerticalListPrimary>,
-  Simplify<ArticleListSliceVerticalListItem>
->;
-/**
- * Primary content in ArticleList → Primary
- *
- */
 interface ArticleListSliceHorizontalListPrimary {
   /**
    * Title field in *ArticleList → Primary*
@@ -1090,9 +1021,7 @@ export type ArticleListSliceHorizontalList = prismic.SharedSliceVariation<
  * Slice variation for *ArticleList*
  *
  */
-type ArticleListSliceVariation =
-  | ArticleListSliceVerticalList
-  | ArticleListSliceHorizontalList;
+type ArticleListSliceVariation = ArticleListSliceHorizontalList;
 /**
  * ArticleList Shared Slice
  *
@@ -3679,9 +3608,6 @@ declare module "@prismicio/client" {
       LandingPageDocumentDataSocialCardsItem,
       LandingPageDocument,
       AllDocumentTypes,
-      ArticleListSliceVerticalListPrimary,
-      ArticleListSliceVerticalListItem,
-      ArticleListSliceVerticalList,
       ArticleListSliceHorizontalListPrimary,
       ArticleListSliceHorizontalListItem,
       ArticleListSliceHorizontalList,
