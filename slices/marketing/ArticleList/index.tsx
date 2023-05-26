@@ -8,6 +8,8 @@ import * as prismicH from "@prismicio/helpers";
 import * as prismicT from "@prismicio/types";
 import Image from "next/image";
 import { PrismicNextImage } from "@prismicio/next";
+import { isOfTypeAuthorDocument, isOfTypeBlogArticleDocument, isOfTypeBlogCategoryDocument } from "@/utils/graphQueries";
+import { AuthorDocument, BlogArticleDocument } from "@/prismicio-types";
 
 const posts = [
   {
@@ -72,24 +74,32 @@ const posts = [
 
 export type ArticleListProps = SliceComponentProps<Content.ArticleListSlice>;
 
-const hasParentData = <
-  TContentRelationshipField extends prismicT.ContentRelationshipField
+const hasCategoryData = <
+  TContentRelationshipField extends prismicT.ContentRelationshipField | undefined
 >(
   contentRelationshipField: TContentRelationshipField
 ): contentRelationshipField is TContentRelationshipField & {
-  data?: Content.BlogArticleDocument["data"] & {
-    author?: {
-      data?: Content.AuthorDocument["data"];
-    };
-    category?: {
-      data?: Content.BlogCategoryDocument["data"];
-    };
-  };
+  data?: Content.BlogCategoryDocument["data"]
 } => {
   return (
     prismicH.isFilled.contentRelationship(contentRelationshipField) &&
     typeof contentRelationshipField.data === "object" &&
-    contentRelationshipField.data !== null 
+    contentRelationshipField.data !== null &&
+    "category_name" in contentRelationshipField.data
+  );
+};
+
+const hasAuthorData = <
+  TContentRelationshipField extends prismicT.ContentRelationshipField | undefined
+>(
+  contentRelationshipField: TContentRelationshipField
+): contentRelationshipField is TContentRelationshipField & {
+  data?: Content.AuthorDocument["data"]
+} => {
+  return (
+    prismicH.isFilled.contentRelationship(contentRelationshipField) &&
+    typeof contentRelationshipField.data === "object" &&
+    contentRelationshipField.data !== null
   );
 };
 
@@ -128,7 +138,7 @@ function HorizontalThreeColumn({
           {slice.items?.map((post, idx) => {
             console.log(post);
             return (
-              hasParentData(post.article) && (
+              (isOfTypeBlogArticleDocument(post.article) &&
                 <article
                   key={idx}
                   className="flex flex-col items-start justify-between roundedshadow-xl rounded-2xl bg-white shadow-xl shadow-slate-900/10"
@@ -136,8 +146,7 @@ function HorizontalThreeColumn({
                   <div className="relative w-full">
                     <PrismicNextImage
                       className="aspect-[16/9] w-full rounded-t-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
-                      // field={post.article.data?.featured_image}
-                      field={post.article.data?.featured_image}
+                      field={post.article?.data?.featured_image}
                       unoptimized
                     />
                   </div>
@@ -149,12 +158,14 @@ function HorizontalThreeColumn({
                       >
                         {post.article.linked_article?.publication_date}
                       </time> */}
-                      <PrismicLink
-                        className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
-                        field={post.article.data?.category}
-                      >
-                        {post.article.data?.category.data?.category_name}
-                      </PrismicLink>
+                      {(isOfTypeBlogCategoryDocument(post.article.data?.category)) &&
+                        <PrismicLink
+                          className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
+                          field={post.article.data?.category}
+                        >
+                          {post.article.data?.category.data?.category_name}
+                        </PrismicLink>
+                      }
                     </div>
                     <div className="group relative">
                       {/* <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
@@ -187,26 +198,28 @@ function HorizontalThreeColumn({
                         }}
                       />
                     </div>
-                    <div className="relative mt-8 flex items-center gap-x-4">
-                      <PrismicNextImage
-                        field={post.article.data?.author.data?.author_image}
-                        alt=""
-                        className="h-10 w-10 rounded-full bg-gray-100"
-                      />
-                      <div className="text-sm leading-6">
-                        <p className="font-semibold text-gray-900">
-                          <PrismicLink field={post.article.data?.author}>
-                            <span className="absolute inset-0" />
-                            {/* {post.article.linked_article?.author.data?.author_name} */}
-                            {post.article.data?.author.data?.author_name}
-                          </PrismicLink>
-                        </p>
-                        <p className="text-gray-600">
-                          {/* {post.article.linked_article?.author.data?.role} */}
-                          {post.article.data?.author.data?.author_role}
-                        </p>
+                    {(isOfTypeAuthorDocument(post.article.data?.author)) &&
+                      <div className="relative mt-8 flex items-center gap-x-4">
+                        <PrismicNextImage
+                          field={post.article.data?.author.data?.author_image}
+                          alt=""
+                          className="h-10 w-10 rounded-full bg-gray-100"
+                        />
+                        <div className="text-sm leading-6">
+                          <p className="font-semibold text-gray-900">
+                            <PrismicLink field={post.article.data?.author}>
+                              <span className="absolute inset-0" />
+                              {/* {post.article.linked_article?.author.data?.author_name} */}
+                              {post.article.data?.author.data?.author_name}
+                            </PrismicLink>
+                          </p>
+                          <p className="text-gray-600">
+                            {/* {post.article.linked_article?.author.data?.role} */}
+                            {post.article.data?.author.data?.author_role}
+                          </p>
+                        </div>
                       </div>
-                    </div>
+                    }
                   </div>
                 </article>
               )

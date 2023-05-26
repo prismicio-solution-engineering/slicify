@@ -7,9 +7,9 @@ import { Header } from "./Header";
 import { Footer } from "./Footer";
 import { PropsWithChildren } from "react";
 import { PrismicNextImage } from "@prismicio/next";
-import { BlogArticleDocumentWithLinkedAuthor } from "@/pages/blog/[uid]";
 import { PrismicRichText } from "@prismicio/react";
 import { UnderlineDoodle } from "./UnderlineDoodle";
+import { isOfTypeAuthorDocument } from "@/utils/graphQueries";
 
 type BlogLayoutProps = {
   header: HeaderDocumentData;
@@ -18,11 +18,12 @@ type BlogLayoutProps = {
     url: string;
     lang_name: string;
   }[];
-  author: BlogArticleDocumentWithLinkedAuthor;
+  author: BlogArticleDocument;
   page: BlogArticleDocument;
 };
 
 export default function BlogLayout(props: PropsWithChildren<BlogLayoutProps>) {
+
   return (
     <main>
       <Header header={props.header} languages={props.languages} />
@@ -76,7 +77,7 @@ export default function BlogLayout(props: PropsWithChildren<BlogLayoutProps>) {
                 ),
               }}
             />
-            {props.author.data && (
+            {isOfTypeAuthorDocument(props.author.data.author) &&
               <figcaption className="relative flex items-center gap-4 text-left">
                 <div className="overflow-hidden rounded-full bg-slate-50">
                   <PrismicNextImage
@@ -96,7 +97,7 @@ export default function BlogLayout(props: PropsWithChildren<BlogLayoutProps>) {
                   </div>
                 </div>
               </figcaption>
-            )}
+            }
           </div>
         </div>
       </section>

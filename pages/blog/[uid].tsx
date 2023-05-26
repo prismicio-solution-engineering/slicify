@@ -13,24 +13,6 @@ import BlogLayout from "@/components/BlogLayout";
 type BlogArticleProps = InferGetStaticPropsType<typeof getStaticProps>;
 type PageParams = { uid: string };
 
-export type BlogArticleDocumentWithLinkedAuthor =
-  Content.BlogArticleDocument & {
-    data: {
-      author: {
-        data?: Content.AuthorDocument["data"];
-      };
-    };
-  };
-
-export type BlogArticleDocumentWithLinkedBlogArticles =
-  Content.BlogArticleDocument & {
-    data: {
-      blog_article: {
-        data?: Content.BlogArticleDocument["data"];
-      };
-    };
-  };
-
 export default function BlogArticle({
   page,
   author,
@@ -87,8 +69,8 @@ export async function getStaticProps({
       );
 
     const linkedAuthor =
-      //    ^ Typed as BlogArticleDocumentWithLinkedAuthor
-      await client.getByUID<BlogArticleDocumentWithLinkedAuthor>(
+      //    ^ Typed as BlogArticleDocument
+      await client.getByUID<Content.BlogArticleDocument>(
         "blog_article",
         params.uid,
         {
@@ -98,8 +80,8 @@ export async function getStaticProps({
       );
 
     const linkedBlogArticles =
-      await client.getByUID<BlogArticleDocumentWithLinkedBlogArticles>(
-        //    ^ Typed as BlogArticleDocumentWithLinkedBlogArticles
+      await client.getByUID<Content.BlogArticleDocument>(
+        //    ^ Typed as BlogArticleDocument
         "blog_article",
         params.uid,
         {
