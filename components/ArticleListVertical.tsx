@@ -1,86 +1,48 @@
-import { BlogIndexDocument } from "@/prismicio-types";
+import {
+  AuthorDocument,
+  BlogArticleDocument,
+  BlogArticleDocumentData,
+  BlogCategoryDocument,
+  BlogIndexDocument
+} from "@/prismicio-types";
 import { Content } from "@prismicio/client";
 import { PrismicNextImage } from "@prismicio/next";
-import { PrismicRichText } from "@prismicio/react";
+import { PrismicLink, PrismicRichText } from "@prismicio/react";
+import { PropsWithChildren } from "react";
+import * as prismicH from "@prismicio/helpers";
+import * as prismicT from "@prismicio/types";
+import { isOfTypeAuthorDocument, isOfTypeBlogCategoryDocument } from "@/utils/graphQueries";
 
-const posts = [
-  {
-    id: 1,
-    title: "Boost your conversion rate",
-    href: "#",
-    description:
-      "Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80",
-    date: "Mar 16, 2020",
-    datetime: "2020-03-16",
-    category: { title: "Marketing", href: "#" },
-    author: {
-      name: "Michael Foster",
-      role: "Co-Founder / CTO",
-      href: "#",
-      imageUrl:
-        "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    },
-  },
-  {
-    id: 2,
-    title: "Boost your conversion rate",
-    href: "#",
-    description:
-      "Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80",
-    date: "Mar 16, 2020",
-    datetime: "2020-03-16",
-    category: { title: "Marketing", href: "#" },
-    author: {
-      name: "Michael Foster",
-      role: "Co-Founder / CTO",
-      href: "#",
-      imageUrl:
-        "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    },
-  },
-  {
-    id: 3,
-    title: "Boost your conversion rate",
-    href: "#",
-    description:
-      "Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80",
-    date: "Mar 16, 2020",
-    datetime: "2020-03-16",
-    category: { title: "Marketing", href: "#" },
-    author: {
-      name: "Michael Foster",
-      role: "Co-Founder / CTO",
-      href: "#",
-      imageUrl:
-        "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    },
-  },
-  // More posts...
-];
+type BlogIndexLayoutProps = {
+  languages: {
+    url: string;
+    lang_name: string;
+  }[];
+  articles: BlogArticleDocument;
+  author: AuthorDocument;
+  category: BlogCategoryDocument;
+  page: BlogIndexDocument;
+};
 
-export function ArticleListVertical(page:BlogIndexDocument, articles:Content.BlogArticleDocument['data']) {
+export function ArticleListVertical(
+  props: PropsWithChildren<BlogIndexLayoutProps>
+) {
   return (
     <div className="bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:max-w-4xl">
           <PrismicRichText
-            field={page.data.title}
+            field={props.page.data.title}
             components={{
-              heading2: ({ children }) => (
-                <h2 className="font-display text-3xl tracking-tight text-slate-900 sm:text-4xl">
+              heading1: ({ children }) => (
+                <h1 className="font-display text-3xl tracking-tight text-slate-900 sm:text-4xl">
                   {children}
-                </h2>
+                </h1>
               ),
             }}
           />
           <PrismicRichText
-            field={page.data.description}
+            field={props.page.data.description}
             components={{
               paragraph: ({ children }) => (
                 <p className="mt-2 text-lg leading-8 text-slate-700">
@@ -90,59 +52,99 @@ export function ArticleListVertical(page:BlogIndexDocument, articles:Content.Blo
             }}
           />
           <div className="mt-16 space-y-20 lg:mt-20 lg:space-y-20">
-            {posts.map((post) => (
+            {props.articles?.map((article) => (
               <article
-                key={post.id}
+                key={article.id}
                 className="relative isolate flex flex-col gap-8 lg:flex-row rounded-2xl shadow-xl shadow-slate-900/10"
               >
                 <div className="relative aspect-[16/9] sm:aspect-[2/1] lg:aspect-square lg:w-64 lg:shrink-0">
-                  <img
-                    src={post.imageUrl}
-                    alt=""
+                  <PrismicNextImage
+                    field={article.data.featured_image}
                     className="absolute inset-0 h-full w-full rounded-l-2xl bg-gray-50 object-cover"
                   />
                 </div>
                 <div className="py-2">
                   <div className="flex items-center gap-x-4 text-xs">
-                    <time dateTime={post.datetime} className="text-gray-500">
-                      {post.date}
-                    </time>
-                    <a
-                      href={post.category.href}
-                      className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
+                    <time
+                      dateTime={article.data.datetime}
+                      className="text-gray-500"
                     >
-                      {post.category.title}
-                    </a>
+                      {article.data.date}
+                    </time>
+                    <time
+                      datetime={prismicH
+                        .asDate(article.last_publication_date)
+                        .toISOString()}
+                    >
+                      {prismicH
+                        .asDate(article.last_publication_date)
+                        .toLocaleString(article.lang, {
+                          year: "numeric",
+                          month: "short",
+                          day: "numeric",
+                        })}
+                    </time>
+                    {(isOfTypeBlogCategoryDocument(article.data?.category)) &&
+                        <PrismicLink
+                        field={article.data.category}
+                        className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
+                      >
+                        {article.data.category.data.category_name}
+                      </PrismicLink>
+                      }
+                    
                   </div>
                   <div className="group relative max-w-xl">
-                    <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
-                      <a href={post.href}>
-                        <span className="absolute inset-0" />
-                        {post.title}
-                      </a>
-                    </h3>
-                    <p className="mt-5 text-sm leading-6 text-gray-600">
-                      {post.description}
-                    </p>
+                    <PrismicLink
+                      href={article.url}
+                      className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
+                    >
+                      <PrismicRichText
+                        field={article.data.title}
+                        components={{
+                          heading2: ({ children }) => (
+                            <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+                              <span className="absolute inset-0" />
+                              {children}
+                            </h3>
+                          ),
+                        }}
+                      />
+                    </PrismicLink>
+                    <PrismicRichText
+                      field={article.data.excerpt}
+                      components={{
+                        paragraph: ({ children }) => (
+                          <p className="mt-5 text-sm leading-6 text-gray-600">
+                            {children}
+                          </p>
+                        ),
+                      }}
+                    />
                   </div>
+                  {(isOfTypeAuthorDocument(article.data?.author)) &&
                   <div className="mt-6 flex border-t border-gray-900/5 pt-6">
                     <div className="relative flex items-center gap-x-4">
-                      <img
-                        src={post.author.imageUrl}
-                        alt=""
-                        className="h-10 w-10 rounded-full bg-gray-50"
+                      <PrismicNextImage
+                        field={article.data.author.data.author_image}
+                        className="h-10 w-10 rounded-full object-cover bg-gray-50"
+                        width={48}
+                        height={48}
                       />
                       <div className="text-sm leading-6">
                         <p className="font-semibold text-gray-900">
-                          <a href={post.author.href}>
+                          <PrismicLink field={article.data.author.url}>
                             <span className="absolute inset-0" />
-                            {post.author.name}
-                          </a>
+                            {article.data.author.data.author_name}
+                          </PrismicLink>
                         </p>
-                        <p className="text-gray-600">{post.author.role}</p>
+                        <p className="text-gray-600">
+                          {article.data.author.data.author_role}
+                        </p>
                       </div>
                     </div>
                   </div>
+                    }
                 </div>
               </article>
             ))}

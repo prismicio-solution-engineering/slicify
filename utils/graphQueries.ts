@@ -113,3 +113,23 @@ export const blogArticleGraphQuery = `
   }
 }
 `;
+
+export const blogIndexGraphQuery = `
+{
+  blog_article {
+    title
+    excerpt
+    featured_image
+    author {
+      ...on author {
+        ...authorFields
+      }
+    }
+    category {
+      ...on blog_category {
+        ...blog_categoryFields
+      }
+    }
+  }
+}
+`;
