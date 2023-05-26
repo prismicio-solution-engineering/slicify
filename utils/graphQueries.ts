@@ -53,6 +53,19 @@ export const authorGraphQuery = `
 }
 `;
 
+export const categoryGraphQuery = `
+{
+  blog_article {
+    category {
+      ...on blog_category {
+        ...blog_categoryFields
+      }
+    }
+  }
+}
+`;
+
+
 export const blogArticleGraphQuery = `
 {
   blog_article {

@@ -7,9 +7,12 @@ import { Header } from "./Header";
 import { Footer } from "./Footer";
 import { PropsWithChildren } from "react";
 import { PrismicNextImage } from "@prismicio/next";
-import { PrismicRichText } from "@prismicio/react";
+import { PrismicLink, PrismicRichText } from "@prismicio/react";
 import { UnderlineDoodle } from "./UnderlineDoodle";
-import { isOfTypeAuthorDocument } from "@/utils/graphQueries";
+import {
+  isOfTypeAuthorDocument,
+  isOfTypeBlogCategoryDocument,
+} from "@/utils/graphQueries";
 
 type BlogLayoutProps = {
   header: HeaderDocumentData;
@@ -19,11 +22,11 @@ type BlogLayoutProps = {
     lang_name: string;
   }[];
   author: BlogArticleDocument;
+  category: BlogArticleDocument;
   page: BlogArticleDocument;
 };
 
 export default function BlogLayout(props: PropsWithChildren<BlogLayoutProps>) {
-
   return (
     <main>
       <Header header={props.header} languages={props.languages} />
@@ -44,6 +47,14 @@ export default function BlogLayout(props: PropsWithChildren<BlogLayoutProps>) {
                   { year: "numeric", month: "short", day: "numeric" }
                 )}
               </time>
+              {isOfTypeBlogCategoryDocument(props.category.data.category) && (
+                <PrismicLink
+                  field={props.category.data.category}
+                  className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
+                >
+                  {props.category.data.category.data?.category_name}
+                </PrismicLink>
+              )}
             </div>
             <PrismicRichText
               field={props.page.data.title}
@@ -77,7 +88,7 @@ export default function BlogLayout(props: PropsWithChildren<BlogLayoutProps>) {
                 ),
               }}
             />
-            {isOfTypeAuthorDocument(props.author.data.author) &&
+            {isOfTypeAuthorDocument(props.author.data.author) && (
               <figcaption className="relative flex items-center gap-4 text-left">
                 <div className="overflow-hidden rounded-full bg-slate-50">
                   <PrismicNextImage
@@ -97,11 +108,10 @@ export default function BlogLayout(props: PropsWithChildren<BlogLayoutProps>) {
                   </div>
                 </div>
               </figcaption>
-            }
+            )}
           </div>
         </div>
       </section>
-      {/* Remove className to have full width */}
       {props.children}
       <Footer {...props.footer} />
     </main>

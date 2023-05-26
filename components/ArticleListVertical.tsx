@@ -3,7 +3,7 @@ import {
   BlogArticleDocument,
   BlogArticleDocumentData,
   BlogCategoryDocument,
-  BlogIndexDocument
+  BlogIndexDocument,
 } from "@/prismicio-types";
 import { Content } from "@prismicio/client";
 import { PrismicNextImage } from "@prismicio/next";
@@ -11,7 +11,10 @@ import { PrismicLink, PrismicRichText } from "@prismicio/react";
 import { PropsWithChildren } from "react";
 import * as prismicH from "@prismicio/helpers";
 import * as prismicT from "@prismicio/types";
-import { isOfTypeAuthorDocument, isOfTypeBlogCategoryDocument } from "@/utils/graphQueries";
+import {
+  isOfTypeAuthorDocument,
+  isOfTypeBlogCategoryDocument,
+} from "@/utils/graphQueries";
 
 type BlogIndexLayoutProps = {
   languages: {
@@ -84,15 +87,14 @@ export function ArticleListVertical(
                           day: "numeric",
                         })}
                     </time>
-                    {(isOfTypeBlogCategoryDocument(article.data?.category)) &&
-                        <PrismicLink
+                    {isOfTypeBlogCategoryDocument(article.data?.category) && (
+                      <PrismicLink
                         field={article.data.category}
                         className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
                       >
                         {article.data.category.data.category_name}
                       </PrismicLink>
-                      }
-                    
+                    )}
                   </div>
                   <div className="group relative max-w-xl">
                     <PrismicLink
@@ -122,29 +124,29 @@ export function ArticleListVertical(
                       }}
                     />
                   </div>
-                  {(isOfTypeAuthorDocument(article.data?.author)) &&
-                  <div className="mt-6 flex border-t border-gray-900/5 pt-6">
-                    <div className="relative flex items-center gap-x-4">
-                      <PrismicNextImage
-                        field={article.data.author.data.author_image}
-                        className="h-10 w-10 rounded-full object-cover bg-gray-50"
-                        width={48}
-                        height={48}
-                      />
-                      <div className="text-sm leading-6">
-                        <p className="font-semibold text-gray-900">
-                          <PrismicLink field={article.data.author.url}>
-                            <span className="absolute inset-0" />
-                            {article.data.author.data.author_name}
-                          </PrismicLink>
-                        </p>
-                        <p className="text-gray-600">
-                          {article.data.author.data.author_role}
-                        </p>
+                  {isOfTypeAuthorDocument(article.data?.author) && (
+                    <div className="mt-6 flex border-t border-gray-900/5 pt-6">
+                      <div className="relative flex items-center gap-x-4">
+                        <PrismicNextImage
+                          field={article.data.author.data.author_image}
+                          className="h-10 w-10 rounded-full object-cover bg-gray-50"
+                          width={48}
+                          height={48}
+                        />
+                        <div className="text-sm leading-6">
+                          <p className="font-semibold text-gray-900">
+                            <PrismicLink field={article.data.author.url}>
+                              <span className="absolute inset-0" />
+                              {article.data.author.data.author_name}
+                            </PrismicLink>
+                          </p>
+                          <p className="text-gray-600">
+                            {article.data.author.data.author_role}
+                          </p>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                    }
+                  )}
                 </div>
               </article>
             ))}
