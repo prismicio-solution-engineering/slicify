@@ -64,7 +64,7 @@ function HorizontalThreeColumn({
                   <div className="max-w-xl p-6">
                     <div className="flex items-center gap-x-4 text-xs">
                       <time
-                        datetime={prismicH
+                        dateTime={prismicH
                           .asDate(post.article.last_publication_date)
                           .toISOString()}
                       >
@@ -87,31 +87,31 @@ function HorizontalThreeColumn({
                         </PrismicLink>
                       )}
                     </div>
-                    <div className="group relative mt-4">
-                      <PrismicRichText
-                        field={post.article.data?.title}
-                        components={{
-                          heading3: ({ children }) => (
-                            <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
-                              <PrismicLink field={post.article}>
+                    <PrismicLink field={post.article}>
+                      <div className="group relative mt-4">
+                        <PrismicRichText
+                          field={post.article.data?.title}
+                          components={{
+                            heading1: ({ children }) => (
+                              <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
                                 <span className="absolute inset-0" />
                                 {children}
-                              </PrismicLink>
-                            </h3>
-                          ),
-                        }}
-                      />
-                      <PrismicRichText
-                        field={post.article.data?.excerpt}
-                        components={{
-                          paragraph: ({ children }) => (
-                            <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">
-                              {children}
-                            </p>
-                          ),
-                        }}
-                      />
-                    </div>
+                              </h3>
+                            ),
+                          }}
+                        />
+                        <PrismicRichText
+                          field={post.article.data?.excerpt}
+                          components={{
+                            paragraph: ({ children }) => (
+                              <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">
+                                {children}
+                              </p>
+                            ),
+                          }}
+                        />
+                      </div>
+                    </PrismicLink>
                     {isOfTypeAuthorDocument(post.article.data?.author) && (
                       <div className="relative mt-8 flex items-center gap-x-4">
                         <PrismicNextImage
