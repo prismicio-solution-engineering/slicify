@@ -26,7 +26,7 @@
             "label": "Description",
             "placeholder": "",
             "allowTargetBlank": true,
-            "multi": "paragraph,preformatted,strong,em,hyperlink"
+            "multi": "paragraph,preformatted,strong,em"
           }
         }
       },
@@ -36,9 +36,7 @@
           "config": {
             "label": "Article",
             "select": "document",
-            "customtypes": [
-              "blog_article"
-            ]
+            "customtypes": ["blog_article"]
           }
         }
       },
