@@ -1,7 +1,4 @@
 import type { Content } from "@prismicio/client";
-
-// Tailwind imports
-import { Container } from "@/components/Container";
 import { PrismicRichText } from "@prismicio/react";
 
 export default function FaqTwoColumns({

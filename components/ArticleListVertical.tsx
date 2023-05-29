@@ -1,29 +1,18 @@
 import {
-  AuthorDocument,
   BlogArticleDocument,
-  BlogArticleDocumentData,
-  BlogCategoryDocument,
   BlogIndexDocument,
 } from "@/prismicio-types";
-import { Content } from "@prismicio/client";
 import { PrismicNextImage } from "@prismicio/next";
 import { PrismicLink, PrismicRichText } from "@prismicio/react";
 import { PropsWithChildren } from "react";
 import * as prismicH from "@prismicio/helpers";
-import * as prismicT from "@prismicio/types";
 import {
   isOfTypeAuthorDocument,
   isOfTypeBlogCategoryDocument,
 } from "@/utils/graphQueries";
 
 type BlogIndexLayoutProps = {
-  languages: {
-    url: string;
-    lang_name: string;
-  }[];
-  articles: BlogArticleDocument;
-  author: AuthorDocument;
-  category: BlogCategoryDocument;
+  articles: BlogArticleDocument[] | null;
   page: BlogIndexDocument;
 };
 
@@ -69,18 +58,12 @@ export function ArticleListVertical(
                 <div className="py-2">
                   <div className="flex items-center gap-x-4 text-xs">
                     <time
-                      dateTime={article.data.datetime}
-                      className="text-gray-500"
-                    >
-                      {article.data.date}
-                    </time>
-                    <time
-                      datetime={prismicH
-                        .asDate(article.last_publication_date)
+                      dateTime={prismicH
+                        .asDate(article.last_publication_date as `${number}-${number}-${number}T${number}:${number}:${number}+${number}`)
                         .toISOString()}
                     >
                       {prismicH
-                        .asDate(article.last_publication_date)
+                        .asDate(article.last_publication_date as `${number}-${number}-${number}T${number}:${number}:${number}+${number}`)
                         .toLocaleString(article.lang, {
                           year: "numeric",
                           month: "short",
@@ -92,13 +75,13 @@ export function ArticleListVertical(
                         field={article.data.category}
                         className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
                       >
-                        {article.data.category.data.category_name}
+                        {article.data.category.data?.category_name}
                       </PrismicLink>
                     )}
                   </div>
                   <div className="group relative max-w-xl">
                     <PrismicLink
-                      href={article.url}
+                      document={article}
                       className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
                     >
                       <PrismicRichText
@@ -128,20 +111,20 @@ export function ArticleListVertical(
                     <div className="mt-6 flex border-t border-gray-900/5 pt-6">
                       <div className="relative flex items-center gap-x-4">
                         <PrismicNextImage
-                          field={article.data.author.data.author_image}
+                          field={article.data.author.data?.author_image}
                           className="h-10 w-10 rounded-full object-cover bg-gray-50"
                           width={48}
                           height={48}
                         />
                         <div className="text-sm leading-6">
                           <p className="font-semibold text-gray-900">
-                            <PrismicLink field={article.data.author.url}>
+                            <PrismicLink document={article.data.author}>
                               <span className="absolute inset-0" />
-                              {article.data.author.data.author_name}
+                              {article.data.author.data?.author_name}
                             </PrismicLink>
                           </p>
                           <p className="text-gray-600">
-                            {article.data.author.data.author_role}
+                            {article.data.author.data?.author_role}
                           </p>
                         </div>
                       </div>

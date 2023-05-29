@@ -1,5 +1,5 @@
 import type { Content } from "@prismicio/client";
-import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
+import { SliceComponentProps } from "@prismicio/react";
 import CtaSimple from "./CtaSimple";
 import CtaWithImage from "./CtaWithImage";
 

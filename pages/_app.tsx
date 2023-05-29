@@ -1,6 +1,6 @@
 import "@/styles/globals.css";
 import { PrismicPreview } from "@prismicio/next";
-import { PrismicLink, PrismicProvider } from "@prismicio/react";
+import { PrismicProvider } from "@prismicio/react";
 import type { AppProps } from "next/app";
 import Link from "next/link";
 import { repositoryName } from "@/prismicio";

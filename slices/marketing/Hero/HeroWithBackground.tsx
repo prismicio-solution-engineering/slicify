@@ -7,7 +7,6 @@ import { Container } from "@/components/Container";
 import { UnderlineDoodle } from "@/components/UnderlineDoodle";
 
 import backgroundImage from "@/images/background-features.jpg";
-import backgroundVideo from "@/images/background-beach-hero.png";
 
 export default function HeroWithBackground({
   slice,

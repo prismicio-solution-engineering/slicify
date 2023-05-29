@@ -1,12 +1,11 @@
-import { Content } from "@prismicio/client"
 import * as prismicT from "@prismicio/types"
 import * as prismicH from "@prismicio/helpers"
 import { AuthorDocument, BlogArticleDocument, BlogCategoryDocument } from "@/prismicio-types";
 
 export const isOfTypeBlogArticleDocument= 
-  (contentRelationshipField: prismicT.ContentRelationshipField | undefined): contentRelationshipField is prismicT.ContentRelationshipField & {
-  data?: BlogArticleDocument["data"]
-} | undefined =>  {
+  (contentRelationshipField: prismicT.ContentRelationshipField | undefined): contentRelationshipField is prismicT.ContentRelationshipField &
+  BlogArticleDocument
+ | undefined =>  {
   return (
     prismicH.isFilled.contentRelationship(contentRelationshipField) &&
     typeof contentRelationshipField.data === "object" &&
@@ -16,9 +15,9 @@ export const isOfTypeBlogArticleDocument=
 };
 
 export const isOfTypeBlogCategoryDocument= 
-  (contentRelationshipField: prismicT.ContentRelationshipField | undefined): contentRelationshipField is prismicT.ContentRelationshipField & {
-  data?: BlogCategoryDocument["data"]
-} | undefined =>  {
+  (contentRelationshipField: prismicT.ContentRelationshipField | undefined): contentRelationshipField is prismicT.ContentRelationshipField &
+  BlogCategoryDocument
+ | undefined =>  {
   return (
     prismicH.isFilled.contentRelationship(contentRelationshipField) &&
     typeof contentRelationshipField.data === "object" &&
@@ -28,9 +27,9 @@ export const isOfTypeBlogCategoryDocument=
 };
 
 export const isOfTypeAuthorDocument= 
-  (contentRelationshipField: prismicT.ContentRelationshipField | undefined): contentRelationshipField is prismicT.ContentRelationshipField & {
-  data?: AuthorDocument["data"]
-} | undefined =>  {
+  (contentRelationshipField: prismicT.ContentRelationshipField | undefined): contentRelationshipField is prismicT.ContentRelationshipField &
+  AuthorDocument
+ | undefined =>  {
   return (
     prismicH.isFilled.contentRelationship(contentRelationshipField) &&
     typeof contentRelationshipField.data === "object" &&
@@ -44,6 +43,7 @@ export const isOfTypeAuthorDocument=
 export const blogArticleGraphQuery = `
 {
   blog_article {
+    ...blog_articleFields
     category {
       ...on blog_category {
         ...blog_categoryFields
@@ -54,33 +54,16 @@ export const blogArticleGraphQuery = `
         ...authorFields
       }
     }
+  }
+}
+`;
+
+export const blogArticleLinkedArticlesGraphQuery = `
+{
+  blog_article {
     slices {
       ... on article_list {
         variation {
-          ... on verticalList {
-            primary {
-              ...primaryFields
-            }
-            items {
-              article {
-                ...on blog_article {
-                  title
-                  excerpt
-                  featured_image
-                  author {
-                    ...on author {
-                      ...authorFields
-                    }
-                  }
-                  category {
-                    ...on blog_category {
-                      ...blog_categoryFields
-                    }
-                  }
-                }
-              }
-            }
-          }
           ... on horizontalList {
             primary {
               ...primaryFields

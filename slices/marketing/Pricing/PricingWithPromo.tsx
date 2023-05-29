@@ -2,7 +2,6 @@ import type { Content } from "@prismicio/client";
 import {
   PrismicLink,
   PrismicRichText,
-  SliceComponentProps,
 } from "@prismicio/react";
 import Image from "next/image";
 import backgroundImage from "@/images/background-features.jpg";

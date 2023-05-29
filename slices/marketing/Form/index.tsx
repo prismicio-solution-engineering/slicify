@@ -1,7 +1,5 @@
 import type { Content } from "@prismicio/client";
 import {
-  PrismicLink,
-  PrismicRichText,
   SliceComponentProps,
 } from "@prismicio/react";
 import FormSimple from "./FormSimple";
