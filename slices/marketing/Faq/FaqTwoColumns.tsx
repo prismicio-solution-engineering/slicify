@@ -40,17 +40,6 @@ export default function FaqTwoColumns({
             ),
           }}
         />
-        {/* <p className="mt-6 max-w-2xl text-base leading-7 text-gray-300">
-          Have a different question and can’t find the answer you’re looking
-          for? Reach out to our support team by{" "}
-          <a
-            href="#"
-            className="hover:text-indigo-30 font-semibold text-indigo-400 hover:text-indigo-300"
-          >
-            sending us an email
-          </a>{" "}
-          and we’ll get back to you as soon as we can.
-        </p> */}
         <div className="mt-20">
           <dl className="space-y-16 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-16 sm:space-y-0 lg:gap-x-10">
             {slice.items?.map((faq, idx) => (

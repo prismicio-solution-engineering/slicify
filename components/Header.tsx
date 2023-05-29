@@ -131,7 +131,7 @@ export function Header({ header, languages }: HeaderProps) {
         <nav className="relative z-50 flex justify-between">
           <div className="flex items-center md:gap-x-12">
             <Link href={`/${languages[0].lang_name}`} aria-label="Home">
-              <PrismicNextImage field={header.logo} className="h-10 w-auto" />
+              <PrismicNextImage field={header.logo} className="h-10 w-auto" fallbackAlt="" />
             </Link>
             <div className="hidden md:flex md:gap-x-6">
               {header.left_side_links.map((link, index) => {

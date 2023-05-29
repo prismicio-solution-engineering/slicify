@@ -6,25 +6,17 @@ import { SliceZone } from "@prismicio/react";
 import * as prismicH from "@prismicio/helpers";
 import { components as mktComponents } from "@/slices/marketing";
 import { components as blogComponents } from "@/slices/blog";
-import { authorGraphQuery } from "@/utils/graphQueries";
+import {
+  blogArticleGraphQuery,
+} from "@/utils/graphQueries";
 import { getLanguages } from "@/utils/getLanguages";
 import BlogLayout from "@/components/BlogLayout";
 
 type BlogArticleProps = InferGetStaticPropsType<typeof getStaticProps>;
 type PageParams = { uid: string };
 
-export type BlogArticleDocumentWithLinkedAuthor =
-  Content.BlogArticleDocument & {
-    data: {
-      author: {
-        data?: Content.AuthorDocument["data"];
-      };
-    };
-  };
-
 export default function BlogArticle({
   page,
-  author,
   header,
   footer,
   languages,
@@ -47,7 +39,6 @@ export default function BlogArticle({
         header={header.data}
         footer={footer.data}
         languages={languages}
-        author={author}
         page={page}
       >
         <SliceZone
@@ -77,16 +68,38 @@ export async function getStaticProps({
         { lang: locale }
       );
 
-    const linkedAuthor =
-      //    ^ Typed as BlogArticleDocumentWithLinkedAuthor
-      await client.getByUID<BlogArticleDocumentWithLinkedAuthor>(
+    const linkedBlogArticles =
+      await client.getByUID<Content.BlogArticleDocument>(
+        //    ^ Typed as BlogArticleDocument
         "blog_article",
         params.uid,
         {
           lang: locale,
-          graphQuery: authorGraphQuery,
+          graphQuery: blogArticleGraphQuery,
         }
       );
+
+    let index = 0;
+
+    const pageWithArticles = {
+      ...page,
+      data: {
+        ...page.data,
+        slices: page?.data?.slices?.map((slice) => {
+          if (slice.slice_type === "article_list") {
+            index++;
+            return {
+              ...linkedBlogArticles?.data?.slices[index - 1],
+            };
+          }
+          return {
+            ...slice,
+          };
+        }),
+        author: linkedBlogArticles?.data?.author,
+        category: linkedBlogArticles?.data?.category,
+      },
+    };
 
     const header = await client.getSingle<Content.HeaderDocument>("header", {
       lang: locale,
@@ -103,8 +116,7 @@ export async function getStaticProps({
     if (page) {
       return {
         props: {
-          page,
-          author: linkedAuthor,
+          page: pageWithArticles,
           header,
           footer,
           languages,

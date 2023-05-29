@@ -7,9 +7,12 @@ import { Header } from "./Header";
 import { Footer } from "./Footer";
 import { PropsWithChildren } from "react";
 import { PrismicNextImage } from "@prismicio/next";
-import { BlogArticleDocumentWithLinkedAuthor } from "@/pages/blog/[uid]";
-import { PrismicRichText } from "@prismicio/react";
+import { PrismicLink, PrismicRichText } from "@prismicio/react";
 import { UnderlineDoodle } from "./UnderlineDoodle";
+import {
+  isOfTypeAuthorDocument,
+  isOfTypeBlogCategoryDocument,
+} from "@/utils/graphQueries";
 
 type BlogLayoutProps = {
   header: HeaderDocumentData;
@@ -18,7 +21,6 @@ type BlogLayoutProps = {
     url: string;
     lang_name: string;
   }[];
-  author: BlogArticleDocumentWithLinkedAuthor;
   page: BlogArticleDocument;
 };
 
@@ -43,6 +45,14 @@ export default function BlogLayout(props: PropsWithChildren<BlogLayoutProps>) {
                   { year: "numeric", month: "short", day: "numeric" }
                 )}
               </time>
+              {isOfTypeBlogCategoryDocument(props.page.data.category) && (
+                <PrismicLink
+                  field={props.page.data.category}
+                  className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
+                >
+                  {props.page.data.category.data?.category_name}
+                </PrismicLink>
+              )}
             </div>
             <PrismicRichText
               field={props.page.data.title}
@@ -76,22 +86,21 @@ export default function BlogLayout(props: PropsWithChildren<BlogLayoutProps>) {
                 ),
               }}
             />
-            {props.author.data && (
+            {isOfTypeAuthorDocument(props.page.data.author) && (
               <figcaption className="relative flex items-center gap-4 text-left">
                 <div className="overflow-hidden rounded-full bg-slate-50">
                   <PrismicNextImage
                     className="h-12 w-12 object-cover"
-                    alt=""
-                    field={props.author.data.author.data?.author_image}
+                    field={props.page.data.author.data?.author_image}
                     width={48}
                     height={48}
                   />
                 </div>
                 <div>
                   <div className="font-display text-base text-slate-900">
-                    {props.author.data.author.data?.author_name} -{" "}
+                    {props.page.data.author.data?.author_name} -{" "}
                     <span className="text-slate-500">
-                      {props.author.data.author.data?.author_role}
+                      {props.page.data.author.data?.author_role}
                     </span>
                   </div>
                 </div>
@@ -100,7 +109,6 @@ export default function BlogLayout(props: PropsWithChildren<BlogLayoutProps>) {
           </div>
         </div>
       </section>
-      {/* Remove className to have full width */}
       {props.children}
       <Footer {...props.footer} />
     </main>

@@ -38,10 +38,6 @@ export default function CtaWithImage({
             !imageRight && "order-last"
           )}
         >
-          {/* <h2 >
-            Boost your productivity.
-            Start using our app today.
-          </h2> */}
           <PrismicRichText
             field={slice.primary.title}
             components={{
@@ -52,10 +48,6 @@ export default function CtaWithImage({
               ),
             }}
           />
-          {/* <p className="mt-4 text-lg tracking-tight text-white">
-            It's time to take control of your books. Buy our software so you can
-            feel like you’re doing something productive.
-          </p> */}
           <PrismicRichText
             field={slice.primary.description}
             components={{

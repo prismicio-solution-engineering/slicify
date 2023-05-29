@@ -172,7 +172,6 @@ export default function FeaturesHorizontal({
                       <PrismicNextImage
                         className="w-full"
                         field={feature.feature_screenshot}
-                        alt=""
                         priority
                         sizes="(min-width: 1024px) 67.8125rem, (min-width: 640px) 100vw, 45rem"
                       />
