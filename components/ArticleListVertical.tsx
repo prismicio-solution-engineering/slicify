@@ -79,7 +79,7 @@ export function ArticleListVertical(
                   </time>
                   {isOfTypeBlogCategoryDocument(article.data?.category) && (
                     <PrismicLink
-                      field={article.data.category}
+                      document={article.data.category}
                       className="relative rounded-full bg-grey-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-transparent hover:bg-gray-100"
                     >
                       {article.data.category.data.category_name}
