@@ -56,13 +56,13 @@ export function ArticleListVertical(
               key={article.id}
               className="relative isolate flex flex-col gap-8 lg:flex-row rounded-2xl shadow-xl shadow-slate-900/10"
             >
-              <div className="relative aspect-[16/9] sm:aspect-[2/1] lg:aspect-square lg:w-64 lg:shrink-0">
+              <div className="relative aspect-[16/9] flex-none sm:aspect-[2/1] lg:aspect-square lg:w-64 lg:shrink-0">
                 <PrismicNextImage
                   field={article.data.featured_image}
-                  className="absolute inset-0 h-full w-full rounded-l-2xl bg-gray-50 object-cover"
+                  className="absolute inset-0 h-full w-full lg:rounded-l-2xl lg:rounded-r-none rounded-t-2xl bg-gray-50 object-cover"
                 />
               </div>
-              <div className="py-2">
+              <div className="py-2 flex-1 px-4 lg:px-0">
                 <div className="flex flex-row items-center text-sm gap-x-4">
                   <time
                     dateTime={prismicH
@@ -87,7 +87,7 @@ export function ArticleListVertical(
                   )}
                 </div>
                 <PrismicLink href={article.url}>
-                  <div className="group relative max-w-xl mt-4">
+                  <div className="group relative mt-4">
                     <PrismicRichText
                       field={article.data.title}
                       components={{
