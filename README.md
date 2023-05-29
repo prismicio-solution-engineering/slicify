@@ -2,7 +2,7 @@
 
 Brought to you by Prismic Solution Engineering Team
 
-_Prerequisite: have node v16 or above installed on your local machine : https://nodejs.org/en/_
+_Prerequisite: have node v18 or above installed on your local machine : https://nodejs.org/en/_
 
 ## Step 1. Go in your PoC project folder and install packages
 
