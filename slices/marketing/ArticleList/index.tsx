@@ -6,7 +6,6 @@ import {
   SliceComponentProps,
 } from "@prismicio/react";
 import * as prismicH from "@prismicio/helpers";
-import * as prismicT from "@prismicio/types";
 import { PrismicNextImage } from "@prismicio/next";
 import {
   isOfTypeAuthorDocument,
@@ -65,11 +64,11 @@ function HorizontalThreeColumn({
                     <div className="flex items-center gap-x-4 text-xs">
                       <time
                         dateTime={prismicH
-                          .asDate(post.article.last_publication_date)
+                          .asDate(post.article.last_publication_date as `${number}-${number}-${number}T${number}:${number}:${number}+${number}`)
                           .toISOString()}
                       >
                         {prismicH
-                          .asDate(post.article.last_publication_date)
+                          .asDate(post.article.last_publication_date  as `${number}-${number}-${number}T${number}:${number}:${number}+${number}`)
                           .toLocaleString(post.article.lang, {
                             year: "numeric",
                             month: "short",

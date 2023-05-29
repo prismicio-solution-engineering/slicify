@@ -1,4 +1,3 @@
-import type { Content } from "@prismicio/client";
 import { PrismicLink, PrismicRichText } from "@prismicio/react";
 import { AnchorLink } from "@/prismicio";
 import { HeaderDocumentDataLeftSideLinksItem, Simplify } from "@/prismicio-types";
