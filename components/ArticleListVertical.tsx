@@ -80,13 +80,13 @@ export function ArticleListVertical(
                   {isOfTypeBlogCategoryDocument(article.data?.category) && (
                     <PrismicLink
                       field={article.data.category}
-                      className="relative rounded-full bg-light-blue-70 px-3 py-1.5 font-medium text-gray-600 hover:bg-transparent hover:border-light-blue-70 border"
+                      className="relative rounded-full bg-grey-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-transparent hover:bg-gray-100"
                     >
                       {article.data.category.data.category_name}
                     </PrismicLink>
                   )}
                 </div>
-                <PrismicLink href={article.url}>
+                <PrismicLink document={article}>
                   <div className="group relative mt-4">
                     <PrismicRichText
                       field={article.data.title}
@@ -122,7 +122,7 @@ export function ArticleListVertical(
                       />
                       <div className="text-sm leading-6">
                         <p className="font-semibold text-gray-900">
-                          <PrismicLink field={article.data.author.url}>
+                          <PrismicLink document={article.data.author}>
                             <span className="absolute inset-0" />
                             {article.data.author.data.author_name}
                           </PrismicLink>

@@ -48,7 +48,7 @@ export default function BlogLayout(props: PropsWithChildren<BlogLayoutProps>) {
               {isOfTypeBlogCategoryDocument(props.page.data.category) && (
                 <PrismicLink
                   field={props.page.data.category}
-                  className="relative rounded-full bg-light-blue-70 mx-4 px-3 py-1.5 text-gray-600 hover:bg-transparent hover:border-light-blue-70 border"
+                  className="relative rounded-full bg-gray-50 mx-4 px-3 py-1.5 text-gray-600 hover:bg-transparent hover:bg-gray-100"
                 >
                   {props.page.data.category.data?.category_name}
                 </PrismicLink>
