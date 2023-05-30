@@ -56,6 +56,7 @@ export async function getStaticProps({
   previewData,
   params,
 }: GetStaticPropsContext<PageParams>) {
+
   const client = createClient({ previewData });
   //    ^ Automatically contains references to document types
 
@@ -134,6 +135,7 @@ export async function getStaticProps({
 export async function getStaticPaths() {
   const client = createClient();
   const documents = await client.getAllByType("blog_article", { lang: "*" });
+  console.log(documents)
   return {
     paths: documents.map((page) => `${prismicH.asLink(page)}`),
     fallback: false, // if a page has already been generated but doesn't show => display the cached page
