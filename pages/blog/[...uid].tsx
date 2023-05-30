@@ -80,7 +80,6 @@ export async function getStaticProps({
       await client.getByUID<Content.BlogArticleDocument>(
         //    ^ Typed as BlogArticleDocument
         "blog_article",
-        // params.uid,
         slug,
         {
           lang: locale,
