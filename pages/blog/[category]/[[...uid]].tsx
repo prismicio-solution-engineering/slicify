@@ -7,10 +7,11 @@ import * as prismicH from "@prismicio/helpers";
 import { components as mktComponents } from "@/slices/marketing";
 import { components as blogComponents } from "@/slices/blog";
 import {
-  blogArticleGraphQuery,
+  blogArticleGraphQuery, blogArticleLinkedArticlesGraphQuery,
 } from "@/utils/graphQueries";
 import { getLanguages } from "@/utils/getLanguages";
 import BlogLayout from "@/components/BlogLayout";
+import { SliceZone as TSliceZone } from "@prismicio/types"
 
 type BlogArticleProps = InferGetStaticPropsType<typeof getStaticProps>;
 type PageParams = { uid: string };
@@ -66,7 +67,8 @@ export async function getStaticProps({
       await client.getByUID<Content.BlogArticleDocument>(
         "blog_article",
         params.uid,
-        { lang: locale }
+        { lang: locale,
+          graphQuery: blogArticleGraphQuery, }
       );
 
     const linkedBlogArticles =
@@ -76,29 +78,15 @@ export async function getStaticProps({
         params.uid,
         {
           lang: locale,
-          graphQuery: blogArticleGraphQuery,
+          graphQuery: blogArticleLinkedArticlesGraphQuery,
         }
       );
-
-    let index = 0;
 
     const pageWithArticles = {
       ...page,
       data: {
         ...page.data,
-        slices: page?.data?.slices?.map((slice) => {
-          if (slice.slice_type === "article_list") {
-            index++;
-            return {
-              ...linkedBlogArticles?.data?.slices[index - 1],
-            };
-          }
-          return {
-            ...slice,
-          };
-        }),
-        author: linkedBlogArticles?.data?.author,
-        category: linkedBlogArticles?.data?.category,
+        slices: enrichSlices(page.data.slices, linkedBlogArticles.data.slices, ["article_list"])
       },
     };
 
@@ -140,4 +128,19 @@ export async function getStaticPaths() {
     paths: documents.map((page) => `${prismicH.asLink(page)}`),
     fallback: false, // if a page has already been generated but doesn't show => display the cached page
   };
+}
+
+function enrichSlices(mainSlices: TSliceZone<Content.BlogArticleDocumentDataSlicesSlice>, linkedDataSlices: TSliceZone<Content.BlogArticleDocumentDataSlicesSlice>, slicesToEnrich: string[]) : TSliceZone<Content.BlogArticleDocumentDataSlicesSlice> {
+  let index = 0;
+  if(mainSlices.length > 0){
+    const enrichedSlices = mainSlices.map((slice) => {
+      if (slicesToEnrich.includes(slice.slice_type)) {
+          index++;
+          return linkedDataSlices[index - 1]
+        }
+        return slice;
+    })
+    return [enrichedSlices[0], ...enrichedSlices.slice(1)]
+  }
+  return []
 }

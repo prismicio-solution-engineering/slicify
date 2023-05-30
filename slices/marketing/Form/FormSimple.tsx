@@ -1,7 +1,6 @@
 import { Button } from "@/components/Button";
 import type { Content } from "@prismicio/client";
 import { PrismicLink, PrismicRichText } from "@prismicio/react";
-import { FormEvent, createElement } from "react";
 import { TextField } from "@/components/Fields";
 import {
   createSerializerH2,

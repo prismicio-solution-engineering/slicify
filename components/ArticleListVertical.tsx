@@ -1,7 +1,5 @@
 import {
-  AuthorDocument,
   BlogArticleDocument,
-  BlogCategoryDocument,
   BlogIndexDocument,
 } from "@/prismicio-types";
 import { PrismicNextImage } from "@prismicio/next";
@@ -14,13 +12,7 @@ import {
 } from "@/utils/graphQueries";
 
 type BlogIndexLayoutProps = {
-  languages: {
-    url: string;
-    lang_name: string;
-  }[];
-  articles: BlogArticleDocument;
-  author: AuthorDocument;
-  category: BlogCategoryDocument;
+  articles: BlogArticleDocument[] | null;
   page: BlogIndexDocument;
 };
 
@@ -66,11 +58,11 @@ export function ArticleListVertical(
                 <div className="flex flex-row items-center text-sm gap-x-4">
                   <time
                     dateTime={prismicH
-                      .asDate(article.last_publication_date)
+                      .asDate(article.last_publication_date as `${number}-${number}-${number}T${number}:${number}:${number}+${number}`)
                       .toISOString()}
                   >
                     {prismicH
-                      .asDate(article.last_publication_date)
+                      .asDate(article.last_publication_date as `${number}-${number}-${number}T${number}:${number}:${number}+${number}`)
                       .toLocaleString(article.lang, {
                         year: "numeric",
                         month: "short",
@@ -82,7 +74,7 @@ export function ArticleListVertical(
                       document={article.data.category}
                       className="relative rounded-full bg-grey-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-transparent hover:bg-gray-100"
                     >
-                      {article.data.category.data.category_name}
+                      {article.data.category.data?.category_name}
                     </PrismicLink>
                   )}
                 </div>
@@ -115,7 +107,7 @@ export function ArticleListVertical(
                   <div className="mt-6 flex border-t border-gray-900/5 pt-6">
                     <div className="relative flex items-center gap-x-4">
                       <PrismicNextImage
-                        field={article.data.author.data.author_image}
+                        field={article.data.author.data?.author_image}
                         className="h-10 w-10 rounded-full object-cover bg-gray-50"
                         width={48}
                         height={48}
@@ -124,11 +116,11 @@ export function ArticleListVertical(
                         <p className="font-semibold text-gray-900">
                           <PrismicLink document={article.data.author}>
                             <span className="absolute inset-0" />
-                            {article.data.author.data.author_name}
+                            {article.data.author.data?.author_name}
                           </PrismicLink>
                         </p>
                         <p className="text-gray-600">
-                          {article.data.author.data.author_role}
+                          {article.data.author.data?.author_role}
                         </p>
                       </div>
                     </div>

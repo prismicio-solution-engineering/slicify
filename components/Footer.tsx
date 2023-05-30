@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 import { Container } from "@/components/Container";
 import { FooterDocumentData } from "@/prismicio-types";
 import { PrismicNextImage } from "@prismicio/next";
