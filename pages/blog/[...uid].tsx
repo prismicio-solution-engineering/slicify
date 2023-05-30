@@ -57,15 +57,21 @@ export async function getStaticProps({
   previewData,
   params,
 }: GetStaticPropsContext<PageParams>) {
+
   const client = createClient({ previewData });
   //    ^ Automatically contains references to document types
 
   if (params && params.uid) {
+
+    const slug = params.uid.length > 1 ? params.uid[1] : params.uid[0];
+
+
     const page =
       //    ^ Typed as BlogIndexDocument
       await client.getByUID<Content.BlogArticleDocument>(
         "blog_article",
-        params.uid,
+        // params.uid,
+        slug,
         { lang: locale,
           graphQuery: blogArticleGraphQuery, }
       );
@@ -74,7 +80,7 @@ export async function getStaticProps({
       await client.getByUID<Content.BlogArticleDocument>(
         //    ^ Typed as BlogArticleDocument
         "blog_article",
-        params.uid,
+        slug,
         {
           lang: locale,
           graphQuery: blogArticleLinkedArticlesGraphQuery,
@@ -122,6 +128,7 @@ export async function getStaticProps({
 export async function getStaticPaths() {
   const client = createClient();
   const documents = await client.getAllByType("blog_article", { lang: "*" });
+
   return {
     paths: documents.map((page) => `${prismicH.asLink(page)}`),
     fallback: false, // if a page has already been generated but doesn't show => display the cached page

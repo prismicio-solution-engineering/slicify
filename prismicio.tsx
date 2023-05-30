@@ -21,12 +21,15 @@ const routes = [
   },
   {
     type: "blog_article",
-    path: "/:lang/blog/:uid",
+    resolvers: {
+      category: "category",
+    },
+    path: "/:lang/blog/:category?/:uid",
   },
   {
     type: "landing_page",
     path: "/:lang/lp/:uid",
-  },
+  }
 ];
 
 export function createClient({
