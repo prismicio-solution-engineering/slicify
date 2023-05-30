@@ -25,7 +25,6 @@ const routes = [
       category: "category",
     },
     path: "/:lang/blog/:category?/:uid",
-    // path: "/:lang/blog/:uid",
   },
   {
     type: "landing_page",
