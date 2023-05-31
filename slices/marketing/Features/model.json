@@ -46,17 +46,14 @@
             "label": "Feature Description",
             "placeholder": "",
             "allowTargetBlank": true,
-            "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
           }
         },
         "feature_screenshot": {
           "type": "Image",
           "config": {
             "label": "Feature Screenshot",
-            "constraint": {
-              "width": 2174,
-              "height": 1464
-            },
+            "constraint": { "width": 2174, "height": 1464 },
             "thumbnails": []
           }
         }
@@ -112,10 +109,7 @@
           "type": "Image",
           "config": {
             "label": "Feature Screenshot",
-            "constraint": {
-              "width": 2174,
-              "height": 1464
-            },
+            "constraint": { "width": 2174, "height": 1464 },
             "thumbnails": []
           }
         }
@@ -173,17 +167,14 @@
             "label": "Feature Description",
             "placeholder": "",
             "allowTargetBlank": true,
-            "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
           }
         },
         "icon": {
           "type": "Image",
           "config": {
             "label": "Icon",
-            "constraint": {
-              "width": 128,
-              "height": 128
-            },
+            "constraint": { "width": 128, "height": 128 },
             "thumbnails": []
           }
         },
@@ -191,10 +182,7 @@
           "type": "Image",
           "config": {
             "label": "Feature Screenshot",
-            "constraint": {
-              "width": 1688,
-              "height": 856
-            },
+            "constraint": { "width": 1688, "height": 856 },
             "thumbnails": []
           }
         }
@@ -252,17 +240,14 @@
             "label": "Feature Description",
             "placeholder": "",
             "allowTargetBlank": true,
-            "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
           }
         },
         "icon": {
           "type": "Image",
           "config": {
             "label": "Icon",
-            "constraint": {
-              "width": 128,
-              "height": 128
-            },
+            "constraint": { "width": 128, "height": 128 },
             "thumbnails": []
           }
         },
@@ -270,10 +255,7 @@
           "type": "Image",
           "config": {
             "label": "Feature Screenshot",
-            "constraint": {
-              "width": 1688,
-              "height": 856
-            },
+            "constraint": { "width": 1688, "height": 856 },
             "thumbnails": []
           }
         }
