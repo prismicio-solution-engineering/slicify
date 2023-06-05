@@ -90,34 +90,6 @@ export default function Plan({
       >
         {price}
       </p>
-      <PrismicRichText
-        field={features}
-        components={{
-          list: ({ children }) => (
-            <ul
-              role="list"
-              className={clsx(
-                "order-last mt-10 flex flex-col gap-y-3 text-sm",
-                featured
-                  ? "text-white"
-                  : lightTheme
-                  ? "text-slate-600"
-                  : "text-slate-200"
-              )}
-            >
-              {children}
-            </ul>
-          ),
-          listItem: ({ text }) => (
-            <li key={text} className="flex">
-              <CheckIcon
-                className={featured ? "text-white" : "text-slate-400"}
-              />
-              <span className="ml-4">{text}</span>
-            </li>
-          ),
-        }}
-      />
       <Button
         field={link}
         variant={featured || lightTheme ? "solid" : "outline"}
@@ -127,6 +99,59 @@ export default function Plan({
       >
         Get started
       </Button>
+      <div className="mt-10">
+        <PrismicRichText
+          field={features}
+          components={{
+            paragraph: ({ children }) => (
+              <p
+                className={clsx(
+                  "text-base mb-2",
+                  featured
+                    ? "text-white"
+                    : lightTheme
+                    ? "text-slate-600"
+                    : "text-slate-400"
+                )}
+              >
+                {children}
+              </p>
+            ),
+            list: ({ children }) => (
+              <ul
+                role="list"
+                className={clsx(
+                  "order-last flex flex-col gap-y-3 text-sm",
+                  featured
+                    ? "text-white"
+                    : lightTheme
+                    ? "text-slate-600"
+                    : "text-slate-200"
+                )}
+              >
+                {children}
+              </ul>
+            ),
+            listItem: ({ text }) => (
+              <li key={text} className="flex">
+                <CheckIcon
+                  className={featured ? "text-white" : "text-slate-400"}
+                />
+                <span className="ml-4">{text}</span>
+              </li>
+            ),
+          }}
+        />
+      </div>
+      {/* <Button
+        field={link}
+        variant={featured || lightTheme ? "solid" : "outline"}
+        color={lightTheme ? "blue" : "white"}
+        className="mt-8"
+        aria-label={`Get started with the ${name} plan for ${price}`}
+      >
+        Get started
+      </Button> */}
     </section>
   );
 }

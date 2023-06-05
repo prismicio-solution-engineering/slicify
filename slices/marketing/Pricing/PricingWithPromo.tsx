@@ -98,7 +98,7 @@ export default function PricingWithPromo({
                       field={slice.primary.promo_title}
                       components={{
                         heading3: ({ children }) => (
-                          <h3 className="text-lg font-semibold leading-8 tracking-tight text-indigo-600">
+                          <h3 className="text-lg font-semibold leading-8 tracking-tight text-vibrant-blue">
                             {children}
                           </h3>
                         ),
@@ -117,7 +117,7 @@ export default function PricingWithPromo({
                   </div>
                   <PrismicLink
                     field={slice.primary.promo_link}
-                    className="rounded-md px-3.5 py-2 text-sm font-semibold leading-6 text-indigo-600 ring-1 ring-inset ring-indigo-200 hover:ring-indigo-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                    className="rounded-md px-3.5 py-2 text-sm font-semibold leading-6 text-vibrant-blue ring-1 ring-inset ring-light-blue hover:ring-indigo-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-vibrant-blue"
                   >
                     Buy discounted license{" "}
                     <span aria-hidden="true">&rarr;</span>
