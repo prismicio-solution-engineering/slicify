@@ -18,9 +18,7 @@
             "placeholder": "This is where it all begins...",
             "allowTargetBlank": true,
             "single": "heading2,strong,em",
-            "labels": [
-              "highlight"
-            ]
+            "labels": ["highlight"]
           }
         },
         "description": {
@@ -36,17 +34,11 @@
       "items": {
         "name": {
           "type": "Text",
-          "config": {
-            "label": "Name",
-            "placeholder": ""
-          }
+          "config": { "label": "Name", "placeholder": "" }
         },
         "price": {
           "type": "Text",
-          "config": {
-            "label": "Price",
-            "placeholder": ""
-          }
+          "config": { "label": "Price", "placeholder": "" }
         },
         "description": {
           "type": "StructuredText",
@@ -71,7 +63,7 @@
             "label": "Features",
             "placeholder": "",
             "allowTargetBlank": true,
-            "single": "list-item,strong,em"
+            "multi": "strong,em,list-item"
           }
         },
         "featured": {
@@ -100,9 +92,7 @@
             "placeholder": "This is where it all begins...",
             "allowTargetBlank": true,
             "single": "heading2,strong,em",
-            "labels": [
-              "highlight"
-            ]
+            "labels": ["highlight"]
           }
         },
         "description": {
@@ -134,34 +124,21 @@
         },
         "promo_link_label": {
           "type": "Text",
-          "config": {
-            "label": "Promo Link Label",
-            "placeholder": ""
-          }
+          "config": { "label": "Promo Link Label", "placeholder": "" }
         },
         "promo_link": {
           "type": "Link",
-          "config": {
-            "label": "Promo Link",
-            "placeholder": "",
-            "select": null
-          }
+          "config": { "label": "Promo Link", "placeholder": "", "select": null }
         }
       },
       "items": {
         "name": {
           "type": "Text",
-          "config": {
-            "label": "Name",
-            "placeholder": ""
-          }
+          "config": { "label": "Name", "placeholder": "" }
         },
         "price": {
           "type": "Text",
-          "config": {
-            "label": "Price",
-            "placeholder": ""
-          }
+          "config": { "label": "Price", "placeholder": "" }
         },
         "description": {
           "type": "StructuredText",
@@ -186,7 +163,7 @@
             "label": "Features",
             "placeholder": "",
             "allowTargetBlank": true,
-            "single": "list-item,strong,em"
+            "multi": "strong,em,list-item"
           }
         }
       },

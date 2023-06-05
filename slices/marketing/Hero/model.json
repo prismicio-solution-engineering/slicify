@@ -100,9 +100,6 @@
             "label": "Title",
             "placeholder": "",
             "allowTargetBlank": true,
-            "labels": [
-              "highlight"
-            ],
             "single": "heading1"
           }
         },
