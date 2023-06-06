@@ -31,13 +31,13 @@ export default function BlogLayout(props: PropsWithChildren<BlogLayoutProps>) {
       <section>
         <div className="relative isolate overflow-hidden bg-black px-6">
           <PrismicNextImage
-            className="absolute inset-0 -z-10 h-full w-full object-cover object-right md:object-center"
+            className="absolute inset-0 -z-10 h-full w-full object-cover object-right md:object-center opacity-75"
             field={props.page.data.featured_image}
             width={2245}
             height={1636}
             unoptimized
           />
-          <div className="mx-auto p-12 px-14 rounded-xl my-16 max-w-4xl bg-white bg-opacity-50 flex flex-col gap-6">
+          <div className="mx-auto p-12 px-14 rounded-xl my-16 max-w-4xl bg-white bg-opacity-90 flex flex-col gap-6">
             <div className="text-gray-500 border-l-2 border-l-light-blue-70 pl-3 text-base">
               <time dateTime={props.page.last_publication_date}>
                 {new Date(props.page.last_publication_date).toLocaleDateString(
