@@ -1,10 +1,10 @@
 const prismic = require("@prismicio/client");
-const sm = require("./slicemachine.config.json");
+//const sm = require("./slicemachine.config.json");
 
 /** @type {import('next').NextConfig} */
 
 const nextConfig = async () => {
-  const client = prismic.createClient(sm.apiEndpoint);
+  const client = prismic.createClient("https://prupify.prismic.io/api/v2");
 
   const repository = await client.getRepository();
   const locales = repository.languages.map((lang) => lang.id);
