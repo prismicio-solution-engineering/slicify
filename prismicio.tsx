@@ -5,7 +5,7 @@ import { KeyTextField } from "@prismicio/types";
 import Link, { LinkProps } from "next/link";
 
 export const repositoryName = process.env.NEXT_PUBLIC_API_ENDPOINT
-  ? prismic.getRepositoryName("process.env.NEXT_PUBLIC_API_ENDPOINT")
+  ? prismic.getRepositoryName(process.env.NEXT_PUBLIC_API_ENDPOINT)
   : prismic.getRepositoryName("https://prupify.prismic.io/api/v2");
 
 // Update the routes array to match your project's route structure
