@@ -1,12 +1,12 @@
 import * as prismic from "@prismicio/client";
 import * as prismicNext from "@prismicio/next";
-import sm from "./slicemachine.config.json";
+//import sm from "./slicemachine.config.json";
 import { KeyTextField } from "@prismicio/types";
 import Link, { LinkProps } from "next/link";
 
 export const repositoryName = process.env.NEXT_PUBLIC_API_ENDPOINT
   ? process.env.NEXT_PUBLIC_API_ENDPOINT
-  : prismic.getRepositoryName(sm.apiEndpoint);
+  : prismic.getRepositoryName("https://prupify.prismic.io/api/v2");
 
 // Update the routes array to match your project's route structure
 /** @type {prismic.ClientConfig['routes']} **/
