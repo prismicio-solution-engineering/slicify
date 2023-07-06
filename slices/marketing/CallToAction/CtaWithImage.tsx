@@ -20,7 +20,7 @@ export default function CtaWithImage({
 }) {
   return (
     <section
-      id="get-started-today"
+      id={slice.primary.anchor || undefined}
       className={`relative overflow-hidden bg-blue-600 pt-16`}
     >
       <Image

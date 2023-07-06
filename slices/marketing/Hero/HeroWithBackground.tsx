@@ -16,7 +16,7 @@ export default function HeroWithBackground({
   video: boolean;
 }) {
   return (
-    <section>
+    <section id={slice.primary.anchor || undefined}>
       <div className="relative isolate overflow-hidden bg-black">
         {slice.variation === "withBackground" ? (
           <Image

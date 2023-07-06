@@ -52,15 +52,6 @@
           "customtypes": ["blog_category"]
         }
       },
-      "table_of_content": {
-        "type": "Boolean",
-        "config": {
-          "label": "Table Of Content",
-          "placeholder_false": "Hide",
-          "placeholder_true": "Display",
-          "default_value": true
-        }
-      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",

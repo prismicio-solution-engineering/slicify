@@ -6,7 +6,7 @@ import { handleSubmitNewsletter } from "@/utils/formHandler";
 
 export default function Form(slice: Content.FormSliceCentered) {
   return (
-    <section>
+    <section id={slice.primary.anchor || undefined}>
       <div className="mx-auto max-w-7xl sm:px-6 lg:px-8 bg-dark-gray">
         <div className="relative isolate overflow-hidden px-6 py-24 shadow-2xl sm:px-24 xl:py-32">
           <PrismicRichText

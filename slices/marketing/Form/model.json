@@ -42,6 +42,10 @@
             "allowTargetBlank": true,
             "single": "paragraph,hyperlink,strong,em"
           }
+        },
+        "anchor": {
+          "type": "Text",
+          "config": { "label": "anchor", "placeholder": "optional" }
         }
       },
       "items": {},
@@ -94,6 +98,10 @@
             "allowTargetBlank": true,
             "single": "paragraph,hyperlink,strong,em"
           }
+        },
+        "anchor": {
+          "type": "Text",
+          "config": { "label": "anchor", "placeholder": "optional" }
         }
       },
       "items": {
@@ -176,6 +184,10 @@
             "allowTargetBlank": true,
             "single": "paragraph,strong,em,hyperlink"
           }
+        },
+        "anchor": {
+          "type": "Text",
+          "config": { "label": "anchor", "placeholder": "optional" }
         }
       },
       "items": {},

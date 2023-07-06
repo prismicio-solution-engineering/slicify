@@ -1,11 +1,7 @@
 import type { Content } from "@prismicio/client";
 import {
-  PrismicLink,
   PrismicRichText,
-  SliceComponentProps,
 } from "@prismicio/react";
-import { asText } from "@prismicio/helpers";
-import Image from "next/image";
 
 // Tailwind imports
 import { Container } from "@/components/Container";
@@ -19,7 +15,7 @@ export default function TestimonialsMasonry({
 }) {
   return (
     <section
-      id="testimonials"
+      id={slice.primary.anchor || undefined}
       aria-label="What our customers are saying"
       className="bg-slate-50 py-20 sm:py-32"
     >

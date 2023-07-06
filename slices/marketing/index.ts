@@ -9,7 +9,6 @@ export const components = {
   features: dynamic(() => import("./Features")),
   form: dynamic(() => import("./Form")),
   hero: dynamic(() => import("./Hero")),
-  highlighted_text: dynamic(() => import("./HighlightedText")),
   logo_cloud: dynamic(() => import("./LogoCloud")),
   pricing: dynamic(() => import("./Pricing")),
   testimonials: dynamic(() => import("./Testimonials")),

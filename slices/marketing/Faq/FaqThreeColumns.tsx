@@ -16,7 +16,7 @@ export default function FaqThreeColumns({
   }
   return (
     <section
-      id="faq"
+      id={slice.primary.anchor || undefined}
       aria-labelledby="faq-title"
       className="relative overflow-hidden bg-slate-50 py-20 sm:py-32"
     >

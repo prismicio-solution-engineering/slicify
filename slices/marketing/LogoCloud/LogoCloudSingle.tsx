@@ -12,7 +12,7 @@ export default function LogoCloudSingle({
   slice: Content.LogoCloudSliceSingle;
 }) {
   return (
-    <section>
+    <section id={slice.primary.anchor || undefined}>
       <Container className="pb-16 pt-20 text-center lg:pt-32">
         <div className="font-display text-3xl text-slate-900">
           <span className="relative whitespace-nowrap">

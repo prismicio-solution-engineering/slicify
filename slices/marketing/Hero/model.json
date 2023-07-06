@@ -28,6 +28,10 @@
             "allowTargetBlank": true,
             "single": "paragraph,strong,hyperlink"
           }
+        },
+        "anchor": {
+          "type": "Text",
+          "config": { "label": "anchor", "placeholder": "optional" }
         }
       },
       "items": {
@@ -65,6 +69,10 @@
             "allowTargetBlank": true,
             "single": "heading1,strong"
           }
+        },
+        "anchor": {
+          "type": "Text",
+          "config": { "label": "anchor", "placeholder": "optional" }
         }
       },
       "items": {},
@@ -94,6 +102,10 @@
             "allowTargetBlank": true,
             "single": "paragraph,strong,hyperlink"
           }
+        },
+        "anchor": {
+          "type": "Text",
+          "config": { "label": "anchor", "placeholder": "optional" }
         }
       },
       "items": {
@@ -144,6 +156,10 @@
         "background_video": {
           "type": "Embed",
           "config": { "label": "Background Video", "placeholder": "" }
+        },
+        "anchor": {
+          "type": "Text",
+          "config": { "label": "anchor", "placeholder": "optional" }
         }
       },
       "items": {

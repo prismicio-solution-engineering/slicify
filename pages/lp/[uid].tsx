@@ -3,7 +3,7 @@ import type { GetStaticPropsContext, InferGetStaticPropsType } from "next";
 import { createClient } from "@/prismicio";
 import { Content } from "@prismicio/client";
 import { SliceZone } from "@prismicio/react";
-import * as prismicH from "@prismicio/helpers";
+import * as prismic from "@prismicio/client";
 import { components } from "@/slices/marketing";
 import MarketingLayout from "@/components/MarketingLayout";
 import { getLanguages } from "@/utils/getLanguages";
@@ -90,7 +90,7 @@ export async function getStaticPaths() {
   const client = createClient();
   const documents = await client.getAllByType("landing_page", { lang: "*" });
   return {
-    paths: documents.map((page) => `${prismicH.asLink(page)}`),
+    paths: documents.map((page) => `${prismic.asLink(page)}`),
     fallback: false, // if a page has already been generated but doesn't show => display the cached page
   };
 }

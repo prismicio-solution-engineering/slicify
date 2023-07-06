@@ -19,7 +19,7 @@ export default function CtaSimple({
 }) {
   return (
     <section
-      id="get-started-today"
+      id={slice.primary.anchor || undefined}
       className={`relative overflow-hidden ${
         withBackground && "bg-blue-600"
       } py-32`}
