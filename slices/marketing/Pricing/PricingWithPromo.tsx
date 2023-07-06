@@ -38,15 +38,13 @@ export default function PricingWithPromo({
                   {children}
                 </h2>
               ),
-              label: ({ node, children }) => {
+              strong: ({ children }) => {
                 return (
                   <>
-                    {node.data.label === "highlight" && (
-                      <span className="relative whitespace-nowrap">
-                        <SwirlyDoodle className="absolute left-0 top-1/2 h-[1em] w-full fill-blue-400" />
-                        <span className="relative">{children}</span>
-                      </span>
-                    )}
+                    <span className="relative whitespace-nowrap">
+                      <SwirlyDoodle className="absolute left-0 top-1/2 h-[1em] w-full fill-blue-400" />
+                      <span className="relative">{children}</span>
+                    </span>
                   </>
                 );
               },

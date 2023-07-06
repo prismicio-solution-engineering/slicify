@@ -48,18 +48,17 @@ export default function CtaSimple({
                   {children}
                 </h2>
               ),
-              label: ({ node, children }) => {
+              strong: ({ children }) => {
                 return (
                   <>
-                    {node.data.label === "highlight" &&
-                      (!withBackground ? (
+                    {!withBackground ? (
                         <span className="relative whitespace-nowrap text-blue-600">
                           <UnderlineDoodle className="absolute left-0 top-2/3 h-[0.58em] w-full fill-blue-300/70" />
                           <span className="relative">{children}</span>
                         </span>
                       ) : (
-                        <span className="relative">{children}</span>
-                      ))}
+                        <strong className="relative">{children}</strong>
+                    )}
                   </>
                 );
               },

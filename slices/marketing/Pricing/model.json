@@ -17,8 +17,7 @@
             "label": "Title",
             "placeholder": "This is where it all begins...",
             "allowTargetBlank": true,
-            "single": "heading2,strong,em",
-            "labels": ["highlight"]
+            "single": "heading2,strong,em"
           }
         },
         "description": {
@@ -91,8 +90,7 @@
             "label": "Title",
             "placeholder": "This is where it all begins...",
             "allowTargetBlank": true,
-            "single": "heading2,strong,em",
-            "labels": ["highlight"]
+            "single": "heading2,strong,em"
           }
         },
         "description": {

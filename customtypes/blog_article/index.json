@@ -3,6 +3,7 @@
   "label": "Blog Article",
   "repeatable": true,
   "status": true,
+  "format": "page",
   "json": {
     "Main": {
       "uid": {
@@ -15,8 +16,7 @@
           "label": "Title",
           "placeholder": "",
           "allowTargetBlank": true,
-          "labels": ["highlight"],
-          "single": "heading1"
+          "single": "heading1,strong"
         }
       },
       "author": {
@@ -76,7 +76,6 @@
         }
       }
     },
-    "Header": {},
     "SEO and Metadata": {
       "meta_title": {
         "type": "Text",

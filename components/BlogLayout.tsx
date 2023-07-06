@@ -62,15 +62,13 @@ export default function BlogLayout(props: PropsWithChildren<BlogLayoutProps>) {
                     {children}
                   </h1>
                 ),
-                label: ({ node, children }) => {
+                strong: ({ children }) => {
                   return (
                     <>
-                      {node.data.label === "highlight" && (
-                        <span className="relative font-display whitespace-nowrap text-vibrant-blue">
-                          <UnderlineDoodle className="absolute left-0 top-2/3 h-[0.58em] w-full fill-light-blue-70" />
-                          <span className="relative">{children}</span>
-                        </span>
-                      )}
+                      <span className="relative font-display whitespace-nowrap text-vibrant-blue">
+                        <UnderlineDoodle className="absolute left-0 top-2/3 h-[0.58em] w-full fill-light-blue-70" />
+                        <span className="relative">{children}</span>
+                      </span>
                     </>
                   );
                 },

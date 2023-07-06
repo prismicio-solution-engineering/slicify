@@ -58,14 +58,14 @@ interface BlogArticleDocumentData {
   /**
    * Title field in *Blog Article*
    *
-   * - **Field Type**: Title
+   * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
    * - **API ID Path**: blog_article.title
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
    *
    */
-  title: prismic.TitleField;
+  title: prismic.RichTextField;
   /**
    * Author field in *Blog Article*
    *
@@ -776,8 +776,7 @@ type HomePageDocumentDataSlicesSlice =
   | FaqSlice
   | HeroSlice
   | LogoCloudSlice
-  | TestimonialsSlice
-  | TextSlice;
+  | TestimonialsSlice;
 /**
  * Item in Home Page → Social Cards - Facebook & Twitter
  *
@@ -1101,13 +1100,13 @@ interface CallToActionSliceWhiteBackgroundPrimary {
   /**
    * Title field in *CallToAction → Primary*
    *
-   * - **Field Type**: Title
+   * - **Field Type**: Rich Text
    * - **Placeholder**: This is where it all begins...
    * - **API ID Path**: call_to_action.primary.title
    * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
    *
    */
-  title: prismic.TitleField;
+  title: prismic.RichTextField;
   /**
    * Description field in *CallToAction → Primary*
    *
@@ -2220,13 +2219,13 @@ interface HeroSliceDefaultPrimary {
   /**
    * Title field in *Hero → Primary*
    *
-   * - **Field Type**: Title
+   * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
    * - **API ID Path**: hero.primary.title
    * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
    *
    */
-  title: prismic.TitleField;
+  title: prismic.RichTextField;
   /**
    * Description field in *Hero → Primary*
    *
@@ -2295,13 +2294,13 @@ interface HeroSliceTitleOnlyPrimary {
   /**
    * Title field in *Hero → Primary*
    *
-   * - **Field Type**: Title
+   * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
    * - **API ID Path**: hero.primary.title
    * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
    *
    */
-  title: prismic.TitleField;
+  title: prismic.RichTextField;
 }
 /**
  * Title Only variation for Hero Slice
@@ -2324,13 +2323,13 @@ interface HeroSliceWithBackgroundPrimary {
   /**
    * Title field in *Hero → Primary*
    *
-   * - **Field Type**: Title
+   * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
    * - **API ID Path**: hero.primary.title
    * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
    *
    */
-  title: prismic.TitleField;
+  title: prismic.RichTextField;
   /**
    * Description field in *Hero → Primary*
    *
@@ -2399,13 +2398,13 @@ interface HeroSliceWithVideoBackgroundPrimary {
   /**
    * Title field in *Hero → Primary*
    *
-   * - **Field Type**: Title
+   * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
    * - **API ID Path**: hero.primary.title
    * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
    *
    */
-  title: prismic.TitleField;
+  title: prismic.RichTextField;
   /**
    * Description field in *Hero → Primary*
    *
