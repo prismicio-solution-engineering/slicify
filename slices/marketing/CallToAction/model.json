@@ -36,6 +36,10 @@
         "cta_link": {
           "type": "Link",
           "config": { "label": "Cta Link", "placeholder": "", "select": null }
+        },
+        "anchor": {
+          "type": "Text",
+          "config": { "label": "anchor", "placeholder": "optional" }
         }
       },
       "items": {},
@@ -73,6 +77,10 @@
         "cta_link": {
           "type": "Link",
           "config": { "label": "Cta Link", "placeholder": "", "select": null }
+        },
+        "anchor": {
+          "type": "Text",
+          "config": { "label": "anchor", "placeholder": "optional" }
         }
       },
       "items": {},
@@ -110,6 +118,10 @@
             "constraint": { "width": 912, "height": 615 },
             "thumbnails": []
           }
+        },
+        "anchor": {
+          "type": "Text",
+          "config": { "label": "anchor", "placeholder": "optional" }
         }
       },
       "items": {
@@ -164,6 +176,10 @@
             "constraint": { "width": 1824, "height": 1080 },
             "thumbnails": []
           }
+        },
+        "anchor": {
+          "type": "Text",
+          "config": { "label": "anchor", "placeholder": "optional" }
         }
       },
       "items": {

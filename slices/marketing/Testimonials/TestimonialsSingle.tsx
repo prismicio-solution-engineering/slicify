@@ -17,7 +17,7 @@ export default function TestimonialsSingle({
   centered: boolean;
 }) {
   return (
-    <section className="relative overflow-hidden">
+    <section id={slice.primary.anchor || undefined} className="relative overflow-hidden">
       <Image
         className="absolute left-1/2 top-1/2 max-w-none -translate-x-1/2 -translate-y-1/2"
         src={backgroundImage}

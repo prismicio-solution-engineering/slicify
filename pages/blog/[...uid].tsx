@@ -1,9 +1,8 @@
 import Head from "next/head";
 import type { GetStaticPropsContext, InferGetStaticPropsType } from "next";
 import { createClient } from "@/prismicio";
-import { Content } from "@prismicio/client";
 import { SliceZone } from "@prismicio/react";
-import * as prismicH from "@prismicio/helpers";
+import * as prismic from "@prismicio/client";
 import { components as mktComponents } from "@/slices/marketing";
 import { components as blogComponents } from "@/slices/blog";
 import {
@@ -68,7 +67,7 @@ export async function getStaticProps({
 
     const page =
       //    ^ Typed as BlogIndexDocument
-      await client.getByUID<Content.BlogArticleDocument>(
+      await client.getByUID<prismic.Content.BlogArticleDocument>(
         "blog_article",
         // params.uid,
         slug,
@@ -77,7 +76,7 @@ export async function getStaticProps({
       );
 
     const linkedBlogArticles =
-      await client.getByUID<Content.BlogArticleDocument>(
+      await client.getByUID<prismic.Content.BlogArticleDocument>(
         //    ^ Typed as BlogArticleDocument
         "blog_article",
         slug,
@@ -95,12 +94,12 @@ export async function getStaticProps({
       },
     };
 
-    const header = await client.getSingle<Content.HeaderDocument>("header", {
+    const header = await client.getSingle<prismic.Content.HeaderDocument>("header", {
       lang: locale,
     });
     //    ^ Typed as HeaderDocument
 
-    const footer = await client.getSingle<Content.FooterDocument>("footer", {
+    const footer = await client.getSingle<prismic.Content.FooterDocument>("footer", {
       lang: locale,
     });
     //    ^ Typed as FooterDocument
@@ -130,12 +129,12 @@ export async function getStaticPaths() {
   const documents = await client.getAllByType("blog_article", { lang: "*" });
 
   return {
-    paths: documents.map((page) => `${prismicH.asLink(page)}`),
+    paths: documents.map((page) => `${prismic.asLink(page)}`),
     fallback: false, // if a page has already been generated but doesn't show => display the cached page
   };
 }
 
-function enrichSlices(mainSlices: TSliceZone<Content.BlogArticleDocumentDataSlicesSlice>, linkedDataSlices: TSliceZone<Content.BlogArticleDocumentDataSlicesSlice>, slicesToEnrich: string[]) : TSliceZone<Content.BlogArticleDocumentDataSlicesSlice> {
+function enrichSlices(mainSlices: TSliceZone<prismic.Content.BlogArticleDocumentDataSlicesSlice>, linkedDataSlices: TSliceZone<prismic.Content.BlogArticleDocumentDataSlicesSlice>, slicesToEnrich: string[]) : TSliceZone<prismic.Content.BlogArticleDocumentDataSlicesSlice> {
   let index = 0;
   if(mainSlices.length > 0){
     const enrichedSlices = mainSlices.map((slice) => {

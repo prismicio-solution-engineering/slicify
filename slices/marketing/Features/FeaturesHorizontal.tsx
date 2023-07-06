@@ -9,7 +9,7 @@ import clsx from "clsx";
 
 import { Container } from "@/components/Container";
 import backgroundImage from "@/images/background-features.jpg";
-import { asText } from "@prismicio/helpers";
+import { asText } from "@prismicio/client";
 import { PrismicNextImage } from "@prismicio/next";
 
 export default function FeaturesHorizontal({
@@ -37,7 +37,7 @@ export default function FeaturesHorizontal({
   }, []);
   return (
     <section
-      id="features"
+      id={slice.primary.anchor || undefined}
       aria-label="Features for running your books"
       className="relative overflow-hidden bg-blue-600 pb-28 pt-20 sm:py-32"
     >

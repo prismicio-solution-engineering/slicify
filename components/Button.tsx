@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import { PrismicLink } from "@prismicio/react";
-import type * as prismicT from "@prismicio/types";
+import type * as prismic from "@prismicio/client";
 import type * as clsxT from "clsx";
 
 const baseStyles: clsxT.ClassDictionary = {
@@ -40,7 +40,7 @@ export function Button({
   className?: string;
   children?: React.ReactNode;
   href?: string;
-  field?: prismicT.LinkField;
+  field?: prismic.LinkField;
   submit?: boolean;
 }) {
   className = clsx(

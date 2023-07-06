@@ -1,7 +1,7 @@
 import * as prismic from "@prismicio/client";
 import * as prismicNext from "@prismicio/next";
 import sm from "./slicemachine.config.json";
-import { KeyTextField } from "@prismicio/types";
+import { KeyTextField } from "@prismicio/client";
 import Link, { LinkProps } from "next/link";
 
 export const repositoryName = process.env.NEXT_PUBLIC_API_ENDPOINT

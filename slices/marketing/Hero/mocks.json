@@ -24,6 +24,11 @@
 						}
 					}
 				]
+			},
+			"anchor": {
+				"__TYPE__": "FieldContent",
+				"value": "empty",
+				"type": "Text"
 			}
 		},
 		"items": [

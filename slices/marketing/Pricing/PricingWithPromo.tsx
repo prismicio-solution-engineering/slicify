@@ -16,7 +16,7 @@ export default function PricingWithPromo({
 }) {
   return (
     <section
-      id="pricing"
+      id={slice.primary.anchor || undefined}
       aria-label="Pricing"
       className="" //py-20 sm:py-32
     >

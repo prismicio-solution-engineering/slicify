@@ -1,12 +1,12 @@
 import { PrismicLink } from "@prismicio/react";
-import type * as prismicT from "@prismicio/types";
+import type * as prismic from "@prismicio/client";
 import { ReactNode } from "react";
 
 export function NavLink({
   field,
   children,
 }: {
-  field: prismicT.LinkField;
+  field: prismic.LinkField;
   children: ReactNode;
 }) {
   return (

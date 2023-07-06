@@ -12,7 +12,7 @@ export default function HeroSimple({
   withoutCta: boolean;
 }) {
   return (
-    <section>
+    <section id={slice.primary.anchor || undefined}>
       <Container className="pb-16 pt-20 text-center lg:pt-32">
         <PrismicRichText
           field={slice.primary.title}

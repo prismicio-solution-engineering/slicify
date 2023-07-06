@@ -13,7 +13,7 @@ export default function LogoCloudSimple({
   darkMode: boolean;
 }) {
   return (
-    <section className={`pb-16 pt-20 lg:pt-32  ${darkMode && "bg-dark-blue"}`}>
+    <section id={slice.primary.anchor || undefined} className={`pb-16 pt-20 lg:pt-32  ${darkMode && "bg-dark-blue"}`}>
       <Container className="text-center">
         <PrismicRichText
           field={slice.primary.title}

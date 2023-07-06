@@ -28,7 +28,7 @@ export default function PricingDefault({
 }) {
   return (
     <section
-      id="pricing"
+      id={slice.primary.anchor || undefined}
       aria-label="Pricing"
       className="bg-slate-900 py-20 sm:py-32"
     >
