@@ -57,11 +57,11 @@ export function ArticleListVertical(
               <div className="py-2 flex-1 px-4 lg:px-0">
                 <div className="flex flex-row items-center text-sm gap-x-4">
                   <time
-                    dateTime={prismicH
+                    dateTime={article.last_publication_date && prismicH
                       .asDate(article.last_publication_date as `${number}-${number}-${number}T${number}:${number}:${number}+${number}`)
                       .toISOString()}
                   >
-                    {prismicH
+                    {article.last_publication_date && prismicH
                       .asDate(article.last_publication_date as `${number}-${number}-${number}T${number}:${number}:${number}+${number}`)
                       .toLocaleString(article.lang, {
                         year: "numeric",
