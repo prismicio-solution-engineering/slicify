@@ -4,7 +4,9 @@ const sm = require("./slicemachine.config.json");
 /** @type {import('next').NextConfig} */
 
 const nextConfig = async () => {
-  const client = prismic.createClient(sm.apiEndpoint);
+  const client = prismic.createClient(process.env.NEXT_PUBLIC_PRISMIC_REPO
+    ? process.env.NEXT_PUBLIC_PRISMIC_REPO
+    : sm.apiEndpoint);
 
   const repository = await client.getRepository();
   const locales = repository.languages.map((lang) => lang.id);
