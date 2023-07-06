@@ -63,11 +63,11 @@ function HorizontalThreeColumn({
                   <div className="max-w-xl p-6">
                     <div className="flex items-center gap-x-4 text-xs">
                       <time
-                        dateTime={prismicH
+                        dateTime={post.article.last_publication_date && prismicH
                           .asDate(post.article.last_publication_date as `${number}-${number}-${number}T${number}:${number}:${number}+${number}`)
                           .toISOString()}
                       >
-                        {prismicH
+                        {post.article.last_publication_date && prismicH
                           .asDate(post.article.last_publication_date  as `${number}-${number}-${number}T${number}:${number}:${number}+${number}`)
                           .toLocaleString(post.article.lang, {
                             year: "numeric",
