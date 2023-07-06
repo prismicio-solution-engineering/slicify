@@ -1,0 +1,7 @@
+{
+  "apiEndpoint": "https://slicify-playground.cdn.prismic.io/api/v2",
+  "repositoryName": "slicify-playground",
+  "adapter": "@slicemachine/adapter-next",
+  "libraries": ["./slices/marketing","./slices/blog"],
+  "localSliceSimulatorURL": "http://localhost:3000/slice-simulator"
+}
