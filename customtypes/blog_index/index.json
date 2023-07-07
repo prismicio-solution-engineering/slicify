@@ -3,6 +3,7 @@
   "label": "Blog index",
   "repeatable": false,
   "status": true,
+  "format": "page",
   "json": {
     "Main": {
       "title": {

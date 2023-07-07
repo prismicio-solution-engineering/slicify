@@ -17,10 +17,7 @@
             "label": "Title",
             "placeholder": "",
             "allowTargetBlank": true,
-            "labels": [
-              "highlight"
-            ],
-            "single": "heading1"
+            "single": "heading1,strong"
           }
         },
         "description": {
@@ -31,34 +28,27 @@
             "allowTargetBlank": true,
             "single": "paragraph,strong,hyperlink"
           }
+        },
+        "anchor": {
+          "type": "Text",
+          "config": { "label": "anchor", "placeholder": "optional" }
         }
       },
       "items": {
         "cta_label": {
           "type": "Text",
-          "config": {
-            "label": "Cta Label",
-            "placeholder": ""
-          }
+          "config": { "label": "Cta Label", "placeholder": "" }
         },
         "cta_link": {
           "type": "Link",
-          "config": {
-            "label": "Cta Link",
-            "placeholder": "",
-            "select": null
-          }
+          "config": { "label": "Cta Link", "placeholder": "", "select": null }
         },
         "cta_type": {
           "type": "Select",
           "config": {
             "label": "Cta Type",
             "placeholder": "",
-            "options": [
-              "Primary",
-              "Secondary",
-              "Text"
-            ]
+            "options": ["Primary", "Secondary", "Text"]
           }
         }
       },
@@ -77,11 +67,12 @@
             "label": "Title",
             "placeholder": "",
             "allowTargetBlank": true,
-            "labels": [
-              "highlight"
-            ],
-            "single": "heading1"
+            "single": "heading1,strong"
           }
+        },
+        "anchor": {
+          "type": "Text",
+          "config": { "label": "anchor", "placeholder": "optional" }
         }
       },
       "items": {},
@@ -100,7 +91,7 @@
             "label": "Title",
             "placeholder": "",
             "allowTargetBlank": true,
-            "single": "heading1"
+            "single": "heading1,strong"
           }
         },
         "description": {
@@ -111,34 +102,27 @@
             "allowTargetBlank": true,
             "single": "paragraph,strong,hyperlink"
           }
+        },
+        "anchor": {
+          "type": "Text",
+          "config": { "label": "anchor", "placeholder": "optional" }
         }
       },
       "items": {
         "cta_label": {
           "type": "Text",
-          "config": {
-            "label": "Cta Label",
-            "placeholder": ""
-          }
+          "config": { "label": "Cta Label", "placeholder": "" }
         },
         "cta_link": {
           "type": "Link",
-          "config": {
-            "label": "Cta Link",
-            "placeholder": "",
-            "select": null
-          }
+          "config": { "label": "Cta Link", "placeholder": "", "select": null }
         },
         "cta_type": {
           "type": "Select",
           "config": {
             "label": "Cta Type",
             "placeholder": "",
-            "options": [
-              "Primary",
-              "Secondary",
-              "Text"
-            ]
+            "options": ["Primary", "Secondary", "Text"]
           }
         }
       },
@@ -157,10 +141,7 @@
             "label": "Title",
             "placeholder": "",
             "allowTargetBlank": true,
-            "labels": [
-              "highlight"
-            ],
-            "single": "heading1"
+            "single": "heading1,strong"
           }
         },
         "description": {
@@ -174,38 +155,28 @@
         },
         "background_video": {
           "type": "Embed",
-          "config": {
-            "label": "Background Video",
-            "placeholder": ""
-          }
+          "config": { "label": "Background Video", "placeholder": "" }
+        },
+        "anchor": {
+          "type": "Text",
+          "config": { "label": "anchor", "placeholder": "optional" }
         }
       },
       "items": {
         "cta_label": {
           "type": "Text",
-          "config": {
-            "label": "Cta Label",
-            "placeholder": ""
-          }
+          "config": { "label": "Cta Label", "placeholder": "" }
         },
         "cta_link": {
           "type": "Link",
-          "config": {
-            "label": "Cta Link",
-            "placeholder": "",
-            "select": null
-          }
+          "config": { "label": "Cta Link", "placeholder": "", "select": null }
         },
         "cta_type": {
           "type": "Select",
           "config": {
             "label": "Cta Type",
             "placeholder": "",
-            "options": [
-              "Primary",
-              "Secondary",
-              "Text"
-            ]
+            "options": ["Primary", "Secondary", "Text"]
           }
         }
       },

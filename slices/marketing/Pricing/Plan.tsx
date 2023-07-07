@@ -1,4 +1,4 @@
-import type * as prismicT from "@prismicio/types";
+import type * as prismic from "@prismicio/client";
 import clsx from "clsx";
 import { PrismicRichText } from "@prismicio/react";
 
@@ -39,11 +39,11 @@ export default function Plan({
   featured = false,
   lightTheme = false,
 }: {
-  name: prismicT.KeyTextField;
-  price: prismicT.KeyTextField;
-  description: prismicT.RichTextField;
-  link: prismicT.LinkField;
-  features: prismicT.RichTextField;
+  name: prismic.KeyTextField;
+  price: prismic.KeyTextField;
+  description: prismic.RichTextField;
+  link: prismic.LinkField;
+  features: prismic.RichTextField;
   featured?: boolean;
   lightTheme?: boolean;
 }) {

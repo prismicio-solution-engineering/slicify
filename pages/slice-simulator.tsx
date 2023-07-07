@@ -1,4 +1,4 @@
-import { SliceSimulator } from "@prismicio/slice-simulator-react";
+import { SliceSimulator } from '@slicemachine/adapter-next/simulator'
 import { SliceZone } from "@prismicio/react";
 
 import { components as mktComponents } from "../slices/marketing";
@@ -6,13 +6,12 @@ import { components as blogComponents } from "../slices/blog";
 
 const SliceSimulatorPage = () => (
   <SliceSimulator
-    sliceZone={({ slices }) => (
+    sliceZone={(props) => (
       <SliceZone
-        slices={slices}
+        {...props}
         components={{ ...mktComponents, ...blogComponents }}
       />
     )}
-    state={{}}
   />
 );
 

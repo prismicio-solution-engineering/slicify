@@ -7,7 +7,7 @@ export default function FaqTwoColumns({
   slice: Content.FaqSliceTwoColumns;
 }) {
   return (
-    <div className="bg-gray-900">
+    <div className="bg-gray-900" id={slice.primary.anchor || undefined}>
       <div className="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8">
         <PrismicRichText
           field={slice.primary.title}

@@ -1,23 +1,16 @@
-import { useEffect } from "react";
 import type { Content } from "@prismicio/client";
+import SyntaxHighlighter from 'react-syntax-highlighter';
 import {
   PrismicLink,
   PrismicRichText,
   SliceComponentProps,
 } from "@prismicio/react";
-import hljs from "highlight.js";
-import javascript from "highlight.js/lib/languages/javascript";
-import json from "highlight.js/lib/languages/json";
 
-hljs.registerLanguage("javascript", javascript);
-hljs.registerLanguage("json", json);
+import { dark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
 export type TextProps = SliceComponentProps<Content.TextSlice>;
 
 export default function Text({ slice }: TextProps) {
-  useEffect(() => {
-    hljs.highlightAll();
-  }, []);
   return (
     <section className="max-w-4xl px-6 mx-auto flex flex-col gap-4">
       <PrismicRichText
@@ -55,7 +48,9 @@ export default function Text({ slice }: TextProps) {
           ),
           preformatted: ({ node }) => (
             <pre className="my-3 p-2 md:p-6 bg-[#0d1117] rounded-xl shadow-lg">
-              <code className="">{node.text}</code>
+              <SyntaxHighlighter style={dark} customStyle={{backgroundColor: "#0d1117", borderColor: "#0d1117"}}>
+                {node.text}
+              </SyntaxHighlighter>
             </pre>
           ),
           list: ({ children }) => (

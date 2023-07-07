@@ -12,7 +12,7 @@ export default function TestimonialsScrollingCards({
   slice: Content.TestimonialsSliceScrollingCards;
 }) {
   return (
-    <section className="bg-slate-50 py-20 sm:py-32">
+    <section id={slice.primary.anchor || undefined} className="bg-slate-50 py-20 sm:py-32">
       <Container>
         <div className="mx-auto max-w-2xl md:text-center">
           <PrismicRichText

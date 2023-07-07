@@ -6,7 +6,7 @@ import { Tab } from "@headlessui/react";
 import clsx from "clsx";
 
 import { Container } from "@/components/Container";
-import { asText } from "@prismicio/helpers";
+import { asText } from "@prismicio/client";
 import { PrismicNextImage } from "@prismicio/next";
 import { Simplify } from "@prismicio/types/dist/value/types";
 
@@ -184,7 +184,7 @@ export default function FeaturesVertical({
 }) {
   return (
     <section
-      id="secondary-features"
+      id={slice.primary.anchor || undefined}
       aria-label="Features for simplifying everyday business tasks"
       className="pb-14 pt-20 sm:pb-20 sm:pt-32 lg:pb-32"
     >

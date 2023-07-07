@@ -3,6 +3,7 @@
   "label": "Home Page",
   "repeatable": false,
   "status": true,
+  "format": "page",
   "json": {
     "Main": {
       "slices": {
@@ -17,8 +18,7 @@
             "faq": { "type": "SharedSlice" },
             "hero": { "type": "SharedSlice" },
             "logo_cloud": { "type": "SharedSlice" },
-            "testimonials": { "type": "SharedSlice" },
-            "text": { "type": "SharedSlice" }
+            "testimonials": { "type": "SharedSlice" }
           }
         }
       }

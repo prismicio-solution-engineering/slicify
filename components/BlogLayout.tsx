@@ -35,7 +35,7 @@ export default function BlogLayout(props: PropsWithChildren<BlogLayoutProps>) {
             field={props.page.data.featured_image}
             width={2245}
             height={1636}
-            unoptimized
+            priority
           />
           <div className="mx-auto p-12 px-14 rounded-xl my-16 max-w-4xl bg-white bg-opacity-90 flex flex-col gap-6">
             <div className="text-gray-500 border-l-2 border-l-light-blue-70 pl-3 text-base">
@@ -62,15 +62,13 @@ export default function BlogLayout(props: PropsWithChildren<BlogLayoutProps>) {
                     {children}
                   </h1>
                 ),
-                label: ({ node, children }) => {
+                strong: ({ children }) => {
                   return (
                     <>
-                      {node.data.label === "highlight" && (
-                        <span className="relative font-display whitespace-nowrap text-vibrant-blue">
-                          <UnderlineDoodle className="absolute left-0 top-2/3 h-[0.58em] w-full fill-light-blue-70" />
-                          <span className="relative">{children}</span>
-                        </span>
-                      )}
+                      <span className="relative font-display whitespace-nowrap text-vibrant-blue">
+                        <UnderlineDoodle className="absolute left-0 top-2/3 h-[0.58em] w-full fill-light-blue-70" />
+                        <span className="relative">{children}</span>
+                      </span>
                     </>
                   );
                 },

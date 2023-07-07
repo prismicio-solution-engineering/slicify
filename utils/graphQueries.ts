@@ -1,13 +1,12 @@
-import * as prismicT from "@prismicio/types"
-import * as prismicH from "@prismicio/helpers"
+import * as prismic from "@prismicio/client"
 import { AuthorDocument, BlogArticleDocument, BlogCategoryDocument } from "@/prismicio-types";
 
 export const isOfTypeBlogArticleDocument= 
-  (contentRelationshipField: prismicT.ContentRelationshipField | undefined): contentRelationshipField is prismicT.ContentRelationshipField &
+  (contentRelationshipField: prismic.ContentRelationshipField | undefined): contentRelationshipField is prismic.ContentRelationshipField &
   BlogArticleDocument
  | undefined =>  {
   return (
-    prismicH.isFilled.contentRelationship(contentRelationshipField) &&
+    prismic.isFilled.contentRelationship(contentRelationshipField) &&
     typeof contentRelationshipField.data === "object" &&
     contentRelationshipField.data !== null &&
     "featured_image" in contentRelationshipField.data
@@ -15,11 +14,11 @@ export const isOfTypeBlogArticleDocument=
 };
 
 export const isOfTypeBlogCategoryDocument= 
-  (contentRelationshipField: prismicT.ContentRelationshipField | undefined): contentRelationshipField is prismicT.ContentRelationshipField &
+  (contentRelationshipField: prismic.ContentRelationshipField | undefined): contentRelationshipField is prismic.ContentRelationshipField &
   BlogCategoryDocument
  | undefined =>  {
   return (
-    prismicH.isFilled.contentRelationship(contentRelationshipField) &&
+    prismic.isFilled.contentRelationship(contentRelationshipField) &&
     typeof contentRelationshipField.data === "object" &&
     contentRelationshipField.data !== null &&
     "category_name" in contentRelationshipField.data
@@ -27,11 +26,11 @@ export const isOfTypeBlogCategoryDocument=
 };
 
 export const isOfTypeAuthorDocument= 
-  (contentRelationshipField: prismicT.ContentRelationshipField | undefined): contentRelationshipField is prismicT.ContentRelationshipField &
+  (contentRelationshipField: prismic.ContentRelationshipField | undefined): contentRelationshipField is prismic.ContentRelationshipField &
   AuthorDocument
  | undefined =>  {
   return (
-    prismicH.isFilled.contentRelationship(contentRelationshipField) &&
+    prismic.isFilled.contentRelationship(contentRelationshipField) &&
     typeof contentRelationshipField.data === "object" &&
     contentRelationshipField.data !== null &&
     "author_image" in contentRelationshipField.data &&

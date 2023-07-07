@@ -17,8 +17,7 @@
             "label": "Title",
             "placeholder": "This is where it all begins...",
             "allowTargetBlank": true,
-            "single": "heading2,strong,em",
-            "labels": ["highlight"]
+            "single": "heading2,strong,em"
           }
         },
         "description": {
@@ -29,6 +28,10 @@
             "allowTargetBlank": true,
             "single": "paragraph,strong,em"
           }
+        },
+        "anchor": {
+          "type": "Text",
+          "config": { "label": "anchor", "placeholder": "optional" }
         }
       },
       "items": {
@@ -91,8 +94,7 @@
             "label": "Title",
             "placeholder": "This is where it all begins...",
             "allowTargetBlank": true,
-            "single": "heading2,strong,em",
-            "labels": ["highlight"]
+            "single": "heading2,strong,em"
           }
         },
         "description": {
@@ -129,6 +131,10 @@
         "promo_link": {
           "type": "Link",
           "config": { "label": "Promo Link", "placeholder": "", "select": null }
+        },
+        "anchor": {
+          "type": "Text",
+          "config": { "label": "anchor", "placeholder": "optional" }
         }
       },
       "items": {
