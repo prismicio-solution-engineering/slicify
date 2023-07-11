@@ -52,27 +52,23 @@ export async function getStaticProps({
   const client = createClient({ previewData });
   //    ^ Automatically contains references to document types
 
-  const page = await client.getSingle<Content.BlogIndexDocument>("blog_index", {
-  //    ^ Typed as BlogIndexDocument
-    lang: locale,
-  });
-
-  const header = await client.getSingle<Content.HeaderDocument>("header", {
-    lang: locale,
-  });
-  //    ^ Typed as HeaderDocument
-
-  const footer = await client.getSingle<Content.FooterDocument>("footer", {
-    lang: locale,
-  });
-  //    ^ Typed as FooterDocument
-
-  const articles = await client.getAllByType("blog_article", {
-    lang: locale,
-    graphQuery: blogIndexGraphQuery,
-  }).catch(e => {
-    return null
-  });
+  const [page,header,footer,articles] = await Promise.all([
+    client.getSingle<Content.BlogIndexDocument>("blog_index", {
+      lang: locale,
+    }),
+    client.getSingle<Content.HeaderDocument>("header", {
+        lang: locale,
+    }),
+    client.getSingle<Content.FooterDocument>("footer", {
+        lang: locale,
+    }),
+    client.getAllByType("blog_article", {
+      lang: locale,
+      graphQuery: blogIndexGraphQuery,
+    }).catch(e => {
+      return null
+    })
+  ])
 
   const languages = await getLanguages(page, client, locales);
 

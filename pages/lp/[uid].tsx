@@ -57,21 +57,18 @@ export async function getStaticProps({
     ).catch(e => {
       return null
     });
-    //    ^ Typed as BlogIndexDocument
 
     if (page) {
       
-    const header = await client.getSingle<Content.HeaderDocument>("header", {
-      lang: locale,
-    });
-    //    ^ Typed as HeaderDocument
-
-    const footer = await client.getSingle<Content.FooterDocument>("footer", {
-      lang: locale,
-    });
-    //    ^ Typed as FooterDocument
-
-    const languages = await getLanguages(page, client, locales);
+    const [header,footer,languages] = await Promise.all([
+      client.getSingle<Content.HeaderDocument>("header", {
+        lang: locale,
+      }),
+      client.getSingle<Content.FooterDocument>("footer", {
+        lang: locale,
+      }),
+      getLanguages(page, client, locales)
+    ])
 
       return {
         props: {

@@ -64,9 +64,8 @@ export async function getStaticProps({
 
     const slug = params.uid.length > 1 ? params.uid[1] : params.uid[0];
 
-
     const page =
-      //    ^ Typed as BlogIndexDocument
+      //    ^ Typed as BlogArticleDocument
       await client.getByUID<prismic.Content.BlogArticleDocument>(
         "blog_article",
         // params.uid,
@@ -79,42 +78,29 @@ export async function getStaticProps({
 
     if (page) {
 
-      const linkedBlogArticles =
-        await client.getByUID<prismic.Content.BlogArticleDocument>(
-          //    ^ Typed as BlogArticleDocument
+      const [linkedBlogArticles,header,footer,languages] = await Promise.all([
+        client.getByUID<prismic.Content.BlogArticleDocument>(
           "blog_article",
           slug,
           {
             lang: locale,
             graphQuery: blogArticleLinkedArticlesGraphQuery,
           }
-        ).catch(e => {
-          return null
-        });
+        ),
+        client.getSingle<prismic.Content.HeaderDocument>("header", {
+          lang: locale,
+        }),
+        client.getSingle<prismic.Content.FooterDocument>("footer", {
+          lang: locale,
+        }),
+        getLanguages(page, client, locales)
+      ])
 
-      const pageWithArticles = {
-        ...page,
-        data: {
-          ...page.data,
-          slices: enrichSlices(page.data.slices, linkedBlogArticles?.data.slices || [], ["article_list"])
-        },
-      };
-
-      const header = await client.getSingle<prismic.Content.HeaderDocument>("header", {
-        lang: locale,
-      });
-      //    ^ Typed as HeaderDocument
-
-      const footer = await client.getSingle<prismic.Content.FooterDocument>("footer", {
-        lang: locale,
-      });
-      //    ^ Typed as FooterDocument
-
-      const languages = await getLanguages(page, client, locales);
+      page.data.slices = enrichSlices(page.data.slices, linkedBlogArticles.data.slices, ["article_list"])
 
       return {
         props: {
-          page: pageWithArticles,
+          page: page,
           header,
           footer,
           languages,
