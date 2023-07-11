@@ -53,7 +53,7 @@ export async function getStaticProps({
   //    ^ Automatically contains references to document types
 
   const page = await client.getSingle<Content.BlogIndexDocument>("blog_index", {
-    //    ^ Typed as BlogIndexDocument
+  //    ^ Typed as BlogIndexDocument
     lang: locale,
   });
 
@@ -84,5 +84,6 @@ export async function getStaticProps({
       languages,
       articles,
     },
+    revalidate: 60,
   };
 }

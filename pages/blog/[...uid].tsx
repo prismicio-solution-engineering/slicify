@@ -73,40 +73,45 @@ export async function getStaticProps({
         slug,
         { lang: locale,
           graphQuery: blogArticleGraphQuery, }
-      );
-
-    const linkedBlogArticles =
-      await client.getByUID<prismic.Content.BlogArticleDocument>(
-        //    ^ Typed as BlogArticleDocument
-        "blog_article",
-        slug,
-        {
-          lang: locale,
-          graphQuery: blogArticleLinkedArticlesGraphQuery,
-        }
-      );
-
-    const pageWithArticles = {
-      ...page,
-      data: {
-        ...page.data,
-        slices: enrichSlices(page.data.slices, linkedBlogArticles.data.slices, ["article_list"])
-      },
-    };
-
-    const header = await client.getSingle<prismic.Content.HeaderDocument>("header", {
-      lang: locale,
-    });
-    //    ^ Typed as HeaderDocument
-
-    const footer = await client.getSingle<prismic.Content.FooterDocument>("footer", {
-      lang: locale,
-    });
-    //    ^ Typed as FooterDocument
-
-    const languages = await getLanguages(page, client, locales);
+      ).catch(e => {
+        return null
+      });
 
     if (page) {
+
+      const linkedBlogArticles =
+        await client.getByUID<prismic.Content.BlogArticleDocument>(
+          //    ^ Typed as BlogArticleDocument
+          "blog_article",
+          slug,
+          {
+            lang: locale,
+            graphQuery: blogArticleLinkedArticlesGraphQuery,
+          }
+        ).catch(e => {
+          return null
+        });
+
+      const pageWithArticles = {
+        ...page,
+        data: {
+          ...page.data,
+          slices: enrichSlices(page.data.slices, linkedBlogArticles?.data.slices || [], ["article_list"])
+        },
+      };
+
+      const header = await client.getSingle<prismic.Content.HeaderDocument>("header", {
+        lang: locale,
+      });
+      //    ^ Typed as HeaderDocument
+
+      const footer = await client.getSingle<prismic.Content.FooterDocument>("footer", {
+        lang: locale,
+      });
+      //    ^ Typed as FooterDocument
+
+      const languages = await getLanguages(page, client, locales);
+
       return {
         props: {
           page: pageWithArticles,
@@ -114,12 +119,14 @@ export async function getStaticProps({
           footer,
           languages,
         },
+        revalidate: 60,
       };
     }
   }
 
   return {
     notFound: true,
+    revalidate: 60,
   };
 }
 
@@ -130,7 +137,7 @@ export async function getStaticPaths() {
 
   return {
     paths: documents.map((page) => `${prismic.asLink(page)}`),
-    fallback: false, // if a page has already been generated but doesn't show => display the cached page
+    fallback: 'blocking', // if a page has already been generated but doesn't show => display the cached page
   };
 }
 
