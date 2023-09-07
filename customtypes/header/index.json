@@ -9,7 +9,10 @@
         "type": "Image",
         "config": {
           "label": "Logo",
-          "constraint": { "width": 436, "height": 160 },
+          "constraint": {
+            "width": 436,
+            "height": 160
+          },
           "thumbnails": []
         }
       },
@@ -29,11 +32,18 @@
             },
             "link": {
               "type": "Link",
-              "config": { "label": "Link", "placeholder": "", "select": null }
+              "config": {
+                "label": "Link",
+                "placeholder": "",
+                "select": null
+              }
             },
             "anchor": {
               "type": "Text",
-              "config": { "label": "Anchor", "placeholder": "" }
+              "config": {
+                "label": "Anchor",
+                "placeholder": ""
+              }
             },
             "link_type": {
               "type": "Select",
@@ -63,11 +73,18 @@
             },
             "link": {
               "type": "Link",
-              "config": { "label": "Link", "placeholder": "", "select": null }
+              "config": {
+                "label": "Link",
+                "placeholder": "",
+                "select": null
+              }
             },
             "anchor": {
               "type": "Text",
-              "config": { "label": "Anchor", "placeholder": "" }
+              "config": {
+                "label": "Anchor",
+                "placeholder": ""
+              }
             },
             "link_type": {
               "type": "Select",
@@ -84,8 +101,11 @@
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
-        "config": { "choices": {} }
+        "config": {
+          "choices": {}
+        }
       }
     }
-  }
+  },
+  "format": "custom"
 }
