@@ -9,7 +9,10 @@
         "type": "Image",
         "config": {
           "label": "Logo",
-          "constraint": { "width": 436, "height": 160 },
+          "constraint": {
+            "width": 436,
+            "height": 160
+          },
           "thumbnails": []
         }
       },
@@ -20,7 +23,11 @@
           "fields": {
             "link": {
               "type": "Link",
-              "config": { "label": "Link", "placeholder": "", "select": null }
+              "config": {
+                "label": "Link",
+                "placeholder": "",
+                "select": null
+              }
             },
             "label": {
               "type": "StructuredText",
@@ -43,13 +50,20 @@
               "type": "Image",
               "config": {
                 "label": "Icon",
-                "constraint": { "width": 128, "height": 128 },
+                "constraint": {
+                  "width": 128,
+                  "height": 128
+                },
                 "thumbnails": []
               }
             },
             "link": {
               "type": "Link",
-              "config": { "label": "Link", "placeholder": "", "select": null }
+              "config": {
+                "label": "Link",
+                "placeholder": "",
+                "select": null
+              }
             }
           }
         }
@@ -66,8 +80,11 @@
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
-        "config": { "choices": {} }
+        "config": {
+          "choices": {}
+        }
       }
     }
-  }
+  },
+  "format": "custom"
 }

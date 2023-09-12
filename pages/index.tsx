@@ -45,20 +45,17 @@ export async function getStaticProps({
   const client = createClient({ previewData });
   //    ^ Automatically contains references to document types
 
-  const page = await client.getSingle<Content.HomePageDocument>("home_page", {
-    lang: locale,
-  });
-  //    ^ Typed as HomePageDocument
-
-  const header = await client.getSingle<Content.HeaderDocument>("header", {
-    lang: locale,
-  });
-  //    ^ Typed as HeaderDocument
-
-  const footer = await client.getSingle<Content.FooterDocument>("footer", {
-    lang: locale,
-  });
-  //    ^ Typed as FooterDocument
+  const [page,header,footer] = await Promise.all([
+    client.getSingle<Content.HomePageDocument>("home_page", {
+      lang: locale,
+    }),
+    client.getSingle<Content.HeaderDocument>("header", {
+      lang: locale,
+    }),
+    client.getSingle<Content.FooterDocument>("footer", {
+      lang: locale,
+    })
+  ])
 
   const languages = await getLanguages(page, client, locales);
 
@@ -69,5 +66,6 @@ export async function getStaticProps({
       footer,
       languages,
     },
+    revalidate: 60,
   };
 }
