@@ -33,6 +33,7 @@ yarn-error.log*
 
 # vercel
 .vercel
+vercel.json
 
 # typescript
 *.tsbuildinfo
@@ -41,3 +42,6 @@ next-env.d.ts
 # SliceMachine endpoint
 sm.json
 slicemachine.config.json
+
+# Scripts
+/.scripts

@@ -5,11 +5,21 @@
   "status": true,
   "json": {
     "Main": {
-      "uid": { "type": "UID", "config": { "label": "Uid", "placeholder": "" } },
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "Uid",
+          "placeholder": ""
+        }
+      },
       "category_name": {
         "type": "Text",
-        "config": { "label": "Category Name", "placeholder": "" }
+        "config": {
+          "label": "Category Name",
+          "placeholder": ""
+        }
       }
     }
-  }
+  },
+  "format": "custom"
 }

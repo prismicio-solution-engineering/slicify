@@ -54,22 +54,22 @@ export async function getStaticProps({
       "landing_page",
       params.uid,
       { lang: locale }
-    );
-    //    ^ Typed as BlogIndexDocument
-
-    const header = await client.getSingle<Content.HeaderDocument>("header", {
-      lang: locale,
+    ).catch(e => {
+      return null
     });
-    //    ^ Typed as HeaderDocument
-
-    const footer = await client.getSingle<Content.FooterDocument>("footer", {
-      lang: locale,
-    });
-    //    ^ Typed as FooterDocument
-
-    const languages = await getLanguages(page, client, locales);
 
     if (page) {
+      
+    const [header,footer,languages] = await Promise.all([
+      client.getSingle<Content.HeaderDocument>("header", {
+        lang: locale,
+      }),
+      client.getSingle<Content.FooterDocument>("footer", {
+        lang: locale,
+      }),
+      getLanguages(page, client, locales)
+    ])
+
       return {
         props: {
           page,
@@ -77,11 +77,13 @@ export async function getStaticProps({
           footer,
           languages,
         },
+        revalidate: 60,
       };
     }
   }
   return {
     notFound: true,
+    revalidate: 60,
   };
 }
 
@@ -91,6 +93,6 @@ export async function getStaticPaths() {
   const documents = await client.getAllByType("landing_page", { lang: "*" });
   return {
     paths: documents.map((page) => `${prismic.asLink(page)}`),
-    fallback: false, // if a page has already been generated but doesn't show => display the cached page
+    fallback: 'blocking', // if a page has already been generated but doesn't show => display the cached page
   };
 }
