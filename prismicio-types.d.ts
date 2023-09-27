@@ -696,8 +696,7 @@ type HomePageDocumentDataSlicesSlice =
   | FaqSlice
   | HeroSlice
   | LogoCloudSlice
-  | TestimonialsSlice
-  | ManualSliceSlice;
+  | TestimonialsSlice;
 
 /**
  * Item in *Home Page → Social Cards - Facebook & Twitter*
@@ -857,6 +856,31 @@ export interface LandingPageDocumentDataSocialCardsItem {
 }
 
 /**
+ * Item in *Landing Page → Variants*
+ */
+export interface LandingPageDocumentDataVariantsItem {
+  /**
+   * Variant field in *Landing Page → Variants*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: landing_page.variants[].variant
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  variant: prismic.ContentRelationshipField<"landing_page">;
+
+  /**
+   * Bucket field in *Landing Page → Variants*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: landing_page.variants[].bucket
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  bucket: prismic.KeyTextField;
+}
+
+/**
  * Content for Landing Page documents
  */
 interface LandingPageDocumentData {
@@ -914,7 +938,29 @@ interface LandingPageDocumentData {
    */
   social_cards: prismic.GroupField<
     Simplify<LandingPageDocumentDataSocialCardsItem>
-  >;
+  >
+  /**
+   * Variants field in *Landing Page*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: landing_page.variants[]
+   * - **Tab**: AB Testing Config
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */;
+  variants: prismic.GroupField<Simplify<LandingPageDocumentDataVariantsItem>>;
+
+  /**
+   * Is Variant field in *Landing Page*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: landing_page.is_variant
+   * - **Tab**: AB Testing Config
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  is_variant: prismic.BooleanField;
 }
 
 /**
@@ -2859,81 +2905,6 @@ export type LogoCloudSlice = prismic.SharedSlice<
 >;
 
 /**
- * Primary content in *ManualSlice → Primary*
- */
-export interface ManualSliceSliceDefaultPrimary {
-  /**
-   * Title field in *ManualSlice → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: manual_slice.primary.title
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  title: prismic.RichTextField;
-
-  /**
-   * Description field in *ManualSlice → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: manual_slice.primary.description
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  description: prismic.RichTextField;
-
-  /**
-   * Image field in *ManualSlice → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: manual_slice.primary.image
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image: prismic.ImageField<never>;
-
-  /**
-   * cta field in *ManualSlice → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: manual_slice.primary.cta
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  cta: prismic.KeyTextField;
-}
-
-/**
- * Default variation for ManualSlice Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type ManualSliceSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<ManualSliceSliceDefaultPrimary>,
-  never
->;
-
-/**
- * Slice variation for *ManualSlice*
- */
-type ManualSliceSliceVariation = ManualSliceSliceDefault;
-
-/**
- * ManualSlice Shared Slice
- *
- * - **API ID**: `manual_slice`
- * - **Description**: ManualSlice
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type ManualSliceSlice = prismic.SharedSlice<
-  "manual_slice",
-  ManualSliceSliceVariation
->;
-
-/**
  * Primary content in *Pricing → Primary*
  */
 export interface PricingSliceDefaultPrimary {
@@ -3938,9 +3909,6 @@ declare module "@prismicio/client" {
       LogoCloudSliceThreeColumns,
       LogoCloudSliceSingle,
       LogoCloudSliceSimpleDarkMode,
-      ManualSliceSlice,
-      ManualSliceSliceVariation,
-      ManualSliceSliceDefault,
       PricingSlice,
       PricingSliceVariation,
       PricingSliceDefault,
