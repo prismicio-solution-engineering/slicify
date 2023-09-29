@@ -2677,6 +2677,101 @@ type HeroSliceVariation =
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 
 /**
+ * Primary content in *JobList → Primary*
+ */
+export interface JobListSliceDefaultPrimary {
+  /**
+   * anchor field in *JobList → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: job_list.primary.anchor
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  anchor: prismic.KeyTextField;
+
+  /**
+   * Title field in *JobList → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: job_list.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.TitleField;
+
+  /**
+   * Description field in *JobList → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: job_list.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Image field in *JobList → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: job_list.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Link text field in *JobList → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: job_list.primary.link_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  link_text: prismic.KeyTextField;
+
+  /**
+   * Link field in *JobList → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: job_list.primary.link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+}
+
+/**
+ * Default variation for JobList Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type JobListSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<JobListSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *JobList*
+ */
+type JobListSliceVariation = JobListSliceDefault;
+
+/**
+ * JobList Shared Slice
+ *
+ * - **API ID**: `job_list`
+ * - **Description**: JobList
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type JobListSlice = prismic.SharedSlice<
+  "job_list",
+  JobListSliceVariation
+>;
+
+/**
  * Primary content in *LogoCloud → Primary*
  */
 export interface LogoCloudSliceDefaultPrimary {
@@ -3903,6 +3998,9 @@ declare module "@prismicio/client" {
       HeroSliceTitleOnly,
       HeroSliceWithBackground,
       HeroSliceWithVideoBackground,
+      JobListSlice,
+      JobListSliceVariation,
+      JobListSliceDefault,
       LogoCloudSlice,
       LogoCloudSliceVariation,
       LogoCloudSliceDefault,
