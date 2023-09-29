@@ -3,29 +3,26 @@ import React, { useState } from 'react';
 import * as prismic from '@prismicio/client';
 import type { GetStaticPropsContext, InferGetStaticPropsType } from "next";
 
+
 const Search = ({ onSearch }) => {
-    const [query, setQuery] = useState('');
-  
-    const handleInputChange = (e: { target: { value: React.SetStateAction<string>; }; }) => {
-      setQuery(e.target.value);
-    };
-  
-    const handleSearch = () => {
-      onSearch(query);
-    };
-  
-    return (
-      <div>
-        <input
-          type="text"
-          placeholder="Search..."
-          value={query}
-          onChange={handleInputChange}
-        />
-        <button onClick={handleSearch}>Search</button>
-      </div>
-    );
+  const [query, setQuery] = useState('');
+
+  const handleSearch = () => {
+    onSearch(query);
   };
+
+  return (
+    <div>
+      <input
+        type="text"
+        placeholder="Search..."
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+      />
+      <button onClick={handleSearch}>Search</button>
+    </div>
+  );
+};
   
 const SearchPage = () => {
 

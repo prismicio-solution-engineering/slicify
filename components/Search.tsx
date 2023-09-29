@@ -1,12 +1,7 @@
-// components/Search.js
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const Search = ({ onSearch }) => {
   const [query, setQuery] = useState('');
-
-  const handleInputChange = (e: { target: { value: React.SetStateAction<string>; }; }) => {
-    setQuery(e.target.value);
-  };
 
   const handleSearch = () => {
     onSearch(query);
@@ -18,7 +13,7 @@ const Search = ({ onSearch }) => {
         type="text"
         placeholder="Search..."
         value={query}
-        onChange={handleInputChange}
+        onChange={(e) => setQuery(e.target.value)}
       />
       <button onClick={handleSearch}>Search</button>
     </div>
