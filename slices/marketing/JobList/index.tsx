@@ -2,59 +2,14 @@ import { Container } from "@/components/Container";
 import { Content } from "@prismicio/client";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
+import { useState, useEffect } from "react";
 
-// const jobOpenings = [
-//   {
-//     id: 1,
-//     role: "Full-time designer",
-//     href: "#",
-//     description:
-//       "Quos sunt ad dolore ullam qui. Enim et quisquam dicta molestias. Corrupti quo voluptatum eligendi autem labore.",
-//     salary: "$75,000 USD",
-//     location: "San Francisco, CA",
-//   },
-//   {
-//     id: 2,
-//     role: "Laravel developer",
-//     href: "#",
-//     description:
-//       "Et veniam et officia dolorum rerum. Et voluptas consequatur magni sapiente amet voluptates dolorum. Ut porro aut eveniet.",
-//     salary: "$125,000 USD",
-//     location: "San Francisco, CA",
-//   },
-//   {
-//     id: 3,
-//     role: "React Native developer",
-//     href: "#",
-//     description:
-//       "Veniam ipsam nisi quas architecto eos non voluptatem in nemo. Est occaecati nihil omnis delectus illum est.",
-//     salary: "$105,000 USD",
-//     location: "San Francisco, CA",
-//   },
-// ];
-
-const async jobOpenings = () =>  {
-  fetch("https://api.github.com/gists/5bb154469b98fa0d39bc8e03fd6f500a")
-  .then(results => {
-    return results.json();
-  })
-  .then(data => {
-    return data.files["slicify-jobs.json"].content;
-  });
-}
-
-// const jobOpenings = fetch("https://api.github.com/gists/5bb154469b98fa0d39bc8e03fd6f500a")
-//   // .then(function (response) {
-//   //   if (response.ok) return response.json();
-//   //   return Promise.reject(response);
-//   // })
-//   .then(results => {
-//     return results.json();
-//   })
-//   .then(data => {
-//     return data.files["slicify-jobs.json"].content;
-//   });
-// console.log(jobOpenings)
+type JobOpening = {
+  id: string;
+  position: string;
+  team: string;
+  location: string;
+};
 
 /**
  * Props for `JobList`.
@@ -65,6 +20,32 @@ export type JobListProps = SliceComponentProps<Content.JobListSlice>;
  * Component for "JobList" Slices.
  */
 const JobList = ({ slice }: JobListProps): JSX.Element => {
+  const [jobOpenings, setJobOpenings] = useState<JobOpening[]>([]);
+
+  const fetchJobOpenings = () => {
+    fetch("https://api.github.com/gists/5bb154469b98fa0d39bc8e03fd6f500a")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((gistData) => {
+        // Assuming your job openings are stored in an array within the gistData
+        const jobOpenings = JSON.parse(
+          gistData.files["slicify-jobs.json"].content
+        );
+        setJobOpenings(jobOpenings);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  };
+
+  useEffect(() => {
+    fetchJobOpenings();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <section id={slice.primary.anchor || undefined}>
       <Container>
@@ -98,34 +79,40 @@ const JobList = ({ slice }: JobListProps): JSX.Element => {
           <div className="w-full lg:max-w-xl lg:flex-auto">
             <h3 className="sr-only">Job openings</h3>
             <ul className="-my-8 divide-y divide-gray-100">
-              {/* {jobOpenings.map((opening) => (
+              {jobOpenings.map((opening) => (
                 <li key={opening.id} className="py-8">
                   <dl className="relative flex flex-wrap gap-x-3">
                     <dt className="sr-only">Position</dt>
                     <dd className="w-full flex-none text-lg font-semibold tracking-tight text-gray-900">
-                      <a href={opening.href}>
-                        {opening.role}
+                      <a href="#">
+                        {opening.position}
                         <span className="absolute inset-0" aria-hidden="true" />
                       </a>
                     </dd>
                     <dt className="sr-only">Team</dt>
                     <dd className="mt-4 text-base font-semibold leading-7 text-gray-900">
-                      {opening.salary}
+                      {opening.team}
                     </dd>
                     <dt className="sr-only">Location</dt>
-                    <dd className="mt-4 flex items-center gap-x-3 text-base leading-7 text-light-black">
+                    <dd className="mt-4 flex items-center gap-x-1 text-base leading-7 text-light-black">
                       <svg
-                        viewBox="0 0 2 2"
-                        className="h-0.5 w-0.5 flex-none fill-gray-300"
-                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        className="w-6 h-6"
                       >
-                        <circle cx={1} cy={1} r={1} />
+                        <path
+                          fill-rule="evenodd"
+                          d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 00-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z"
+                          clip-rule="evenodd"
+                        />
                       </svg>
+
                       {opening.location}
                     </dd>
                   </dl>
                 </li>
-              ))} */}
+              ))}
             </ul>
             <div className="mt-8 flex border-t border-gray-100 pt-8">
               <PrismicNextLink

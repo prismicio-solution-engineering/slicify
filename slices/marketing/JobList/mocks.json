@@ -5,8 +5,8 @@
 		"primary": {
 			"anchor": {
 				"__TYPE__": "FieldContent",
-				"value": "underline",
-				"type": "Text"
+				"type": "Text",
+				"value": "job-list"
 			},
 			"title": {
 				"__TYPE__": "StructuredTextContent",
