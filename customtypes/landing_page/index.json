@@ -41,6 +41,9 @@
             },
             "hero": {
               "type": "SharedSlice"
+            },
+            "featured_websites_list": {
+              "type": "SharedSlice"
             }
           }
         }

@@ -6,6 +6,7 @@ export const components = {
   article_list: dynamic(() => import("./ArticleList")),
   call_to_action: dynamic(() => import("./CallToAction")),
   faq: dynamic(() => import("./Faq")),
+  featured_websites_list: dynamic(() => import("./FeaturedWebsitesList")),
   features: dynamic(() => import("./Features")),
   form: dynamic(() => import("./Form")),
   hero: dynamic(() => import("./Hero")),

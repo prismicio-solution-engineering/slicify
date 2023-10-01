@@ -1,0 +1,117 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Previous"
+						}
+					}
+				]
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Mollit quis aliquip aute do adipisicing culpa voluptate exercitation fugiat. Veniam eiusmod pariatur nisi ullamco qui dolore nisi."
+						}
+					}
+				]
+			},
+			"link_text": {
+				"__TYPE__": "FieldContent",
+				"value": "captain",
+				"type": "Text"
+			},
+			"link": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://slicemachine.dev"
+				}
+			},
+			"anchor": {
+				"__TYPE__": "FieldContent",
+				"value": "copper",
+				"type": "Text"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "autoList",
+		"primary": {
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Dirty"
+						}
+					}
+				]
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Proident adipisicing nostrud sit ea adipisicing proident anim in dolor ullamco sit laborum ut. Qui labore elit nulla commodo exercitation elit ullamco."
+						}
+					}
+				]
+			},
+			"link_text": {
+				"__TYPE__": "FieldContent",
+				"value": "smile",
+				"type": "Text"
+			},
+			"link": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://twitter.com"
+				}
+			},
+			"number_of_websites": {
+				"__TYPE__": "FieldContent",
+				"value": "quietly",
+				"type": "Text"
+			},
+			"anchor": {
+				"__TYPE__": "FieldContent",
+				"value": "enjoy",
+				"type": "Text"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"product",
+						{
+							"__TYPE__": "IntegrationFieldsContent",
+							"value": "integration-field-product-id"
+						}
+					]
+				]
+			}
+		]
+	}
+]
