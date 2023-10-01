@@ -6,6 +6,7 @@ import { SliceZone } from "@prismicio/react";
 import { components } from "@/slices/marketing";
 import { getLanguages } from "@/utils/getLanguages";
 import MarketingLayout from "@/components/MarketingLayout";
+import { getShowcaseWebsites } from "@/utils/getShowcaseWebsites";
 
 type HomePageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
@@ -14,6 +15,7 @@ export default function Home({
   header,
   footer,
   languages,
+  showcaseWebsites,
 }: HomePageProps) {
   return (
     <>
@@ -31,7 +33,7 @@ export default function Home({
         footer={footer.data}
         languages={languages}
       >
-        <SliceZone slices={page.data.slices} components={components} />
+        <SliceZone slices={page.data.slices} components={components} context={{showcaseWebsites}} />
       </MarketingLayout>
     </>
   );
@@ -59,12 +61,15 @@ export async function getStaticProps({
 
   const languages = await getLanguages(page, client, locales);
 
+  const showcaseWebsites = await getShowcaseWebsites(3);
+
   return {
     props: {
       page,
       header,
       footer,
       languages,
+      showcaseWebsites,
     },
     revalidate: 60,
   };
