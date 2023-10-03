@@ -4,7 +4,11 @@ import { Popover, Transition } from "@headlessui/react";
 import clsx from "clsx";
 
 import { Container } from "@/components/Container";
-import { HeaderDocumentData, HeaderDocumentDataLeftSideLinksItem, Simplify } from "@/prismicio-types";
+import {
+  HeaderDocumentData,
+  HeaderDocumentDataLeftSideLinksItem,
+  Simplify,
+} from "@/prismicio-types";
 import { PrismicLink, PrismicRichText } from "@prismicio/react";
 import { PrismicNextImage } from "@prismicio/next";
 import { AnchorLink } from "@/prismicio";
@@ -131,7 +135,11 @@ export function Header({ header, languages }: HeaderProps) {
         <nav className="relative z-50 flex justify-between">
           <div className="flex items-center md:gap-x-12">
             <Link href={`/${languages[0].lang_name}`} aria-label="Home">
-              <PrismicNextImage field={header.logo} className="h-10 w-auto" fallbackAlt="" />
+              <PrismicNextImage
+                field={header.logo}
+                className="h-10 w-auto"
+                fallbackAlt=""
+              />
             </Link>
             <div className="hidden md:flex md:gap-x-6">
               {header.left_side_links.map((link, index) => {
@@ -141,20 +149,37 @@ export function Header({ header, languages }: HeaderProps) {
                   case "Text Link":
                     return <HeaderLinkDefault key={index} {...link} />;
                 }
-              })
-              }
+              })}
+              <button
+              type="button"
+              className="ml-auto flex h-8 w-8 items-center justify-center rounded-lg lg:ml-8"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-6 h-6"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+                  />
+                </svg>
+              </button>
             </div>
           </div>
           <div className="flex items-center gap-x-5 md:gap-x-8">
-              {header.right_side_links.map((link, index) => {
-                switch (link.link_type) {
-                  case "Button":
-                    return <HeaderLinkButton key={index} {...link} />;
-                  case "Text Link":
-                    return <HeaderLinkDefault key={index} {...link} />;
-                }
-              })
+            {header.right_side_links.map((link, index) => {
+              switch (link.link_type) {
+                case "Button":
+                  return <HeaderLinkButton key={index} {...link} />;
+                case "Text Link":
+                  return <HeaderLinkDefault key={index} {...link} />;
               }
+            })}
             <LanguageSwitcher languages={languages} />
             <div className="-mr-1 md:hidden">
               <MobileNavigation header={header} />

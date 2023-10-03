@@ -8,6 +8,8 @@ import { getLanguages } from "@/utils/getLanguages";
 import MarketingLayout from "@/components/MarketingLayout";
 import { ArticleListVertical } from "@/components/ArticleListVertical";
 import { blogIndexGraphQuery } from "@/utils/graphQueries";
+import { Search } from "@/components/Search";
+import { performSearch } from "@/utils/performSearch";
 
 type BlogIndexProps = InferGetStaticPropsType<typeof getStaticProps>;
 
@@ -34,6 +36,7 @@ export default function BlogIndex({
         footer={footer.data}
         languages={languages}
       >
+        {/* <Search onSearch={performSearch}/> */}
         <ArticleListVertical 
           articles={articles}
           page={page}
