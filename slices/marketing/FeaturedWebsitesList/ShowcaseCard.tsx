@@ -1,7 +1,5 @@
 import { asImageSrc, isFilled } from "@prismicio/client";
-import { PrismicNextImage } from "@prismicio/next";
-import { PrismicLink, PrismicRichText } from "@prismicio/react";
-import Image from "next/image";
+import { PrismicLink } from "@prismicio/react";
 import { Website } from "./index";
 
 export const ShowcaseCard = ({ website }: { website: Website }) => {

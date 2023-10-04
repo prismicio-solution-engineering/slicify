@@ -1,4 +1,3 @@
-// pages/blog.js
 import React, { useEffect, useState } from "react";
 import * as prismic from "@prismicio/client";
 import { useRouter } from "next/router";
@@ -68,7 +67,10 @@ const SearchPage : React.FC<SearchProps> = ({ initialQuery }) => {
     if (query) {
       try {
         const response = await client.getByType("blog_article", {
-          filters: [prismic.filter.fulltext("my.blog_article.title", query)],
+          filters: [
+            prismic.filter.fulltext("my.blog_article.title", query),
+            prismic.filter.fulltext("my.blog_article.excerpt", query)
+        ],
           graphQuery: blogIndexGraphQuery,
         });
         setSearchResults(response.results);

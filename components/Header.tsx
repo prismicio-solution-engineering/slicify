@@ -15,6 +15,7 @@ import { AnchorLink } from "@/prismicio";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import HeaderLinkDefault from "./HeaderLinkDefault";
 import HeaderLinkButton from "./HeaderLinkButton";
+import { Search } from "./Search";
 
 function MobileNavLink({
   link,
@@ -150,7 +151,8 @@ export function Header({ header, languages }: HeaderProps) {
                     return <HeaderLinkDefault key={index} {...link} />;
                 }
               })}
-              <button
+              <Search />
+              {/* <button
               type="button"
               className="ml-auto flex h-8 w-8 items-center justify-center rounded-lg lg:ml-8"
               >
@@ -168,7 +170,7 @@ export function Header({ header, languages }: HeaderProps) {
                     d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
                   />
                 </svg>
-              </button>
+              </button> */}
             </div>
           </div>
           <div className="flex items-center gap-x-5 md:gap-x-8">
