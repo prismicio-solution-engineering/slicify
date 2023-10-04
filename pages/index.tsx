@@ -7,6 +7,7 @@ import { components } from "@/slices/marketing";
 import { getLanguages } from "@/utils/getLanguages";
 import MarketingLayout from "@/components/MarketingLayout";
 import { getShowcaseWebsites } from "@/utils/getShowcaseWebsites";
+import { fetchJobOpenings } from "@/utils/getJobList";
 
 type HomePageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
@@ -16,6 +17,7 @@ export default function Home({
   footer,
   languages,
   showcaseWebsites,
+  jobOpenings,
 }: HomePageProps) {
   return (
     <>
@@ -33,7 +35,7 @@ export default function Home({
         footer={footer.data}
         languages={languages}
       >
-        <SliceZone slices={page.data.slices} components={components} context={{showcaseWebsites}} />
+        <SliceZone slices={page.data.slices} components={components} context={{showcaseWebsites, jobOpenings}} />
       </MarketingLayout>
     </>
   );
@@ -63,6 +65,11 @@ export async function getStaticProps({
 
   const showcaseWebsites = await getShowcaseWebsites(3);
 
+  const hasJobListSlice = await (page?.data?.slices?.filter(slice => slice.slice_type === "job_list"));
+
+  const jobOpenings = hasJobListSlice && await fetchJobOpenings();
+
+
   return {
     props: {
       page,
@@ -70,6 +77,7 @@ export async function getStaticProps({
       footer,
       languages,
       showcaseWebsites,
+      jobOpenings,
     },
     revalidate: 60,
   };

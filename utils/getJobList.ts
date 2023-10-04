@@ -1,21 +1,29 @@
-import { Client, Content } from "@prismicio/client";
-/**
- * Returns an array of jobs from Gist
- */
-export async function getJobList(
-  doc: Content.AllDocumentTypes,
-  client: Client<Content.AllDocumentTypes>,
-  locales?: string[]
-) {
-  
-  const gistId = '5bb154469b98fa0d39bc8e03fd6f500a',
+import { useState, useEffect } from "react";
 
-  // Fetch 'https://api.github.com/gists/<gist-id>'
-  fetch(`https://api.github.com/gists/${gistId}`)
-  .then(function (response) {
-    if (response.ok) return response.json();
-    return Promise.reject(response);
-  })
-  
-  return [{url: doc.url || `/${doc.lang}`, lang_name: doc.lang}];
-}
+type JobOpening = {
+  id: string;
+  position: string;
+  team: string;
+  location: string;
+};
+
+export const fetchJobOpenings = async () => {
+  const jobOpenings = await (fetch("https://api.github.com/gists/5bb154469b98fa0d39bc8e03fd6f500a")
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
+    })
+    .then((gistData) => {
+      return JSON.parse(
+        gistData.files["slicify-jobs.json"].content
+      );
+    })
+    .catch((error) => {
+      console.error("Error fetching data:", error);
+      return [];
+    }))
+
+  return jobOpenings;
+};
