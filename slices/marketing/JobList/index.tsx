@@ -2,14 +2,6 @@ import { Container } from "@/components/Container";
 import { Content } from "@prismicio/client";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
-import { useState, useEffect } from "react";
-
-type JobOpening = {
-  id: string;
-  position: string;
-  team: string;
-  location: string;
-};
 
 /**
  * Props for `JobList`.
@@ -19,33 +11,10 @@ export type JobListProps = SliceComponentProps<Content.JobListSlice>;
 /**
  * Component for "JobList" Slices.
  */
-const JobList = ({ slice }: JobListProps): JSX.Element => {
-  const [jobOpenings, setJobOpenings] = useState<JobOpening[]>([]);
+const JobList = ({ slice, context }: JobListProps): JSX.Element => {
 
-  const fetchJobOpenings = () => {
-    fetch("https://api.github.com/gists/5bb154469b98fa0d39bc8e03fd6f500a")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then((gistData) => {
-        // Assuming your job openings are stored in an array within the gistData
-        const jobOpenings = JSON.parse(
-          gistData.files["slicify-jobs.json"].content
-        );
-        setJobOpenings(jobOpenings);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
-  };
+  const jobOpenings = context.jobOpenings;
 
-  useEffect(() => {
-    fetchJobOpenings();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
   return (
     <section id={slice.primary.anchor || undefined}>
       <Container>

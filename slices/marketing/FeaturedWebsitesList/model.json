@@ -11,7 +11,7 @@
       "version": "initial",
       "description": "Default",
       "items": {
-        "product": {
+        "website": {
           "type": "IntegrationFields",
           "config": {
             "catalog": "slicify--prismic_websites",
