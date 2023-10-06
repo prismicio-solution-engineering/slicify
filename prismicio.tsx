@@ -29,6 +29,10 @@ const routes = [
   {
     type: "landing_page",
     path: "/:lang/lp/:uid",
+  },
+  {
+    type: "search",
+    path: "/:lang/search",
   }
 ];
 

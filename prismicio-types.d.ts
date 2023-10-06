@@ -982,6 +982,38 @@ export type LandingPageDocument<Lang extends string = string> =
     Lang
   >;
 
+/**
+ * Content for Search documents
+ */
+interface SearchDocumentData {
+  /**
+   * Title field in *Search*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: search.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+}
+
+/**
+ * Search document from Prismic
+ *
+ * - **API ID**: `search`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type SearchDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<SearchDocumentData>,
+    "search",
+    Lang
+  >;
+
 export type AllDocumentTypes =
   | AuthorDocument
   | BlogArticleDocument
@@ -990,7 +1022,8 @@ export type AllDocumentTypes =
   | FooterDocument
   | HeaderDocument
   | HomePageDocument
-  | LandingPageDocument;
+  | LandingPageDocument
+  | SearchDocument;
 
 /**
  * Primary content in *ArticleList → Primary*
@@ -1759,10 +1792,10 @@ export interface FeaturedWebsitesListSliceDefaultItem {
    *
    * - **Field Type**: Integration Fields (Catalog: `slicify--prismic_websites`)
    * - **Placeholder**: *None*
-   * - **API ID Path**: featured_websites_list.items[].product
+   * - **API ID Path**: featured_websites_list.items[].website
    * - **Documentation**: https://prismic.io/docs/field#integration
    */
-  product: prismic.IntegrationField;
+  website: prismic.IntegrationField;
 }
 
 /**
@@ -1844,21 +1877,6 @@ export interface FeaturedWebsitesListSliceAutoListPrimary {
 }
 
 /**
- * Primary content in *FeaturedWebsitesList → Items*
- */
-export interface FeaturedWebsitesListSliceAutoListItem {
-  /**
-   * Prismic websites field in *FeaturedWebsitesList → Items*
-   *
-   * - **Field Type**: Integration Fields (Catalog: `slicify--prismic_websites`)
-   * - **Placeholder**: *None*
-   * - **API ID Path**: featured_websites_list.items[].product
-   * - **Documentation**: https://prismic.io/docs/field#integration
-   */
-  product: prismic.IntegrationField;
-}
-
-/**
  * Auto List variation for FeaturedWebsitesList Slice
  *
  * - **API ID**: `autoList`
@@ -1868,7 +1886,7 @@ export interface FeaturedWebsitesListSliceAutoListItem {
 export type FeaturedWebsitesListSliceAutoList = prismic.SharedSliceVariation<
   "autoList",
   Simplify<FeaturedWebsitesListSliceAutoListPrimary>,
-  Simplify<FeaturedWebsitesListSliceAutoListItem>
+  never
 >;
 
 /**
@@ -4163,6 +4181,8 @@ declare module "@prismicio/client" {
       LandingPageDocument,
       LandingPageDocumentData,
       LandingPageDocumentDataSlicesSlice,
+      SearchDocument,
+      SearchDocumentData,
       AllDocumentTypes,
       ArticleListSlice,
       ArticleListSliceVariation,

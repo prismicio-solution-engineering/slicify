@@ -36,7 +36,6 @@ export default function BlogIndex({
         footer={footer.data}
         languages={languages}
       >
-        {/* <Search onSearch={performSearch}/> */}
         <ArticleListVertical 
           articles={articles}
           page={page}
