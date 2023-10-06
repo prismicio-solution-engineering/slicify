@@ -27,36 +27,44 @@ export const Search: React.FC<SearchProps> = ({ onSearch, initialQuery }) => {
       });
     }
   };
-  
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    handleSearch();
+  };
+
   return (
     <div>
       {router.pathname.includes("search") ? (
         <div className="relative mt-2 flex items-center w-full sm:max-w-xs">
-          <input
-            type="text"
-            placeholder="Search..."
-            name="search"
-            id="search"
-            className="block w-full rounded-md border-0 py-1.5 pr-14 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-vibrant-blue sm:text-sm sm:leading-6"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-          />
-          <button onClick={handleSearch}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-6 h-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-              />
-            </svg>
-          </button>
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              placeholder="Search..."
+              name="search"
+              id="search"
+              className="block w-full rounded-md border-0 py-1.5 pr-14 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-vibrant-blue sm:text-sm sm:leading-6"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+            />
+            <button onClick={handleSearch}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+                />
+              </svg>
+            </button>
+
+          </form>
         </div>
       ) : (
         <div>
@@ -114,7 +122,7 @@ export const Search: React.FC<SearchProps> = ({ onSearch, initialQuery }) => {
                       <div>
                         <div className="mx-auto flex items-center justify-center">
                           <div className="relative mt-2 flex items-center w-full">
-                            <form className="w-full max-w-md lg:col-span-5 lg:pt-2">
+                            <form onSubmit={handleSubmit} className="w-full max-w-md lg:col-span-5 lg:pt-2">
                               <div className="flex gap-x-4">
                                 <input
                                   type="text"
