@@ -1,4 +1,4 @@
-import { Fragment, ReactNode } from "react";
+import { Fragment, ReactNode, useState } from "react";
 import Link from "next/link";
 import { Popover, Transition } from "@headlessui/react";
 import clsx from "clsx";
@@ -16,6 +16,8 @@ import { LanguageSwitcher } from "./LanguageSwitcher";
 import HeaderLinkDefault from "./HeaderLinkDefault";
 import HeaderLinkButton from "./HeaderLinkButton";
 import { Search } from "./Search";
+import { performSearch } from "@/utils/performSearch";
+import { useRouter } from "next/router";
 
 function MobileNavLink({
   link,
@@ -130,6 +132,20 @@ type HeaderProps = {
 };
 
 export function Header({ header, languages }: HeaderProps) {
+
+  const [searchQuery, setSearchQuery] = useState("");
+  const router = useRouter();
+
+  const handleSearch = (query: string) => {
+    setSearchQuery(query);
+
+    // Go to search page with the query parameter
+    router.push({
+      pathname: "/search",
+      query: { query },
+    });
+  };
+  
   return (
     <header className="py-10">
       <Container>
@@ -151,26 +167,7 @@ export function Header({ header, languages }: HeaderProps) {
                     return <HeaderLinkDefault key={index} {...link} />;
                 }
               })}
-              <Search />
-              {/* <button
-              type="button"
-              className="ml-auto flex h-8 w-8 items-center justify-center rounded-lg lg:ml-8"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-6 h-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-                  />
-                </svg>
-              </button> */}
+              <Search onSearch={handleSearch} initialQuery="" />
             </div>
           </div>
           <div className="flex items-center gap-x-5 md:gap-x-8">
