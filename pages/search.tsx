@@ -2,26 +2,32 @@ import React, { useEffect, useState } from "react";
 import { ArticleListVertical } from "@/components/ArticleListVertical";
 import { Search } from "@/components/Search";
 import { performSearch } from "@/utils/performSearch";
-import { GetStaticPropsContext, NextApiRequest } from "next";
+import {
+  GetServerSidePropsContext,
+  InferGetStaticPropsType,
+} from "next";
 import { BlogArticleDocument } from "@/prismicio-types";
 import MarketingLayout from "@/components/MarketingLayout";
 import { getLanguages } from "@/utils/getLanguages";
 import { blogIndexGraphQuery } from "@/utils/graphQueries";
 import { createClient, Content } from "@prismicio/client";
 import Head from "next/head";
+import { PrismicRichText } from "@prismicio/react";
 
 interface SearchProps {
   onSearch: (query: string) => void;
   initialQuery: string;
 }
 
-const SearchPage: React.FC<SearchProps> = ({
+type SearchPageProps = InferGetStaticPropsType<typeof getServerSideProps>;
+
+const SearchPage = ({
   initialQuery,
   page,
   header,
   footer,
   languages,
-}) => {
+}: SearchPageProps) => {
   const [searchResults, setSearchResults] = useState<
     BlogArticleDocument[] | undefined
   >(undefined);
@@ -52,25 +58,28 @@ const SearchPage: React.FC<SearchProps> = ({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h1>Search Page</h1>
       <MarketingLayout
         header={header.data}
         footer={footer.data}
         languages={languages}
       >
-        <Search onSearch={handleSearch} initialQuery={initialQuery} />
-        <ArticleListVertical articles={searchResults ?? []} page={null} />
+        {/* <Search onSearch={handleSearch} initialQuery={initialQuery} /> */}
+        <ArticleListVertical articles={searchResults ?? []} page={page} />
       </MarketingLayout>
     </div>
   );
 };
 
-
-export async function getServerSideProps({ query }: NextApiRequest) {
+export async function getServerSideProps({
+  query,
+  locales,
+  locale,
+  previewData,
+}: GetServerSidePropsContext) {
   // Get the initial query parameter from the URL
   const initialQuery = query.query || "";
 
-  const client = createClient({ previewData });
+  const client = createClient("slicify-dianka", { previewData });
   //    ^ Automatically contains references to document types
 
   const [page, header, footer] = await Promise.all([
@@ -87,7 +96,7 @@ export async function getServerSideProps({ query }: NextApiRequest) {
 
   const languages = await getLanguages(page, client, locales);
   return {
-    props: { initialQuery },
+    props: { initialQuery, page, header, footer, languages },
   };
 }
 

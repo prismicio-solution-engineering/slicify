@@ -35,7 +35,7 @@ export const Search: React.FC<SearchProps> = ({ onSearch, initialQuery }) => {
 
   return (
     <div>
-      {router.pathname.includes("search") ? (
+      {/* {router.pathname.includes("search") ? (
         <div className="relative mt-2 flex items-center w-full sm:max-w-xs">
           <form onSubmit={handleSubmit}>
             <input
@@ -66,7 +66,7 @@ export const Search: React.FC<SearchProps> = ({ onSearch, initialQuery }) => {
 
           </form>
         </div>
-      ) : (
+      ) : ( */}
         <div>
           <button
             type="button"
@@ -165,7 +165,7 @@ export const Search: React.FC<SearchProps> = ({ onSearch, initialQuery }) => {
             </Dialog>
           </Transition.Root>
         </div>
-      )}
+      {/* )} */}
     </div>
   );
 };

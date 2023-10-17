@@ -1,6 +1,7 @@
 import {
   BlogArticleDocument,
   BlogIndexDocument,
+  SearchDocument,
 } from "@/prismicio-types";
 import { PrismicNextImage } from "@prismicio/next";
 import { PrismicLink, PrismicRichText } from "@prismicio/react";
@@ -13,7 +14,7 @@ import {
 
 type BlogIndexLayoutProps = {
   articles: BlogArticleDocument[] | null;
-  page: BlogIndexDocument | null;
+  page: BlogIndexDocument | SearchDocument | null;
 };
 
 export function ArticleListVertical(
@@ -31,6 +32,11 @@ export function ArticleListVertical(
                   <h1 className="font-display text-3xl tracking-tight text-slate-900 sm:text-4xl">
                     {children}
                   </h1>
+                ),
+                paragraph: ({ children }) => (
+                  <p className="font-display text-3xl tracking-tight text-slate-900 sm:text-4xl">
+                    {children}
+                  </p>
                 ),
               }}
             />
