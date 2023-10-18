@@ -88,11 +88,6 @@
 					"url": "http://twitter.com"
 				}
 			},
-			"number_of_websites": {
-				"__TYPE__": "FieldContent",
-				"value": "quietly",
-				"type": "Text"
-			},
 			"anchor": {
 				"__TYPE__": "FieldContent",
 				"value": "enjoy",

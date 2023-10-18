@@ -1,4 +1,3 @@
-import { asImageSrc, isFilled } from "@prismicio/client";
 import { PrismicLink } from "@prismicio/react";
 import { Website } from "./index";
 
@@ -6,7 +5,7 @@ export const ShowcaseCard = ({ website }: { website: Website }) => {
   return (
     <PrismicLink
       field={website?.link}
-      className="block rounded-2xl border-2 border-gray-EE p-3 pb-4 hover:border-gray-F7 hover:bg-gray-F7 transition-colors"
+      className="block rounded-3xl border border-light-gray p-3 pb-4 hover:border-light-blue hover:bg-gray-50 transition-colors"
     >
       <div className="relative">
         <div className="absolute inset-0 rounded-xl shadow-website-screenshot" />

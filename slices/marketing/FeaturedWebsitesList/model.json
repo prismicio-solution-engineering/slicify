@@ -106,13 +106,6 @@
             "select": null
           }
         },
-        "number_of_websites": {
-          "type": "Text",
-          "config": {
-            "label": "Number of websites",
-            "placeholder": ""
-          }
-        },
         "anchor": {
           "type": "Text",
           "config": {
@@ -120,7 +113,8 @@
             "placeholder": ""
           }
         }
-      }
+      },
+      "items": {}
     }
   ]
 }
