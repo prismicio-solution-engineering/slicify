@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { ArticleListVertical } from "@/components/ArticleListVertical";
-import { Search } from "@/components/Search";
 import { performSearch } from "@/utils/performSearch";
 import {
   GetServerSidePropsContext,
@@ -9,10 +8,9 @@ import {
 import { BlogArticleDocument } from "@/prismicio-types";
 import MarketingLayout from "@/components/MarketingLayout";
 import { getLanguages } from "@/utils/getLanguages";
-import { blogIndexGraphQuery } from "@/utils/graphQueries";
-import { createClient, Content } from "@prismicio/client";
+import { Content } from "@prismicio/client";
+import { createClient } from "@/prismicio";
 import Head from "next/head";
-import { PrismicRichText } from "@prismicio/react";
 
 interface SearchProps {
   onSearch: (query: string) => void;
@@ -50,10 +48,10 @@ const SearchPage = ({
   return (
     <div>
       <Head>
-        <title>{page.data.meta_title || "Slicify - Blog Home"}</title>
+        <title>{page.data.meta_title || `Search results for ${initialQuery}`}</title>
         <meta
           name="description"
-          content={page.data.meta_title || "Slicify Blog, slices for everyone."}
+          content={page.data.meta_title || "Slicify Search results, slices for everyone."}
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
@@ -79,7 +77,7 @@ export async function getServerSideProps({
   // Get the initial query parameter from the URL
   const initialQuery = query.query || "";
 
-  const client = createClient("slicify-dianka", { previewData });
+  const client = createClient({ previewData });
   //    ^ Automatically contains references to document types
 
   const [page, header, footer] = await Promise.all([
