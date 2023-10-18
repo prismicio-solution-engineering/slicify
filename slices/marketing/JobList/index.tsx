@@ -17,7 +17,7 @@ const JobList = ({ slice, context }: JobListProps): JSX.Element => {
 
   return (
     <section id={slice.primary.anchor || undefined}>
-      <Container>
+      <Container className="relative isolate overflow-hidden px-6 py-16 sm:px-16 md:py-24 lg:flex lg:gap-x-20 lg:px-24 lg:py-16">
         <div className="mx-auto flex max-w-2xl flex-col items-end justify-between gap-16 lg:mx-0 lg:max-w-none lg:flex-row">
           <div className="w-full lg:max-w-lg lg:flex-auto">
             <PrismicRichText
