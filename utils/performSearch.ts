@@ -10,9 +10,7 @@ export const performSearch = async (query: string) => {
         try {
             const response = await client.getByType("blog_article", {
                 filters: [
-                    prismic.filter.fulltext("my.blog_article.title", query),
-                    prismic.filter.fulltext("my.blog_article.excerpt", query)
-                ],
+                    prismic.filter.fulltext("my.blog_article.title", query)],
                 graphQuery: blogIndexGraphQuery,
             });
             return response.results;
