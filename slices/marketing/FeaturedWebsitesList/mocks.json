@@ -60,8 +60,10 @@
 					{
 						"type": "heading2",
 						"content": {
-							"text": "Dirty"
-						}
+							"text": "Explore game-changing Prismic websites",
+							"spans": []
+						},
+						"direction": "ltr"
 					}
 				]
 			},
@@ -71,15 +73,17 @@
 					{
 						"type": "paragraph",
 						"content": {
-							"text": "Proident adipisicing nostrud sit ea adipisicing proident anim in dolor ullamco sit laborum ut. Qui labore elit nulla commodo exercitation elit ullamco."
-						}
+							"text": "Get inspired by the innovative approaches Prismic users are bringing to their work.",
+							"spans": []
+						},
+						"direction": "ltr"
 					}
 				]
 			},
 			"link_text": {
 				"__TYPE__": "FieldContent",
-				"value": "smile",
-				"type": "Text"
+				"type": "Text",
+				"value": "Browse more websites"
 			},
 			"link": {
 				"__TYPE__": "LinkContent",

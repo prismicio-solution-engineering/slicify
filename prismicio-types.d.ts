@@ -995,7 +995,17 @@ interface SearchDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  title: prismic.RichTextField;
+  title: prismic.RichTextField
+  /**
+   * Modal title field in *Search*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: search.modal_title
+   * - **Tab**: Seach modal
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  modal_title: prismic.KeyTextField;
 }
 
 /**
@@ -1854,16 +1864,6 @@ export interface FeaturedWebsitesListSliceAutoListPrimary {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   link: prismic.LinkField;
-
-  /**
-   * Number of websites field in *FeaturedWebsitesList → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: featured_websites_list.primary.number_of_websites
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  number_of_websites: prismic.KeyTextField;
 
   /**
    * anchor field in *FeaturedWebsitesList → Primary*
