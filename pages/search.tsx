@@ -1,21 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { ArticleListVertical } from "@/components/ArticleListVertical";
 import { performSearch } from "@/utils/performSearch";
-import {
-  GetServerSidePropsContext,
-  InferGetStaticPropsType,
-} from "next";
+import { GetServerSidePropsContext, InferGetStaticPropsType } from "next";
 import { BlogArticleDocument } from "@/prismicio-types";
 import MarketingLayout from "@/components/MarketingLayout";
 import { getLanguages } from "@/utils/getLanguages";
 import { Content } from "@prismicio/client";
 import { createClient } from "@/prismicio";
 import Head from "next/head";
-
-interface SearchProps {
-  onSearch: (query: string) => void;
-  initialQuery: string;
-}
 
 type SearchPageProps = InferGetStaticPropsType<typeof getServerSideProps>;
 
@@ -25,33 +17,19 @@ const SearchPage = ({
   header,
   footer,
   languages,
+  results,
 }: SearchPageProps) => {
   const [searchResults, setSearchResults] = useState<
     BlogArticleDocument[] | undefined
   >(undefined);
 
-  const handleSearch = async (query: string) => {
-    const results = await performSearch(query);
-    setSearchResults(results);
-  };
-
-  // If there's an Initial query, performSearch
-  useEffect(() => {
-    if (initialQuery.trim() !== "") {
-      // Pass the initialQuery to performSearch
-      performSearch(initialQuery).then((results) => {
-        setSearchResults(results);
-      });
-    }
-  }, [initialQuery]);
-
   return (
     <div>
       <Head>
-        <title>{page.data.meta_title || `Search results for ${initialQuery}`}</title>
+        <title>{`Search results for ${initialQuery}`}</title>
         <meta
           name="description"
-          content={page.data.meta_title || "Slicify Search results, slices for everyone."}
+          content={"Slicify Search results, slices for everyone."}
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
@@ -62,7 +40,7 @@ const SearchPage = ({
         languages={languages}
       >
         {/* <Search onSearch={handleSearch} initialQuery={initialQuery} /> */}
-        <ArticleListVertical articles={searchResults ?? []} page={page} />
+        <ArticleListVertical articles={results ?? []} page={page} />
       </MarketingLayout>
     </div>
   );
@@ -76,6 +54,9 @@ export async function getServerSideProps({
 }: GetServerSidePropsContext) {
   // Get the initial query parameter from the URL
   const initialQuery = query.query || "";
+  const searchQuery = Array.isArray(initialQuery)
+    ? initialQuery[0]
+    : initialQuery;
 
   const client = createClient({ previewData });
   //    ^ Automatically contains references to document types
@@ -92,9 +73,12 @@ export async function getServerSideProps({
     }),
   ]);
 
+  // Pass the initialQuery to performSearch
+  const results = await performSearch(searchQuery ? searchQuery.trim() : "");
+
   const languages = await getLanguages(page, client, locales);
   return {
-    props: { initialQuery, page, header, footer, languages },
+    props: { initialQuery, page, header, footer, languages, results },
   };
 }
 
