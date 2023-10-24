@@ -3,6 +3,7 @@
   "label": "Header",
   "repeatable": false,
   "status": true,
+  "format": "custom",
   "json": {
     "Main": {
       "logo": {
@@ -105,7 +106,15 @@
           "choices": {}
         }
       }
+    },
+    "Search Modal": {
+      "modal_title": {
+        "type": "Text",
+        "config": {
+          "label": "Modal title",
+          "placeholder": ""
+        }
+      }
     }
-  },
-  "format": "custom"
+  }
 }

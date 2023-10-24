@@ -669,7 +669,17 @@ interface HeaderDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
-  slices: prismic.SliceZone<HeaderDocumentDataSlicesSlice>;
+  slices: prismic.SliceZone<HeaderDocumentDataSlicesSlice>
+  /**
+   * Modal title field in *Header*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: header.modal_title
+   * - **Tab**: Search Modal
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  modal_title: prismic.KeyTextField;
 }
 
 /**
@@ -995,17 +1005,7 @@ interface SearchDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  title: prismic.RichTextField
-  /**
-   * Modal title field in *Search*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: search.modal_title
-   * - **Tab**: Seach modal
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */;
-  modal_title: prismic.KeyTextField;
+  title: prismic.RichTextField;
 }
 
 /**

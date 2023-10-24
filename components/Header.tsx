@@ -167,7 +167,7 @@ export function Header({ header, languages }: HeaderProps) {
                     return <HeaderLinkDefault key={index} {...link} />;
                 }
               })}
-              <Search onSearch={handleSearch} initialQuery="" />
+              <Search onSearch={handleSearch} initialQuery="" title={header.modal_title} />
             </div>
           </div>
           <div className="flex items-center gap-x-5 md:gap-x-8">

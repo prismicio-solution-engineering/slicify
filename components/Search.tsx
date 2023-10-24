@@ -1,13 +1,15 @@
 import { Fragment, useRef, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { useRouter } from "next/router";
+import { KeyTextField } from "@prismicio/client";
 
 interface SearchProps {
   onSearch: (query: string) => void;
   initialQuery: string;
+  title: KeyTextField;
 }
 
-export const Search: React.FC<SearchProps> = ({ onSearch, initialQuery }) => {
+export const Search: React.FC<SearchProps> = ({ onSearch, initialQuery, title }) => {
   const [open, setOpen] = useState(false);
 
   const cancelButtonRef = useRef(null);
@@ -89,7 +91,7 @@ export const Search: React.FC<SearchProps> = ({ onSearch, initialQuery }) => {
                 >
                   <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
                     <div>
-                      <h3 className="text-base font-semibold leading-6 text-gray-900">Search title here</h3>
+                      <h3 className="text-base font-semibold leading-6 text-gray-900">{title}</h3>
                       <div className="mx-auto flex items-center justify-center">
                         <div className="relative mt-2 flex items-center w-full">
                           <form
