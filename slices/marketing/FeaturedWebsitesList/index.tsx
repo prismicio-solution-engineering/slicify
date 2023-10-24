@@ -48,6 +48,7 @@ const FeaturedWebsitesList = ({
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       id={slice.primary.anchor || undefined}
+      className="py-16 sm:px-16 md:py-24 lg:py-24"
     >
       <div className="max-w-2xl md:mx-auto md:text-center xl:max-w-none">
         <PrismicRichText
