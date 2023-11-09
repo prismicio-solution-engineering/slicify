@@ -101,40 +101,6 @@
           "label": "Social Cards - Facebook & Twitter"
         }
       }
-    },
-    "AB Testing Config": {
-      "variants": {
-        "type": "Group",
-        "config": {
-          "label": "Variants",
-          "fields": {
-            "variant": {
-              "type": "Link",
-              "config": {
-                "label": "Variant",
-                "select": "document",
-                "customtypes": ["landing_page"]
-              }
-            },
-            "bucket": {
-              "type": "Text",
-              "config": {
-                "label": "Bucket",
-                "placeholder": ""
-              }
-            }
-          }
-        }
-      },
-      "is_variant": {
-        "type": "Boolean",
-        "config": {
-          "label": "Is Variant",
-          "default_value": false,
-          "placeholder_true": "true",
-          "placeholder_false": "false"
-        }
-      }
     }
   }
 }

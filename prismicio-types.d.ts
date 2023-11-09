@@ -165,8 +165,7 @@ interface BlogArticleDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
-  slices: prismic.SliceZone<BlogArticleDocumentDataSlicesSlice>
-  /**
+  slices: prismic.SliceZone<BlogArticleDocumentDataSlicesSlice> /**
    * Meta Title field in *Blog Article*
    *
    * - **Field Type**: Text
@@ -333,8 +332,7 @@ interface BlogIndexDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
-  slices: prismic.SliceZone<BlogIndexDocumentDataSlicesSlice>
-  /**
+  slices: prismic.SliceZone<BlogIndexDocumentDataSlicesSlice> /**
    * Meta Title field in *Blog index*
    *
    * - **Field Type**: Text
@@ -669,8 +667,7 @@ interface HeaderDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
-  slices: prismic.SliceZone<HeaderDocumentDataSlicesSlice>
-  /**
+  slices: prismic.SliceZone<HeaderDocumentDataSlicesSlice> /**
    * Modal title field in *Header*
    *
    * - **Field Type**: Text
@@ -758,8 +755,7 @@ interface HomePageDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
-  slices: prismic.SliceZone<HomePageDocumentDataSlicesSlice>
-  /**
+  slices: prismic.SliceZone<HomePageDocumentDataSlicesSlice> /**
    * Meta Title field in *Home Page*
    *
    * - **Field Type**: Text
@@ -869,31 +865,6 @@ export interface LandingPageDocumentDataSocialCardsItem {
 }
 
 /**
- * Item in *Landing Page → Variants*
- */
-export interface LandingPageDocumentDataVariantsItem {
-  /**
-   * Variant field in *Landing Page → Variants*
-   *
-   * - **Field Type**: Content Relationship
-   * - **Placeholder**: *None*
-   * - **API ID Path**: landing_page.variants[].variant
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  variant: prismic.ContentRelationshipField<"landing_page">;
-
-  /**
-   * Bucket field in *Landing Page → Variants*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: landing_page.variants[].bucket
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  bucket: prismic.KeyTextField;
-}
-
-/**
  * Content for Landing Page documents
  */
 interface LandingPageDocumentData {
@@ -906,8 +877,7 @@ interface LandingPageDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
-  slices: prismic.SliceZone<LandingPageDocumentDataSlicesSlice>
-  /**
+  slices: prismic.SliceZone<LandingPageDocumentDataSlicesSlice> /**
    * Meta Title field in *Landing Page*
    *
    * - **Field Type**: Text
@@ -951,29 +921,7 @@ interface LandingPageDocumentData {
    */
   social_cards: prismic.GroupField<
     Simplify<LandingPageDocumentDataSocialCardsItem>
-  >
-  /**
-   * Variants field in *Landing Page*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: landing_page.variants[]
-   * - **Tab**: AB Testing Config
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */;
-  variants: prismic.GroupField<Simplify<LandingPageDocumentDataVariantsItem>>;
-
-  /**
-   * Is Variant field in *Landing Page*
-   *
-   * - **Field Type**: Boolean
-   * - **Placeholder**: *None*
-   * - **Default Value**: false
-   * - **API ID Path**: landing_page.is_variant
-   * - **Tab**: AB Testing Config
-   * - **Documentation**: https://prismic.io/docs/field#boolean
-   */
-  is_variant: prismic.BooleanField;
+  >;
 }
 
 /**
@@ -4153,7 +4101,7 @@ declare module "@prismicio/client" {
   interface CreateClient {
     (
       repositoryNameOrEndpoint: string,
-      options?: prismic.ClientConfig
+      options?: prismic.ClientConfig,
     ): prismic.Client<AllDocumentTypes>;
   }
 
@@ -4164,76 +4112,141 @@ declare module "@prismicio/client" {
       BlogArticleDocument,
       BlogArticleDocumentData,
       BlogArticleDocumentDataSlicesSlice,
+      BlogArticleDocumentDataSocialCardsItem,
       BlogCategoryDocument,
       BlogCategoryDocumentData,
       BlogIndexDocument,
       BlogIndexDocumentData,
       BlogIndexDocumentDataSlicesSlice,
+      BlogIndexDocumentDataSocialCardsItem,
       FooterDocument,
       FooterDocumentData,
+      FooterDocumentDataLinksItem,
+      FooterDocumentDataSocialLinksItem,
       FooterDocumentDataSlicesSlice,
       HeaderDocument,
       HeaderDocumentData,
+      HeaderDocumentDataLeftSideLinksItem,
+      HeaderDocumentDataRightSideLinksItem,
       HeaderDocumentDataSlicesSlice,
       HomePageDocument,
       HomePageDocumentData,
       HomePageDocumentDataSlicesSlice,
+      HomePageDocumentDataSocialCardsItem,
       LandingPageDocument,
       LandingPageDocumentData,
       LandingPageDocumentDataSlicesSlice,
+      LandingPageDocumentDataSocialCardsItem,
       SearchDocument,
       SearchDocumentData,
       AllDocumentTypes,
       ArticleListSlice,
+      ArticleListSliceHorizontalListPrimary,
+      ArticleListSliceHorizontalListItem,
       ArticleListSliceVariation,
       ArticleListSliceHorizontalList,
       CallToActionSlice,
+      CallToActionSliceDefaultPrimary,
+      CallToActionSliceWhiteBackgroundPrimary,
+      CallToActionSliceWithImageRightPrimary,
+      CallToActionSliceWithImageRightItem,
+      CallToActionSliceWithImageLeftPrimary,
+      CallToActionSliceWithImageLeftItem,
       CallToActionSliceVariation,
       CallToActionSliceDefault,
       CallToActionSliceWhiteBackground,
       CallToActionSliceWithImageRight,
       CallToActionSliceWithImageLeft,
       FaqSlice,
+      FaqSliceTwoColumnsPrimary,
+      FaqSliceTwoColumnsItem,
+      FaqSliceThreeColumnsPrimary,
+      FaqSliceThreeColumnsItem,
+      FaqSliceCenteredPrimary,
+      FaqSliceCenteredItem,
+      FaqSliceCenteredWithBackgroundPrimary,
+      FaqSliceCenteredWithBackgroundItem,
       FaqSliceVariation,
       FaqSliceTwoColumns,
       FaqSliceThreeColumns,
       FaqSliceCentered,
       FaqSliceCenteredWithBackground,
       FeaturedWebsitesListSlice,
+      FeaturedWebsitesListSliceDefaultPrimary,
+      FeaturedWebsitesListSliceDefaultItem,
+      FeaturedWebsitesListSliceAutoListPrimary,
       FeaturedWebsitesListSliceVariation,
       FeaturedWebsitesListSliceDefault,
       FeaturedWebsitesListSliceAutoList,
       FeaturesSlice,
+      FeaturesSliceRightSidePrimary,
+      FeaturesSliceRightSideItem,
+      FeaturesSliceLeftSidePrimary,
+      FeaturesSliceLeftSideItem,
+      FeaturesSliceAbovePrimary,
+      FeaturesSliceAboveItem,
+      FeaturesSliceBelowPrimary,
+      FeaturesSliceBelowItem,
       FeaturesSliceVariation,
       FeaturesSliceRightSide,
       FeaturesSliceLeftSide,
       FeaturesSliceAbove,
       FeaturesSliceBelow,
       FormSlice,
+      FormSliceSimplePrimary,
+      FormSliceWithDetailsPrimary,
+      FormSliceWithDetailsItem,
+      FormSliceCenteredPrimary,
       FormSliceVariation,
       FormSliceSimple,
       FormSliceWithDetails,
       FormSliceCentered,
       HeroSlice,
+      HeroSliceDefaultPrimary,
+      HeroSliceDefaultItem,
+      HeroSliceTitleOnlyPrimary,
+      HeroSliceWithBackgroundPrimary,
+      HeroSliceWithBackgroundItem,
+      HeroSliceWithVideoBackgroundPrimary,
+      HeroSliceWithVideoBackgroundItem,
       HeroSliceVariation,
       HeroSliceDefault,
       HeroSliceTitleOnly,
       HeroSliceWithBackground,
       HeroSliceWithVideoBackground,
       JobListSlice,
+      JobListSliceDefaultPrimary,
       JobListSliceVariation,
       JobListSliceDefault,
       LogoCloudSlice,
+      LogoCloudSliceDefaultPrimary,
+      LogoCloudSliceDefaultItem,
+      LogoCloudSliceThreeColumnsPrimary,
+      LogoCloudSliceThreeColumnsItem,
+      LogoCloudSliceSinglePrimary,
+      LogoCloudSliceSimpleDarkModePrimary,
+      LogoCloudSliceSimpleDarkModeItem,
       LogoCloudSliceVariation,
       LogoCloudSliceDefault,
       LogoCloudSliceThreeColumns,
       LogoCloudSliceSingle,
       LogoCloudSliceSimpleDarkMode,
       PricingSlice,
+      PricingSliceDefaultPrimary,
+      PricingSliceDefaultItem,
+      PricingSliceWithPromoPrimary,
+      PricingSliceWithPromoItem,
       PricingSliceVariation,
       PricingSliceDefault,
       PricingSliceWithPromo,
       TestimonialsSlice,
+      TestimonialsSliceDefaultPrimary,
+      TestimonialsSliceDefaultItem,
+      TestimonialsSliceScrollingCardsPrimary,
+      TestimonialsSliceScrollingCardsItem,
+      TestimonialsSliceTwoColumnsWithSeparatorPrimary,
+      TestimonialsSliceSingleCenteredPrimary,
+      TestimonialsSliceSingleWithLargeImagePrimary,
       TestimonialsSliceVariation,
       TestimonialsSliceDefault,
       TestimonialsSliceScrollingCards,
@@ -4241,11 +4254,15 @@ declare module "@prismicio/client" {
       TestimonialsSliceSingleCentered,
       TestimonialsSliceSingleWithLargeImage,
       HighlightedTextSlice,
+      HighlightedTextSliceInformationPrimary,
+      HighlightedTextSliceWarningPrimary,
+      HighlightedTextSliceUpdatePrimary,
       HighlightedTextSliceVariation,
       HighlightedTextSliceInformation,
       HighlightedTextSliceWarning,
       HighlightedTextSliceUpdate,
       TextSlice,
+      TextSliceDefaultPrimary,
       TextSliceVariation,
       TextSliceDefault,
     };
