@@ -165,7 +165,8 @@ interface BlogArticleDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
-  slices: prismic.SliceZone<BlogArticleDocumentDataSlicesSlice> /**
+  slices: prismic.SliceZone<BlogArticleDocumentDataSlicesSlice>
+  /**
    * Meta Title field in *Blog Article*
    *
    * - **Field Type**: Text
@@ -332,7 +333,8 @@ interface BlogIndexDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
-  slices: prismic.SliceZone<BlogIndexDocumentDataSlicesSlice> /**
+  slices: prismic.SliceZone<BlogIndexDocumentDataSlicesSlice>
+  /**
    * Meta Title field in *Blog index*
    *
    * - **Field Type**: Text
@@ -667,7 +669,8 @@ interface HeaderDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
-  slices: prismic.SliceZone<HeaderDocumentDataSlicesSlice> /**
+  slices: prismic.SliceZone<HeaderDocumentDataSlicesSlice>
+  /**
    * Modal title field in *Header*
    *
    * - **Field Type**: Text
@@ -755,7 +758,8 @@ interface HomePageDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
-  slices: prismic.SliceZone<HomePageDocumentDataSlicesSlice> /**
+  slices: prismic.SliceZone<HomePageDocumentDataSlicesSlice>
+  /**
    * Meta Title field in *Home Page*
    *
    * - **Field Type**: Text
@@ -877,7 +881,8 @@ interface LandingPageDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
-  slices: prismic.SliceZone<LandingPageDocumentDataSlicesSlice> /**
+  slices: prismic.SliceZone<LandingPageDocumentDataSlicesSlice>
+  /**
    * Meta Title field in *Landing Page*
    *
    * - **Field Type**: Text
@@ -1709,26 +1714,6 @@ export interface FeaturedWebsitesListSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   description: prismic.RichTextField;
-
-  /**
-   * Link text field in *FeaturedWebsitesList → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: featured_websites_list.primary.link_text
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  link_text: prismic.KeyTextField;
-
-  /**
-   * Link field in *FeaturedWebsitesList → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: featured_websites_list.primary.link
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  link: prismic.LinkField;
 
   /**
    * anchor field in *FeaturedWebsitesList → Primary*
@@ -4101,7 +4086,7 @@ declare module "@prismicio/client" {
   interface CreateClient {
     (
       repositoryNameOrEndpoint: string,
-      options?: prismic.ClientConfig,
+      options?: prismic.ClientConfig
     ): prismic.Client<AllDocumentTypes>;
   }
 
@@ -4112,31 +4097,23 @@ declare module "@prismicio/client" {
       BlogArticleDocument,
       BlogArticleDocumentData,
       BlogArticleDocumentDataSlicesSlice,
-      BlogArticleDocumentDataSocialCardsItem,
       BlogCategoryDocument,
       BlogCategoryDocumentData,
       BlogIndexDocument,
       BlogIndexDocumentData,
       BlogIndexDocumentDataSlicesSlice,
-      BlogIndexDocumentDataSocialCardsItem,
       FooterDocument,
       FooterDocumentData,
-      FooterDocumentDataLinksItem,
-      FooterDocumentDataSocialLinksItem,
       FooterDocumentDataSlicesSlice,
       HeaderDocument,
       HeaderDocumentData,
-      HeaderDocumentDataLeftSideLinksItem,
-      HeaderDocumentDataRightSideLinksItem,
       HeaderDocumentDataSlicesSlice,
       HomePageDocument,
       HomePageDocumentData,
       HomePageDocumentDataSlicesSlice,
-      HomePageDocumentDataSocialCardsItem,
       LandingPageDocument,
       LandingPageDocumentData,
       LandingPageDocumentDataSlicesSlice,
-      LandingPageDocumentDataSocialCardsItem,
       SearchDocument,
       SearchDocumentData,
       AllDocumentTypes,

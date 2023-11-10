@@ -1,4 +1,5 @@
 import { Container } from "@/components/Container";
+import { JobOpening } from "@/utils/getJobList";
 import { Content } from "@prismicio/client";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
@@ -6,7 +7,11 @@ import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 /**
  * Props for `JobList`.
  */
-export type JobListProps = SliceComponentProps<Content.JobListSlice>;
+export type JobListProps = SliceComponentProps<Content.JobListSlice,SliceZoneContext>;
+
+type SliceZoneContext = {
+  jobOpenings: JobOpening[]
+};
 
 /**
  * Component for "JobList" Slices.

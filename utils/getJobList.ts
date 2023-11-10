@@ -1,6 +1,4 @@
-import { useState, useEffect } from "react";
-
-type JobOpening = {
+export type JobOpening = {
   id: string;
   position: string;
   team: string;
@@ -25,5 +23,5 @@ export const fetchJobOpenings = async () => {
       return [];
     }))
 
-  return jobOpenings;
+  return jobOpenings as JobOpening[];
 };

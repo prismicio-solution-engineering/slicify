@@ -6,10 +6,15 @@ import { SliceZone } from "@prismicio/react";
 import { components } from "@/slices/marketing";
 import { getLanguages } from "@/utils/getLanguages";
 import MarketingLayout from "@/components/MarketingLayout";
-import { getShowcaseWebsites } from "@/utils/getShowcaseWebsites";
-import { fetchJobOpenings } from "@/utils/getJobList";
+import { WebsiteDocument, getShowcaseWebsites } from "@/utils/getShowcaseWebsites";
+import { JobOpening, fetchJobOpenings } from "@/utils/getJobList";
 
 type HomePageProps = InferGetStaticPropsType<typeof getStaticProps>;
+
+type SliceZoneContext = {
+  showcaseWebsites: WebsiteDocument[],
+  jobOpenings:JobOpening[]
+};
 
 export default function Home({
   page,
@@ -35,7 +40,7 @@ export default function Home({
         footer={footer.data}
         languages={languages}
       >
-        <SliceZone slices={page.data.slices} components={components} context={{showcaseWebsites, jobOpenings}} />
+        <SliceZone<SliceZoneContext> slices={page.data.slices} components={components} context={{showcaseWebsites, jobOpenings}} />
       </MarketingLayout>
     </>
   );

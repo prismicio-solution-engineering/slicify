@@ -16,7 +16,6 @@ import { LanguageSwitcher } from "./LanguageSwitcher";
 import HeaderLinkDefault from "./HeaderLinkDefault";
 import HeaderLinkButton from "./HeaderLinkButton";
 import { Search } from "./Search";
-import { performSearch } from "@/utils/performSearch";
 import { useRouter } from "next/router";
 
 function MobileNavLink({
@@ -133,11 +132,9 @@ type HeaderProps = {
 
 export function Header({ header, languages }: HeaderProps) {
 
-  const [searchQuery, setSearchQuery] = useState("");
   const router = useRouter();
 
   const handleSearch = (query: string) => {
-    setSearchQuery(query);
 
     // Go to search page with the query parameter
     router.push({

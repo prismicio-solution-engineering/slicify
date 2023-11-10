@@ -74,7 +74,7 @@ export async function getServerSideProps({
   ]);
 
   // Pass the initialQuery to performSearch
-  const results = await performSearch(searchQuery ? searchQuery.trim() : "");
+  const results = await performSearch(searchQuery ? searchQuery.trim() : "", locale);
 
   const languages = await getLanguages(page, client, locales);
   return {

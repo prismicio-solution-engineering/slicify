@@ -21,6 +21,7 @@ export const Search: React.FC<SearchProps> = ({ onSearch, initialQuery, title })
     if (router.pathname.includes("search")) {
       // If on the search results page, call the onSearch callback directly
       onSearch(query);
+      setOpen(false);
     } else {
       // If not on the search results page, navigate to it with the query as a parameter
       router.push({

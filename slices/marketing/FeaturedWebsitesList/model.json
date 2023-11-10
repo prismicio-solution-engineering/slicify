@@ -39,22 +39,6 @@
             "single": "paragraph"
           }
         },
-        "link_text": {
-          "type": "Text",
-          "config": {
-            "label": "Link text",
-            "placeholder": ""
-          }
-        },
-        "link": {
-          "type": "Link",
-          "config": {
-            "label": "Link",
-            "placeholder": "",
-            "allowTargetBlank": true,
-            "select": null
-          }
-        },
         "anchor": {
           "type": "Text",
           "config": {

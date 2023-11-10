@@ -17,6 +17,10 @@ type BlogIndexLayoutProps = {
   page: BlogIndexDocument | SearchDocument | null;
 };
 
+function isBlogIndexDoc(doc: BlogIndexDocument | SearchDocument): doc is BlogIndexDocument {
+  return (doc as BlogIndexDocument).data.description !== undefined;
+}
+
 export function ArticleListVertical(
   props: PropsWithChildren<BlogIndexLayoutProps>
 ) {
@@ -41,7 +45,7 @@ export function ArticleListVertical(
               }}
             />
             <PrismicRichText
-              field={props.page.data.description}
+              field={isBlogIndexDoc(props.page) ? props.page.data.description : null}
               components={{
                 paragraph: ({ children }) => (
                   <p className="mt-2 text-lg leading-8 text-slate-700">
