@@ -1,6 +1,7 @@
 import {
   BlogArticleDocument,
   BlogIndexDocument,
+  SearchDocument,
 } from "@/prismicio-types";
 import { PrismicNextImage } from "@prismicio/next";
 import { PrismicLink, PrismicRichText } from "@prismicio/react";
@@ -13,8 +14,12 @@ import {
 
 type BlogIndexLayoutProps = {
   articles: BlogArticleDocument[] | null;
-  page: BlogIndexDocument;
+  page: BlogIndexDocument | SearchDocument | null;
 };
+
+function isBlogIndexDoc(doc: BlogIndexDocument | SearchDocument): doc is BlogIndexDocument {
+  return (doc as BlogIndexDocument).data.description !== undefined;
+}
 
 export function ArticleListVertical(
   props: PropsWithChildren<BlogIndexLayoutProps>
@@ -22,26 +27,36 @@ export function ArticleListVertical(
   return (
     <div className="bg-white pb-24 sm:pb-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <PrismicRichText
-          field={props.page.data.title}
-          components={{
-            heading1: ({ children }) => (
-              <h1 className="font-display text-3xl tracking-tight text-slate-900 sm:text-4xl">
-                {children}
-              </h1>
-            ),
-          }}
-        />
-        <PrismicRichText
-          field={props.page.data.description}
-          components={{
-            paragraph: ({ children }) => (
-              <p className="mt-2 text-lg leading-8 text-slate-700">
-                {children}
-              </p>
-            ),
-          }}
-        />
+        {props.page &&
+          <div>
+            <PrismicRichText
+              field={props.page.data.title}
+              components={{
+                heading1: ({ children }) => (
+                  <h1 className="font-display text-3xl tracking-tight text-slate-900 sm:text-4xl">
+                    {children}
+                  </h1>
+                ),
+                paragraph: ({ children }) => (
+                  <p className="font-display text-3xl tracking-tight text-slate-900 sm:text-4xl">
+                    {children}
+                  </p>
+                ),
+              }}
+            />
+            <PrismicRichText
+              field={isBlogIndexDoc(props.page) ? props.page.data.description : null}
+              components={{
+                paragraph: ({ children }) => (
+                  <p className="mt-2 text-lg leading-8 text-slate-700">
+                    {children}
+                  </p>
+                ),
+              }}
+            />
+          </div>
+        }
+
         <div className="mt-16 space-y-20 lg:mt-20 lg:space-y-20">
           {props.articles?.map((article) => (
             <article

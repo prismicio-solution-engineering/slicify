@@ -6,14 +6,23 @@ import { SliceZone } from "@prismicio/react";
 import { components } from "@/slices/marketing";
 import { getLanguages } from "@/utils/getLanguages";
 import MarketingLayout from "@/components/MarketingLayout";
+import { WebsiteDocument, getShowcaseWebsites } from "@/utils/getShowcaseWebsites";
+import { JobOpening, fetchJobOpenings } from "@/utils/getJobList";
 
 type HomePageProps = InferGetStaticPropsType<typeof getStaticProps>;
+
+type SliceZoneContext = {
+  showcaseWebsites: WebsiteDocument[],
+  jobOpenings:JobOpening[]
+};
 
 export default function Home({
   page,
   header,
   footer,
   languages,
+  showcaseWebsites,
+  jobOpenings,
 }: HomePageProps) {
   return (
     <>
@@ -31,7 +40,7 @@ export default function Home({
         footer={footer.data}
         languages={languages}
       >
-        <SliceZone slices={page.data.slices} components={components} />
+        <SliceZone<SliceZoneContext> slices={page.data.slices} components={components} context={{showcaseWebsites, jobOpenings}} />
       </MarketingLayout>
     </>
   );
@@ -59,12 +68,21 @@ export async function getStaticProps({
 
   const languages = await getLanguages(page, client, locales);
 
+  const showcaseWebsites = await getShowcaseWebsites(3);
+
+  const hasJobListSlice = await (page?.data?.slices?.filter(slice => slice.slice_type === "job_list"));
+
+  const jobOpenings = hasJobListSlice && await fetchJobOpenings();
+
+
   return {
     props: {
       page,
       header,
       footer,
       languages,
+      showcaseWebsites,
+      jobOpenings,
     },
     revalidate: 60,
   };

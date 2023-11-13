@@ -34,6 +34,12 @@
             },
             "testimonials": {
               "type": "SharedSlice"
+            },
+            "featured_websites_list": {
+              "type": "SharedSlice"
+            },
+            "job_list": {
+              "type": "SharedSlice"
             }
           }
         }

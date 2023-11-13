@@ -1,16 +1,22 @@
-import { Fragment, ReactNode } from "react";
+import { Fragment, ReactNode, useState } from "react";
 import Link from "next/link";
 import { Popover, Transition } from "@headlessui/react";
 import clsx from "clsx";
 
 import { Container } from "@/components/Container";
-import { HeaderDocumentData, HeaderDocumentDataLeftSideLinksItem, Simplify } from "@/prismicio-types";
+import {
+  HeaderDocumentData,
+  HeaderDocumentDataLeftSideLinksItem,
+  Simplify,
+} from "@/prismicio-types";
 import { PrismicLink, PrismicRichText } from "@prismicio/react";
 import { PrismicNextImage } from "@prismicio/next";
 import { AnchorLink } from "@/prismicio";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import HeaderLinkDefault from "./HeaderLinkDefault";
 import HeaderLinkButton from "./HeaderLinkButton";
+import { Search } from "./Search";
+import { useRouter } from "next/router";
 
 function MobileNavLink({
   link,
@@ -125,13 +131,29 @@ type HeaderProps = {
 };
 
 export function Header({ header, languages }: HeaderProps) {
+
+  const router = useRouter();
+
+  const handleSearch = (query: string) => {
+
+    // Go to search page with the query parameter
+    router.push({
+      pathname: "/search",
+      query: { query },
+    });
+  };
+  
   return (
     <header className="py-10">
       <Container>
         <nav className="relative z-50 flex justify-between">
           <div className="flex items-center md:gap-x-12">
             <Link href={`/${languages[0].lang_name}`} aria-label="Home">
-              <PrismicNextImage field={header.logo} className="h-10 w-auto" fallbackAlt="" />
+              <PrismicNextImage
+                field={header.logo}
+                className="h-10 w-auto"
+                fallbackAlt=""
+              />
             </Link>
             <div className="hidden md:flex md:gap-x-6">
               {header.left_side_links.map((link, index) => {
@@ -141,20 +163,19 @@ export function Header({ header, languages }: HeaderProps) {
                   case "Text Link":
                     return <HeaderLinkDefault key={index} {...link} />;
                 }
-              })
-              }
+              })}
+              <Search onSearch={handleSearch} initialQuery="" title={header.modal_title} />
             </div>
           </div>
           <div className="flex items-center gap-x-5 md:gap-x-8">
-              {header.right_side_links.map((link, index) => {
-                switch (link.link_type) {
-                  case "Button":
-                    return <HeaderLinkButton key={index} {...link} />;
-                  case "Text Link":
-                    return <HeaderLinkDefault key={index} {...link} />;
-                }
-              })
+            {header.right_side_links.map((link, index) => {
+              switch (link.link_type) {
+                case "Button":
+                  return <HeaderLinkButton key={index} {...link} />;
+                case "Text Link":
+                  return <HeaderLinkDefault key={index} {...link} />;
               }
+            })}
             <LanguageSwitcher languages={languages} />
             <div className="-mr-1 md:hidden">
               <MobileNavigation header={header} />
