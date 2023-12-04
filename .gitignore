@@ -40,8 +40,6 @@ vercel.json
 next-env.d.ts
 
 # SliceMachine endpoint
-sm.json
-slicemachine.config.json
 
 # Scripts
 /.scripts
